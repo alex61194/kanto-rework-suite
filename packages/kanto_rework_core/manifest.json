@@ -1,0 +1,10 @@
+{
+  "id": "kanto_rework_core",
+  "name": "Kanto Rework Core",
+  "version": "0.1.0",
+  "api": 2,
+  "entry": "main.lua",
+  "author": "Kanto Rework Suite Team & alex61194",
+  "description": "Shared foundation, themes, responsive layout, i18n, and pointer support for Kanto Rework Suite.",
+  "profile": "overhaul"
+}

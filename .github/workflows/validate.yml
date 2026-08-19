@@ -1,0 +1,36 @@
+name: Validate & Test
+
+on:
+  push:
+    branches: [ main, "feat/*", "chore/*" ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    name: Package Validation & Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Set up Lua
+        uses: leafo/gh-actions-lua@v10
+        with:
+          luaVersion: "5.1"
+
+      - name: Run static package validation
+        run: python tools/validate_package.py
+
+      - name: Run Lua test suite
+        run: |
+          lua tests/test_i18n.lua
+          lua tests/p0_runtime_smoke.lua
+
+      - name: Build package artifacts
+        run: python tools/build_suite.py

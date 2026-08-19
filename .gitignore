@@ -16,6 +16,9 @@ __pycache__/
 *.zip
 *.log
 luac.out
+dist/
+*.tmp
+*.bak
 
 # Local game and ROM-derived data
 roms/
