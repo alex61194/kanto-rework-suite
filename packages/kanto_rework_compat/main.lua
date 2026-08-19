@@ -7,7 +7,7 @@ return function(mod)
   end
 
   local Core = _G.__KANTO_REWORK_CORE_P0 or {}
-  local Theme = Core.Theme or (love.filesystem.load("packages/kanto_rework_core/core/theme.lua") and love.filesystem.load("packages/kanto_rework_core/core/theme.lua")())
+  local Theme = Core.Theme
   local i18n = Core.i18n
 
   local createModOptionsPresenter = loadModule("compat/mod_options_presenter.lua")

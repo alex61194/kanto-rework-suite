@@ -7,11 +7,10 @@ return function(mod)
   end
 
   local Core = _G.__KANTO_REWORK_CORE_P0 or {}
-  local Types = Core.loadModule and Core.loadModule("data/types.lua") or (love.filesystem.load("packages/kanto_rework_core/data/types.lua") and love.filesystem.load("packages/kanto_rework_core/data/types.lua")())
-  local Moves = Core.loadModule and Core.loadModule("data/moves.lua") or (love.filesystem.load("packages/kanto_rework_core/data/moves.lua") and love.filesystem.load("packages/kanto_rework_core/data/moves.lua")())
-  local Items = Core.loadModule and Core.loadModule("data/items.lua") or (love.filesystem.load("packages/kanto_rework_core/data/items.lua") and love.filesystem.load("packages/kanto_rework_core/data/items.lua")())
-
-  local Theme = Core.Theme or (love.filesystem.load("packages/kanto_rework_core/core/theme.lua") and love.filesystem.load("packages/kanto_rework_core/core/theme.lua")())
+  local Types = Core.Types
+  local Moves = Core.Moves
+  local Items = Core.Items
+  local Theme = Core.Theme
   local i18n = Core.i18n
 
   local createSummaryPresenter = loadModule("ui/summary_presenter.lua")

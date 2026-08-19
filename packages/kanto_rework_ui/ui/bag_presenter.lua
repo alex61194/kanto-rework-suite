@@ -1,19 +1,25 @@
 local function createBagPresenter(deps)
-  local Core = deps.Core
-  local Items = deps.Items
-  local Theme = deps.Theme
-  local I18n = deps.I18n
+  deps = deps or {}
+  local Core = deps.Core or _G.__KANTO_REWORK_CORE_P0 or {}
+  local Items = deps.Items or Core.Items
+  local Theme = deps.Theme or Core.Theme
+  local I18n = deps.I18n or Core.i18n
 
   local Presenter = {}
 
+  local fontCache = {}
   local function font(size)
-    size = math.floor(math.max(10, size or 14))
-    return love.graphics.newFont and love.graphics.newFont(size) or love.graphics.getFont()
+    size = math.floor(math.max(9, size or 14))
+    if not fontCache[size] and love and love.graphics and love.graphics.newFont then
+      local ok, f = pcall(love.graphics.newFont, size)
+      if ok and f then fontCache[size] = f end
+    end
+    return fontCache[size] or (love and love.graphics and love.graphics.getFont and love.graphics.getFont())
   end
 
   function Presenter.drawBag(bagState, viewport, profile, i18n)
     if not (love and love.graphics and bagState and viewport) then return false end
-    i18n = i18n or (Core and Core.i18n)
+    i18n = i18n or I18n
     local theme = Theme and Theme.get(profile and profile.theme) or {}
 
     local width = tonumber(viewport.width) or 1920
@@ -41,7 +47,7 @@ local function createBagPresenter(deps)
 
     -- Header bar with Pockets
     Theme.setColor(theme.accent or { 0.8, 0.2, 0.2, 1 })
-    love.graphics.rectangle("fill", x, y, boxW, 58, 18, 18, 0, 0)
+    love.graphics.rectangle("fill", x, y, boxW, 58, 18)
     love.graphics.setFont(font(18))
     Theme.setColor(theme.onAccent or { 1, 1, 1, 1 })
     love.graphics.print(i18n and i18n:t("item") or "MOCHILA", x + 24, y + 16)
@@ -60,7 +66,7 @@ local function createBagPresenter(deps)
 
       if isActive then
         Theme.setColor(theme.paper or { 1, 1, 1, 1 })
-        love.graphics.rectangle("fill", tabX, y + 10, tabW - 4, 48, 8, 8, 0, 0)
+        love.graphics.rectangle("fill", tabX, y + 10, tabW - 4, 48, 8)
         Theme.setColor(theme.accent or { 0.8, 0.2, 0.2, 1 })
       else
         Theme.setColor({ 1, 1, 1, 0.6 })

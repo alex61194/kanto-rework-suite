@@ -15,6 +15,11 @@ return function(mod)
   local createNativePointer = loadModule("core/native_pointer.lua")
   local createPointer = loadModule("core/pointer.lua")
 
+  local Types = loadModule("data/types.lua")
+  local Moves = loadModule("data/moves.lua")
+  local Items = loadModule("data/items.lua")
+  local Pokedex = loadModule("data/pokedex.lua")
+
   local locale_en = loadModule("locales/en.lua")
   local locale_es = loadModule("locales/es.lua")
 
@@ -58,6 +63,14 @@ return function(mod)
   _G.__KANTO_REWORK_CORE_P0 = global
   global.global = global
   global.mod = mod
+  global.Types = Types
+  global.Moves = Moves
+  global.Items = Items
+  global.Pokedex = Pokedex
+  global.Theme = Theme
+  global.Layout = Layout
+  global.i18n = i18n
+  global.SafeSave = SafeSave
   global.lastInput = global.lastInput or "keyboard"
   global.editMode = global.editMode or false
   global.hoveredItem = nil
@@ -68,7 +81,6 @@ return function(mod)
   global.presenterError = nil
   global.loggedPresenterError = nil
   global.lastErrorTime = 0
-  global.i18n = i18n
 
   local profileStore = createProfileStore({
     path = "kanto_rework/profiles/default.lua",
@@ -239,6 +251,12 @@ return function(mod)
   end, 120)
 
   mod.exports.version = 5
+  mod.exports.Types = Types
+  mod.exports.Moves = Moves
+  mod.exports.Items = Items
+  mod.exports.Pokedex = Pokedex
+  mod.exports.Theme = Theme
+  mod.exports.Layout = Layout
   mod.exports.layoutClass = function(width, height)
     return Layout.classify(width, height)
   end

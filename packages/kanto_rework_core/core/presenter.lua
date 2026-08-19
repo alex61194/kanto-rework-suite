@@ -10,7 +10,8 @@ local function createPresenter(opts)
   local function font(size)
     size = math.floor(math.max(9, size or 14))
     if not fontCache[size] and love and love.graphics and love.graphics.newFont then
-      fontCache[size] = love.graphics.newFont(size)
+      local ok, f = pcall(love.graphics.newFont, size)
+      if ok and f then fontCache[size] = f end
     end
     return fontCache[size] or (love and love.graphics and love.graphics.getFont and love.graphics.getFont())
   end
@@ -153,9 +154,9 @@ local function createPresenter(opts)
     love.graphics.setLineWidth(2)
     love.graphics.rectangle("line", layout.x + 1, layout.y + 1, layout.w - 2, layout.h - 2, 18)
 
-    -- Accent bar
+    -- Accent bar on left
     Theme.setColor(theme.accent)
-    love.graphics.rectangle("fill", layout.x, layout.y, 8, layout.h, 18, 0, 18, 0)
+    love.graphics.rectangle("fill", layout.x, layout.y, 8, layout.h, 4)
 
     -- Header
     love.graphics.setFont(font(12))
@@ -280,7 +281,7 @@ local function createPresenter(opts)
 
     -- Header bar
     Theme.setColor(theme.accent)
-    love.graphics.rectangle("fill", x, y, width, runtime.overlayRegion.headerH, 16, 16, 0, 0)
+    love.graphics.rectangle("fill", x, y, width, runtime.overlayRegion.headerH, 12)
     love.graphics.setFont(font(math.max(12, math.floor(13 * scale))))
     Theme.setColor(theme.onAccent)
     local headerTitle = runtime.editMode
@@ -328,7 +329,7 @@ local function createPresenter(opts)
     Theme.setColor(theme.night)
     love.graphics.rectangle("fill", x, y, width, 24, 6)
     Theme.setColor(ok and theme.accent or theme.nightMuted)
-    love.graphics.rectangle("fill", x, y, 5, 24, 6, 0, 0, 6)
+    love.graphics.rectangle("fill", x, y, 5, 24, 4)
     love.graphics.setFont(f)
     Theme.setColor(theme.nightText)
     love.graphics.print(label, x + 14, y + 6)
