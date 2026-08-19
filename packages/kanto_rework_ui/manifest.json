@@ -1,0 +1,13 @@
+{
+  "id": "kanto_rework_ui",
+  "name": "Kanto Rework UI",
+  "version": "0.1.0",
+  "api": 2,
+  "entry": "main.lua",
+  "author": "Kanto Rework Suite Team & alex61194",
+  "description": "High-resolution Pokémon summary, categorized bag, and battle HUD rework with full Spanish translation.",
+  "dependencies": [
+    "kanto_rework_core"
+  ],
+  "profile": "overhaul"
+}

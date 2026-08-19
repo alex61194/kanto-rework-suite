@@ -30,6 +30,7 @@ jobs:
       - name: Run Lua test suite
         run: |
           lua tests/test_i18n.lua
+          lua tests/test_data_integrity.lua
           lua tests/p0_runtime_smoke.lua
 
       - name: Build package artifacts

@@ -1,4 +1,5 @@
 return {
+  -- System & Main Menu
   app_name = "FIELD JOURNAL",
   region_name = "KANTO",
   entries_count = "%02d ENTRIES",
@@ -10,14 +11,132 @@ return {
   action_hint_mouse = "CLICK CONFIRM - RIGHT CLICK BACK - WHEEL SCROLL",
   action_hint_keyboard = "A CONFIRM - B BACK - ARROWS MOVE",
   action_hint_controller = "A CONFIRM - B BACK - D-PAD MOVE",
+
+  -- Main Menu Options
   pokedex = "POKéDEX",
   pokemon = "POKéMON",
   item = "ITEM",
   trainer = "TRAINER",
   save = "SAVE",
   option = "OPTION",
+
+  -- Diagnostics & Emergency
   diagnostics_badge = "KRS %s - HUD ACTIVE - %s - %s",
   start_menu_detected = "START MENU DETECTED",
   native_world = "NATIVE WORLD",
   emergency_notice_title = "Kanto Rework presenter error — native UI kept visible",
+
+  -- Stats
+  stat_hp = "HP",
+  stat_attack = "ATTACK",
+  stat_defense = "DEFENSE",
+  stat_speed = "SPEED",
+  stat_special = "SPECIAL",
+  stat_accuracy = "ACCURACY",
+  stat_evasion = "EVASION",
+  stat_exp = "STAT EXP",
+  stat_dv = "DV (GENE)",
+
+  -- Status Conditions
+  status_healthy = "HEALTHY",
+  status_asleep = "ASLEEP",
+  status_poisoned = "POISONED",
+  status_burned = "BURNED",
+  status_frozen = "FROZEN",
+  status_paralyzed = "PARALYZED",
+  status_fainted = "FAINTED",
+  status_confused = "CONFUSED",
+
+  -- Status Short
+  status_short_slp = "SLP",
+  status_short_psn = "PSN",
+  status_short_brn = "BRN",
+  status_short_frz = "FRZ",
+  status_short_par = "PAR",
+  status_short_fnt = "FNT",
+
+  -- Types
+  type_normal = "NORMAL",
+  type_fire = "FIRE",
+  type_water = "WATER",
+  type_grass = "GRASS",
+  type_electric = "ELECTRIC",
+  type_ice = "ICE",
+  type_fighting = "FIGHTING",
+  type_poison = "POISON",
+  type_ground = "GROUND",
+  type_flying = "FLYING",
+  type_psychic = "PSYCHIC",
+  type_bug = "BUG",
+  type_rock = "ROCK",
+  type_ghost = "GHOST",
+  type_dragon = "DRAGON",
+
+  -- Bag Pockets
+  pocket_medicine = "Medicine",
+  pocket_balls = "Poké Balls",
+  pocket_battle = "Battle Items",
+  pocket_berries = "Berries",
+  pocket_other = "Other Items",
+  pocket_tmhm = "TMs & HMs",
+  pocket_treasures = "Treasures",
+  pocket_key = "Key Items",
+
+  -- Battle HUD & Modifiers
+  battle_fight = "FIGHT",
+  battle_pkmn = "PKMN",
+  battle_bag = "BAG",
+  battle_run = "RUN",
+  battle_super_effective = "It's super effective!",
+  battle_not_very_effective = "It's not very effective...",
+  battle_immune = "It had no effect!",
+  battle_critical_hit = "Critical hit!",
+  battle_modifier_up = "+%d",
+  battle_modifier_down = "-%d",
+
+  -- Pokémon Summary UI
+  summary_title = "POKéMON INFO",
+  summary_moves = "MOVES",
+  summary_stats = "STATS",
+  summary_level = "LEVEL %d",
+  summary_exp = "EXP POINTS",
+  summary_next_level = "NEXT LVL",
+  summary_type = "TYPE /",
+  summary_ot = "OT /",
+  summary_id = "ID No. /",
+
+  -- Mods Manager & Settings
+  mods_manager_title = "MODS MANAGER",
+  installed_mods = "INSTALLED MODS",
+  mod_settings = "MOD SETTINGS",
+  accessibility = "ACCESSIBILITY",
+  color_vision = "COLOR VISION",
+  color_standard = "STANDARD",
+  color_protanopia = "PROTANOPIA",
+  color_deuteranopia = "DEUTERANOPIA",
+  color_tritanopia = "TRITANOPIA",
+  provider_classic = "CLASSIC",
+  provider_kanto_ascendant = "KANTO ASCENDANT",
+  provider_voxel = "VOXEL 3D",
+  save_changes = "SAVE CHANGES",
+  discard_changes = "DISCARD CHANGES",
+  reset_defaults = "RESET DEFAULTS",
+
+  -- Mod Options Definitions
+  opt_language_label = "LANGUAGE / IDIOMA",
+  opt_language_desc = "Select UI language.",
+  opt_replace_start_menu_label = "REPLACE START MENU",
+  opt_replace_start_menu_desc = "Replace the classic Start menu with the modern Field Journal presenter.",
+  opt_overlay_label = "COMPANION OVERLAY",
+  opt_overlay_desc = "Show the movable trainer companion overlay card outside the Start menu.",
+  opt_theme_label = "UI THEME",
+  opt_theme_desc = "Switch the live vector design tokens used by the interface.",
+  opt_diagnostics_label = "DIAGNOSTIC BADGE",
+  opt_diagnostics_desc = "Show the render-hook and screen detection state for this build.",
+
+  -- Themes
+  theme_field_journal = "FIELD JOURNAL",
+  theme_graphite = "GRAPHITE",
+  theme_purple_night = "PURPLE NIGHT",
+  theme_retro = "RETRO DMG",
 }
