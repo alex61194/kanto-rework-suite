@@ -6,8 +6,9 @@
   "entry": "main.lua",
   "author": "Kanto Rework Suite Team & alex61194",
   "description": "High-resolution Pokémon summary, categorized bag, and battle HUD rework with full Spanish translation.",
+  "category": "UI",
   "dependencies": [
     "kanto_rework_core"
   ],
-  "profile": "overhaul"
+  "profile": "ui"
 }

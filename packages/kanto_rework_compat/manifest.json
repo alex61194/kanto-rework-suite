@@ -6,8 +6,9 @@
   "entry": "main.lua",
   "author": "Kanto Rework Suite Team & alex61194",
   "description": "Mods Manager, sprite provider selection, and conflict resolution interface translated into Spanish.",
+  "category": "TOOL",
   "dependencies": [
     "kanto_rework_core"
   ],
-  "profile": "overhaul"
+  "profile": "tool"
 }
