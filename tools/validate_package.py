@@ -42,6 +42,17 @@ REQUIRED_BY_PACKAGE = {
         "main.lua",
         "compat/mod_options_presenter.lua",
     ),
+    "kanto_rework_suite": (
+        "main.lua",
+        "manifest.json",
+        "config/modules.lua",
+        "modules/core/main.lua",
+        "modules/ui/main.lua",
+        "modules/gameplay/main.lua",
+        "modules/graphics/main.lua",
+        "modules/compatibility/main.lua",
+        "modules/battle_animations/entry.lua",
+    ),
 }
 
 
