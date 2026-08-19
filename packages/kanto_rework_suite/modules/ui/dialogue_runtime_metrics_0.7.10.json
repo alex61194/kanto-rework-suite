@@ -1,0 +1,8 @@
+{
+  "0.7.9_baseline": {"mean_luminance":185.398152,"dark_pixel_ratio_lt40":0.143913889},
+  "0.7.9_dialogue": {"mean_luminance":19.541850,"dark_pixel_ratio_lt40":0.991634028},
+  "0.7.10_baseline": {"mean_luminance":185.398152,"dark_pixel_ratio_lt40":0.143913889},
+  "0.7.10_dialogue": {"mean_luminance":185.398152,"dark_pixel_ratio_lt40":0.143913889},
+  "0.7.10_baseline_vs_dialogue_upper_region": {"mean_abs_channel_diff":0.0,"changed_pixel_ratio":0.0},
+  "0.7.9_baseline_vs_dialogue_upper_region": {"mean_abs_channel_diff":173.969787037,"changed_pixel_ratio":0.847720139}
+}

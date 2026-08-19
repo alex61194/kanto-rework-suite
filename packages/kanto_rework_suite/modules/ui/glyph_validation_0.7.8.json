@@ -1,0 +1,6226 @@
+{
+  "ok": true,
+  "checks": [
+    {
+      "name": "Figma type set",
+      "ok": true,
+      "detail": {
+        "fileKey": "X9gkkR1wKZKUyK5xtBSiKF",
+        "typeGlyphSet": "625:2266",
+        "statusGlyphSet": "627:2304"
+      }
+    },
+    {
+      "name": "Figma status set",
+      "ok": true,
+      "detail": {
+        "fileKey": "X9gkkR1wKZKUyK5xtBSiKF",
+        "typeGlyphSet": "625:2266",
+        "statusGlyphSet": "627:2304"
+      }
+    },
+    {
+      "name": "18 type glyphs",
+      "ok": true,
+      "detail": [
+        "NORMAL",
+        "FIRE",
+        "WATER",
+        "ELECTRIC",
+        "GRASS",
+        "ICE",
+        "FIGHTING",
+        "POISON",
+        "GROUND",
+        "FLYING",
+        "PSYCHIC",
+        "BUG",
+        "ROCK",
+        "GHOST",
+        "DRAGON",
+        "DARK",
+        "STEEL",
+        "FAIRY"
+      ]
+    },
+    {
+      "name": "7 status glyphs",
+      "ok": true,
+      "detail": [
+        "POISONED",
+        "BADLY_POISONED",
+        "BURNED",
+        "PARALYZED",
+        "ASLEEP",
+        "FROZEN",
+        "FAINTED"
+      ]
+    },
+    {
+      "name": "type:NORMAL:source exists",
+      "ok": true,
+      "detail": "assets/source/type_glyphs/normal.svg"
+    },
+    {
+      "name": "type:NORMAL:SVG canvas",
+      "ok": true,
+      "detail": [
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "name": "type:NORMAL:SVG viewBox",
+      "ok": true,
+      "detail": [
+        0.0,
+        0.0,
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "name": "type:NORMAL:no baked semantic paint",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "type:NORMAL:4 runtime densities",
+      "ok": true,
+      "detail": [
+        {
+          "scale": 1,
+          "pixels": 20,
+          "width": 20,
+          "height": 20,
+          "path": "assets/runtime/type_glyphs/1x/normal.png"
+        },
+        {
+          "scale": 2,
+          "pixels": 40,
+          "width": 40,
+          "height": 40,
+          "path": "assets/runtime/type_glyphs/2x/normal.png"
+        },
+        {
+          "scale": 3,
+          "pixels": 60,
+          "width": 60,
+          "height": 60,
+          "path": "assets/runtime/type_glyphs/3x/normal.png"
+        },
+        {
+          "scale": 4,
+          "pixels": 80,
+          "width": 80,
+          "height": 80,
+          "path": "assets/runtime/type_glyphs/4x/normal.png"
+        }
+      ]
+    },
+    {
+      "name": "type:NORMAL:1x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/1x/normal.png"
+    },
+    {
+      "name": "type:NORMAL:1x dimensions",
+      "ok": true,
+      "detail": [
+        20,
+        20
+      ]
+    },
+    {
+      "name": "type:NORMAL:1x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:NORMAL:1x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:NORMAL:1x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:NORMAL:2x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/2x/normal.png"
+    },
+    {
+      "name": "type:NORMAL:2x dimensions",
+      "ok": true,
+      "detail": [
+        40,
+        40
+      ]
+    },
+    {
+      "name": "type:NORMAL:2x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:NORMAL:2x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:NORMAL:2x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:NORMAL:3x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/3x/normal.png"
+    },
+    {
+      "name": "type:NORMAL:3x dimensions",
+      "ok": true,
+      "detail": [
+        60,
+        60
+      ]
+    },
+    {
+      "name": "type:NORMAL:3x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:NORMAL:3x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:NORMAL:3x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:NORMAL:4x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/4x/normal.png"
+    },
+    {
+      "name": "type:NORMAL:4x dimensions",
+      "ok": true,
+      "detail": [
+        80,
+        80
+      ]
+    },
+    {
+      "name": "type:NORMAL:4x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:NORMAL:4x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:NORMAL:4x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:FIRE:source exists",
+      "ok": true,
+      "detail": "assets/source/type_glyphs/fire.svg"
+    },
+    {
+      "name": "type:FIRE:SVG canvas",
+      "ok": true,
+      "detail": [
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "name": "type:FIRE:SVG viewBox",
+      "ok": true,
+      "detail": [
+        0.0,
+        0.0,
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "name": "type:FIRE:no baked semantic paint",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "type:FIRE:4 runtime densities",
+      "ok": true,
+      "detail": [
+        {
+          "scale": 1,
+          "pixels": 20,
+          "width": 20,
+          "height": 20,
+          "path": "assets/runtime/type_glyphs/1x/fire.png"
+        },
+        {
+          "scale": 2,
+          "pixels": 40,
+          "width": 40,
+          "height": 40,
+          "path": "assets/runtime/type_glyphs/2x/fire.png"
+        },
+        {
+          "scale": 3,
+          "pixels": 60,
+          "width": 60,
+          "height": 60,
+          "path": "assets/runtime/type_glyphs/3x/fire.png"
+        },
+        {
+          "scale": 4,
+          "pixels": 80,
+          "width": 80,
+          "height": 80,
+          "path": "assets/runtime/type_glyphs/4x/fire.png"
+        }
+      ]
+    },
+    {
+      "name": "type:FIRE:1x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/1x/fire.png"
+    },
+    {
+      "name": "type:FIRE:1x dimensions",
+      "ok": true,
+      "detail": [
+        20,
+        20
+      ]
+    },
+    {
+      "name": "type:FIRE:1x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:FIRE:1x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:FIRE:1x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:FIRE:2x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/2x/fire.png"
+    },
+    {
+      "name": "type:FIRE:2x dimensions",
+      "ok": true,
+      "detail": [
+        40,
+        40
+      ]
+    },
+    {
+      "name": "type:FIRE:2x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:FIRE:2x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:FIRE:2x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:FIRE:3x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/3x/fire.png"
+    },
+    {
+      "name": "type:FIRE:3x dimensions",
+      "ok": true,
+      "detail": [
+        60,
+        60
+      ]
+    },
+    {
+      "name": "type:FIRE:3x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:FIRE:3x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:FIRE:3x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:FIRE:4x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/4x/fire.png"
+    },
+    {
+      "name": "type:FIRE:4x dimensions",
+      "ok": true,
+      "detail": [
+        80,
+        80
+      ]
+    },
+    {
+      "name": "type:FIRE:4x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:FIRE:4x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:FIRE:4x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:WATER:source exists",
+      "ok": true,
+      "detail": "assets/source/type_glyphs/water.svg"
+    },
+    {
+      "name": "type:WATER:SVG canvas",
+      "ok": true,
+      "detail": [
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "name": "type:WATER:SVG viewBox",
+      "ok": true,
+      "detail": [
+        0.0,
+        0.0,
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "name": "type:WATER:no baked semantic paint",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "type:WATER:4 runtime densities",
+      "ok": true,
+      "detail": [
+        {
+          "scale": 1,
+          "pixels": 20,
+          "width": 20,
+          "height": 20,
+          "path": "assets/runtime/type_glyphs/1x/water.png"
+        },
+        {
+          "scale": 2,
+          "pixels": 40,
+          "width": 40,
+          "height": 40,
+          "path": "assets/runtime/type_glyphs/2x/water.png"
+        },
+        {
+          "scale": 3,
+          "pixels": 60,
+          "width": 60,
+          "height": 60,
+          "path": "assets/runtime/type_glyphs/3x/water.png"
+        },
+        {
+          "scale": 4,
+          "pixels": 80,
+          "width": 80,
+          "height": 80,
+          "path": "assets/runtime/type_glyphs/4x/water.png"
+        }
+      ]
+    },
+    {
+      "name": "type:WATER:1x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/1x/water.png"
+    },
+    {
+      "name": "type:WATER:1x dimensions",
+      "ok": true,
+      "detail": [
+        20,
+        20
+      ]
+    },
+    {
+      "name": "type:WATER:1x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:WATER:1x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:WATER:1x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:WATER:2x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/2x/water.png"
+    },
+    {
+      "name": "type:WATER:2x dimensions",
+      "ok": true,
+      "detail": [
+        40,
+        40
+      ]
+    },
+    {
+      "name": "type:WATER:2x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:WATER:2x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:WATER:2x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:WATER:3x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/3x/water.png"
+    },
+    {
+      "name": "type:WATER:3x dimensions",
+      "ok": true,
+      "detail": [
+        60,
+        60
+      ]
+    },
+    {
+      "name": "type:WATER:3x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:WATER:3x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:WATER:3x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:WATER:4x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/4x/water.png"
+    },
+    {
+      "name": "type:WATER:4x dimensions",
+      "ok": true,
+      "detail": [
+        80,
+        80
+      ]
+    },
+    {
+      "name": "type:WATER:4x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:WATER:4x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:WATER:4x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:ELECTRIC:source exists",
+      "ok": true,
+      "detail": "assets/source/type_glyphs/electric.svg"
+    },
+    {
+      "name": "type:ELECTRIC:SVG canvas",
+      "ok": true,
+      "detail": [
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "name": "type:ELECTRIC:SVG viewBox",
+      "ok": true,
+      "detail": [
+        0.0,
+        0.0,
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "name": "type:ELECTRIC:no baked semantic paint",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "type:ELECTRIC:4 runtime densities",
+      "ok": true,
+      "detail": [
+        {
+          "scale": 1,
+          "pixels": 20,
+          "width": 20,
+          "height": 20,
+          "path": "assets/runtime/type_glyphs/1x/electric.png"
+        },
+        {
+          "scale": 2,
+          "pixels": 40,
+          "width": 40,
+          "height": 40,
+          "path": "assets/runtime/type_glyphs/2x/electric.png"
+        },
+        {
+          "scale": 3,
+          "pixels": 60,
+          "width": 60,
+          "height": 60,
+          "path": "assets/runtime/type_glyphs/3x/electric.png"
+        },
+        {
+          "scale": 4,
+          "pixels": 80,
+          "width": 80,
+          "height": 80,
+          "path": "assets/runtime/type_glyphs/4x/electric.png"
+        }
+      ]
+    },
+    {
+      "name": "type:ELECTRIC:1x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/1x/electric.png"
+    },
+    {
+      "name": "type:ELECTRIC:1x dimensions",
+      "ok": true,
+      "detail": [
+        20,
+        20
+      ]
+    },
+    {
+      "name": "type:ELECTRIC:1x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:ELECTRIC:1x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:ELECTRIC:1x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:ELECTRIC:2x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/2x/electric.png"
+    },
+    {
+      "name": "type:ELECTRIC:2x dimensions",
+      "ok": true,
+      "detail": [
+        40,
+        40
+      ]
+    },
+    {
+      "name": "type:ELECTRIC:2x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:ELECTRIC:2x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:ELECTRIC:2x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:ELECTRIC:3x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/3x/electric.png"
+    },
+    {
+      "name": "type:ELECTRIC:3x dimensions",
+      "ok": true,
+      "detail": [
+        60,
+        60
+      ]
+    },
+    {
+      "name": "type:ELECTRIC:3x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:ELECTRIC:3x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:ELECTRIC:3x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:ELECTRIC:4x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/4x/electric.png"
+    },
+    {
+      "name": "type:ELECTRIC:4x dimensions",
+      "ok": true,
+      "detail": [
+        80,
+        80
+      ]
+    },
+    {
+      "name": "type:ELECTRIC:4x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:ELECTRIC:4x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:ELECTRIC:4x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:GRASS:source exists",
+      "ok": true,
+      "detail": "assets/source/type_glyphs/grass.svg"
+    },
+    {
+      "name": "type:GRASS:SVG canvas",
+      "ok": true,
+      "detail": [
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "name": "type:GRASS:SVG viewBox",
+      "ok": true,
+      "detail": [
+        0.0,
+        0.0,
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "name": "type:GRASS:no baked semantic paint",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "type:GRASS:4 runtime densities",
+      "ok": true,
+      "detail": [
+        {
+          "scale": 1,
+          "pixels": 20,
+          "width": 20,
+          "height": 20,
+          "path": "assets/runtime/type_glyphs/1x/grass.png"
+        },
+        {
+          "scale": 2,
+          "pixels": 40,
+          "width": 40,
+          "height": 40,
+          "path": "assets/runtime/type_glyphs/2x/grass.png"
+        },
+        {
+          "scale": 3,
+          "pixels": 60,
+          "width": 60,
+          "height": 60,
+          "path": "assets/runtime/type_glyphs/3x/grass.png"
+        },
+        {
+          "scale": 4,
+          "pixels": 80,
+          "width": 80,
+          "height": 80,
+          "path": "assets/runtime/type_glyphs/4x/grass.png"
+        }
+      ]
+    },
+    {
+      "name": "type:GRASS:1x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/1x/grass.png"
+    },
+    {
+      "name": "type:GRASS:1x dimensions",
+      "ok": true,
+      "detail": [
+        20,
+        20
+      ]
+    },
+    {
+      "name": "type:GRASS:1x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:GRASS:1x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:GRASS:1x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:GRASS:2x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/2x/grass.png"
+    },
+    {
+      "name": "type:GRASS:2x dimensions",
+      "ok": true,
+      "detail": [
+        40,
+        40
+      ]
+    },
+    {
+      "name": "type:GRASS:2x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:GRASS:2x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:GRASS:2x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:GRASS:3x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/3x/grass.png"
+    },
+    {
+      "name": "type:GRASS:3x dimensions",
+      "ok": true,
+      "detail": [
+        60,
+        60
+      ]
+    },
+    {
+      "name": "type:GRASS:3x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:GRASS:3x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:GRASS:3x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:GRASS:4x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/4x/grass.png"
+    },
+    {
+      "name": "type:GRASS:4x dimensions",
+      "ok": true,
+      "detail": [
+        80,
+        80
+      ]
+    },
+    {
+      "name": "type:GRASS:4x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:GRASS:4x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:GRASS:4x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:ICE:source exists",
+      "ok": true,
+      "detail": "assets/source/type_glyphs/ice.svg"
+    },
+    {
+      "name": "type:ICE:SVG canvas",
+      "ok": true,
+      "detail": [
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "name": "type:ICE:SVG viewBox",
+      "ok": true,
+      "detail": [
+        0.0,
+        0.0,
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "name": "type:ICE:no baked semantic paint",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "type:ICE:4 runtime densities",
+      "ok": true,
+      "detail": [
+        {
+          "scale": 1,
+          "pixels": 20,
+          "width": 20,
+          "height": 20,
+          "path": "assets/runtime/type_glyphs/1x/ice.png"
+        },
+        {
+          "scale": 2,
+          "pixels": 40,
+          "width": 40,
+          "height": 40,
+          "path": "assets/runtime/type_glyphs/2x/ice.png"
+        },
+        {
+          "scale": 3,
+          "pixels": 60,
+          "width": 60,
+          "height": 60,
+          "path": "assets/runtime/type_glyphs/3x/ice.png"
+        },
+        {
+          "scale": 4,
+          "pixels": 80,
+          "width": 80,
+          "height": 80,
+          "path": "assets/runtime/type_glyphs/4x/ice.png"
+        }
+      ]
+    },
+    {
+      "name": "type:ICE:1x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/1x/ice.png"
+    },
+    {
+      "name": "type:ICE:1x dimensions",
+      "ok": true,
+      "detail": [
+        20,
+        20
+      ]
+    },
+    {
+      "name": "type:ICE:1x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:ICE:1x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:ICE:1x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:ICE:2x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/2x/ice.png"
+    },
+    {
+      "name": "type:ICE:2x dimensions",
+      "ok": true,
+      "detail": [
+        40,
+        40
+      ]
+    },
+    {
+      "name": "type:ICE:2x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:ICE:2x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:ICE:2x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:ICE:3x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/3x/ice.png"
+    },
+    {
+      "name": "type:ICE:3x dimensions",
+      "ok": true,
+      "detail": [
+        60,
+        60
+      ]
+    },
+    {
+      "name": "type:ICE:3x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:ICE:3x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:ICE:3x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:ICE:4x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/4x/ice.png"
+    },
+    {
+      "name": "type:ICE:4x dimensions",
+      "ok": true,
+      "detail": [
+        80,
+        80
+      ]
+    },
+    {
+      "name": "type:ICE:4x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:ICE:4x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:ICE:4x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:FIGHTING:source exists",
+      "ok": true,
+      "detail": "assets/source/type_glyphs/fighting.svg"
+    },
+    {
+      "name": "type:FIGHTING:SVG canvas",
+      "ok": true,
+      "detail": [
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "name": "type:FIGHTING:SVG viewBox",
+      "ok": true,
+      "detail": [
+        0.0,
+        0.0,
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "name": "type:FIGHTING:no baked semantic paint",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "type:FIGHTING:4 runtime densities",
+      "ok": true,
+      "detail": [
+        {
+          "scale": 1,
+          "pixels": 20,
+          "width": 20,
+          "height": 20,
+          "path": "assets/runtime/type_glyphs/1x/fighting.png"
+        },
+        {
+          "scale": 2,
+          "pixels": 40,
+          "width": 40,
+          "height": 40,
+          "path": "assets/runtime/type_glyphs/2x/fighting.png"
+        },
+        {
+          "scale": 3,
+          "pixels": 60,
+          "width": 60,
+          "height": 60,
+          "path": "assets/runtime/type_glyphs/3x/fighting.png"
+        },
+        {
+          "scale": 4,
+          "pixels": 80,
+          "width": 80,
+          "height": 80,
+          "path": "assets/runtime/type_glyphs/4x/fighting.png"
+        }
+      ]
+    },
+    {
+      "name": "type:FIGHTING:1x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/1x/fighting.png"
+    },
+    {
+      "name": "type:FIGHTING:1x dimensions",
+      "ok": true,
+      "detail": [
+        20,
+        20
+      ]
+    },
+    {
+      "name": "type:FIGHTING:1x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:FIGHTING:1x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:FIGHTING:1x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:FIGHTING:2x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/2x/fighting.png"
+    },
+    {
+      "name": "type:FIGHTING:2x dimensions",
+      "ok": true,
+      "detail": [
+        40,
+        40
+      ]
+    },
+    {
+      "name": "type:FIGHTING:2x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:FIGHTING:2x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:FIGHTING:2x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:FIGHTING:3x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/3x/fighting.png"
+    },
+    {
+      "name": "type:FIGHTING:3x dimensions",
+      "ok": true,
+      "detail": [
+        60,
+        60
+      ]
+    },
+    {
+      "name": "type:FIGHTING:3x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:FIGHTING:3x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:FIGHTING:3x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:FIGHTING:4x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/4x/fighting.png"
+    },
+    {
+      "name": "type:FIGHTING:4x dimensions",
+      "ok": true,
+      "detail": [
+        80,
+        80
+      ]
+    },
+    {
+      "name": "type:FIGHTING:4x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:FIGHTING:4x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:FIGHTING:4x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:POISON:source exists",
+      "ok": true,
+      "detail": "assets/source/type_glyphs/poison.svg"
+    },
+    {
+      "name": "type:POISON:SVG canvas",
+      "ok": true,
+      "detail": [
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "name": "type:POISON:SVG viewBox",
+      "ok": true,
+      "detail": [
+        0.0,
+        0.0,
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "name": "type:POISON:no baked semantic paint",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "type:POISON:4 runtime densities",
+      "ok": true,
+      "detail": [
+        {
+          "scale": 1,
+          "pixels": 20,
+          "width": 20,
+          "height": 20,
+          "path": "assets/runtime/type_glyphs/1x/poison.png"
+        },
+        {
+          "scale": 2,
+          "pixels": 40,
+          "width": 40,
+          "height": 40,
+          "path": "assets/runtime/type_glyphs/2x/poison.png"
+        },
+        {
+          "scale": 3,
+          "pixels": 60,
+          "width": 60,
+          "height": 60,
+          "path": "assets/runtime/type_glyphs/3x/poison.png"
+        },
+        {
+          "scale": 4,
+          "pixels": 80,
+          "width": 80,
+          "height": 80,
+          "path": "assets/runtime/type_glyphs/4x/poison.png"
+        }
+      ]
+    },
+    {
+      "name": "type:POISON:1x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/1x/poison.png"
+    },
+    {
+      "name": "type:POISON:1x dimensions",
+      "ok": true,
+      "detail": [
+        20,
+        20
+      ]
+    },
+    {
+      "name": "type:POISON:1x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:POISON:1x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:POISON:1x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:POISON:2x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/2x/poison.png"
+    },
+    {
+      "name": "type:POISON:2x dimensions",
+      "ok": true,
+      "detail": [
+        40,
+        40
+      ]
+    },
+    {
+      "name": "type:POISON:2x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:POISON:2x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:POISON:2x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:POISON:3x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/3x/poison.png"
+    },
+    {
+      "name": "type:POISON:3x dimensions",
+      "ok": true,
+      "detail": [
+        60,
+        60
+      ]
+    },
+    {
+      "name": "type:POISON:3x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:POISON:3x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:POISON:3x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:POISON:4x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/4x/poison.png"
+    },
+    {
+      "name": "type:POISON:4x dimensions",
+      "ok": true,
+      "detail": [
+        80,
+        80
+      ]
+    },
+    {
+      "name": "type:POISON:4x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:POISON:4x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:POISON:4x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:GROUND:source exists",
+      "ok": true,
+      "detail": "assets/source/type_glyphs/ground.svg"
+    },
+    {
+      "name": "type:GROUND:SVG canvas",
+      "ok": true,
+      "detail": [
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "name": "type:GROUND:SVG viewBox",
+      "ok": true,
+      "detail": [
+        0.0,
+        0.0,
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "name": "type:GROUND:no baked semantic paint",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "type:GROUND:4 runtime densities",
+      "ok": true,
+      "detail": [
+        {
+          "scale": 1,
+          "pixels": 20,
+          "width": 20,
+          "height": 20,
+          "path": "assets/runtime/type_glyphs/1x/ground.png"
+        },
+        {
+          "scale": 2,
+          "pixels": 40,
+          "width": 40,
+          "height": 40,
+          "path": "assets/runtime/type_glyphs/2x/ground.png"
+        },
+        {
+          "scale": 3,
+          "pixels": 60,
+          "width": 60,
+          "height": 60,
+          "path": "assets/runtime/type_glyphs/3x/ground.png"
+        },
+        {
+          "scale": 4,
+          "pixels": 80,
+          "width": 80,
+          "height": 80,
+          "path": "assets/runtime/type_glyphs/4x/ground.png"
+        }
+      ]
+    },
+    {
+      "name": "type:GROUND:1x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/1x/ground.png"
+    },
+    {
+      "name": "type:GROUND:1x dimensions",
+      "ok": true,
+      "detail": [
+        20,
+        20
+      ]
+    },
+    {
+      "name": "type:GROUND:1x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:GROUND:1x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:GROUND:1x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:GROUND:2x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/2x/ground.png"
+    },
+    {
+      "name": "type:GROUND:2x dimensions",
+      "ok": true,
+      "detail": [
+        40,
+        40
+      ]
+    },
+    {
+      "name": "type:GROUND:2x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:GROUND:2x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:GROUND:2x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:GROUND:3x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/3x/ground.png"
+    },
+    {
+      "name": "type:GROUND:3x dimensions",
+      "ok": true,
+      "detail": [
+        60,
+        60
+      ]
+    },
+    {
+      "name": "type:GROUND:3x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:GROUND:3x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:GROUND:3x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:GROUND:4x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/4x/ground.png"
+    },
+    {
+      "name": "type:GROUND:4x dimensions",
+      "ok": true,
+      "detail": [
+        80,
+        80
+      ]
+    },
+    {
+      "name": "type:GROUND:4x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:GROUND:4x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:GROUND:4x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:FLYING:source exists",
+      "ok": true,
+      "detail": "assets/source/type_glyphs/flying.svg"
+    },
+    {
+      "name": "type:FLYING:SVG canvas",
+      "ok": true,
+      "detail": [
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "name": "type:FLYING:SVG viewBox",
+      "ok": true,
+      "detail": [
+        0.0,
+        0.0,
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "name": "type:FLYING:no baked semantic paint",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "type:FLYING:4 runtime densities",
+      "ok": true,
+      "detail": [
+        {
+          "scale": 1,
+          "pixels": 20,
+          "width": 20,
+          "height": 20,
+          "path": "assets/runtime/type_glyphs/1x/flying.png"
+        },
+        {
+          "scale": 2,
+          "pixels": 40,
+          "width": 40,
+          "height": 40,
+          "path": "assets/runtime/type_glyphs/2x/flying.png"
+        },
+        {
+          "scale": 3,
+          "pixels": 60,
+          "width": 60,
+          "height": 60,
+          "path": "assets/runtime/type_glyphs/3x/flying.png"
+        },
+        {
+          "scale": 4,
+          "pixels": 80,
+          "width": 80,
+          "height": 80,
+          "path": "assets/runtime/type_glyphs/4x/flying.png"
+        }
+      ]
+    },
+    {
+      "name": "type:FLYING:1x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/1x/flying.png"
+    },
+    {
+      "name": "type:FLYING:1x dimensions",
+      "ok": true,
+      "detail": [
+        20,
+        20
+      ]
+    },
+    {
+      "name": "type:FLYING:1x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:FLYING:1x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:FLYING:1x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:FLYING:2x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/2x/flying.png"
+    },
+    {
+      "name": "type:FLYING:2x dimensions",
+      "ok": true,
+      "detail": [
+        40,
+        40
+      ]
+    },
+    {
+      "name": "type:FLYING:2x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:FLYING:2x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:FLYING:2x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:FLYING:3x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/3x/flying.png"
+    },
+    {
+      "name": "type:FLYING:3x dimensions",
+      "ok": true,
+      "detail": [
+        60,
+        60
+      ]
+    },
+    {
+      "name": "type:FLYING:3x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:FLYING:3x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:FLYING:3x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:FLYING:4x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/4x/flying.png"
+    },
+    {
+      "name": "type:FLYING:4x dimensions",
+      "ok": true,
+      "detail": [
+        80,
+        80
+      ]
+    },
+    {
+      "name": "type:FLYING:4x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:FLYING:4x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:FLYING:4x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:PSYCHIC:source exists",
+      "ok": true,
+      "detail": "assets/source/type_glyphs/psychic.svg"
+    },
+    {
+      "name": "type:PSYCHIC:SVG canvas",
+      "ok": true,
+      "detail": [
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "name": "type:PSYCHIC:SVG viewBox",
+      "ok": true,
+      "detail": [
+        0.0,
+        0.0,
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "name": "type:PSYCHIC:no baked semantic paint",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "type:PSYCHIC:4 runtime densities",
+      "ok": true,
+      "detail": [
+        {
+          "scale": 1,
+          "pixels": 20,
+          "width": 20,
+          "height": 20,
+          "path": "assets/runtime/type_glyphs/1x/psychic.png"
+        },
+        {
+          "scale": 2,
+          "pixels": 40,
+          "width": 40,
+          "height": 40,
+          "path": "assets/runtime/type_glyphs/2x/psychic.png"
+        },
+        {
+          "scale": 3,
+          "pixels": 60,
+          "width": 60,
+          "height": 60,
+          "path": "assets/runtime/type_glyphs/3x/psychic.png"
+        },
+        {
+          "scale": 4,
+          "pixels": 80,
+          "width": 80,
+          "height": 80,
+          "path": "assets/runtime/type_glyphs/4x/psychic.png"
+        }
+      ]
+    },
+    {
+      "name": "type:PSYCHIC:1x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/1x/psychic.png"
+    },
+    {
+      "name": "type:PSYCHIC:1x dimensions",
+      "ok": true,
+      "detail": [
+        20,
+        20
+      ]
+    },
+    {
+      "name": "type:PSYCHIC:1x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:PSYCHIC:1x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:PSYCHIC:1x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:PSYCHIC:2x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/2x/psychic.png"
+    },
+    {
+      "name": "type:PSYCHIC:2x dimensions",
+      "ok": true,
+      "detail": [
+        40,
+        40
+      ]
+    },
+    {
+      "name": "type:PSYCHIC:2x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:PSYCHIC:2x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:PSYCHIC:2x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:PSYCHIC:3x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/3x/psychic.png"
+    },
+    {
+      "name": "type:PSYCHIC:3x dimensions",
+      "ok": true,
+      "detail": [
+        60,
+        60
+      ]
+    },
+    {
+      "name": "type:PSYCHIC:3x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:PSYCHIC:3x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:PSYCHIC:3x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:PSYCHIC:4x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/4x/psychic.png"
+    },
+    {
+      "name": "type:PSYCHIC:4x dimensions",
+      "ok": true,
+      "detail": [
+        80,
+        80
+      ]
+    },
+    {
+      "name": "type:PSYCHIC:4x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:PSYCHIC:4x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:PSYCHIC:4x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:BUG:source exists",
+      "ok": true,
+      "detail": "assets/source/type_glyphs/bug.svg"
+    },
+    {
+      "name": "type:BUG:SVG canvas",
+      "ok": true,
+      "detail": [
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "name": "type:BUG:SVG viewBox",
+      "ok": true,
+      "detail": [
+        0.0,
+        0.0,
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "name": "type:BUG:no baked semantic paint",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "type:BUG:4 runtime densities",
+      "ok": true,
+      "detail": [
+        {
+          "scale": 1,
+          "pixels": 20,
+          "width": 20,
+          "height": 20,
+          "path": "assets/runtime/type_glyphs/1x/bug.png"
+        },
+        {
+          "scale": 2,
+          "pixels": 40,
+          "width": 40,
+          "height": 40,
+          "path": "assets/runtime/type_glyphs/2x/bug.png"
+        },
+        {
+          "scale": 3,
+          "pixels": 60,
+          "width": 60,
+          "height": 60,
+          "path": "assets/runtime/type_glyphs/3x/bug.png"
+        },
+        {
+          "scale": 4,
+          "pixels": 80,
+          "width": 80,
+          "height": 80,
+          "path": "assets/runtime/type_glyphs/4x/bug.png"
+        }
+      ]
+    },
+    {
+      "name": "type:BUG:1x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/1x/bug.png"
+    },
+    {
+      "name": "type:BUG:1x dimensions",
+      "ok": true,
+      "detail": [
+        20,
+        20
+      ]
+    },
+    {
+      "name": "type:BUG:1x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:BUG:1x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:BUG:1x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:BUG:2x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/2x/bug.png"
+    },
+    {
+      "name": "type:BUG:2x dimensions",
+      "ok": true,
+      "detail": [
+        40,
+        40
+      ]
+    },
+    {
+      "name": "type:BUG:2x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:BUG:2x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:BUG:2x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:BUG:3x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/3x/bug.png"
+    },
+    {
+      "name": "type:BUG:3x dimensions",
+      "ok": true,
+      "detail": [
+        60,
+        60
+      ]
+    },
+    {
+      "name": "type:BUG:3x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:BUG:3x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:BUG:3x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:BUG:4x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/4x/bug.png"
+    },
+    {
+      "name": "type:BUG:4x dimensions",
+      "ok": true,
+      "detail": [
+        80,
+        80
+      ]
+    },
+    {
+      "name": "type:BUG:4x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:BUG:4x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:BUG:4x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:ROCK:source exists",
+      "ok": true,
+      "detail": "assets/source/type_glyphs/rock.svg"
+    },
+    {
+      "name": "type:ROCK:SVG canvas",
+      "ok": true,
+      "detail": [
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "name": "type:ROCK:SVG viewBox",
+      "ok": true,
+      "detail": [
+        0.0,
+        0.0,
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "name": "type:ROCK:no baked semantic paint",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "type:ROCK:4 runtime densities",
+      "ok": true,
+      "detail": [
+        {
+          "scale": 1,
+          "pixels": 20,
+          "width": 20,
+          "height": 20,
+          "path": "assets/runtime/type_glyphs/1x/rock.png"
+        },
+        {
+          "scale": 2,
+          "pixels": 40,
+          "width": 40,
+          "height": 40,
+          "path": "assets/runtime/type_glyphs/2x/rock.png"
+        },
+        {
+          "scale": 3,
+          "pixels": 60,
+          "width": 60,
+          "height": 60,
+          "path": "assets/runtime/type_glyphs/3x/rock.png"
+        },
+        {
+          "scale": 4,
+          "pixels": 80,
+          "width": 80,
+          "height": 80,
+          "path": "assets/runtime/type_glyphs/4x/rock.png"
+        }
+      ]
+    },
+    {
+      "name": "type:ROCK:1x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/1x/rock.png"
+    },
+    {
+      "name": "type:ROCK:1x dimensions",
+      "ok": true,
+      "detail": [
+        20,
+        20
+      ]
+    },
+    {
+      "name": "type:ROCK:1x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:ROCK:1x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:ROCK:1x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:ROCK:2x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/2x/rock.png"
+    },
+    {
+      "name": "type:ROCK:2x dimensions",
+      "ok": true,
+      "detail": [
+        40,
+        40
+      ]
+    },
+    {
+      "name": "type:ROCK:2x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:ROCK:2x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:ROCK:2x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:ROCK:3x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/3x/rock.png"
+    },
+    {
+      "name": "type:ROCK:3x dimensions",
+      "ok": true,
+      "detail": [
+        60,
+        60
+      ]
+    },
+    {
+      "name": "type:ROCK:3x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:ROCK:3x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:ROCK:3x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:ROCK:4x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/4x/rock.png"
+    },
+    {
+      "name": "type:ROCK:4x dimensions",
+      "ok": true,
+      "detail": [
+        80,
+        80
+      ]
+    },
+    {
+      "name": "type:ROCK:4x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:ROCK:4x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:ROCK:4x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:GHOST:source exists",
+      "ok": true,
+      "detail": "assets/source/type_glyphs/ghost.svg"
+    },
+    {
+      "name": "type:GHOST:SVG canvas",
+      "ok": true,
+      "detail": [
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "name": "type:GHOST:SVG viewBox",
+      "ok": true,
+      "detail": [
+        0.0,
+        0.0,
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "name": "type:GHOST:no baked semantic paint",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "type:GHOST:4 runtime densities",
+      "ok": true,
+      "detail": [
+        {
+          "scale": 1,
+          "pixels": 20,
+          "width": 20,
+          "height": 20,
+          "path": "assets/runtime/type_glyphs/1x/ghost.png"
+        },
+        {
+          "scale": 2,
+          "pixels": 40,
+          "width": 40,
+          "height": 40,
+          "path": "assets/runtime/type_glyphs/2x/ghost.png"
+        },
+        {
+          "scale": 3,
+          "pixels": 60,
+          "width": 60,
+          "height": 60,
+          "path": "assets/runtime/type_glyphs/3x/ghost.png"
+        },
+        {
+          "scale": 4,
+          "pixels": 80,
+          "width": 80,
+          "height": 80,
+          "path": "assets/runtime/type_glyphs/4x/ghost.png"
+        }
+      ]
+    },
+    {
+      "name": "type:GHOST:1x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/1x/ghost.png"
+    },
+    {
+      "name": "type:GHOST:1x dimensions",
+      "ok": true,
+      "detail": [
+        20,
+        20
+      ]
+    },
+    {
+      "name": "type:GHOST:1x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:GHOST:1x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:GHOST:1x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:GHOST:2x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/2x/ghost.png"
+    },
+    {
+      "name": "type:GHOST:2x dimensions",
+      "ok": true,
+      "detail": [
+        40,
+        40
+      ]
+    },
+    {
+      "name": "type:GHOST:2x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:GHOST:2x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:GHOST:2x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:GHOST:3x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/3x/ghost.png"
+    },
+    {
+      "name": "type:GHOST:3x dimensions",
+      "ok": true,
+      "detail": [
+        60,
+        60
+      ]
+    },
+    {
+      "name": "type:GHOST:3x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:GHOST:3x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:GHOST:3x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:GHOST:4x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/4x/ghost.png"
+    },
+    {
+      "name": "type:GHOST:4x dimensions",
+      "ok": true,
+      "detail": [
+        80,
+        80
+      ]
+    },
+    {
+      "name": "type:GHOST:4x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:GHOST:4x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:GHOST:4x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:DRAGON:source exists",
+      "ok": true,
+      "detail": "assets/source/type_glyphs/dragon.svg"
+    },
+    {
+      "name": "type:DRAGON:SVG canvas",
+      "ok": true,
+      "detail": [
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "name": "type:DRAGON:SVG viewBox",
+      "ok": true,
+      "detail": [
+        0.0,
+        0.0,
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "name": "type:DRAGON:no baked semantic paint",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "type:DRAGON:4 runtime densities",
+      "ok": true,
+      "detail": [
+        {
+          "scale": 1,
+          "pixels": 20,
+          "width": 20,
+          "height": 20,
+          "path": "assets/runtime/type_glyphs/1x/dragon.png"
+        },
+        {
+          "scale": 2,
+          "pixels": 40,
+          "width": 40,
+          "height": 40,
+          "path": "assets/runtime/type_glyphs/2x/dragon.png"
+        },
+        {
+          "scale": 3,
+          "pixels": 60,
+          "width": 60,
+          "height": 60,
+          "path": "assets/runtime/type_glyphs/3x/dragon.png"
+        },
+        {
+          "scale": 4,
+          "pixels": 80,
+          "width": 80,
+          "height": 80,
+          "path": "assets/runtime/type_glyphs/4x/dragon.png"
+        }
+      ]
+    },
+    {
+      "name": "type:DRAGON:1x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/1x/dragon.png"
+    },
+    {
+      "name": "type:DRAGON:1x dimensions",
+      "ok": true,
+      "detail": [
+        20,
+        20
+      ]
+    },
+    {
+      "name": "type:DRAGON:1x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:DRAGON:1x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:DRAGON:1x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:DRAGON:2x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/2x/dragon.png"
+    },
+    {
+      "name": "type:DRAGON:2x dimensions",
+      "ok": true,
+      "detail": [
+        40,
+        40
+      ]
+    },
+    {
+      "name": "type:DRAGON:2x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:DRAGON:2x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:DRAGON:2x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:DRAGON:3x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/3x/dragon.png"
+    },
+    {
+      "name": "type:DRAGON:3x dimensions",
+      "ok": true,
+      "detail": [
+        60,
+        60
+      ]
+    },
+    {
+      "name": "type:DRAGON:3x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:DRAGON:3x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:DRAGON:3x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:DRAGON:4x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/4x/dragon.png"
+    },
+    {
+      "name": "type:DRAGON:4x dimensions",
+      "ok": true,
+      "detail": [
+        80,
+        80
+      ]
+    },
+    {
+      "name": "type:DRAGON:4x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:DRAGON:4x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:DRAGON:4x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:DARK:source exists",
+      "ok": true,
+      "detail": "assets/source/type_glyphs/dark.svg"
+    },
+    {
+      "name": "type:DARK:SVG canvas",
+      "ok": true,
+      "detail": [
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "name": "type:DARK:SVG viewBox",
+      "ok": true,
+      "detail": [
+        0.0,
+        0.0,
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "name": "type:DARK:no baked semantic paint",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "type:DARK:4 runtime densities",
+      "ok": true,
+      "detail": [
+        {
+          "scale": 1,
+          "pixels": 20,
+          "width": 20,
+          "height": 20,
+          "path": "assets/runtime/type_glyphs/1x/dark.png"
+        },
+        {
+          "scale": 2,
+          "pixels": 40,
+          "width": 40,
+          "height": 40,
+          "path": "assets/runtime/type_glyphs/2x/dark.png"
+        },
+        {
+          "scale": 3,
+          "pixels": 60,
+          "width": 60,
+          "height": 60,
+          "path": "assets/runtime/type_glyphs/3x/dark.png"
+        },
+        {
+          "scale": 4,
+          "pixels": 80,
+          "width": 80,
+          "height": 80,
+          "path": "assets/runtime/type_glyphs/4x/dark.png"
+        }
+      ]
+    },
+    {
+      "name": "type:DARK:1x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/1x/dark.png"
+    },
+    {
+      "name": "type:DARK:1x dimensions",
+      "ok": true,
+      "detail": [
+        20,
+        20
+      ]
+    },
+    {
+      "name": "type:DARK:1x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:DARK:1x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:DARK:1x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:DARK:2x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/2x/dark.png"
+    },
+    {
+      "name": "type:DARK:2x dimensions",
+      "ok": true,
+      "detail": [
+        40,
+        40
+      ]
+    },
+    {
+      "name": "type:DARK:2x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:DARK:2x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:DARK:2x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:DARK:3x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/3x/dark.png"
+    },
+    {
+      "name": "type:DARK:3x dimensions",
+      "ok": true,
+      "detail": [
+        60,
+        60
+      ]
+    },
+    {
+      "name": "type:DARK:3x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:DARK:3x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:DARK:3x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:DARK:4x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/4x/dark.png"
+    },
+    {
+      "name": "type:DARK:4x dimensions",
+      "ok": true,
+      "detail": [
+        80,
+        80
+      ]
+    },
+    {
+      "name": "type:DARK:4x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:DARK:4x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:DARK:4x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:STEEL:source exists",
+      "ok": true,
+      "detail": "assets/source/type_glyphs/steel.svg"
+    },
+    {
+      "name": "type:STEEL:SVG canvas",
+      "ok": true,
+      "detail": [
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "name": "type:STEEL:SVG viewBox",
+      "ok": true,
+      "detail": [
+        0.0,
+        0.0,
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "name": "type:STEEL:no baked semantic paint",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "type:STEEL:4 runtime densities",
+      "ok": true,
+      "detail": [
+        {
+          "scale": 1,
+          "pixels": 20,
+          "width": 20,
+          "height": 20,
+          "path": "assets/runtime/type_glyphs/1x/steel.png"
+        },
+        {
+          "scale": 2,
+          "pixels": 40,
+          "width": 40,
+          "height": 40,
+          "path": "assets/runtime/type_glyphs/2x/steel.png"
+        },
+        {
+          "scale": 3,
+          "pixels": 60,
+          "width": 60,
+          "height": 60,
+          "path": "assets/runtime/type_glyphs/3x/steel.png"
+        },
+        {
+          "scale": 4,
+          "pixels": 80,
+          "width": 80,
+          "height": 80,
+          "path": "assets/runtime/type_glyphs/4x/steel.png"
+        }
+      ]
+    },
+    {
+      "name": "type:STEEL:1x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/1x/steel.png"
+    },
+    {
+      "name": "type:STEEL:1x dimensions",
+      "ok": true,
+      "detail": [
+        20,
+        20
+      ]
+    },
+    {
+      "name": "type:STEEL:1x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:STEEL:1x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:STEEL:1x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:STEEL:2x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/2x/steel.png"
+    },
+    {
+      "name": "type:STEEL:2x dimensions",
+      "ok": true,
+      "detail": [
+        40,
+        40
+      ]
+    },
+    {
+      "name": "type:STEEL:2x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:STEEL:2x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:STEEL:2x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:STEEL:3x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/3x/steel.png"
+    },
+    {
+      "name": "type:STEEL:3x dimensions",
+      "ok": true,
+      "detail": [
+        60,
+        60
+      ]
+    },
+    {
+      "name": "type:STEEL:3x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:STEEL:3x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:STEEL:3x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:STEEL:4x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/4x/steel.png"
+    },
+    {
+      "name": "type:STEEL:4x dimensions",
+      "ok": true,
+      "detail": [
+        80,
+        80
+      ]
+    },
+    {
+      "name": "type:STEEL:4x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:STEEL:4x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:STEEL:4x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:FAIRY:source exists",
+      "ok": true,
+      "detail": "assets/source/type_glyphs/fairy.svg"
+    },
+    {
+      "name": "type:FAIRY:SVG canvas",
+      "ok": true,
+      "detail": [
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "name": "type:FAIRY:SVG viewBox",
+      "ok": true,
+      "detail": [
+        0.0,
+        0.0,
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "name": "type:FAIRY:no baked semantic paint",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "type:FAIRY:4 runtime densities",
+      "ok": true,
+      "detail": [
+        {
+          "scale": 1,
+          "pixels": 20,
+          "width": 20,
+          "height": 20,
+          "path": "assets/runtime/type_glyphs/1x/fairy.png"
+        },
+        {
+          "scale": 2,
+          "pixels": 40,
+          "width": 40,
+          "height": 40,
+          "path": "assets/runtime/type_glyphs/2x/fairy.png"
+        },
+        {
+          "scale": 3,
+          "pixels": 60,
+          "width": 60,
+          "height": 60,
+          "path": "assets/runtime/type_glyphs/3x/fairy.png"
+        },
+        {
+          "scale": 4,
+          "pixels": 80,
+          "width": 80,
+          "height": 80,
+          "path": "assets/runtime/type_glyphs/4x/fairy.png"
+        }
+      ]
+    },
+    {
+      "name": "type:FAIRY:1x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/1x/fairy.png"
+    },
+    {
+      "name": "type:FAIRY:1x dimensions",
+      "ok": true,
+      "detail": [
+        20,
+        20
+      ]
+    },
+    {
+      "name": "type:FAIRY:1x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:FAIRY:1x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:FAIRY:1x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:FAIRY:2x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/2x/fairy.png"
+    },
+    {
+      "name": "type:FAIRY:2x dimensions",
+      "ok": true,
+      "detail": [
+        40,
+        40
+      ]
+    },
+    {
+      "name": "type:FAIRY:2x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:FAIRY:2x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:FAIRY:2x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:FAIRY:3x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/3x/fairy.png"
+    },
+    {
+      "name": "type:FAIRY:3x dimensions",
+      "ok": true,
+      "detail": [
+        60,
+        60
+      ]
+    },
+    {
+      "name": "type:FAIRY:3x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:FAIRY:3x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:FAIRY:3x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type:FAIRY:4x exists",
+      "ok": true,
+      "detail": "assets/runtime/type_glyphs/4x/fairy.png"
+    },
+    {
+      "name": "type:FAIRY:4x dimensions",
+      "ok": true,
+      "detail": [
+        80,
+        80
+      ]
+    },
+    {
+      "name": "type:FAIRY:4x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "type:FAIRY:4x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "type:FAIRY:4x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "status:POISONED:source exists",
+      "ok": true,
+      "detail": "assets/source/status_glyphs/poisoned.svg"
+    },
+    {
+      "name": "status:POISONED:SVG canvas",
+      "ok": true,
+      "detail": [
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "name": "status:POISONED:SVG viewBox",
+      "ok": true,
+      "detail": [
+        0.0,
+        0.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "name": "status:POISONED:no baked semantic paint",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "status:POISONED:4 runtime densities",
+      "ok": true,
+      "detail": [
+        {
+          "scale": 1,
+          "pixels": 32,
+          "width": 32,
+          "height": 32,
+          "path": "assets/runtime/status_glyphs/1x/poisoned.png"
+        },
+        {
+          "scale": 2,
+          "pixels": 64,
+          "width": 64,
+          "height": 64,
+          "path": "assets/runtime/status_glyphs/2x/poisoned.png"
+        },
+        {
+          "scale": 3,
+          "pixels": 96,
+          "width": 96,
+          "height": 96,
+          "path": "assets/runtime/status_glyphs/3x/poisoned.png"
+        },
+        {
+          "scale": 4,
+          "pixels": 128,
+          "width": 128,
+          "height": 128,
+          "path": "assets/runtime/status_glyphs/4x/poisoned.png"
+        }
+      ]
+    },
+    {
+      "name": "status:POISONED:1x exists",
+      "ok": true,
+      "detail": "assets/runtime/status_glyphs/1x/poisoned.png"
+    },
+    {
+      "name": "status:POISONED:1x dimensions",
+      "ok": true,
+      "detail": [
+        32,
+        32
+      ]
+    },
+    {
+      "name": "status:POISONED:1x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "status:POISONED:1x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "status:POISONED:1x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "status:POISONED:2x exists",
+      "ok": true,
+      "detail": "assets/runtime/status_glyphs/2x/poisoned.png"
+    },
+    {
+      "name": "status:POISONED:2x dimensions",
+      "ok": true,
+      "detail": [
+        64,
+        64
+      ]
+    },
+    {
+      "name": "status:POISONED:2x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "status:POISONED:2x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "status:POISONED:2x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "status:POISONED:3x exists",
+      "ok": true,
+      "detail": "assets/runtime/status_glyphs/3x/poisoned.png"
+    },
+    {
+      "name": "status:POISONED:3x dimensions",
+      "ok": true,
+      "detail": [
+        96,
+        96
+      ]
+    },
+    {
+      "name": "status:POISONED:3x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "status:POISONED:3x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "status:POISONED:3x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "status:POISONED:4x exists",
+      "ok": true,
+      "detail": "assets/runtime/status_glyphs/4x/poisoned.png"
+    },
+    {
+      "name": "status:POISONED:4x dimensions",
+      "ok": true,
+      "detail": [
+        128,
+        128
+      ]
+    },
+    {
+      "name": "status:POISONED:4x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "status:POISONED:4x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "status:POISONED:4x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "status:BADLY_POISONED:source exists",
+      "ok": true,
+      "detail": "assets/source/status_glyphs/badly_poisoned.svg"
+    },
+    {
+      "name": "status:BADLY_POISONED:SVG canvas",
+      "ok": true,
+      "detail": [
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "name": "status:BADLY_POISONED:SVG viewBox",
+      "ok": true,
+      "detail": [
+        0.0,
+        0.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "name": "status:BADLY_POISONED:no baked semantic paint",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "status:BADLY_POISONED:4 runtime densities",
+      "ok": true,
+      "detail": [
+        {
+          "scale": 1,
+          "pixels": 32,
+          "width": 32,
+          "height": 32,
+          "path": "assets/runtime/status_glyphs/1x/badly_poisoned.png"
+        },
+        {
+          "scale": 2,
+          "pixels": 64,
+          "width": 64,
+          "height": 64,
+          "path": "assets/runtime/status_glyphs/2x/badly_poisoned.png"
+        },
+        {
+          "scale": 3,
+          "pixels": 96,
+          "width": 96,
+          "height": 96,
+          "path": "assets/runtime/status_glyphs/3x/badly_poisoned.png"
+        },
+        {
+          "scale": 4,
+          "pixels": 128,
+          "width": 128,
+          "height": 128,
+          "path": "assets/runtime/status_glyphs/4x/badly_poisoned.png"
+        }
+      ]
+    },
+    {
+      "name": "status:BADLY_POISONED:1x exists",
+      "ok": true,
+      "detail": "assets/runtime/status_glyphs/1x/badly_poisoned.png"
+    },
+    {
+      "name": "status:BADLY_POISONED:1x dimensions",
+      "ok": true,
+      "detail": [
+        32,
+        32
+      ]
+    },
+    {
+      "name": "status:BADLY_POISONED:1x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "status:BADLY_POISONED:1x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "status:BADLY_POISONED:1x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "status:BADLY_POISONED:2x exists",
+      "ok": true,
+      "detail": "assets/runtime/status_glyphs/2x/badly_poisoned.png"
+    },
+    {
+      "name": "status:BADLY_POISONED:2x dimensions",
+      "ok": true,
+      "detail": [
+        64,
+        64
+      ]
+    },
+    {
+      "name": "status:BADLY_POISONED:2x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "status:BADLY_POISONED:2x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "status:BADLY_POISONED:2x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "status:BADLY_POISONED:3x exists",
+      "ok": true,
+      "detail": "assets/runtime/status_glyphs/3x/badly_poisoned.png"
+    },
+    {
+      "name": "status:BADLY_POISONED:3x dimensions",
+      "ok": true,
+      "detail": [
+        96,
+        96
+      ]
+    },
+    {
+      "name": "status:BADLY_POISONED:3x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "status:BADLY_POISONED:3x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "status:BADLY_POISONED:3x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "status:BADLY_POISONED:4x exists",
+      "ok": true,
+      "detail": "assets/runtime/status_glyphs/4x/badly_poisoned.png"
+    },
+    {
+      "name": "status:BADLY_POISONED:4x dimensions",
+      "ok": true,
+      "detail": [
+        128,
+        128
+      ]
+    },
+    {
+      "name": "status:BADLY_POISONED:4x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "status:BADLY_POISONED:4x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "status:BADLY_POISONED:4x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "status:BURNED:source exists",
+      "ok": true,
+      "detail": "assets/source/status_glyphs/burned.svg"
+    },
+    {
+      "name": "status:BURNED:SVG canvas",
+      "ok": true,
+      "detail": [
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "name": "status:BURNED:SVG viewBox",
+      "ok": true,
+      "detail": [
+        0.0,
+        0.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "name": "status:BURNED:no baked semantic paint",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "status:BURNED:4 runtime densities",
+      "ok": true,
+      "detail": [
+        {
+          "scale": 1,
+          "pixels": 32,
+          "width": 32,
+          "height": 32,
+          "path": "assets/runtime/status_glyphs/1x/burned.png"
+        },
+        {
+          "scale": 2,
+          "pixels": 64,
+          "width": 64,
+          "height": 64,
+          "path": "assets/runtime/status_glyphs/2x/burned.png"
+        },
+        {
+          "scale": 3,
+          "pixels": 96,
+          "width": 96,
+          "height": 96,
+          "path": "assets/runtime/status_glyphs/3x/burned.png"
+        },
+        {
+          "scale": 4,
+          "pixels": 128,
+          "width": 128,
+          "height": 128,
+          "path": "assets/runtime/status_glyphs/4x/burned.png"
+        }
+      ]
+    },
+    {
+      "name": "status:BURNED:1x exists",
+      "ok": true,
+      "detail": "assets/runtime/status_glyphs/1x/burned.png"
+    },
+    {
+      "name": "status:BURNED:1x dimensions",
+      "ok": true,
+      "detail": [
+        32,
+        32
+      ]
+    },
+    {
+      "name": "status:BURNED:1x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "status:BURNED:1x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "status:BURNED:1x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "status:BURNED:2x exists",
+      "ok": true,
+      "detail": "assets/runtime/status_glyphs/2x/burned.png"
+    },
+    {
+      "name": "status:BURNED:2x dimensions",
+      "ok": true,
+      "detail": [
+        64,
+        64
+      ]
+    },
+    {
+      "name": "status:BURNED:2x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "status:BURNED:2x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "status:BURNED:2x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "status:BURNED:3x exists",
+      "ok": true,
+      "detail": "assets/runtime/status_glyphs/3x/burned.png"
+    },
+    {
+      "name": "status:BURNED:3x dimensions",
+      "ok": true,
+      "detail": [
+        96,
+        96
+      ]
+    },
+    {
+      "name": "status:BURNED:3x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "status:BURNED:3x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "status:BURNED:3x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "status:BURNED:4x exists",
+      "ok": true,
+      "detail": "assets/runtime/status_glyphs/4x/burned.png"
+    },
+    {
+      "name": "status:BURNED:4x dimensions",
+      "ok": true,
+      "detail": [
+        128,
+        128
+      ]
+    },
+    {
+      "name": "status:BURNED:4x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "status:BURNED:4x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "status:BURNED:4x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "status:PARALYZED:source exists",
+      "ok": true,
+      "detail": "assets/source/status_glyphs/paralyzed.svg"
+    },
+    {
+      "name": "status:PARALYZED:SVG canvas",
+      "ok": true,
+      "detail": [
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "name": "status:PARALYZED:SVG viewBox",
+      "ok": true,
+      "detail": [
+        0.0,
+        0.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "name": "status:PARALYZED:no baked semantic paint",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "status:PARALYZED:4 runtime densities",
+      "ok": true,
+      "detail": [
+        {
+          "scale": 1,
+          "pixels": 32,
+          "width": 32,
+          "height": 32,
+          "path": "assets/runtime/status_glyphs/1x/paralyzed.png"
+        },
+        {
+          "scale": 2,
+          "pixels": 64,
+          "width": 64,
+          "height": 64,
+          "path": "assets/runtime/status_glyphs/2x/paralyzed.png"
+        },
+        {
+          "scale": 3,
+          "pixels": 96,
+          "width": 96,
+          "height": 96,
+          "path": "assets/runtime/status_glyphs/3x/paralyzed.png"
+        },
+        {
+          "scale": 4,
+          "pixels": 128,
+          "width": 128,
+          "height": 128,
+          "path": "assets/runtime/status_glyphs/4x/paralyzed.png"
+        }
+      ]
+    },
+    {
+      "name": "status:PARALYZED:1x exists",
+      "ok": true,
+      "detail": "assets/runtime/status_glyphs/1x/paralyzed.png"
+    },
+    {
+      "name": "status:PARALYZED:1x dimensions",
+      "ok": true,
+      "detail": [
+        32,
+        32
+      ]
+    },
+    {
+      "name": "status:PARALYZED:1x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "status:PARALYZED:1x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "status:PARALYZED:1x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "status:PARALYZED:2x exists",
+      "ok": true,
+      "detail": "assets/runtime/status_glyphs/2x/paralyzed.png"
+    },
+    {
+      "name": "status:PARALYZED:2x dimensions",
+      "ok": true,
+      "detail": [
+        64,
+        64
+      ]
+    },
+    {
+      "name": "status:PARALYZED:2x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "status:PARALYZED:2x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "status:PARALYZED:2x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "status:PARALYZED:3x exists",
+      "ok": true,
+      "detail": "assets/runtime/status_glyphs/3x/paralyzed.png"
+    },
+    {
+      "name": "status:PARALYZED:3x dimensions",
+      "ok": true,
+      "detail": [
+        96,
+        96
+      ]
+    },
+    {
+      "name": "status:PARALYZED:3x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "status:PARALYZED:3x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "status:PARALYZED:3x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "status:PARALYZED:4x exists",
+      "ok": true,
+      "detail": "assets/runtime/status_glyphs/4x/paralyzed.png"
+    },
+    {
+      "name": "status:PARALYZED:4x dimensions",
+      "ok": true,
+      "detail": [
+        128,
+        128
+      ]
+    },
+    {
+      "name": "status:PARALYZED:4x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "status:PARALYZED:4x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "status:PARALYZED:4x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "status:ASLEEP:source exists",
+      "ok": true,
+      "detail": "assets/source/status_glyphs/asleep.svg"
+    },
+    {
+      "name": "status:ASLEEP:SVG canvas",
+      "ok": true,
+      "detail": [
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "name": "status:ASLEEP:SVG viewBox",
+      "ok": true,
+      "detail": [
+        0.0,
+        0.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "name": "status:ASLEEP:no baked semantic paint",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "status:ASLEEP:4 runtime densities",
+      "ok": true,
+      "detail": [
+        {
+          "scale": 1,
+          "pixels": 32,
+          "width": 32,
+          "height": 32,
+          "path": "assets/runtime/status_glyphs/1x/asleep.png"
+        },
+        {
+          "scale": 2,
+          "pixels": 64,
+          "width": 64,
+          "height": 64,
+          "path": "assets/runtime/status_glyphs/2x/asleep.png"
+        },
+        {
+          "scale": 3,
+          "pixels": 96,
+          "width": 96,
+          "height": 96,
+          "path": "assets/runtime/status_glyphs/3x/asleep.png"
+        },
+        {
+          "scale": 4,
+          "pixels": 128,
+          "width": 128,
+          "height": 128,
+          "path": "assets/runtime/status_glyphs/4x/asleep.png"
+        }
+      ]
+    },
+    {
+      "name": "status:ASLEEP:1x exists",
+      "ok": true,
+      "detail": "assets/runtime/status_glyphs/1x/asleep.png"
+    },
+    {
+      "name": "status:ASLEEP:1x dimensions",
+      "ok": true,
+      "detail": [
+        32,
+        32
+      ]
+    },
+    {
+      "name": "status:ASLEEP:1x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "status:ASLEEP:1x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "status:ASLEEP:1x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "status:ASLEEP:2x exists",
+      "ok": true,
+      "detail": "assets/runtime/status_glyphs/2x/asleep.png"
+    },
+    {
+      "name": "status:ASLEEP:2x dimensions",
+      "ok": true,
+      "detail": [
+        64,
+        64
+      ]
+    },
+    {
+      "name": "status:ASLEEP:2x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "status:ASLEEP:2x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "status:ASLEEP:2x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "status:ASLEEP:3x exists",
+      "ok": true,
+      "detail": "assets/runtime/status_glyphs/3x/asleep.png"
+    },
+    {
+      "name": "status:ASLEEP:3x dimensions",
+      "ok": true,
+      "detail": [
+        96,
+        96
+      ]
+    },
+    {
+      "name": "status:ASLEEP:3x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "status:ASLEEP:3x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "status:ASLEEP:3x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "status:ASLEEP:4x exists",
+      "ok": true,
+      "detail": "assets/runtime/status_glyphs/4x/asleep.png"
+    },
+    {
+      "name": "status:ASLEEP:4x dimensions",
+      "ok": true,
+      "detail": [
+        128,
+        128
+      ]
+    },
+    {
+      "name": "status:ASLEEP:4x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "status:ASLEEP:4x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "status:ASLEEP:4x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "status:FROZEN:source exists",
+      "ok": true,
+      "detail": "assets/source/status_glyphs/frozen.svg"
+    },
+    {
+      "name": "status:FROZEN:SVG canvas",
+      "ok": true,
+      "detail": [
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "name": "status:FROZEN:SVG viewBox",
+      "ok": true,
+      "detail": [
+        0.0,
+        0.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "name": "status:FROZEN:no baked semantic paint",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "status:FROZEN:4 runtime densities",
+      "ok": true,
+      "detail": [
+        {
+          "scale": 1,
+          "pixels": 32,
+          "width": 32,
+          "height": 32,
+          "path": "assets/runtime/status_glyphs/1x/frozen.png"
+        },
+        {
+          "scale": 2,
+          "pixels": 64,
+          "width": 64,
+          "height": 64,
+          "path": "assets/runtime/status_glyphs/2x/frozen.png"
+        },
+        {
+          "scale": 3,
+          "pixels": 96,
+          "width": 96,
+          "height": 96,
+          "path": "assets/runtime/status_glyphs/3x/frozen.png"
+        },
+        {
+          "scale": 4,
+          "pixels": 128,
+          "width": 128,
+          "height": 128,
+          "path": "assets/runtime/status_glyphs/4x/frozen.png"
+        }
+      ]
+    },
+    {
+      "name": "status:FROZEN:1x exists",
+      "ok": true,
+      "detail": "assets/runtime/status_glyphs/1x/frozen.png"
+    },
+    {
+      "name": "status:FROZEN:1x dimensions",
+      "ok": true,
+      "detail": [
+        32,
+        32
+      ]
+    },
+    {
+      "name": "status:FROZEN:1x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "status:FROZEN:1x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "status:FROZEN:1x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "status:FROZEN:2x exists",
+      "ok": true,
+      "detail": "assets/runtime/status_glyphs/2x/frozen.png"
+    },
+    {
+      "name": "status:FROZEN:2x dimensions",
+      "ok": true,
+      "detail": [
+        64,
+        64
+      ]
+    },
+    {
+      "name": "status:FROZEN:2x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "status:FROZEN:2x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "status:FROZEN:2x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "status:FROZEN:3x exists",
+      "ok": true,
+      "detail": "assets/runtime/status_glyphs/3x/frozen.png"
+    },
+    {
+      "name": "status:FROZEN:3x dimensions",
+      "ok": true,
+      "detail": [
+        96,
+        96
+      ]
+    },
+    {
+      "name": "status:FROZEN:3x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "status:FROZEN:3x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "status:FROZEN:3x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "status:FROZEN:4x exists",
+      "ok": true,
+      "detail": "assets/runtime/status_glyphs/4x/frozen.png"
+    },
+    {
+      "name": "status:FROZEN:4x dimensions",
+      "ok": true,
+      "detail": [
+        128,
+        128
+      ]
+    },
+    {
+      "name": "status:FROZEN:4x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "status:FROZEN:4x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "status:FROZEN:4x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "status:FAINTED:source exists",
+      "ok": true,
+      "detail": "assets/source/status_glyphs/fainted.svg"
+    },
+    {
+      "name": "status:FAINTED:SVG canvas",
+      "ok": true,
+      "detail": [
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "name": "status:FAINTED:SVG viewBox",
+      "ok": true,
+      "detail": [
+        0.0,
+        0.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "name": "status:FAINTED:no baked semantic paint",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "status:FAINTED:4 runtime densities",
+      "ok": true,
+      "detail": [
+        {
+          "scale": 1,
+          "pixels": 32,
+          "width": 32,
+          "height": 32,
+          "path": "assets/runtime/status_glyphs/1x/fainted.png"
+        },
+        {
+          "scale": 2,
+          "pixels": 64,
+          "width": 64,
+          "height": 64,
+          "path": "assets/runtime/status_glyphs/2x/fainted.png"
+        },
+        {
+          "scale": 3,
+          "pixels": 96,
+          "width": 96,
+          "height": 96,
+          "path": "assets/runtime/status_glyphs/3x/fainted.png"
+        },
+        {
+          "scale": 4,
+          "pixels": 128,
+          "width": 128,
+          "height": 128,
+          "path": "assets/runtime/status_glyphs/4x/fainted.png"
+        }
+      ]
+    },
+    {
+      "name": "status:FAINTED:1x exists",
+      "ok": true,
+      "detail": "assets/runtime/status_glyphs/1x/fainted.png"
+    },
+    {
+      "name": "status:FAINTED:1x dimensions",
+      "ok": true,
+      "detail": [
+        32,
+        32
+      ]
+    },
+    {
+      "name": "status:FAINTED:1x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "status:FAINTED:1x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "status:FAINTED:1x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "status:FAINTED:2x exists",
+      "ok": true,
+      "detail": "assets/runtime/status_glyphs/2x/fainted.png"
+    },
+    {
+      "name": "status:FAINTED:2x dimensions",
+      "ok": true,
+      "detail": [
+        64,
+        64
+      ]
+    },
+    {
+      "name": "status:FAINTED:2x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "status:FAINTED:2x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "status:FAINTED:2x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "status:FAINTED:3x exists",
+      "ok": true,
+      "detail": "assets/runtime/status_glyphs/3x/fainted.png"
+    },
+    {
+      "name": "status:FAINTED:3x dimensions",
+      "ok": true,
+      "detail": [
+        96,
+        96
+      ]
+    },
+    {
+      "name": "status:FAINTED:3x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "status:FAINTED:3x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "status:FAINTED:3x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "status:FAINTED:4x exists",
+      "ok": true,
+      "detail": "assets/runtime/status_glyphs/4x/fainted.png"
+    },
+    {
+      "name": "status:FAINTED:4x dimensions",
+      "ok": true,
+      "detail": [
+        128,
+        128
+      ]
+    },
+    {
+      "name": "status:FAINTED:4x white RGB texels",
+      "ok": true,
+      "detail": [
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          255
+        ]
+      ]
+    },
+    {
+      "name": "status:FAINTED:4x transparent alpha",
+      "ok": true,
+      "detail": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "status:FAINTED:4x alpha matches SVG raster",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "legacy status raster names removed",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "modern glyph components use linear filtering",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "modern glyph components do not use nearest",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "type assets use central registry",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "status assets use central registry",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "Party uses shared TypeChip",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "Party uses shared StatusToken Full/Compact",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "Type compact ratio is canonical 20/32",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "Badly Poisoned exclamation not procedural",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "Fire uses same semantic type token",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "accessibility profile:standard",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "accessibility profile:protanopia",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "accessibility profile:deuteranopia",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "accessibility profile:tritanopia",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "Standard Fire token #FF944C",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "Standard Poison status icon #9354CB",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "Standard Frozen status #47C8C8",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "1280x720:type no small-raster upscale",
+      "ok": true,
+      "detail": {
+        "resolution": "1280x720",
+        "uiScale": 0.6666666666666666,
+        "typeGlyphPhysicalPx": 13.333333333333332,
+        "typeRasterPx": 40,
+        "statusGlyphPhysicalPx": 21.333333333333332,
+        "statusRasterPx": 64
+      }
+    },
+    {
+      "name": "1280x720:status no small-raster upscale",
+      "ok": true,
+      "detail": {
+        "resolution": "1280x720",
+        "uiScale": 0.6666666666666666,
+        "typeGlyphPhysicalPx": 13.333333333333332,
+        "typeRasterPx": 40,
+        "statusGlyphPhysicalPx": 21.333333333333332,
+        "statusRasterPx": 64
+      }
+    },
+    {
+      "name": "1600x900:type no small-raster upscale",
+      "ok": true,
+      "detail": {
+        "resolution": "1600x900",
+        "uiScale": 0.8333333333333334,
+        "typeGlyphPhysicalPx": 16.666666666666668,
+        "typeRasterPx": 40,
+        "statusGlyphPhysicalPx": 26.666666666666668,
+        "statusRasterPx": 64
+      }
+    },
+    {
+      "name": "1600x900:status no small-raster upscale",
+      "ok": true,
+      "detail": {
+        "resolution": "1600x900",
+        "uiScale": 0.8333333333333334,
+        "typeGlyphPhysicalPx": 16.666666666666668,
+        "typeRasterPx": 40,
+        "statusGlyphPhysicalPx": 26.666666666666668,
+        "statusRasterPx": 64
+      }
+    },
+    {
+      "name": "1920x1080:type no small-raster upscale",
+      "ok": true,
+      "detail": {
+        "resolution": "1920x1080",
+        "uiScale": 1.0,
+        "typeGlyphPhysicalPx": 20.0,
+        "typeRasterPx": 40,
+        "statusGlyphPhysicalPx": 32.0,
+        "statusRasterPx": 64
+      }
+    },
+    {
+      "name": "1920x1080:status no small-raster upscale",
+      "ok": true,
+      "detail": {
+        "resolution": "1920x1080",
+        "uiScale": 1.0,
+        "typeGlyphPhysicalPx": 20.0,
+        "typeRasterPx": 40,
+        "statusGlyphPhysicalPx": 32.0,
+        "statusRasterPx": 64
+      }
+    },
+    {
+      "name": "2560x1440:type no small-raster upscale",
+      "ok": true,
+      "detail": {
+        "resolution": "2560x1440",
+        "uiScale": 1.3333333333333333,
+        "typeGlyphPhysicalPx": 26.666666666666664,
+        "typeRasterPx": 60,
+        "statusGlyphPhysicalPx": 42.666666666666664,
+        "statusRasterPx": 96
+      }
+    },
+    {
+      "name": "2560x1440:status no small-raster upscale",
+      "ok": true,
+      "detail": {
+        "resolution": "2560x1440",
+        "uiScale": 1.3333333333333333,
+        "typeGlyphPhysicalPx": 26.666666666666664,
+        "typeRasterPx": 60,
+        "statusGlyphPhysicalPx": 42.666666666666664,
+        "statusRasterPx": 96
+      }
+    }
+  ],
+  "failures": [],
+  "resolutionQA": [
+    {
+      "resolution": "1280x720",
+      "uiScale": 0.6666666666666666,
+      "typeGlyphPhysicalPx": 13.333333333333332,
+      "typeRasterPx": 40,
+      "statusGlyphPhysicalPx": 21.333333333333332,
+      "statusRasterPx": 64
+    },
+    {
+      "resolution": "1600x900",
+      "uiScale": 0.8333333333333334,
+      "typeGlyphPhysicalPx": 16.666666666666668,
+      "typeRasterPx": 40,
+      "statusGlyphPhysicalPx": 26.666666666666668,
+      "statusRasterPx": 64
+    },
+    {
+      "resolution": "1920x1080",
+      "uiScale": 1.0,
+      "typeGlyphPhysicalPx": 20.0,
+      "typeRasterPx": 40,
+      "statusGlyphPhysicalPx": 32.0,
+      "statusRasterPx": 64
+    },
+    {
+      "resolution": "2560x1440",
+      "uiScale": 1.3333333333333333,
+      "typeGlyphPhysicalPx": 26.666666666666664,
+      "typeRasterPx": 60,
+      "statusGlyphPhysicalPx": 42.666666666666664,
+      "statusRasterPx": 96
+    }
+  ]
+}

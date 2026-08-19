@@ -1,0 +1,7 @@
+local root=assert(arg[1],'root required')
+local s=assert(io.open(root..'/screens/mods_menu.lua','rb')):read('*a')
+assert(s:find("id:match('^kanto_rework_')",1,true) or s:find('^kanto_rework_',1,true),'first-party KRS grouping remains prefix/manifest-identity based')
+assert(s:find('local KRS_ORDER={kanto_rework_suite=1}',1,true),'Candidate pins the single native Suite entry first')
+assert(not s:find('kanto_rework_graphics=',1,true) and not s:find('kanto_rework_battle_anims=',1,true),'legacy internal modules are not represented as native KRS rows')
+assert(not s:find("KRS_IDS={",1,true),'grouping is not a finite membership allowlist')
+print('KRS Candidate single-mod grouping tests passed')

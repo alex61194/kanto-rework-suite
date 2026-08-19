@@ -1,0 +1,7 @@
+local src=assert(io.open('adapters/battle_art_voxel_family.lua','rb')):read('*a')
+assert(src:find("type(Voxel3D.available)=='function'",1,true),'battle ownership probes live renderer availability when exposed')
+assert(src:find("type(OverworldBattle.shot)=='function'",1,true),'battle ownership probes staged shot when exposed')
+assert(src:find("reason='renderer_unavailable'",1,true),'renderer failure explicitly returns KRS background ownership')
+assert(src:find("reason='battle_shot_unavailable'",1,true),'missing staged shot explicitly returns KRS background ownership')
+assert(src:find("result.owns=true;result.reason='live_3d_battle'",1,true),'Voxel owns background only after live checks')
+print('Voxel battle renderer-health tests passed')

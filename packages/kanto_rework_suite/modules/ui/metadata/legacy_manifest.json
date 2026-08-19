@@ -1,0 +1,36 @@
+{
+  "id": "kanto_rework_ui",
+  "name": "Kanto Rework UI",
+  "version": "0.8.54",
+  "api": 2,
+  "entry": "main.lua",
+  "profile": "overhaul",
+  "category": "UI",
+  "priority": 200,
+  "game_version": ">=0.1.86 <0.2.0",
+  "github": "Faendra/kanto-rework-suite",
+  "dependencies": [
+    "kanto_rework_core@>=0.1.43 <0.2.0",
+    "kanto_rework_graphics@>=0.3.4 <0.4.0"
+  ],
+  "optional_dependencies": [
+    "kanto_rework_gameplay@>=0.3.0 <0.4.0",
+    "kanto_rework_compat@>=0.3.2 <0.5.0"
+  ],
+  "conflicts": [
+    "gen1_modern_ui",
+    "kanto_rework_ui_p2"
+  ],
+  "permissions": [
+    "engine_internals"
+  ],
+  "affects_link": false,
+  "description": "Kanto Rework Wide UI for Gen1Recomp 0.1.86+, with Red/Blue/Yellow Start Screen routing, authored Oak-intro presentation, themed battle/menu interfaces, 72 location/time BattleBackGrounds, provider-based Pokémon art and capture-tutorial skinning.",
+  "author": "Faendra",
+  "dependency_sources": {
+    "kanto_rework_core": "Faendra/kanto-rework-suite",
+    "kanto_rework_graphics": "Faendra/kanto-rework-suite",
+    "kanto_rework_gameplay": "Faendra/kanto-rework-suite",
+    "kanto_rework_compat": "Faendra/kanto-rework-suite"
+  }
+}

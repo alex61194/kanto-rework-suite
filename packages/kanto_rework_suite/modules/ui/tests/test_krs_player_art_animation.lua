@@ -1,0 +1,6 @@
+local battle=assert(io.open('ui/battle_presenter.lua','rb')):read('*a')
+local art=assert(io.open('runtime/pokemon_art.lua','rb')):read('*a')
+assert(battle:find('krsPlayerTrainerArt',1,true),'battle presenter consumes KRS player-art selection')
+assert(battle:find("s:picOffset('back')",1,true) and battle:find('atlas.frameIndex=frame',1,true),'five-pose player strip is locked to native trainer slide')
+assert(art:find('atlas.frameIndex',1,true) and art:find('service:materialize',1,true),'art service supports deterministic atlas frames')
+print('KRS player battle-art animation tests passed')

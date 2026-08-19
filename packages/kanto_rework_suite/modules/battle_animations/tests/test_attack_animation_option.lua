@@ -1,0 +1,8 @@
+local root=assert(arg[1],'root required')
+local entry=assert(io.open(root..'/entry.lua','rb')):read('*a')
+local player=assert(io.open(root..'/scripts/essentials_player.lua','rb')):read('*a')
+assert(entry:find('key="attack_animations"',1,true) and entry:find('group="BATTLE VISUALS"',1,true),'Battle Animations exposes its implemented toggle')
+assert(player:find('options:get("attack_animations")',1,true),'runtime rendering path reads the option')
+assert(player:find('return original.start(self,moveId,attackerIsPlayer,opts)',1,true),'disabled KRS animations fall back to Gen1Recomp native animation path')
+assert(entry:find('KRS_BG',1,true) and entry:find('ANIM_BACK',1,true) and entry:find('ANIM_FRONT',1,true),'layering contract remains documented in module exports')
+print('Battle Animations option tests passed')

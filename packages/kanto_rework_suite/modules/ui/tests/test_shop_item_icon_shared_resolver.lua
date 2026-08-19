@@ -1,0 +1,7 @@
+local root=assert(arg[1],'root required')
+local s=assert(io.open(root..'/ui/native_presenter.lua','rb')):read('*a')
+assert(s:find('local function itemIcon(row,def)',1,true),'Bag/Shop share one itemIcon resolver')
+local shopAt=assert(s:find('local function drawShop',1,true));local shop=s:sub(shopAt)
+assert(shop:find('itemIcon(row,def)',1,true),'Shop uses the same itemIcon resolver as Bag')
+assert(not s:find('shopItemIcon',1,true),'no second Shop-specific icon resolver exists')
+print('Shop shared item icon resolver tests passed')

@@ -1,0 +1,8 @@
+local text=assert(io.open('../screens/graphics_editor.lua','rb')):read('*a')
+assert(text:find("if not self.liveBattle then rows[#rows+1]={kind='choice',id=role..'.preset'",1,true),'live battle must keep actual battler species authoritative')
+assert(text:find("id=role..'.reset_placement'",1,true),'each battler exposes a placement/size reset')
+assert(text:find('function Screen:resetSpritePlacement(role)',1,true),'sprite reset handler missing')
+assert(text:find('cfg.position=nil;cfg.size=',1,true),'reset must restore authored position and default scale')
+assert(not text:find("self.scope=='local' and r and runtime.Layout.contains",1,true),'sprite direct drag must not be artificially limited to Local scope')
+assert(text:find("for _,role in ipairs({'player','opponent'})",1,true),'player and opponent remain separately addressable')
+print('PASS test_live_editor_sprite_controls')

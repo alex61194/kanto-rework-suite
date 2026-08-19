@@ -1,0 +1,21 @@
+{
+  "id": "kanto_rework_core",
+  "name": "Kanto Rework Core",
+  "version": "0.1.43",
+  "api": 2,
+  "entry": "main.lua",
+  "profile": "overhaul",
+  "category": "QOL",
+  "priority": 120,
+  "game_version": ">=0.1.86 <0.2.0",
+  "github": "Faendra/kanto-rework-suite",
+  "dependencies": [],
+  "optional_dependencies": [],
+  "conflicts": [],
+  "permissions": [
+    "engine_internals"
+  ],
+  "affects_link": false,
+  "description": "Foundation services for Kanto Rework on Gen1Recomp 0.1.86+, using the sandbox-safe Mod API for module reads, persistence, pointer/input dispatch, restart checkpoints, typography, Pokémon art resolution, save slots, accessibility and field actions.",
+  "author": "Faendra"
+}

@@ -1,0 +1,42 @@
+local root=assert(arg[1],"UI root required")
+local function read(rel)
+  local f=assert(io.open(root.."/"..rel,"rb"));local s=f:read("*a");f:close();return s
+end
+local native=read("ui/native_presenter.lua")
+local presenter=read("ui/menu_presenter.lua")
+local header=read("components/header.lua")
+local options=read("screens/options_menu.lua")
+local mods=read("screens/mods_menu.lua")
+local pc=read("screens/pc_storage.lua")
+
+local bagStart=assert(native:find("local function drawBag(game,m,c,list,overlay)",1,true))
+local bagEnd=assert(native:find("local function listParent(game,state)",bagStart,true))
+local bag=native:sub(bagStart,bagEnd-1)
+assert(not bag:find("drawPocketSpine",1,true),"validated Bag no longer renders a vertical pocket spine")
+assert(bag:find("local lx,ly,lw,lh=64,120,924,856",1,true),"Bag item ledger uses validated left panel geometry")
+assert(bag:find("local dx,dy,dw,dh=1012,120,844,856",1,true),"Bag selected-item context uses validated right geometry")
+assert(bag:find("drawBagHeader",1,true) and bag:find("drawBagFooter",1,true),"Bag uses header pocket hierarchy and canonical footer")
+assert(not bag:find("USE / OPEN",1,true),"Bag detail panel no longer duplicates the global use shortcut")
+assert(native:find("{'←→','POCKET'}",1,true),"Bag footer exposes horizontal pocket navigation")
+
+assert(header:find("function Header.drawHierarchy",1,true),"shared fullscreen hierarchy header exists")
+assert(presenter:find("local center={x=64,y=120,w=1232,h=856};local info={x=1320,y=120,w=536,h=856}",1,true),"Options matches validated two-panel geometry")
+assert(presenter:find("parentLabel='OPTIONS'",1,true),"Options categories are rendered in the fullscreen header")
+assert(options:find('region="header"',1,true) and options:find('self.region=="header"',1,true),"Options opens on the horizontal header and exposes a distinct content navigation region")
+
+assert(presenter:find("local center={x=64,y=120,w=1224,h=856};local info={x=1312,y=120,w=544,h=856}",1,true),"Mods matches validated workspace/context geometry")
+assert(presenter:find("parentLabel='MODS'",1,true),"Mods sections are rendered in the fullscreen header")
+assert(mods:find('kind="mods",tab=1,headerIndex=1,region="header"',1,true) and mods:find('self.region=="header"',1,true),"Mods opens on the explicit horizontal header region")
+
+assert(presenter:find("local bx,by,bw,bh=64,202,568,768",1,true),"PC Box Bank matches validated left column")
+assert(presenter:find("local sx,sy,sw,sh=680,202,720,768",1,true),"PC stored grid matches validated center column")
+assert(presenter:find("local rx,ry,rw,rh=1448,202,408,768",1,true),"PC context matches validated right column")
+assert(presenter:find("local cols,visible=4,20;local visibleRows=5",1,true),"PC stored grid keeps four columns and adds the validated fifth visible row")
+assert(pc:find("local cols=4",1,true),"PC keyboard/controller spatial navigation follows the four-column grid")
+assert(presenter:find("runtime.pcSearchRect={x=890,y=162,w=300,h=28}",1,true),"PC search bar matches the current Figma geometry")
+assert(890+300/2==680+720/2,"PC search is centred exactly over Stored Pokémon")
+assert(not pc:find("writeSave",1,true),"PC UI never writes persistent save data directly")
+assert(pc:find("local SORTS={'pokedex','type','level'}",1,true),"PC exposes the canonical three Sort By modes")
+assert(pc:find("tonumber(a.def and a.def.dex)",1,true),"PC Pokédex sorting uses definition.dex")
+
+print("Validated Bag / Options / Mods / PC structural freeze checks passed")

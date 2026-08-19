@@ -1,0 +1,28 @@
+{
+  "id": "kanto_rework_dev",
+  "name": "Kanto Rework Dev Tools",
+  "version": "0.2.4",
+  "api": 2,
+  "entry": "main.lua",
+  "profile": "content",
+  "category": "DEVELOPER",
+  "priority": 50,
+  "game_version": ">=0.1.86 <0.2.0",
+  "github": "Faendra/kanto-rework-suite",
+  "dependencies": [
+    "kanto_rework_core@>=0.1.37 <0.2.0"
+  ],
+  "optional_dependencies": [
+    "kanto_rework_ui@>=0.8.36 <0.9.0",
+    "kanto_rework_gameplay@>=0.3.9 <0.4.0"
+  ],
+  "conflicts": [
+    "krs_qa_battle"
+  ],
+  "permissions": [
+    "engine_internals"
+  ],
+  "affects_link": false,
+  "description": "Optional interactive Kanto Rework developer tools for Gen1Recomp 0.1.86+: wild/trainer battle launch, shiny/level selection, optional move-animation preview, one-shot enemy battle tool, state dump, and session-only Fly override.",
+  "author": "Faendra"
+}

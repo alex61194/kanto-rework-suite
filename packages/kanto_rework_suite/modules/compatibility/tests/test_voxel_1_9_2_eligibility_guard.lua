@@ -1,0 +1,7 @@
+local root=assert(arg[1],'root path required')
+local f=assert(io.open(root..'/adapters/battle_art_voxel_family.lua','rb'));local s=f:read('*a');f:close()
+assert(s:find('Pipelines.eligible',1,true),'1ST/3RD KRS pointer bridge consults engine pipeline eligibility')
+assert(s:find("pcall(Pipelines.eligible,\"voxel\")",1,true),'eligibility check targets Voxel renderer')
+local main=assert(io.open(root..'/main.lua','rb')):read('*a')
+assert(main:find('latestAudited="1.9.2"',1,true),'compatibility metadata audits Voxel 1.9.2')
+print('Voxel 1.9.2 eligibility guard tests passed')

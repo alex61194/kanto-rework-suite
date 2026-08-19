@@ -1,0 +1,17 @@
+{
+  "id": "kanto_rework_battle_anims",
+  "name": "Kanto Rework Battle Animations",
+  "version": "0.1.7",
+  "entry": "entry.lua",
+  "api": 2,
+  "profile": "content",
+  "games": [
+    "gen1"
+  ],
+  "game_version": ">=0.1.80 <0.2.0",
+  "permissions": [
+    "engine_internals"
+  ],
+  "affects_link": false,
+  "description": "Kanto Rework Battle Animations: optional Gen 3–9 attack-animation bridge for all 165 Generation I moves, with semantic enemy fallback placement (target/user/reflect), live KRS battler anchors, functional MODS toggle, and Wide layering KRS_BG → KRS_POKEMON → ANIM_BACK → ANIM_FRONT → KRS_HUD → KRS_CHROME."
+}

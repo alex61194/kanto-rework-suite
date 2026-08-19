@@ -1,0 +1,24 @@
+{
+  "id": "kanto_rework_graphics",
+  "name": "Kanto Rework Graphics",
+  "version": "0.3.4",
+  "api": 2,
+  "entry": "main.lua",
+  "profile": "overhaul",
+  "category": "COSMETIC",
+  "priority": 124,
+  "game_version": ">=0.1.86 <0.2.0",
+  "github": "Faendra/kanto-rework-suite",
+  "dependencies": [
+    "kanto_rework_core@>=0.1.42 <0.2.0"
+  ],
+  "optional_dependencies": [],
+  "conflicts": [],
+  "permissions": [],
+  "affects_link": false,
+  "description": "KRS-owned graphics provider: animated/static Pokémon battle art, player art, battle-only scaling, KRS battle environments, and Sunrise/Day/Sunset/Night world lighting.",
+  "author": "Faendra",
+  "dependency_sources": {
+    "kanto_rework_core": "Faendra/kanto-rework-suite"
+  }
+}

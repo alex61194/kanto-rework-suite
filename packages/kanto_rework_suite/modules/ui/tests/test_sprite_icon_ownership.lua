@@ -1,0 +1,12 @@
+local root=assert(arg[1],'root path required')
+local party=assert(io.open(root..'/ui/party_presenter.lua','rb')):read('*a')
+local menu=assert(io.open(root..'/ui/menu_presenter.lua','rb')):read('*a')
+local adapter=assert(io.open(root..'/ui/party_adapter.lua','rb')):read('*a')
+local function count(hay,needle)local n,p=0,1;while true do local i=hay:find(needle,p,true);if not i then return n end;n=n+1;p=i+#needle end end
+assert(count(party,'frontSprite(game,p')==3,'frontSprite helper + exactly Party active and Summary call sites remain')
+assert(party:find('partyIcon(game,p,left.x+70,left.y+40,240)',1,true),'Moves summary uses compact two-frame icon helper')
+assert(adapter:find('"party.icon"',1,true),'Party list helper uses party.icon')
+assert(menu:find("'pc.icon'",1,true) and menu:find('runtime.Graphics.draw',1,true),'PC uses pc.icon')
+assert(menu:find("'save.icon'",1,true),'Save uses save.icon')
+assert(not menu:find("kind='pc'",1,true),'PC does not request front-art provider')
+print('Front Sprite / two-frame icon ownership tests passed')

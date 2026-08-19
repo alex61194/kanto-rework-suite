@@ -1,0 +1,50 @@
+{
+  "moves": 165,
+  "opponent_variants": 65,
+  "graphics": 116,
+  "sfx_files": 214,
+  "player_frames": 3965,
+  "player_timings": 432,
+  "version": "0.1.7",
+  "wide_layering_fix": true,
+  "wide_stage_scale_fix": true,
+  "wide_background_detection_fix": true,
+  "wide_stage_scaled_moves": [
+    "SURF",
+    "EARTHQUAKE",
+    "FISSURE"
+  ],
+  "wide_stage_scaled_opponent_moves": [],
+  "wide_bg_detector": {
+    "final_size_match": [
+      1920,
+      950
+    ],
+    "tolerance_px": 4,
+    "supports_quads": true
+  },
+  "wide_layer_order": [
+    "KRS_BG",
+    "KRS_POKEMON",
+    "ANIM_BACK",
+    "ANIM_FRONT",
+    "KRS_HUD",
+    "KRS_CHROME"
+  ],
+  "validation": {
+    "source_data_counts": "STATIC",
+    "lua_syntax": "PASS (6/6 files via texluac -p)",
+    "targeted_test": "PASS (3/3 tests via texlua; production draw paths exercised with deterministic Gen1Recomp/LÖVE stubs)",
+    "gen1recomp_runtime": "NOT_TESTED",
+    "reason": "No exact runnable Gen1Recomp build for the current 0.1.6→0.1.7 merge is mounted in this task workspace; most recent project evidence records a 0.1.94 boot with Battle Animations 0.1.5.",
+    "classification": "PASS (100 fallbacks: 55 target / 18 user / 27 reflect)"
+  },
+  "enemy_fallback_placement": {
+    "missing_opponent_sequences": 100,
+    "target_local": 55,
+    "user_local": 18,
+    "reflect_mixed": 27,
+    "wide_mode": "target/user anchor directly to live defender/attacker bounds; reflect retains 0.1.6 live projection",
+    "native_fallback": "canonical target/user translation or 180-degree point reflection"
+  }
+}

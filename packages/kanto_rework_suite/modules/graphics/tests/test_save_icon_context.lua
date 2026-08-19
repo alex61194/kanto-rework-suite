@@ -1,0 +1,5 @@
+local src=assert(io.open('main.lua','rb')):read('*a')
+assert(src:find("context=='save.icon'",1,true),'Graphics resolves save.icon with icon family')
+assert(src:find("'save.icon'",1,true),'save.icon is registered in Graphics contexts')
+assert(src:find('frameCount=2',1,true),'menu icon family retains two-frame metadata')
+print('KRS Graphics save.icon context test passed')

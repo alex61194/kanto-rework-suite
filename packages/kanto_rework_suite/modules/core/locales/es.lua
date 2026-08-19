@@ -1,0 +1,142 @@
+return {
+  -- Sistema y Menú Principal
+  app_name = "DIARIO DE CAMPO",
+  region_name = "KANTO",
+  entries_count = "%02d ENTRADAS",
+  companion_title = "COMPAÑERO DE KANTO",
+  overlay_edit_mode = "MODO EDICIÓN DE OVERLAY",
+  party_summary = "EQUIPO %d/6     ¥%d     %s",
+  edit_hint = "ARRASTRA EL ENCABEZADO ROJO - F9 PARA FIJAR",
+  shortcut_hint = "F8 OCULTAR - F9 EDITAR",
+  action_hint_mouse = "CLICK CONFIRMAR - CLICK DERECHO VOLVER - RUEDA SCROLL",
+  action_hint_keyboard = "A CONFIRMAR - B VOLVER - FLECHAS MOVER",
+  action_hint_controller = "A CONFIRMAR - B VOLVER - D-PAD MOVER",
+
+  -- Opciones del Menú Principal
+  pokedex = "POKéDEX",
+  pokemon = "POKéMON",
+  item = "OBJETOS",
+  trainer = "ENTRENADOR",
+  save = "GUARDAR",
+  option = "OPCIONES",
+
+  -- Diagnóstico y Emergencia
+  diagnostics_badge = "KRS %s - HUD ACTIVO - %s - %s",
+  start_menu_detected = "MENÚ INICIO DETECTADO",
+  native_world = "MUNDO NATIVO",
+  emergency_notice_title = "Error en Kanto Rework — interfaz nativa conservada",
+
+  -- Estadísticas (Stats)
+  stat_hp = "PS",
+  stat_attack = "ATAQUE",
+  stat_defense = "DEFENSA",
+  stat_speed = "VELOCIDAD",
+  stat_special = "ESPECIAL",
+  stat_accuracy = "PRECISIÓN",
+  stat_evasion = "EVASIÓN",
+  stat_exp = "EXP. ESTADÍSTICA",
+  stat_dv = "GEN (DV)",
+
+  -- Estados Alterados (Status Conditions)
+  status_healthy = "SANO",
+  status_asleep = "DORMIDO",
+  status_poisoned = "ENVENENADO",
+  status_burned = "QUEMADO",
+  status_frozen = "CONGELADO",
+  status_paralyzed = "PARALIZADO",
+  status_fainted = "DEBILITADO",
+  status_confused = "CONFUSO",
+
+  -- Abreviaturas de Estados
+  status_short_slp = "DOR",
+  status_short_psn = "ENV",
+  status_short_brn = "QUE",
+  status_short_frz = "CON",
+  status_short_par = "PAR",
+  status_short_fnt = "DEB",
+
+  -- Tipos Elementales
+  type_normal = "NORMAL",
+  type_fire = "FUEGO",
+  type_water = "AGUA",
+  type_grass = "PLANTA",
+  type_electric = "ELÉCTRICO",
+  type_ice = "HIELO",
+  type_fighting = "LUCHA",
+  type_poison = "VENENO",
+  type_ground = "TIERRA",
+  type_flying = "VOLADOR",
+  type_psychic = "PSÍQUICO",
+  type_bug = "BICHO",
+  type_rock = "ROCA",
+  type_ghost = "FANTASMA",
+  type_dragon = "DRAGÓN",
+
+  -- Bolsillos de la Mochila (Bag Pockets)
+  pocket_medicine = "Medicinas",
+  pocket_balls = "Poké Balls",
+  pocket_battle = "Combate",
+  pocket_berries = "Bayas",
+  pocket_other = "Objetos",
+  pocket_tmhm = "MTs y MOs",
+  pocket_treasures = "Tesoros",
+  pocket_key = "Obj. Clave",
+
+  -- Combate y Modificadores (Battle HUD)
+  battle_fight = "LUCHA",
+  battle_pkmn = "PKMN",
+  battle_bag = "MOCHILA",
+  battle_run = "HUIR",
+  battle_super_effective = "¡Es muy eficaz!",
+  battle_not_very_effective = "No es muy eficaz...",
+  battle_immune = "¡No le afecta!",
+  battle_critical_hit = "¡Golpe crítico!",
+  battle_modifier_up = "+%d",
+  battle_modifier_down = "-%d",
+
+  -- Resumen de Pokémon (Summary UI)
+  summary_title = "DATOS POKéMON",
+  summary_moves = "MOVIMIENTOS",
+  summary_stats = "ESTADÍSTICAS",
+  summary_level = "NIVEL %d",
+  summary_exp = "PUNTOS EXP.",
+  summary_next_level = "SIG. NIVEL",
+  summary_type = "TIPO /",
+  summary_ot = "EO /",
+  summary_id = "N.º ID /",
+
+  -- Gestor de Opciones de Mods (Mods Manager & Settings)
+  mods_manager_title = "GESTOR DE MODS",
+  installed_mods = "MODS INSTALADOS",
+  mod_settings = "AJUSTES DEL MOD",
+  accessibility = "ACCESIBILIDAD",
+  color_vision = "VISIÓN DE COLOR",
+  color_standard = "ESTÁNDAR",
+  color_protanopia = "PROTANOPIA",
+  color_deuteranopia = "DEUTERANOPIA",
+  color_tritanopia = "TRITANOPIA",
+  provider_classic = "CLÁSICO",
+  provider_kanto_ascendant = "KANTO ASCENDANT",
+  provider_voxel = "VOXEL 3D",
+  save_changes = "GUARDAR CAMBIOS",
+  discard_changes = "DESCARTAR CAMBIOS",
+  reset_defaults = "RESTAURAR DEFECTO",
+
+  -- Mod Options Definitions
+  opt_language_label = "IDIOMA / LANGUAGE",
+  opt_language_desc = "Selecciona el idioma de la interfaz.",
+  opt_replace_start_menu_label = "REEMPLAZAR MENÚ INICIO",
+  opt_replace_start_menu_desc = "Sustituye el menú de inicio clásico por el Diario de Campo moderno.",
+  opt_overlay_label = "OVERLAY DE ACOMPAÑANTE",
+  opt_overlay_desc = "Muestra el widget móvil con información del entrenador fuera del menú.",
+  opt_theme_label = "TEMA VISUAL",
+  opt_theme_desc = "Cambia el estilo visual y colores de la interfaz.",
+  opt_diagnostics_label = "INSIGNIA DE DIAGNÓSTICO",
+  opt_diagnostics_desc = "Muestra el estado de detección de pantallas y hooks.",
+
+  -- Temas
+  theme_field_journal = "DIARIO DE CAMPO",
+  theme_graphite = "GRAFITO",
+  theme_purple_night = "NOCHE PÚRPURA",
+  theme_retro = "RETRO DMG",
+}

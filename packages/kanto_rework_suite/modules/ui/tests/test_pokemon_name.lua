@@ -1,0 +1,6 @@
+local root=assert(arg[1],"root path required")
+local format=assert(loadfile(root.."/runtime/pokemon_name.lua"))()
+assert(format("NIDORAN","NIDORAN_F",{dex=29},false)=="NIDORAN♀","female glyph")
+assert(format("NIDORAN","NIDORAN_M",{dex=32},false)=="NIDORAN♂","male glyph")
+assert(format("QUEENIE","NIDORAN_F",{dex=29},true)=="QUEENIE","nickname remains authoritative")
+print("Nidoran presentation glyph tests passed")

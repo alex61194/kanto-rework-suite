@@ -1,0 +1,7 @@
+local root=assert(arg[1]);local s=assert(io.open(root..'/main.lua','rb')):read('*a')
+assert(s:find('slow=2.4',1,true) and s:find('normal=1',1,true) and s:find('fast=.40',1,true),'Slow/Normal/Fast cadence factors are deliberately separated')
+assert(s:find('battle logic, HUD transactions and fixed%-duration engine transitions are not time%-scaled'),'scope description protects fixed battle logic')
+assert(s:find("requestedMode=='static'",1,true) and s:find('entry.fallbackPath',1,true),'animated provider has static-equivalent fallback')
+assert(s:find("front_mirrored",1,true) and s:find("assetSide=\'front\';mirror=true",1,true) and s:find('mirrorX=mirror',1,true),'player front mirror is runtime-only')
+assert(s:find("if role=='opponent' then assetSide='front' end",1,true),'opponent cannot request a back sprite')
+print('round7 graphics speed/fallback tests passed')

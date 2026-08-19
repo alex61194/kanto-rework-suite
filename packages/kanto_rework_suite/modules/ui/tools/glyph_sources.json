@@ -1,0 +1,361 @@
+{
+  "figma": {
+    "fileKey": "X9gkkR1wKZKUyK5xtBSiKF",
+    "typeGlyphSet": "625:2266",
+    "statusGlyphSet": "627:2304"
+  },
+  "types": [
+    {
+      "name": "normal",
+      "node": "625:2224",
+      "canvas": {
+        "width": 20,
+        "height": 20
+      },
+      "trace": {
+        "x": 0,
+        "y": 0,
+        "width": 20,
+        "height": 20
+      }
+    },
+    {
+      "name": "fire",
+      "node": "625:2226",
+      "canvas": {
+        "width": 20,
+        "height": 20
+      },
+      "trace": {
+        "x": 2.5,
+        "y": 0,
+        "width": 15,
+        "height": 20
+      }
+    },
+    {
+      "name": "water",
+      "node": "625:2228",
+      "canvas": {
+        "width": 20,
+        "height": 20
+      },
+      "trace": {
+        "x": 3.5,
+        "y": 0,
+        "width": 13,
+        "height": 20
+      }
+    },
+    {
+      "name": "electric",
+      "node": "625:2230",
+      "canvas": {
+        "width": 20,
+        "height": 20
+      },
+      "trace": {
+        "x": 3.5,
+        "y": 0,
+        "width": 13,
+        "height": 20
+      }
+    },
+    {
+      "name": "grass",
+      "node": "625:2232",
+      "canvas": {
+        "width": 20,
+        "height": 20
+      },
+      "trace": {
+        "x": 0.5,
+        "y": 0,
+        "width": 19,
+        "height": 20
+      }
+    },
+    {
+      "name": "ice",
+      "node": "625:2234",
+      "canvas": {
+        "width": 20,
+        "height": 20
+      },
+      "trace": {
+        "x": 0,
+        "y": 1.25,
+        "width": 20,
+        "height": 17.5
+      }
+    },
+    {
+      "name": "fighting",
+      "node": "625:2242",
+      "canvas": {
+        "width": 20,
+        "height": 20
+      },
+      "trace": {
+        "x": 0.5,
+        "y": 0,
+        "width": 19,
+        "height": 20
+      }
+    },
+    {
+      "name": "poison",
+      "node": "625:2244",
+      "canvas": {
+        "width": 20,
+        "height": 20
+      },
+      "trace": {
+        "x": 0,
+        "y": 0,
+        "width": 20,
+        "height": 20
+      }
+    },
+    {
+      "name": "ground",
+      "node": "625:2246",
+      "canvas": {
+        "width": 20,
+        "height": 20
+      },
+      "trace": {
+        "x": 0,
+        "y": 2.5,
+        "width": 20,
+        "height": 15
+      }
+    },
+    {
+      "name": "flying",
+      "node": "625:2248",
+      "canvas": {
+        "width": 20,
+        "height": 20
+      },
+      "trace": {
+        "x": 0,
+        "y": 1.5,
+        "width": 20,
+        "height": 17
+      }
+    },
+    {
+      "name": "psychic",
+      "node": "625:2250",
+      "canvas": {
+        "width": 20,
+        "height": 20
+      },
+      "trace": {
+        "x": 0.5,
+        "y": 0,
+        "width": 19,
+        "height": 20
+      }
+    },
+    {
+      "name": "bug",
+      "node": "625:2252",
+      "canvas": {
+        "width": 20,
+        "height": 20
+      },
+      "trace": {
+        "x": 1.5,
+        "y": 0,
+        "width": 17,
+        "height": 20
+      }
+    },
+    {
+      "name": "rock",
+      "node": "625:2254",
+      "canvas": {
+        "width": 20,
+        "height": 20
+      },
+      "trace": {
+        "x": 0,
+        "y": 2,
+        "width": 20,
+        "height": 16
+      }
+    },
+    {
+      "name": "ghost",
+      "node": "625:2256",
+      "canvas": {
+        "width": 20,
+        "height": 20
+      },
+      "trace": {
+        "x": 0,
+        "y": 0,
+        "width": 20,
+        "height": 20
+      }
+    },
+    {
+      "name": "dragon",
+      "node": "625:2258",
+      "canvas": {
+        "width": 20,
+        "height": 20
+      },
+      "trace": {
+        "x": 1.5,
+        "y": 0,
+        "width": 17,
+        "height": 20
+      }
+    },
+    {
+      "name": "dark",
+      "node": "625:2260",
+      "canvas": {
+        "width": 20,
+        "height": 20
+      },
+      "trace": {
+        "x": 0,
+        "y": 0,
+        "width": 20,
+        "height": 20
+      }
+    },
+    {
+      "name": "steel",
+      "node": "625:2262",
+      "canvas": {
+        "width": 20,
+        "height": 20
+      },
+      "trace": {
+        "x": 0,
+        "y": 1.5,
+        "width": 20,
+        "height": 17
+      }
+    },
+    {
+      "name": "fairy",
+      "node": "625:2264",
+      "canvas": {
+        "width": 20,
+        "height": 20
+      },
+      "trace": {
+        "x": 0,
+        "y": 0,
+        "width": 20,
+        "height": 20
+      }
+    }
+  ],
+  "statuses": [
+    {
+      "name": "poisoned",
+      "node": "627:2272",
+      "canvas": {
+        "width": 32,
+        "height": 32
+      },
+      "trace": {
+        "x": 6.9072265625,
+        "y": 7.2998046875,
+        "width": 18.194091796875,
+        "height": 17.9150390625
+      }
+    },
+    {
+      "name": "badly_poisoned",
+      "node": "627:2278",
+      "canvas": {
+        "width": 32,
+        "height": 32
+      },
+      "trace": {
+        "x": 6.9072265625,
+        "y": 3.181640625,
+        "width": 19.776123046875,
+        "height": 22.033203125
+      }
+    },
+    {
+      "name": "burned",
+      "node": "627:2285",
+      "canvas": {
+        "width": 32,
+        "height": 32
+      },
+      "trace": {
+        "x": 9.20068359375,
+        "y": 6.64111328125,
+        "width": 13.569091796875,
+        "height": 18.9716796875
+      }
+    },
+    {
+      "name": "paralyzed",
+      "node": "627:2287",
+      "canvas": {
+        "width": 32,
+        "height": 32
+      },
+      "trace": {
+        "x": 9.79736328125,
+        "y": 6.1904296875,
+        "width": 12.316650390625,
+        "height": 19.54443359375
+      }
+    },
+    {
+      "name": "asleep",
+      "node": "627:2289",
+      "canvas": {
+        "width": 32,
+        "height": 32
+      },
+      "trace": {
+        "x": 5.654296875,
+        "y": 8.27294921875,
+        "width": 20.6904296875,
+        "height": 15.72705078125
+      }
+    },
+    {
+      "name": "frozen",
+      "node": "627:2295",
+      "canvas": {
+        "width": 32,
+        "height": 32
+      },
+      "trace": {
+        "x": 7.638671875,
+        "y": 5.4150390625,
+        "width": 16.69873046875,
+        "height": 21.2138671875
+      }
+    },
+    {
+      "name": "fainted",
+      "node": "627:2300",
+      "canvas": {
+        "width": 32,
+        "height": 32
+      },
+      "trace": {
+        "x": 7.5224609375,
+        "y": 11.416015625,
+        "width": 17.117919921875,
+        "height": 9.712890625
+      }
+    }
+  ]
+}

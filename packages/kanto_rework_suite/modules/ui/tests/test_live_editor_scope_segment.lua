@@ -1,0 +1,7 @@
+local screen=assert(io.open('../screens/graphics_editor.lua','rb')):read('*a')
+local presenter=assert(io.open('../ui/menu_presenter.lua','rb')):read('*a')
+assert(presenter:find('runtime.graphicsEditorScopeRects={}',1,true),'scope segmented control must publish pointer rects')
+assert(presenter:find('screen.scopeHover==scope',1,true),'scope segmented control must expose hover state')
+assert(screen:find("runtime.graphicsEditorScopeRects and runtime.graphicsEditorScopeRects[scope]",1,true),'editor pointer path must consume scope segment rects')
+assert(screen:find('self:setScope(scope)',1,true),'scope segment click must use canonical setScope backend')
+print('PASS test_live_editor_scope_segment')

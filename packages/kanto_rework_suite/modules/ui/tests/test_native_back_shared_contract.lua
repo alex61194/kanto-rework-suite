@@ -1,0 +1,7 @@
+local root=assert(arg[1])
+local f=assert(io.open(root..'/ui/native_presenter.lua','rb'));local src=f:read('*a');f:close()
+assert(src:find("type(Core.nativeActionPressed)=='function'",1,true),'NativePresenter must use Core shared native-action fallback')
+assert(src:find("pcall(Core.nativeActionPressed,'b',game)",1,true),'Back path must resolve semantic native B centrally')
+local start=assert(src:find('function P.update',1,true));local finish=assert(src:find('function P.draw',start,true));local seg=src:sub(start,finish)
+assert(not seg:find("input:wasPressed('b')",1,true),'Wide native controllers must not bypass shared Back semantics')
+print('Native Back shared-input contract passed')

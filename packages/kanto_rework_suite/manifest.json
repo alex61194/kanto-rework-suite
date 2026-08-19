@@ -1,0 +1,38 @@
+{
+  "id": "kanto_rework_suite",
+  "name": "Kanto Rework Suite",
+  "version": "0.1.0-candidate.6-es",
+  "api": 2,
+  "entry": "main.lua",
+  "profile": "overhaul",
+  "category": "QOL",
+  "priority": 250,
+  "games": [
+    "gen1"
+  ],
+  "game_version": ">=0.0.0-dev <2.0.0",
+  "github": "alex61194/kanto-rework-suite",
+  "dependencies": [],
+  "optional_dependencies": [
+    "BATTLE_ART_VOXEL_FORK",
+    "trainer_rematch",
+    "SFXMusicReplacementMod"
+  ],
+  "conflicts": [
+    "gen1_modern_ui",
+    "kanto_rework_ui_p2",
+    "kanto_rework_core",
+    "kanto_rework_ui",
+    "kanto_rework_graphics",
+    "kanto_rework_gameplay",
+    "kanto_rework_battle_anims",
+    "kanto_rework_compat",
+    "kanto_rework_dev"
+  ],
+  "permissions": [
+    "engine_internals"
+  ],
+  "affects_link": false,
+  "description": "Kanto Rework Suite: One unified Gen1Recomp overhaul mod with full Spanish translation, move & item descriptions, types & effectiveness, and categorized bag.",
+  "author": "Faendra & alex61194"
+}

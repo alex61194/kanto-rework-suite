@@ -1,0 +1,36 @@
+return {
+  summary = "Kanto Journal Wide UI with four Figma-faithful product themes, exact Main Menu assets, canonical Inter/Pixelify Sans typography and KRS starter Pokédex presentation.",
+  author = "Faendra",
+  tags = { "ui", "wide", "accessibility" },
+  differences = {
+    changed = {
+      "Wide Main Menu, Options and Mods replace their native presentation on supported 16:9 viewports",
+      "Party, Summary and Moves use the validated Wide composition",
+      "Pokédex INDEX, DATA and AREA reproduce the canonical Figma geometry and typography",
+      "Field Actions opens as a contextual label-only popup",
+      "Map / Fly uses the canonical Figma Kanto map from a configurable logical shortcut",
+      "Pokemon Red's title uses the canonical Figma artwork and bypasses the native startup menu",
+      "Title actions float independently without a shared panel or black bars",
+      "Map / Fly is pannable and uses a compact icon-free destination list",
+    },
+    added = {
+      "four live Figma-derived product themes: Cream, Graphite, Purple Night and Retro",
+      "27 exact textless Figma Main Menu component variants for Default/Hover/Selected states",
+      "runtime trainer badge sheet instead of visual badge placeholders",
+      "bundled canonical Inter and Pixelify Sans static faces with explicit theme-aware weights",
+      "native starter DexEntry state presented through the KRS Pokédex DATA frame and active Pokémon-art provider",
+      "global semantic Colorblind palette resolution from the Core accessibility profile",
+      "device-aware contextual footer",
+      "inline mod options and Info & Permissions panel",
+      "versioned third-party feature trees presented under their Installed Mods card",
+      "two independent theme-aware utility overlays with F8 visibility, F9 scope selection and explicit layout adjustment",
+      "live area catch-completion data and per-Ball capture odds",
+      "Paper/Glass overlay surfaces with true width-and-height responsive content reflow",
+      "Professor Oak evaluation with official tier text, fanfare and multi-input controls",
+    },
+    known = {
+      "Classic 10:9 and vertical layouts are not implemented; native fallback remains authoritative",
+    },
+  },
+  compat = { engine = ">=0.1.86 <0.2.0", modApi = 2 },
+}

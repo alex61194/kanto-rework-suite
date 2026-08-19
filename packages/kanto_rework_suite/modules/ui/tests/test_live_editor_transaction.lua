@@ -1,0 +1,18 @@
+local screen=assert(io.open('../screens/graphics_editor.lua','rb')):read('*a')
+assert(screen:find("id='session.save',label='SAVE CHANGES'",1,true),'explicit Save Changes action missing')
+assert(screen:find("id='session.discard',label='DISCARD UNSAVED'",1,true),'explicit discard action missing')
+assert(screen:find("id='session.reset',label='RESET SCENE COMPOSITION'",1,true),'whole-scene reset missing')
+assert(screen:find("value=self:hasUnsaved() and 'UNSAVED LIVE PREVIEW' or 'SAVED CONFIGURATION'",1,true),'temporary vs persisted state is not visible')
+assert(screen:find('function Screen:discardUnsaved()',1,true) and screen:find('self.savedWorking',1,true),'discard must restore persisted snapshot')
+assert(screen:find('function Screen:saveChanges()',1,true),'explicit transactional save path missing')
+assert(screen:find('GRAPHICS ROLLBACK FAILED',1,true),'cross-store save failure must be diagnosed/rollback attempted')
+assert(screen:find("scope=liveBattle and 'local' or 'global'",1,true),'live battle must open on its actual local composition context')
+assert(screen:find("BACK AGAIN TO DISCARD & EXIT",1,true),'quit-without-apply confirmation missing')
+assert(not screen:find("self:commitAll();self.game.stack:pop()",1,true),'Back must not silently persist editor values')
+assert(not screen:find("self.spriteDrag=nil;self.positionRole=nil;self:commitAll()",1,true),'sprite release must not silently persist')
+assert(not screen:find("self.sliderDrag=nil;self:commit()",1,true),'slider release must not silently persist')
+for _,id in ipairs({'background','player','opponent','ui:opponent_frame','ui:player_frame','ui:command_list','ui:move_menu'}) do
+  assert(screen:find("lock."..id,1,true) or screen:find("'lock.'..role",1,true),'lock control missing for '..id)
+end
+assert(screen:find('function Screen:resetSceneComposition()',1,true),'scene reset implementation missing')
+print('PASS test_live_editor_transaction')

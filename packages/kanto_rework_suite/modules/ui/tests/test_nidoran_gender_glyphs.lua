@@ -1,0 +1,7 @@
+local draw=assert(io.open('ui/menu_draw.lua','rb')):read('*a')
+assert(draw:find('["♀"]="female"',1,true) and draw:find('["♂"]="male"',1,true),'Nidoran gender symbols have explicit vector fallback glyphs')
+assert(draw:find('drawGenderGlyph',1,true),'gender glyph renderer missing')
+assert(draw:find('Draw.measureText',1,true),'custom glyphs must participate in text measurement')
+local names=assert(io.open('runtime/pokemon_name.lua','rb')):read('*a')
+assert(names:find('NIDORAN♀',1,true) and names:find('NIDORAN♂',1,true),'species resolver retains correct Nidoran names')
+print('Nidoran female/male glyph fallback tests passed')

@@ -1,0 +1,23 @@
+{
+  "id": "kanto_rework_gameplay",
+  "name": "Kanto Rework Gameplay",
+  "version": "0.3.18",
+  "api": 2,
+  "entry": "main.lua",
+  "profile": "content",
+  "category": "MECHANIC",
+  "priority": 180,
+  "game_version": ">=0.1.86 <0.2.0",
+  "github": "Faendra/kanto-rework-suite",
+  "dependencies": [
+    "kanto_rework_core@>=0.1.40 <0.2.0"
+  ],
+  "optional_dependencies": [],
+  "conflicts": [],
+  "permissions": [
+    "engine_internals"
+  ],
+  "affects_link": false,
+  "description": "Kanto Rework gameplay for Gen1Recomp 0.1.86+: running/repeat-item/999-stack pocket Bag, persistent registered-item shortcuts, 20×180 PC storage, contextual field actions, consolidated EXP.ALL messaging, retroactive level-up move memory including pre-evolutions, Pokémon Center healing across party + PC boxes, and a three-second low-HP alarm cap.",
+  "author": "Faendra"
+}

@@ -1,0 +1,927 @@
+original_filename	new_filename	item_id	canonical_name	status	kind
+001.png	0001_Master_Ball.png	1	Master Ball	canonical	Pokemon item
+002.png	0002_Ultra_Ball.png	2	Ultra Ball	canonical	Pokemon item
+003.png	0003_Great_Ball.png	3	Great Ball	canonical	Pokemon item
+004.png	0004_Poke_Ball.png	4	Poké Ball	canonical	Pokemon item
+005.png	0005_Safari_Ball.png	5	Safari Ball	canonical	Pokemon item
+006.png	0006_Net_Ball.png	6	Net Ball	canonical	Pokemon item
+007.png	0007_Dive_Ball.png	7	Dive Ball	canonical	Pokemon item
+008.png	0008_Nest_Ball.png	8	Nest Ball	canonical	Pokemon item
+009.png	0009_Repeat_Ball.png	9	Repeat Ball	canonical	Pokemon item
+010.png	0010_Timer_Ball.png	10	Timer Ball	canonical	Pokemon item
+011.png	0011_Luxury_Ball.png	11	Luxury Ball	canonical	Pokemon item
+012.png	0012_Premier_Ball.png	12	Premier Ball	canonical	Pokemon item
+013.png	0013_Dusk_Ball.png	13	Dusk Ball	canonical	Pokemon item
+014.png	0014_Heal_Ball.png	14	Heal Ball	canonical	Pokemon item
+015.png	0015_Quick_Ball.png	15	Quick Ball	canonical	Pokemon item
+016.png	0016_Cherish_Ball.png	16	Cherish Ball	canonical	Pokemon item
+017.png	0017_Potion.png	17	Potion	canonical	Pokemon item
+018.png	0018_Antidote.png	18	Antidote	canonical	Pokemon item
+019.png	0019_Burn_Heal.png	19	Burn Heal	canonical	Pokemon item
+020.png	0020_Ice_Heal.png	20	Ice Heal	canonical	Pokemon item
+021.png	0021_Awakening.png	21	Awakening	canonical	Pokemon item
+022.png	0022_Paralyze_Heal.png	22	Paralyze Heal	canonical	Pokemon item
+023.png	0023_Full_Restore.png	23	Full Restore	canonical	Pokemon item
+024.png	0024_Max_Potion.png	24	Max Potion	canonical	Pokemon item
+025.png	0025_Hyper_Potion.png	25	Hyper Potion	canonical	Pokemon item
+026.png	0026_Super_Potion.png	26	Super Potion	canonical	Pokemon item
+027.png	0027_Full_Heal.png	27	Full Heal	canonical	Pokemon item
+028.png	0028_Revive.png	28	Revive	canonical	Pokemon item
+029.png	0029_Max_Revive.png	29	Max Revive	canonical	Pokemon item
+030.png	0030_Fresh_Water.png	30	Fresh Water	canonical	Pokemon item
+031.png	0031_Soda_Pop.png	31	Soda Pop	canonical	Pokemon item
+032.png	0032_Lemonade.png	32	Lemonade	canonical	Pokemon item
+033.png	0033_Moomoo_Milk.png	33	Moomoo Milk	canonical	Pokemon item
+034.png	0034_Energy_Powder.png	34	Energy Powder	canonical	Pokemon item
+035.png	0035_Energy_Root.png	35	Energy Root	canonical	Pokemon item
+036.png	0036_Heal_Powder.png	36	Heal Powder	canonical	Pokemon item
+037.png	0037_Revival_Herb.png	37	Revival Herb	canonical	Pokemon item
+038.png	0038_Ether.png	38	Ether	canonical	Pokemon item
+039.png	0039_Max_Ether.png	39	Max Ether	canonical	Pokemon item
+040.png	0040_Elixir.png	40	Elixir	canonical	Pokemon item
+041.png	0041_Max_Elixir.png	41	Max Elixir	canonical	Pokemon item
+042.png	0042_Lava_Cookie.png	42	Lava Cookie	canonical	Pokemon item
+043.png	0043_Berry_Juice.png	43	Berry Juice	canonical	Pokemon item
+044.png	0044_Sacred_Ash.png	44	Sacred Ash	canonical	Pokemon item
+045.png	0045_HP_Up.png	45	HP Up	canonical	Pokemon item
+046.png	0046_Protein.png	46	Protein	canonical	Pokemon item
+047.png	0047_Iron.png	47	Iron	canonical	Pokemon item
+048.png	0048_Carbos.png	48	Carbos	canonical	Pokemon item
+049.png	0049_Calcium.png	49	Calcium	canonical	Pokemon item
+050.png	0050_Rare_Candy.png	50	Rare Candy	canonical	Pokemon item
+051.png	0051_PP_Up.png	51	PP Up	canonical	Pokemon item
+052.png	0052_Zinc.png	52	Zinc	canonical	Pokemon item
+053.png	0053_PP_Max.png	53	PP Max	canonical	Pokemon item
+054.png	0054_Old_Gateau.png	54	Old Gateau	canonical	Pokemon item
+055.png	0055_Guard_Spec.png	55	Guard Spec.	canonical	Pokemon item
+056.png	0056_Dire_Hit.png	56	Dire Hit	canonical	Pokemon item
+057.png	0057_X_Attack.png	57	X Attack	canonical	Pokemon item
+058.png	0058_X_Defense.png	58	X Defense	canonical	Pokemon item
+059.png	0059_X_Speed.png	59	X Speed	canonical	Pokemon item
+060.png	0060_X_Accuracy.png	60	X Accuracy	canonical	Pokemon item
+061.png	0061_X_Sp_Atk.png	61	X Sp. Atk	canonical	Pokemon item
+062.png	0062_X_Sp_Def.png	62	X Sp. Def	canonical	Pokemon item
+063.png	0063_Poke_Doll.png	63	Poké Doll	canonical	Pokemon item
+064.png	0064_Fluffy_Tail.png	64	Fluffy Tail	canonical	Pokemon item
+065.png	0065_Blue_Flute.png	65	Blue Flute	canonical	Pokemon item
+066.png	0066_Yellow_Flute.png	66	Yellow Flute	canonical	Pokemon item
+067.png	0067_Red_Flute.png	67	Red Flute	canonical	Pokemon item
+068.png	0068_Black_Flute.png	68	Black Flute	canonical	Pokemon item
+069.png	0069_White_Flute.png	69	White Flute	canonical	Pokemon item
+070.png	0070_Shoal_Salt.png	70	Shoal Salt	canonical	Pokemon item
+071.png	0071_Shoal_Shell.png	71	Shoal Shell	canonical	Pokemon item
+072.png	0072_Red_Shard.png	72	Red Shard	canonical	Pokemon item
+073.png	0073_Blue_Shard.png	73	Blue Shard	canonical	Pokemon item
+074.png	0074_Yellow_Shard.png	74	Yellow Shard	canonical	Pokemon item
+075.png	0075_Green_Shard.png	75	Green Shard	canonical	Pokemon item
+076.png	0076_Super_Repel.png	76	Super Repel	canonical	Pokemon item
+077.png	0077_Max_Repel.png	77	Max Repel	canonical	Pokemon item
+078.png	0078_Escape_Rope.png	78	Escape Rope	canonical	Pokemon item
+079.png	0079_Repel.png	79	Repel	canonical	Pokemon item
+080.png	0080_Sun_Stone.png	80	Sun Stone	canonical	Pokemon item
+081.png	0081_Moon_Stone.png	81	Moon Stone	canonical	Pokemon item
+082.png	0082_Fire_Stone.png	82	Fire Stone	canonical	Pokemon item
+083.png	0083_Thunder_Stone.png	83	Thunder Stone	canonical	Pokemon item
+084.png	0084_Water_Stone.png	84	Water Stone	canonical	Pokemon item
+085.png	0085_Leaf_Stone.png	85	Leaf Stone	canonical	Pokemon item
+086.png	0086_Tiny_Mushroom.png	86	Tiny Mushroom	canonical	Pokemon item
+087.png	0087_Big_Mushroom.png	87	Big Mushroom	canonical	Pokemon item
+088.png	0088_Pearl.png	88	Pearl	canonical	Pokemon item
+089.png	0089_Big_Pearl.png	89	Big Pearl	canonical	Pokemon item
+090.png	0090_Stardust.png	90	Stardust	canonical	Pokemon item
+091.png	0091_Star_Piece.png	91	Star Piece	canonical	Pokemon item
+092.png	0092_Nugget.png	92	Nugget	canonical	Pokemon item
+093.png	0093_Heart_Scale.png	93	Heart Scale	canonical	Pokemon item
+094.png	0094_Honey.png	94	Honey	canonical	Pokemon item
+095.png	0095_Growth_Mulch.png	95	Growth Mulch	canonical	Pokemon item
+096.png	0096_Damp_Mulch.png	96	Damp Mulch	canonical	Pokemon item
+097.png	0097_Stable_Mulch.png	97	Stable Mulch	canonical	Pokemon item
+098.png	0098_Gooey_Mulch.png	98	Gooey Mulch	canonical	Pokemon item
+099.png	0099_Root_Fossil.png	99	Root Fossil	canonical	Pokemon item
+100.png	0100_Claw_Fossil.png	100	Claw Fossil	canonical	Pokemon item
+101.png	0101_Helix_Fossil.png	101	Helix Fossil	canonical	Pokemon item
+102.png	0102_Dome_Fossil.png	102	Dome Fossil	canonical	Pokemon item
+103.png	0103_Old_Amber.png	103	Old Amber	canonical	Pokemon item
+104.png	0104_Armor_Fossil.png	104	Armor Fossil	canonical	Pokemon item
+105.png	0105_Skull_Fossil.png	105	Skull Fossil	canonical	Pokemon item
+106.png	0106_Rare_Bone.png	106	Rare Bone	canonical	Pokemon item
+107.png	0107_Shiny_Stone.png	107	Shiny Stone	canonical	Pokemon item
+108.png	0108_Dusk_Stone.png	108	Dusk Stone	canonical	Pokemon item
+109.png	0109_Dawn_Stone.png	109	Dawn Stone	canonical	Pokemon item
+110.png	0110_Oval_Stone.png	110	Oval Stone	canonical	Pokemon item
+111.png	0111_Odd_Keystone.png	111	Odd Keystone	canonical	Pokemon item
+112.png	0112_Griseous_Orb.png	112	Griseous Orb	canonical	Pokemon item
+113.png	0113_Tea.png	113	Tea	canonical	Pokemon item
+114.png	0114_Unused_Item_ID_114.png	114	Unused Item ID 114	unused/unnamed	Pokemon item
+115.png	0115_Autograph.png	115	Autograph	canonical	Pokemon item
+116.png	0116_Douse_Drive.png	116	Douse Drive	canonical	Pokemon item
+117.png	0117_Shock_Drive.png	117	Shock Drive	canonical	Pokemon item
+118.png	0118_Burn_Drive.png	118	Burn Drive	canonical	Pokemon item
+119.png	0119_Chill_Drive.png	119	Chill Drive	canonical	Pokemon item
+120.png	0120_Unused_Item_ID_120.png	120	Unused Item ID 120	unused/unnamed	Pokemon item
+121.png	0121_Pokemon_Box_Link.png	121	Pokémon Box Link	canonical	Pokemon item
+122.png	0122_Medicine_Pocket.png	122	Medicine Pocket	canonical	Pokemon item
+123.png	0123_TM_Case.png	123	TM Case	canonical	Pokemon item
+124.png	0124_Candy_Jar.png	124	Candy Jar	canonical	Pokemon item
+125.png	0125_Power-Up_Pocket.png	125	Power-Up Pocket	canonical	Pokemon item
+126.png	0126_Clothing_Trunk.png	126	Clothing Trunk	canonical	Pokemon item
+127.png	0127_Catching_Pocket.png	127	Catching Pocket	canonical	Pokemon item
+128.png	0128_Battle_Pocket.png	128	Battle Pocket	canonical	Pokemon item
+129.png	0129_Unused_Item_ID_129.png	129	Unused Item ID 129	unused/unnamed	Pokemon item
+130.png	0130_Unused_Item_ID_130.png	130	Unused Item ID 130	unused/unnamed	Pokemon item
+131.png	0131_Unused_Item_ID_131.png	131	Unused Item ID 131	unused/unnamed	Pokemon item
+132.png	0132_Unused_Item_ID_132.png	132	Unused Item ID 132	unused/unnamed	Pokemon item
+133.png	0133_Unused_Item_ID_133.png	133	Unused Item ID 133	unused/unnamed	Pokemon item
+134.png	0134_Sweet_Heart.png	134	Sweet Heart	canonical	Pokemon item
+135.png	0135_Adamant_Orb.png	135	Adamant Orb	canonical	Pokemon item
+136.png	0136_Lustrous_Orb.png	136	Lustrous Orb	canonical	Pokemon item
+137.png	0137_Greet_Mail.png	137	Greet Mail	canonical	Pokemon item
+138.png	0138_Favored_Mail.png	138	Favored Mail	canonical	Pokemon item
+139.png	0139_RSVP_Mail.png	139	RSVP Mail	canonical	Pokemon item
+140.png	0140_Thanks_Mail.png	140	Thanks Mail	canonical	Pokemon item
+141.png	0141_Inquiry_Mail.png	141	Inquiry Mail	canonical	Pokemon item
+142.png	0142_Like_Mail.png	142	Like Mail	canonical	Pokemon item
+143.png	0143_Reply_Mail.png	143	Reply Mail	canonical	Pokemon item
+144.png	0144_Bridge_Mail_S.png	144	Bridge Mail S	canonical	Pokemon item
+145.png	0145_Bridge_Mail_D.png	145	Bridge Mail D	canonical	Pokemon item
+146.png	0146_Bridge_Mail_T.png	146	Bridge Mail T	canonical	Pokemon item
+147.png	0147_Bridge_Mail_V.png	147	Bridge Mail V	canonical	Pokemon item
+148.png	0148_Bridge_Mail_M.png	148	Bridge Mail M	canonical	Pokemon item
+149.png	0149_Cheri_Berry.png	149	Cheri Berry	canonical	Pokemon item
+150.png	0150_Chesto_Berry.png	150	Chesto Berry	canonical	Pokemon item
+151.png	0151_Pecha_Berry.png	151	Pecha Berry	canonical	Pokemon item
+152.png	0152_Rawst_Berry.png	152	Rawst Berry	canonical	Pokemon item
+153.png	0153_Aspear_Berry.png	153	Aspear Berry	canonical	Pokemon item
+154.png	0154_Leppa_Berry.png	154	Leppa Berry	canonical	Pokemon item
+155.png	0155_Oran_Berry.png	155	Oran Berry	canonical	Pokemon item
+156.png	0156_Persim_Berry.png	156	Persim Berry	canonical	Pokemon item
+157.png	0157_Lum_Berry.png	157	Lum Berry	canonical	Pokemon item
+158.png	0158_Sitrus_Berry.png	158	Sitrus Berry	canonical	Pokemon item
+159.png	0159_Figy_Berry.png	159	Figy Berry	canonical	Pokemon item
+160.png	0160_Wiki_Berry.png	160	Wiki Berry	canonical	Pokemon item
+161.png	0161_Mago_Berry.png	161	Mago Berry	canonical	Pokemon item
+162.png	0162_Aguav_Berry.png	162	Aguav Berry	canonical	Pokemon item
+163.png	0163_Iapapa_Berry.png	163	Iapapa Berry	canonical	Pokemon item
+164.png	0164_Razz_Berry.png	164	Razz Berry	canonical	Pokemon item
+165.png	0165_Bluk_Berry.png	165	Bluk Berry	canonical	Pokemon item
+166.png	0166_Nanab_Berry.png	166	Nanab Berry	canonical	Pokemon item
+167.png	0167_Wepear_Berry.png	167	Wepear Berry	canonical	Pokemon item
+168.png	0168_Pinap_Berry.png	168	Pinap Berry	canonical	Pokemon item
+169.png	0169_Pomeg_Berry.png	169	Pomeg Berry	canonical	Pokemon item
+170.png	0170_Kelpsy_Berry.png	170	Kelpsy Berry	canonical	Pokemon item
+171.png	0171_Qualot_Berry.png	171	Qualot Berry	canonical	Pokemon item
+172.png	0172_Hondew_Berry.png	172	Hondew Berry	canonical	Pokemon item
+173.png	0173_Grepa_Berry.png	173	Grepa Berry	canonical	Pokemon item
+174.png	0174_Tamato_Berry.png	174	Tamato Berry	canonical	Pokemon item
+175.png	0175_Cornn_Berry.png	175	Cornn Berry	canonical	Pokemon item
+176.png	0176_Magost_Berry.png	176	Magost Berry	canonical	Pokemon item
+177.png	0177_Rabuta_Berry.png	177	Rabuta Berry	canonical	Pokemon item
+178.png	0178_Nomel_Berry.png	178	Nomel Berry	canonical	Pokemon item
+179.png	0179_Spelon_Berry.png	179	Spelon Berry	canonical	Pokemon item
+180.png	0180_Pamtre_Berry.png	180	Pamtre Berry	canonical	Pokemon item
+181.png	0181_Watmel_Berry.png	181	Watmel Berry	canonical	Pokemon item
+182.png	0182_Durin_Berry.png	182	Durin Berry	canonical	Pokemon item
+183.png	0183_Belue_Berry.png	183	Belue Berry	canonical	Pokemon item
+184.png	0184_Occa_Berry.png	184	Occa Berry	canonical	Pokemon item
+185.png	0185_Passho_Berry.png	185	Passho Berry	canonical	Pokemon item
+186.png	0186_Wacan_Berry.png	186	Wacan Berry	canonical	Pokemon item
+187.png	0187_Rindo_Berry.png	187	Rindo Berry	canonical	Pokemon item
+188.png	0188_Yache_Berry.png	188	Yache Berry	canonical	Pokemon item
+189.png	0189_Chople_Berry.png	189	Chople Berry	canonical	Pokemon item
+190.png	0190_Kebia_Berry.png	190	Kebia Berry	canonical	Pokemon item
+191.png	0191_Shuca_Berry.png	191	Shuca Berry	canonical	Pokemon item
+192.png	0192_Coba_Berry.png	192	Coba Berry	canonical	Pokemon item
+193.png	0193_Payapa_Berry.png	193	Payapa Berry	canonical	Pokemon item
+194.png	0194_Tanga_Berry.png	194	Tanga Berry	canonical	Pokemon item
+195.png	0195_Charti_Berry.png	195	Charti Berry	canonical	Pokemon item
+196.png	0196_Kasib_Berry.png	196	Kasib Berry	canonical	Pokemon item
+197.png	0197_Haban_Berry.png	197	Haban Berry	canonical	Pokemon item
+198.png	0198_Colbur_Berry.png	198	Colbur Berry	canonical	Pokemon item
+199.png	0199_Babiri_Berry.png	199	Babiri Berry	canonical	Pokemon item
+200.png	0200_Chilan_Berry.png	200	Chilan Berry	canonical	Pokemon item
+201.png	0201_Liechi_Berry.png	201	Liechi Berry	canonical	Pokemon item
+202.png	0202_Ganlon_Berry.png	202	Ganlon Berry	canonical	Pokemon item
+203.png	0203_Salac_Berry.png	203	Salac Berry	canonical	Pokemon item
+204.png	0204_Petaya_Berry.png	204	Petaya Berry	canonical	Pokemon item
+205.png	0205_Apicot_Berry.png	205	Apicot Berry	canonical	Pokemon item
+206.png	0206_Lansat_Berry.png	206	Lansat Berry	canonical	Pokemon item
+207.png	0207_Starf_Berry.png	207	Starf Berry	canonical	Pokemon item
+208.png	0208_Enigma_Berry.png	208	Enigma Berry	canonical	Pokemon item
+209.png	0209_Micle_Berry.png	209	Micle Berry	canonical	Pokemon item
+210.png	0210_Custap_Berry.png	210	Custap Berry	canonical	Pokemon item
+211.png	0211_Jaboca_Berry.png	211	Jaboca Berry	canonical	Pokemon item
+212.png	0212_Rowap_Berry.png	212	Rowap Berry	canonical	Pokemon item
+213.png	0213_Bright_Powder.png	213	Bright Powder	canonical	Pokemon item
+214.png	0214_White_Herb.png	214	White Herb	canonical	Pokemon item
+215.png	0215_Macho_Brace.png	215	Macho Brace	canonical	Pokemon item
+216.png	0216_Exp_Share.png	216	Exp. Share	canonical	Pokemon item
+217.png	0217_Quick_Claw.png	217	Quick Claw	canonical	Pokemon item
+218.png	0218_Soothe_Bell.png	218	Soothe Bell	canonical	Pokemon item
+219.png	0219_Mental_Herb.png	219	Mental Herb	canonical	Pokemon item
+220.png	0220_Choice_Band.png	220	Choice Band	canonical	Pokemon item
+221.png	0221_Kings_Rock.png	221	King’s Rock	canonical	Pokemon item
+222.png	0222_Silver_Powder.png	222	Silver Powder	canonical	Pokemon item
+223.png	0223_Amulet_Coin.png	223	Amulet Coin	canonical	Pokemon item
+224.png	0224_Cleanse_Tag.png	224	Cleanse Tag	canonical	Pokemon item
+225.png	0225_Soul_Dew.png	225	Soul Dew	canonical	Pokemon item
+226.png	0226_Deep_Sea_Tooth.png	226	Deep Sea Tooth	canonical	Pokemon item
+227.png	0227_Deep_Sea_Scale.png	227	Deep Sea Scale	canonical	Pokemon item
+228.png	0228_Smoke_Ball.png	228	Smoke Ball	canonical	Pokemon item
+229.png	0229_Everstone.png	229	Everstone	canonical	Pokemon item
+230.png	0230_Focus_Band.png	230	Focus Band	canonical	Pokemon item
+231.png	0231_Lucky_Egg.png	231	Lucky Egg	canonical	Pokemon item
+232.png	0232_Scope_Lens.png	232	Scope Lens	canonical	Pokemon item
+233.png	0233_Metal_Coat.png	233	Metal Coat	canonical	Pokemon item
+234.png	0234_Leftovers.png	234	Leftovers	canonical	Pokemon item
+235.png	0235_Dragon_Scale.png	235	Dragon Scale	canonical	Pokemon item
+236.png	0236_Light_Ball.png	236	Light Ball	canonical	Pokemon item
+237.png	0237_Soft_Sand.png	237	Soft Sand	canonical	Pokemon item
+238.png	0238_Hard_Stone.png	238	Hard Stone	canonical	Pokemon item
+239.png	0239_Miracle_Seed.png	239	Miracle Seed	canonical	Pokemon item
+240.png	0240_Black_Glasses.png	240	Black Glasses	canonical	Pokemon item
+241.png	0241_Black_Belt.png	241	Black Belt	canonical	Pokemon item
+242.png	0242_Magnet.png	242	Magnet	canonical	Pokemon item
+243.png	0243_Mystic_Water.png	243	Mystic Water	canonical	Pokemon item
+244.png	0244_Sharp_Beak.png	244	Sharp Beak	canonical	Pokemon item
+245.png	0245_Poison_Barb.png	245	Poison Barb	canonical	Pokemon item
+246.png	0246_Never-Melt_Ice.png	246	Never-Melt Ice	canonical	Pokemon item
+247.png	0247_Spell_Tag.png	247	Spell Tag	canonical	Pokemon item
+248.png	0248_Twisted_Spoon.png	248	Twisted Spoon	canonical	Pokemon item
+249.png	0249_Charcoal.png	249	Charcoal	canonical	Pokemon item
+250.png	0250_Dragon_Fang.png	250	Dragon Fang	canonical	Pokemon item
+251.png	0251_Silk_Scarf.png	251	Silk Scarf	canonical	Pokemon item
+252.png	0252_Upgrade.png	252	Upgrade	canonical	Pokemon item
+253.png	0253_Shell_Bell.png	253	Shell Bell	canonical	Pokemon item
+254.png	0254_Sea_Incense.png	254	Sea Incense	canonical	Pokemon item
+255.png	0255_Lax_Incense.png	255	Lax Incense	canonical	Pokemon item
+256.png	0256_Lucky_Punch.png	256	Lucky Punch	canonical	Pokemon item
+257.png	0257_Metal_Powder.png	257	Metal Powder	canonical	Pokemon item
+258.png	0258_Thick_Club.png	258	Thick Club	canonical	Pokemon item
+259.png	0259_Leek.png	259	Leek	canonical	Pokemon item
+260.png	0260_Red_Scarf.png	260	Red Scarf	canonical	Pokemon item
+261.png	0261_Blue_Scarf.png	261	Blue Scarf	canonical	Pokemon item
+262.png	0262_Pink_Scarf.png	262	Pink Scarf	canonical	Pokemon item
+263.png	0263_Green_Scarf.png	263	Green Scarf	canonical	Pokemon item
+264.png	0264_Yellow_Scarf.png	264	Yellow Scarf	canonical	Pokemon item
+265.png	0265_Wide_Lens.png	265	Wide Lens	canonical	Pokemon item
+266.png	0266_Muscle_Band.png	266	Muscle Band	canonical	Pokemon item
+267.png	0267_Wise_Glasses.png	267	Wise Glasses	canonical	Pokemon item
+268.png	0268_Expert_Belt.png	268	Expert Belt	canonical	Pokemon item
+269.png	0269_Light_Clay.png	269	Light Clay	canonical	Pokemon item
+270.png	0270_Life_Orb.png	270	Life Orb	canonical	Pokemon item
+271.png	0271_Power_Herb.png	271	Power Herb	canonical	Pokemon item
+272.png	0272_Toxic_Orb.png	272	Toxic Orb	canonical	Pokemon item
+273.png	0273_Flame_Orb.png	273	Flame Orb	canonical	Pokemon item
+274.png	0274_Quick_Powder.png	274	Quick Powder	canonical	Pokemon item
+275.png	0275_Focus_Sash.png	275	Focus Sash	canonical	Pokemon item
+276.png	0276_Zoom_Lens.png	276	Zoom Lens	canonical	Pokemon item
+277.png	0277_Metronome.png	277	Metronome	canonical	Pokemon item
+278.png	0278_Iron_Ball.png	278	Iron Ball	canonical	Pokemon item
+279.png	0279_Lagging_Tail.png	279	Lagging Tail	canonical	Pokemon item
+280.png	0280_Destiny_Knot.png	280	Destiny Knot	canonical	Pokemon item
+281.png	0281_Black_Sludge.png	281	Black Sludge	canonical	Pokemon item
+282.png	0282_Icy_Rock.png	282	Icy Rock	canonical	Pokemon item
+283.png	0283_Smooth_Rock.png	283	Smooth Rock	canonical	Pokemon item
+284.png	0284_Heat_Rock.png	284	Heat Rock	canonical	Pokemon item
+285.png	0285_Damp_Rock.png	285	Damp Rock	canonical	Pokemon item
+286.png	0286_Grip_Claw.png	286	Grip Claw	canonical	Pokemon item
+287.png	0287_Choice_Scarf.png	287	Choice Scarf	canonical	Pokemon item
+288.png	0288_Sticky_Barb.png	288	Sticky Barb	canonical	Pokemon item
+289.png	0289_Power_Bracer.png	289	Power Bracer	canonical	Pokemon item
+290.png	0290_Power_Belt.png	290	Power Belt	canonical	Pokemon item
+291.png	0291_Power_Lens.png	291	Power Lens	canonical	Pokemon item
+292.png	0292_Power_Band.png	292	Power Band	canonical	Pokemon item
+293.png	0293_Power_Anklet.png	293	Power Anklet	canonical	Pokemon item
+294.png	0294_Power_Weight.png	294	Power Weight	canonical	Pokemon item
+295.png	0295_Shed_Shell.png	295	Shed Shell	canonical	Pokemon item
+296.png	0296_Big_Root.png	296	Big Root	canonical	Pokemon item
+297.png	0297_Choice_Specs.png	297	Choice Specs	canonical	Pokemon item
+298.png	0298_Flame_Plate.png	298	Flame Plate	canonical	Pokemon item
+299.png	0299_Splash_Plate.png	299	Splash Plate	canonical	Pokemon item
+300.png	0300_Zap_Plate.png	300	Zap Plate	canonical	Pokemon item
+301.png	0301_Meadow_Plate.png	301	Meadow Plate	canonical	Pokemon item
+302.png	0302_Icicle_Plate.png	302	Icicle Plate	canonical	Pokemon item
+303.png	0303_Fist_Plate.png	303	Fist Plate	canonical	Pokemon item
+304.png	0304_Toxic_Plate.png	304	Toxic Plate	canonical	Pokemon item
+305.png	0305_Earth_Plate.png	305	Earth Plate	canonical	Pokemon item
+306.png	0306_Sky_Plate.png	306	Sky Plate	canonical	Pokemon item
+307.png	0307_Mind_Plate.png	307	Mind Plate	canonical	Pokemon item
+308.png	0308_Insect_Plate.png	308	Insect Plate	canonical	Pokemon item
+309.png	0309_Stone_Plate.png	309	Stone Plate	canonical	Pokemon item
+310.png	0310_Spooky_Plate.png	310	Spooky Plate	canonical	Pokemon item
+311.png	0311_Draco_Plate.png	311	Draco Plate	canonical	Pokemon item
+312.png	0312_Dread_Plate.png	312	Dread Plate	canonical	Pokemon item
+313.png	0313_Iron_Plate.png	313	Iron Plate	canonical	Pokemon item
+314.png	0314_Odd_Incense.png	314	Odd Incense	canonical	Pokemon item
+315.png	0315_Rock_Incense.png	315	Rock Incense	canonical	Pokemon item
+316.png	0316_Full_Incense.png	316	Full Incense	canonical	Pokemon item
+317.png	0317_Wave_Incense.png	317	Wave Incense	canonical	Pokemon item
+318.png	0318_Rose_Incense.png	318	Rose Incense	canonical	Pokemon item
+319.png	0319_Luck_Incense.png	319	Luck Incense	canonical	Pokemon item
+320.png	0320_Pure_Incense.png	320	Pure Incense	canonical	Pokemon item
+321.png	0321_Protector.png	321	Protector	canonical	Pokemon item
+322.png	0322_Electirizer.png	322	Electirizer	canonical	Pokemon item
+323.png	0323_Magmarizer.png	323	Magmarizer	canonical	Pokemon item
+324.png	0324_Dubious_Disc.png	324	Dubious Disc	canonical	Pokemon item
+325.png	0325_Reaper_Cloth.png	325	Reaper Cloth	canonical	Pokemon item
+326.png	0326_Razor_Claw.png	326	Razor Claw	canonical	Pokemon item
+327.png	0327_Razor_Fang.png	327	Razor Fang	canonical	Pokemon item
+328.png	0328_TM01.png	328	TM01	canonical	Pokemon item
+329.png	0329_TM02.png	329	TM02	canonical	Pokemon item
+330.png	0330_TM03.png	330	TM03	canonical	Pokemon item
+331.png	0331_TM04.png	331	TM04	canonical	Pokemon item
+332.png	0332_TM05.png	332	TM05	canonical	Pokemon item
+333.png	0333_TM06.png	333	TM06	canonical	Pokemon item
+334.png	0334_TM07.png	334	TM07	canonical	Pokemon item
+335.png	0335_TM08.png	335	TM08	canonical	Pokemon item
+336.png	0336_TM09.png	336	TM09	canonical	Pokemon item
+337.png	0337_TM10.png	337	TM10	canonical	Pokemon item
+338.png	0338_TM11.png	338	TM11	canonical	Pokemon item
+339.png	0339_TM12.png	339	TM12	canonical	Pokemon item
+340.png	0340_TM13.png	340	TM13	canonical	Pokemon item
+341.png	0341_TM14.png	341	TM14	canonical	Pokemon item
+342.png	0342_TM15.png	342	TM15	canonical	Pokemon item
+343.png	0343_TM16.png	343	TM16	canonical	Pokemon item
+344.png	0344_TM17.png	344	TM17	canonical	Pokemon item
+345.png	0345_TM18.png	345	TM18	canonical	Pokemon item
+346.png	0346_TM19.png	346	TM19	canonical	Pokemon item
+347.png	0347_TM20.png	347	TM20	canonical	Pokemon item
+348.png	0348_TM21.png	348	TM21	canonical	Pokemon item
+349.png	0349_TM22.png	349	TM22	canonical	Pokemon item
+350.png	0350_TM23.png	350	TM23	canonical	Pokemon item
+351.png	0351_TM24.png	351	TM24	canonical	Pokemon item
+352.png	0352_TM25.png	352	TM25	canonical	Pokemon item
+353.png	0353_TM26.png	353	TM26	canonical	Pokemon item
+354.png	0354_TM27.png	354	TM27	canonical	Pokemon item
+355.png	0355_TM28.png	355	TM28	canonical	Pokemon item
+356.png	0356_TM29.png	356	TM29	canonical	Pokemon item
+357.png	0357_TM30.png	357	TM30	canonical	Pokemon item
+358.png	0358_TM31.png	358	TM31	canonical	Pokemon item
+359.png	0359_TM32.png	359	TM32	canonical	Pokemon item
+360.png	0360_TM33.png	360	TM33	canonical	Pokemon item
+361.png	0361_TM34.png	361	TM34	canonical	Pokemon item
+362.png	0362_TM35.png	362	TM35	canonical	Pokemon item
+363.png	0363_TM36.png	363	TM36	canonical	Pokemon item
+364.png	0364_TM37.png	364	TM37	canonical	Pokemon item
+365.png	0365_TM38.png	365	TM38	canonical	Pokemon item
+366.png	0366_TM39.png	366	TM39	canonical	Pokemon item
+367.png	0367_TM40.png	367	TM40	canonical	Pokemon item
+368.png	0368_TM41.png	368	TM41	canonical	Pokemon item
+369.png	0369_TM42.png	369	TM42	canonical	Pokemon item
+370.png	0370_TM43.png	370	TM43	canonical	Pokemon item
+371.png	0371_TM44.png	371	TM44	canonical	Pokemon item
+372.png	0372_TM45.png	372	TM45	canonical	Pokemon item
+373.png	0373_TM46.png	373	TM46	canonical	Pokemon item
+374.png	0374_TM47.png	374	TM47	canonical	Pokemon item
+375.png	0375_TM48.png	375	TM48	canonical	Pokemon item
+376.png	0376_TM49.png	376	TM49	canonical	Pokemon item
+377.png	0377_TM50.png	377	TM50	canonical	Pokemon item
+378.png	0378_TM51.png	378	TM51	canonical	Pokemon item
+379.png	0379_TM52.png	379	TM52	canonical	Pokemon item
+380.png	0380_TM53.png	380	TM53	canonical	Pokemon item
+381.png	0381_TM54.png	381	TM54	canonical	Pokemon item
+382.png	0382_TM55.png	382	TM55	canonical	Pokemon item
+383.png	0383_TM56.png	383	TM56	canonical	Pokemon item
+384.png	0384_TM57.png	384	TM57	canonical	Pokemon item
+385.png	0385_TM58.png	385	TM58	canonical	Pokemon item
+386.png	0386_TM59.png	386	TM59	canonical	Pokemon item
+387.png	0387_TM60.png	387	TM60	canonical	Pokemon item
+388.png	0388_TM61.png	388	TM61	canonical	Pokemon item
+389.png	0389_TM62.png	389	TM62	canonical	Pokemon item
+390.png	0390_TM63.png	390	TM63	canonical	Pokemon item
+391.png	0391_TM64.png	391	TM64	canonical	Pokemon item
+392.png	0392_TM65.png	392	TM65	canonical	Pokemon item
+393.png	0393_TM66.png	393	TM66	canonical	Pokemon item
+394.png	0394_TM67.png	394	TM67	canonical	Pokemon item
+395.png	0395_TM68.png	395	TM68	canonical	Pokemon item
+396.png	0396_TM69.png	396	TM69	canonical	Pokemon item
+397.png	0397_TM70.png	397	TM70	canonical	Pokemon item
+398.png	0398_TM71.png	398	TM71	canonical	Pokemon item
+399.png	0399_TM72.png	399	TM72	canonical	Pokemon item
+400.png	0400_TM73.png	400	TM73	canonical	Pokemon item
+401.png	0401_TM74.png	401	TM74	canonical	Pokemon item
+402.png	0402_TM75.png	402	TM75	canonical	Pokemon item
+403.png	0403_TM76.png	403	TM76	canonical	Pokemon item
+404.png	0404_TM77.png	404	TM77	canonical	Pokemon item
+405.png	0405_TM78.png	405	TM78	canonical	Pokemon item
+406.png	0406_TM79.png	406	TM79	canonical	Pokemon item
+407.png	0407_TM80.png	407	TM80	canonical	Pokemon item
+408.png	0408_TM81.png	408	TM81	canonical	Pokemon item
+409.png	0409_TM82.png	409	TM82	canonical	Pokemon item
+410.png	0410_TM83.png	410	TM83	canonical	Pokemon item
+411.png	0411_TM84.png	411	TM84	canonical	Pokemon item
+412.png	0412_TM85.png	412	TM85	canonical	Pokemon item
+413.png	0413_TM86.png	413	TM86	canonical	Pokemon item
+414.png	0414_TM87.png	414	TM87	canonical	Pokemon item
+415.png	0415_TM88.png	415	TM88	canonical	Pokemon item
+416.png	0416_TM89.png	416	TM89	canonical	Pokemon item
+417.png	0417_TM90.png	417	TM90	canonical	Pokemon item
+418.png	0418_TM91.png	418	TM91	canonical	Pokemon item
+419.png	0419_TM92.png	419	TM92	canonical	Pokemon item
+420.png	0420_HM01.png	420	HM01	canonical	Pokemon item
+421.png	0421_HM02.png	421	HM02	canonical	Pokemon item
+422.png	0422_HM03.png	422	HM03	canonical	Pokemon item
+423.png	0423_HM04.png	423	HM04	canonical	Pokemon item
+424.png	0424_HM05.png	424	HM05	canonical	Pokemon item
+425.png	0425_HM06.png	425	HM06	canonical	Pokemon item
+426.png	0426_HM07.png	426	HM07	canonical	Pokemon item
+427.png	0427_HM08.png	427	HM08	canonical	Pokemon item
+428.png	0428_Explorer_Kit.png	428	Explorer Kit	canonical	Pokemon item
+429.png	0429_Loot_Sack.png	429	Loot Sack	canonical	Pokemon item
+430.png	0430_Rule_Book.png	430	Rule Book	canonical	Pokemon item
+431.png	0431_Poke_Radar.png	431	Poké Radar	canonical	Pokemon item
+432.png	0432_Point_Card.png	432	Point Card	canonical	Pokemon item
+433.png	0433_Guidebook.png	433	Guidebook	canonical	Pokemon item
+434.png	0434_Sticker_Case.png	434	Sticker Case	canonical	Pokemon item
+435.png	0435_Fashion_Case.png	435	Fashion Case	canonical	Pokemon item
+436.png	0436_Sticker_Bag.png	436	Sticker Bag	canonical	Pokemon item
+437.png	0437_Pal_Pad.png	437	Pal Pad	canonical	Pokemon item
+438.png	0438_Works_Key.png	438	Works Key	canonical	Pokemon item
+439.png	0439_Old_Charm.png	439	Old Charm	canonical	Pokemon item
+440.png	0440_Galactic_Key.png	440	Galactic Key	canonical	Pokemon item
+441.png	0441_Red_Chain.png	441	Red Chain	canonical	Pokemon item
+442.png	0442_Town_Map.png	442	Town Map	canonical	Pokemon item
+443.png	0443_Vs_Seeker.png	443	Vs. Seeker	canonical	Pokemon item
+444.png	0444_Coin_Case.png	444	Coin Case	canonical	Pokemon item
+445.png	0445_Old_Rod.png	445	Old Rod	canonical	Pokemon item
+446.png	0446_Good_Rod.png	446	Good Rod	canonical	Pokemon item
+447.png	0447_Super_Rod.png	447	Super Rod	canonical	Pokemon item
+448.png	0448_Sprayduck.png	448	Sprayduck	canonical	Pokemon item
+449.png	0449_Poffin_Case.png	449	Poffin Case	canonical	Pokemon item
+450.png	0450_Bike.png	450	Bike	canonical	Pokemon item
+451.png	0451_Suite_Key.png	451	Suite Key	canonical	Pokemon item
+452.png	0452_Oaks_Letter.png	452	Oak’s Letter	canonical	Pokemon item
+453.png	0453_Lunar_Feather.png	453	Lunar Feather	canonical	Pokemon item
+454.png	0454_Member_Card.png	454	Member Card	canonical	Pokemon item
+455.png	0455_Azure_Flute.png	455	Azure Flute	canonical	Pokemon item
+456.png	0456_SS_Ticket.png	456	S.S. Ticket	canonical	Pokemon item
+457.png	0457_Contest_Pass.png	457	Contest Pass	canonical	Pokemon item
+458.png	0458_Magma_Stone.png	458	Magma Stone	canonical	Pokemon item
+459.png	0459_Parcel.png	459	Parcel	canonical	Pokemon item
+460.png	0460_Coupon_1.png	460	Coupon 1	canonical	Pokemon item
+461.png	0461_Coupon_2.png	461	Coupon 2	canonical	Pokemon item
+462.png	0462_Coupon_3.png	462	Coupon 3	canonical	Pokemon item
+463.png	0463_Storage_Key.png	463	Storage Key	canonical	Pokemon item
+464.png	0464_Secret_Medicine.png	464	Secret Medicine	canonical	Pokemon item
+465.png	0465_Vs_Recorder.png	465	Vs. Recorder	canonical	Pokemon item
+466.png	0466_Gracidea.png	466	Gracidea	canonical	Pokemon item
+467.png	0467_Secret_Key.png	467	Secret Key	canonical	Pokemon item
+468.png	0468_Apricorn_Box.png	468	Apricorn Box	canonical	Pokemon item
+469.png	0469_Unown_Report.png	469	Unown Report	canonical	Pokemon item
+470.png	0470_Berry_Pots.png	470	Berry Pots	canonical	Pokemon item
+471.png	0471_Dowsing_Machine.png	471	Dowsing Machine	canonical	Pokemon item
+472.png	0472_Blue_Card.png	472	Blue Card	canonical	Pokemon item
+473.png	0473_Slowpoke_Tail.png	473	Slowpoke Tail	canonical	Pokemon item
+474.png	0474_Clear_Bell.png	474	Clear Bell	canonical	Pokemon item
+475.png	0475_Card_Key.png	475	Card Key	canonical	Pokemon item
+476.png	0476_Basement_Key.png	476	Basement Key	canonical	Pokemon item
+477.png	0477_Squirt_Bottle.png	477	Squirt Bottle	canonical	Pokemon item
+478.png	0478_Red_Scale.png	478	Red Scale	canonical	Pokemon item
+479.png	0479_Lost_Item.png	479	Lost Item	canonical	Pokemon item
+480.png	0480_Pass.png	480	Pass	canonical	Pokemon item
+481.png	0481_Machine_Part.png	481	Machine Part	canonical	Pokemon item
+482.png	0482_Silver_Feather.png	482	Silver Feather	canonical	Pokemon item
+483.png	0483_Rainbow_Feather.png	483	Rainbow Feather	canonical	Pokemon item
+484.png	0484_Mystery_Egg.png	484	Mystery Egg	canonical	Pokemon item
+485.png	0485_Red_Apricorn.png	485	Red Apricorn	canonical	Pokemon item
+486.png	0486_Blue_Apricorn.png	486	Blue Apricorn	canonical	Pokemon item
+487.png	0487_Yellow_Apricorn.png	487	Yellow Apricorn	canonical	Pokemon item
+488.png	0488_Green_Apricorn.png	488	Green Apricorn	canonical	Pokemon item
+489.png	0489_Pink_Apricorn.png	489	Pink Apricorn	canonical	Pokemon item
+490.png	0490_White_Apricorn.png	490	White Apricorn	canonical	Pokemon item
+491.png	0491_Black_Apricorn.png	491	Black Apricorn	canonical	Pokemon item
+492.png	0492_Fast_Ball.png	492	Fast Ball	canonical	Pokemon item
+493.png	0493_Level_Ball.png	493	Level Ball	canonical	Pokemon item
+494.png	0494_Lure_Ball.png	494	Lure Ball	canonical	Pokemon item
+495.png	0495_Heavy_Ball.png	495	Heavy Ball	canonical	Pokemon item
+496.png	0496_Love_Ball.png	496	Love Ball	canonical	Pokemon item
+497.png	0497_Friend_Ball.png	497	Friend Ball	canonical	Pokemon item
+498.png	0498_Moon_Ball.png	498	Moon Ball	canonical	Pokemon item
+499.png	0499_Sport_Ball.png	499	Sport Ball	canonical	Pokemon item
+500.png	0500_Park_Ball.png	500	Park Ball	canonical	Pokemon item
+501.png	0501_Photo_Album.png	501	Photo Album	canonical	Pokemon item
+502.png	0502_GB_Sounds.png	502	GB Sounds	canonical	Pokemon item
+503.png	0503_Tidal_Bell.png	503	Tidal Bell	canonical	Pokemon item
+504.png	0504_Rage_Candy_Bar.png	504	Rage Candy Bar	canonical	Pokemon item
+505.png	0505_Data_Card_01.png	505	Data Card 01	canonical	Pokemon item
+506.png	0506_Data_Card_02.png	506	Data Card 02	canonical	Pokemon item
+507.png	0507_Data_Card_03.png	507	Data Card 03	canonical	Pokemon item
+508.png	0508_Data_Card_04.png	508	Data Card 04	canonical	Pokemon item
+509.png	0509_Data_Card_05.png	509	Data Card 05	canonical	Pokemon item
+510.png	0510_Data_Card_06.png	510	Data Card 06	canonical	Pokemon item
+511.png	0511_Data_Card_07.png	511	Data Card 07	canonical	Pokemon item
+512.png	0512_Data_Card_08.png	512	Data Card 08	canonical	Pokemon item
+513.png	0513_Data_Card_09.png	513	Data Card 09	canonical	Pokemon item
+514.png	0514_Data_Card_10.png	514	Data Card 10	canonical	Pokemon item
+515.png	0515_Data_Card_11.png	515	Data Card 11	canonical	Pokemon item
+516.png	0516_Data_Card_12.png	516	Data Card 12	canonical	Pokemon item
+517.png	0517_Data_Card_13.png	517	Data Card 13	canonical	Pokemon item
+518.png	0518_Data_Card_14.png	518	Data Card 14	canonical	Pokemon item
+519.png	0519_Data_Card_15.png	519	Data Card 15	canonical	Pokemon item
+520.png	0520_Data_Card_16.png	520	Data Card 16	canonical	Pokemon item
+521.png	0521_Data_Card_17.png	521	Data Card 17	canonical	Pokemon item
+522.png	0522_Data_Card_18.png	522	Data Card 18	canonical	Pokemon item
+523.png	0523_Data_Card_19.png	523	Data Card 19	canonical	Pokemon item
+524.png	0524_Data_Card_20.png	524	Data Card 20	canonical	Pokemon item
+525.png	0525_Data_Card_21.png	525	Data Card 21	canonical	Pokemon item
+526.png	0526_Data_Card_22.png	526	Data Card 22	canonical	Pokemon item
+527.png	0527_Data_Card_23.png	527	Data Card 23	canonical	Pokemon item
+528.png	0528_Data_Card_24.png	528	Data Card 24	canonical	Pokemon item
+529.png	0529_Data_Card_25.png	529	Data Card 25	canonical	Pokemon item
+530.png	0530_Data_Card_26.png	530	Data Card 26	canonical	Pokemon item
+531.png	0531_Data_Card_27.png	531	Data Card 27	canonical	Pokemon item
+532.png	0532_Jade_Orb.png	532	Jade Orb	canonical	Pokemon item
+533.png	0533_Lock_Capsule.png	533	Lock Capsule	canonical	Pokemon item
+534.png	0534_Red_Orb.png	534	Red Orb	canonical	Pokemon item
+535.png	0535_Blue_Orb.png	535	Blue Orb	canonical	Pokemon item
+536.png	0536_Enigma_Stone.png	536	Enigma Stone	canonical	Pokemon item
+537.png	0537_Prism_Scale.png	537	Prism Scale	canonical	Pokemon item
+538.png	0538_Eviolite.png	538	Eviolite	canonical	Pokemon item
+539.png	0539_Float_Stone.png	539	Float Stone	canonical	Pokemon item
+540.png	0540_Rocky_Helmet.png	540	Rocky Helmet	canonical	Pokemon item
+541.png	0541_Air_Balloon.png	541	Air Balloon	canonical	Pokemon item
+542.png	0542_Red_Card.png	542	Red Card	canonical	Pokemon item
+543.png	0543_Ring_Target.png	543	Ring Target	canonical	Pokemon item
+544.png	0544_Binding_Band.png	544	Binding Band	canonical	Pokemon item
+545.png	0545_Absorb_Bulb.png	545	Absorb Bulb	canonical	Pokemon item
+546.png	0546_Cell_Battery.png	546	Cell Battery	canonical	Pokemon item
+547.png	0547_Eject_Button.png	547	Eject Button	canonical	Pokemon item
+548.png	0548_Fire_Gem.png	548	Fire Gem	canonical	Pokemon item
+549.png	0549_Water_Gem.png	549	Water Gem	canonical	Pokemon item
+550.png	0550_Electric_Gem.png	550	Electric Gem	canonical	Pokemon item
+551.png	0551_Grass_Gem.png	551	Grass Gem	canonical	Pokemon item
+552.png	0552_Ice_Gem.png	552	Ice Gem	canonical	Pokemon item
+553.png	0553_Fighting_Gem.png	553	Fighting Gem	canonical	Pokemon item
+554.png	0554_Poison_Gem.png	554	Poison Gem	canonical	Pokemon item
+555.png	0555_Ground_Gem.png	555	Ground Gem	canonical	Pokemon item
+556.png	0556_Flying_Gem.png	556	Flying Gem	canonical	Pokemon item
+557.png	0557_Psychic_Gem.png	557	Psychic Gem	canonical	Pokemon item
+558.png	0558_Bug_Gem.png	558	Bug Gem	canonical	Pokemon item
+559.png	0559_Rock_Gem.png	559	Rock Gem	canonical	Pokemon item
+560.png	0560_Ghost_Gem.png	560	Ghost Gem	canonical	Pokemon item
+561.png	0561_Dragon_Gem.png	561	Dragon Gem	canonical	Pokemon item
+562.png	0562_Dark_Gem.png	562	Dark Gem	canonical	Pokemon item
+563.png	0563_Steel_Gem.png	563	Steel Gem	canonical	Pokemon item
+564.png	0564_Normal_Gem.png	564	Normal Gem	canonical	Pokemon item
+565.png	0565_Health_Feather.png	565	Health Feather	canonical	Pokemon item
+566.png	0566_Muscle_Feather.png	566	Muscle Feather	canonical	Pokemon item
+567.png	0567_Resist_Feather.png	567	Resist Feather	canonical	Pokemon item
+568.png	0568_Genius_Feather.png	568	Genius Feather	canonical	Pokemon item
+569.png	0569_Clever_Feather.png	569	Clever Feather	canonical	Pokemon item
+570.png	0570_Swift_Feather.png	570	Swift Feather	canonical	Pokemon item
+571.png	0571_Pretty_Feather.png	571	Pretty Feather	canonical	Pokemon item
+572.png	0572_Cover_Fossil.png	572	Cover Fossil	canonical	Pokemon item
+573.png	0573_Plume_Fossil.png	573	Plume Fossil	canonical	Pokemon item
+574.png	0574_Liberty_Pass.png	574	Liberty Pass	canonical	Pokemon item
+575.png	0575_Pass_Orb.png	575	Pass Orb	canonical	Pokemon item
+576.png	0576_Dream_Ball.png	576	Dream Ball	canonical	Pokemon item
+577.png	0577_Poke_Toy.png	577	Poké Toy	canonical	Pokemon item
+578.png	0578_Prop_Case.png	578	Prop Case	canonical	Pokemon item
+579.png	0579_Dragon_Skull.png	579	Dragon Skull	canonical	Pokemon item
+580.png	0580_Balm_Mushroom.png	580	Balm Mushroom	canonical	Pokemon item
+581.png	0581_Big_Nugget.png	581	Big Nugget	canonical	Pokemon item
+582.png	0582_Pearl_String.png	582	Pearl String	canonical	Pokemon item
+583.png	0583_Comet_Shard.png	583	Comet Shard	canonical	Pokemon item
+584.png	0584_Relic_Copper.png	584	Relic Copper	canonical	Pokemon item
+585.png	0585_Relic_Silver.png	585	Relic Silver	canonical	Pokemon item
+586.png	0586_Relic_Gold.png	586	Relic Gold	canonical	Pokemon item
+587.png	0587_Relic_Vase.png	587	Relic Vase	canonical	Pokemon item
+588.png	0588_Relic_Band.png	588	Relic Band	canonical	Pokemon item
+589.png	0589_Relic_Statue.png	589	Relic Statue	canonical	Pokemon item
+590.png	0590_Relic_Crown.png	590	Relic Crown	canonical	Pokemon item
+591.png	0591_Casteliacone.png	591	Casteliacone	canonical	Pokemon item
+592.png	0592_Dire_Hit_2.png	592	Dire Hit 2	canonical	Pokemon item
+593.png	0593_X_Speed_2.png	593	X Speed 2	canonical	Pokemon item
+594.png	0594_X_Sp_Atk_2.png	594	X Sp. Atk 2	canonical	Pokemon item
+595.png	0595_X_Sp_Def_2.png	595	X Sp. Def 2	canonical	Pokemon item
+596.png	0596_X_Defense_2.png	596	X Defense 2	canonical	Pokemon item
+597.png	0597_X_Attack_2.png	597	X Attack 2	canonical	Pokemon item
+598.png	0598_X_Accuracy_2.png	598	X Accuracy 2	canonical	Pokemon item
+599.png	0599_X_Speed_3.png	599	X Speed 3	canonical	Pokemon item
+600.png	0600_X_Sp_Atk_3.png	600	X Sp. Atk 3	canonical	Pokemon item
+601.png	0601_X_Sp_Def_3.png	601	X Sp. Def 3	canonical	Pokemon item
+602.png	0602_X_Defense_3.png	602	X Defense 3	canonical	Pokemon item
+603.png	0603_X_Attack_3.png	603	X Attack 3	canonical	Pokemon item
+604.png	0604_X_Accuracy_3.png	604	X Accuracy 3	canonical	Pokemon item
+605.png	0605_X_Speed_6.png	605	X Speed 6	canonical	Pokemon item
+606.png	0606_X_Sp_Atk_6.png	606	X Sp. Atk 6	canonical	Pokemon item
+607.png	0607_X_Sp_Def_6.png	607	X Sp. Def 6	canonical	Pokemon item
+608.png	0608_X_Defense_6.png	608	X Defense 6	canonical	Pokemon item
+609.png	0609_X_Attack_6.png	609	X Attack 6	canonical	Pokemon item
+610.png	0610_X_Accuracy_6.png	610	X Accuracy 6	canonical	Pokemon item
+611.png	0611_Ability_Urge.png	611	Ability Urge	canonical	Pokemon item
+612.png	0612_Item_Drop.png	612	Item Drop	canonical	Pokemon item
+613.png	0613_Item_Urge.png	613	Item Urge	canonical	Pokemon item
+614.png	0614_Reset_Urge.png	614	Reset Urge	canonical	Pokemon item
+615.png	0615_Dire_Hit_3.png	615	Dire Hit 3	canonical	Pokemon item
+616.png	0616_Light_Stone.png	616	Light Stone	canonical	Pokemon item
+617.png	0617_Dark_Stone.png	617	Dark Stone	canonical	Pokemon item
+618.png	0618_TM93.png	618	TM93	canonical	Pokemon item
+619.png	0619_TM94.png	619	TM94	canonical	Pokemon item
+620.png	0620_TM95.png	620	TM95	canonical	Pokemon item
+621.png	0621_Xtransceiver.png	621	Xtransceiver	canonical	Pokemon item
+622.png	0622_Unused_Item_ID_622.png	622	Unused Item ID 622	unused/unnamed	Pokemon item
+623.png	0623_Gram_1.png	623	Gram 1	canonical	Pokemon item
+624.png	0624_Gram_2.png	624	Gram 2	canonical	Pokemon item
+625.png	0625_Gram_3.png	625	Gram 3	canonical	Pokemon item
+626.png	0626_Xtransceiver.png	626	Xtransceiver	canonical	Pokemon item
+627.png	0627_Medal_Box.png	627	Medal Box	canonical	Pokemon item
+628.png	0628_DNA_Splicers.png	628	DNA Splicers	canonical	Pokemon item
+629.png	0629_DNA_Splicers.png	629	DNA Splicers	canonical	Pokemon item
+630.png	0630_Permit.png	630	Permit	canonical	Pokemon item
+631.png	0631_Oval_Charm.png	631	Oval Charm	canonical	Pokemon item
+632.png	0632_Shiny_Charm.png	632	Shiny Charm	canonical	Pokemon item
+633.png	0633_Plasma_Card.png	633	Plasma Card	canonical	Pokemon item
+634.png	0634_Grubby_Hanky.png	634	Grubby Hanky	canonical	Pokemon item
+635.png	0635_Colress_Machine.png	635	Colress Machine	canonical	Pokemon item
+636.png	0636_Dropped_Item.png	636	Dropped Item	canonical	Pokemon item
+637.png	0637_Dropped_Item.png	637	Dropped Item	canonical	Pokemon item
+638.png	0638_Reveal_Glass.png	638	Reveal Glass	canonical	Pokemon item
+639.png	0639_Weakness_Policy.png	639	Weakness Policy	canonical	Pokemon item
+640.png	0640_Assault_Vest.png	640	Assault Vest	canonical	Pokemon item
+641.png	0641_Holo_Caster.png	641	Holo Caster	canonical	Pokemon item
+642.png	0642_Profs_Letter.png	642	Prof’s Letter	canonical	Pokemon item
+643.png	0643_Roller_Skates.png	643	Roller Skates	canonical	Pokemon item
+644.png	0644_Pixie_Plate.png	644	Pixie Plate	canonical	Pokemon item
+645.png	0645_Ability_Capsule.png	645	Ability Capsule	canonical	Pokemon item
+646.png	0646_Whipped_Dream.png	646	Whipped Dream	canonical	Pokemon item
+647.png	0647_Sachet.png	647	Sachet	canonical	Pokemon item
+648.png	0648_Luminous_Moss.png	648	Luminous Moss	canonical	Pokemon item
+649.png	0649_Snowball.png	649	Snowball	canonical	Pokemon item
+650.png	0650_Safety_Goggles.png	650	Safety Goggles	canonical	Pokemon item
+651.png	0651_Poke_Flute.png	651	Poké Flute	canonical	Pokemon item
+652.png	0652_Rich_Mulch.png	652	Rich Mulch	canonical	Pokemon item
+653.png	0653_Surprise_Mulch.png	653	Surprise Mulch	canonical	Pokemon item
+654.png	0654_Boost_Mulch.png	654	Boost Mulch	canonical	Pokemon item
+655.png	0655_Amaze_Mulch.png	655	Amaze Mulch	canonical	Pokemon item
+656.png	0656_Gengarite.png	656	Gengarite	canonical	Pokemon item
+657.png	0657_Gardevoirite.png	657	Gardevoirite	canonical	Pokemon item
+658.png	0658_Ampharosite.png	658	Ampharosite	canonical	Pokemon item
+659.png	0659_Venusaurite.png	659	Venusaurite	canonical	Pokemon item
+660.png	0660_Charizardite_X.png	660	Charizardite X	canonical	Pokemon item
+661.png	0661_Blastoisinite.png	661	Blastoisinite	canonical	Pokemon item
+662.png	0662_Mewtwonite_X.png	662	Mewtwonite X	canonical	Pokemon item
+663.png	0663_Mewtwonite_Y.png	663	Mewtwonite Y	canonical	Pokemon item
+664.png	0664_Blazikenite.png	664	Blazikenite	canonical	Pokemon item
+665.png	0665_Medichamite.png	665	Medichamite	canonical	Pokemon item
+666.png	0666_Houndoominite.png	666	Houndoominite	canonical	Pokemon item
+667.png	0667_Aggronite.png	667	Aggronite	canonical	Pokemon item
+668.png	0668_Banettite.png	668	Banettite	canonical	Pokemon item
+669.png	0669_Tyranitarite.png	669	Tyranitarite	canonical	Pokemon item
+670.png	0670_Scizorite.png	670	Scizorite	canonical	Pokemon item
+671.png	0671_Pinsirite.png	671	Pinsirite	canonical	Pokemon item
+672.png	0672_Aerodactylite.png	672	Aerodactylite	canonical	Pokemon item
+673.png	0673_Lucarionite.png	673	Lucarionite	canonical	Pokemon item
+674.png	0674_Abomasite.png	674	Abomasite	canonical	Pokemon item
+675.png	0675_Kangaskhanite.png	675	Kangaskhanite	canonical	Pokemon item
+676.png	0676_Gyaradosite.png	676	Gyaradosite	canonical	Pokemon item
+677.png	0677_Absolite.png	677	Absolite	canonical	Pokemon item
+678.png	0678_Charizardite_Y.png	678	Charizardite Y	canonical	Pokemon item
+679.png	0679_Alakazite.png	679	Alakazite	canonical	Pokemon item
+680.png	0680_Heracronite.png	680	Heracronite	canonical	Pokemon item
+681.png	0681_Mawilite.png	681	Mawilite	canonical	Pokemon item
+682.png	0682_Manectite.png	682	Manectite	canonical	Pokemon item
+683.png	0683_Garchompite.png	683	Garchompite	canonical	Pokemon item
+684.png	0684_Latiasite.png	684	Latiasite	canonical	Pokemon item
+685.png	0685_Latiosite.png	685	Latiosite	canonical	Pokemon item
+686.png	0686_Roseli_Berry.png	686	Roseli Berry	canonical	Pokemon item
+687.png	0687_Kee_Berry.png	687	Kee Berry	canonical	Pokemon item
+688.png	0688_Maranga_Berry.png	688	Maranga Berry	canonical	Pokemon item
+689.png	0689_Sprinklotad.png	689	Sprinklotad	canonical	Pokemon item
+690.png	0690_TM96.png	690	TM96	canonical	Pokemon item
+691.png	0691_TM97.png	691	TM97	canonical	Pokemon item
+692.png	0692_TM98.png	692	TM98	canonical	Pokemon item
+693.png	0693_TM99.png	693	TM99	canonical	Pokemon item
+694.png	0694_TM100.png	694	TM100	canonical	Pokemon item
+695.png	0695_Power_Plant_Pass.png	695	Power Plant Pass	canonical	Pokemon item
+696.png	0696_Mega_Ring.png	696	Mega Ring	canonical	Pokemon item
+697.png	0697_Intriguing_Stone.png	697	Intriguing Stone	canonical	Pokemon item
+698.png	0698_Common_Stone.png	698	Common Stone	canonical	Pokemon item
+699.png	0699_Discount_Coupon.png	699	Discount Coupon	canonical	Pokemon item
+700.png	0700_Elevator_Key.png	700	Elevator Key	canonical	Pokemon item
+701.png	0701_TMV_Pass.png	701	TMV Pass	canonical	Pokemon item
+702.png	0702_Honor_of_Kalos.png	702	Honor of Kalos	canonical	Pokemon item
+703.png	0703_Adventure_Guide.png	703	Adventure Guide	canonical	Pokemon item
+704.png	0704_Strange_Souvenir.png	704	Strange Souvenir	canonical	Pokemon item
+705.png	0705_Lens_Case.png	705	Lens Case	canonical	Pokemon item
+706.png	0706_Makeup_Bag.png	706	Makeup Bag	canonical	Pokemon item
+707.png	0707_Travel_Trunk.png	707	Travel Trunk	canonical	Pokemon item
+708.png	0708_Lumiose_Galette.png	708	Lumiose Galette	canonical	Pokemon item
+709.png	0709_Shalour_Sable.png	709	Shalour Sable	canonical	Pokemon item
+710.png	0710_Jaw_Fossil.png	710	Jaw Fossil	canonical	Pokemon item
+711.png	0711_Sail_Fossil.png	711	Sail Fossil	canonical	Pokemon item
+712.png	0712_Looker_Ticket.png	712	Looker Ticket	canonical	Pokemon item
+713.png	0713_Bike.png	713	Bike	canonical	Pokemon item
+714.png	0714_Holo_Caster.png	714	Holo Caster	canonical	Pokemon item
+715.png	0715_Fairy_Gem.png	715	Fairy Gem	canonical	Pokemon item
+716.png	0716_Mega_Charm.png	716	Mega Charm	canonical	Pokemon item
+717.png	0717_Mega_Glove.png	717	Mega Glove	canonical	Pokemon item
+718.png	0718_Mach_Bike.png	718	Mach Bike	canonical	Pokemon item
+719.png	0719_Acro_Bike.png	719	Acro Bike	canonical	Pokemon item
+720.png	0720_Wailmer_Pail.png	720	Wailmer Pail	canonical	Pokemon item
+721.png	0721_Devon_Parts.png	721	Devon Parts	canonical	Pokemon item
+722.png	0722_Soot_Sack.png	722	Soot Sack	canonical	Pokemon item
+723.png	0723_Basement_Key.png	723	Basement Key	canonical	Pokemon item
+724.png	0724_Pokeblock_Kit.png	724	Pokéblock Kit	canonical	Pokemon item
+725.png	0725_Letter.png	725	Letter	canonical	Pokemon item
+726.png	0726_Eon_Ticket.png	726	Eon Ticket	canonical	Pokemon item
+727.png	0727_Scanner.png	727	Scanner	canonical	Pokemon item
+728.png	0728_Go-Goggles.png	728	Go-Goggles	canonical	Pokemon item
+729.png	0729_Meteorite.png	729	Meteorite	canonical	Pokemon item
+730.png	0730_Key_to_Room_1.png	730	Key to Room 1	canonical	Pokemon item
+731.png	0731_Key_to_Room_2.png	731	Key to Room 2	canonical	Pokemon item
+732.png	0732_Key_to_Room_4.png	732	Key to Room 4	canonical	Pokemon item
+733.png	0733_Key_to_Room_6.png	733	Key to Room 6	canonical	Pokemon item
+734.png	0734_Storage_Key.png	734	Storage Key	canonical	Pokemon item
+735.png	0735_Devon_Scope.png	735	Devon Scope	canonical	Pokemon item
+736.png	0736_SS_Ticket.png	736	S.S. Ticket	canonical	Pokemon item
+737.png	0737_HM07.png	737	HM07	canonical	Pokemon item
+738.png	0738_Devon_Scuba_Gear.png	738	Devon Scuba Gear	canonical	Pokemon item
+739.png	0739_Contest_Costume.png	739	Contest Costume	canonical	Pokemon item
+740.png	0740_Contest_Costume.png	740	Contest Costume	canonical	Pokemon item
+741.png	0741_Magma_Suit.png	741	Magma Suit	canonical	Pokemon item
+742.png	0742_Aqua_Suit.png	742	Aqua Suit	canonical	Pokemon item
+743.png	0743_Pair_of_Tickets.png	743	Pair of Tickets	canonical	Pokemon item
+744.png	0744_Mega_Bracelet.png	744	Mega Bracelet	canonical	Pokemon item
+745.png	0745_Mega_Pendant.png	745	Mega Pendant	canonical	Pokemon item
+746.png	0746_Mega_Glasses.png	746	Mega Glasses	canonical	Pokemon item
+747.png	0747_Mega_Anchor.png	747	Mega Anchor	canonical	Pokemon item
+748.png	0748_Mega_Stickpin.png	748	Mega Stickpin	canonical	Pokemon item
+749.png	0749_Mega_Tiara.png	749	Mega Tiara	canonical	Pokemon item
+750.png	0750_Mega_Anklet.png	750	Mega Anklet	canonical	Pokemon item
+751.png	0751_Meteorite.png	751	Meteorite	canonical	Pokemon item
+752.png	0752_Swampertite.png	752	Swampertite	canonical	Pokemon item
+753.png	0753_Sceptilite.png	753	Sceptilite	canonical	Pokemon item
+754.png	0754_Sablenite.png	754	Sablenite	canonical	Pokemon item
+755.png	0755_Altarianite.png	755	Altarianite	canonical	Pokemon item
+756.png	0756_Galladite.png	756	Galladite	canonical	Pokemon item
+757.png	0757_Audinite.png	757	Audinite	canonical	Pokemon item
+758.png	0758_Metagrossite.png	758	Metagrossite	canonical	Pokemon item
+759.png	0759_Sharpedonite.png	759	Sharpedonite	canonical	Pokemon item
+760.png	0760_Slowbronite.png	760	Slowbronite	canonical	Pokemon item
+761.png	0761_Steelixite.png	761	Steelixite	canonical	Pokemon item
+762.png	0762_Pidgeotite.png	762	Pidgeotite	canonical	Pokemon item
+763.png	0763_Glalitite.png	763	Glalitite	canonical	Pokemon item
+764.png	0764_Diancite.png	764	Diancite	canonical	Pokemon item
+765.png	0765_Prison_Bottle.png	765	Prison Bottle	canonical	Pokemon item
+766.png	0766_Mega_Cuff.png	766	Mega Cuff	canonical	Pokemon item
+767.png	0767_Cameruptite.png	767	Cameruptite	canonical	Pokemon item
+768.png	0768_Lopunnite.png	768	Lopunnite	canonical	Pokemon item
+769.png	0769_Salamencite.png	769	Salamencite	canonical	Pokemon item
+770.png	0770_Beedrillite.png	770	Beedrillite	canonical	Pokemon item
+771.png	0771_Meteorite.png	771	Meteorite	canonical	Pokemon item
+772.png	0772_Meteorite.png	772	Meteorite	canonical	Pokemon item
+773.png	0773_Key_Stone.png	773	Key Stone	canonical	Pokemon item
+774.png	0774_Meteorite_Shard.png	774	Meteorite Shard	canonical	Pokemon item
+775.png	0775_Eon_Flute.png	775	Eon Flute	canonical	Pokemon item
+776.png	0776_Normalium_Z.png	776	Normalium Z	canonical	Pokemon item
+777.png	0777_Firium_Z.png	777	Firium Z	canonical	Pokemon item
+778.png	0778_Waterium_Z.png	778	Waterium Z	canonical	Pokemon item
+779.png	0779_Electrium_Z.png	779	Electrium Z	canonical	Pokemon item
+780.png	0780_Grassium_Z.png	780	Grassium Z	canonical	Pokemon item
+781.png	0781_Icium_Z.png	781	Icium Z	canonical	Pokemon item
+782.png	0782_Fightinium_Z.png	782	Fightinium Z	canonical	Pokemon item
+783.png	0783_Poisonium_Z.png	783	Poisonium Z	canonical	Pokemon item
+784.png	0784_Groundium_Z.png	784	Groundium Z	canonical	Pokemon item
+785.png	0785_Flyinium_Z.png	785	Flyinium Z	canonical	Pokemon item
+786.png	0786_Psychium_Z.png	786	Psychium Z	canonical	Pokemon item
+787.png	0787_Buginium_Z.png	787	Buginium Z	canonical	Pokemon item
+788.png	0788_Rockium_Z.png	788	Rockium Z	canonical	Pokemon item
+789.png	0789_Ghostium_Z.png	789	Ghostium Z	canonical	Pokemon item
+790.png	0790_Dragonium_Z.png	790	Dragonium Z	canonical	Pokemon item
+791.png	0791_Darkinium_Z.png	791	Darkinium Z	canonical	Pokemon item
+792.png	0792_Steelium_Z.png	792	Steelium Z	canonical	Pokemon item
+793.png	0793_Fairium_Z.png	793	Fairium Z	canonical	Pokemon item
+794.png	0794_Pikanium_Z.png	794	Pikanium Z	canonical	Pokemon item
+795.png	0795_Bottle_Cap.png	795	Bottle Cap	canonical	Pokemon item
+796.png	0796_Gold_Bottle_Cap.png	796	Gold Bottle Cap	canonical	Pokemon item
+797.png	0797_Z-Ring.png	797	Z-Ring	canonical	Pokemon item
+798.png	0798_Decidium_Z.png	798	Decidium Z	canonical	Pokemon item
+799.png	0799_Incinium_Z.png	799	Incinium Z	canonical	Pokemon item
+800.png	0800_Primarium_Z.png	800	Primarium Z	canonical	Pokemon item
+801.png	0801_Tapunium_Z.png	801	Tapunium Z	canonical	Pokemon item
+802.png	0802_Marshadium_Z.png	802	Marshadium Z	canonical	Pokemon item
+803.png	0803_Aloraichium_Z.png	803	Aloraichium Z	canonical	Pokemon item
+804.png	0804_Snorlium_Z.png	804	Snorlium Z	canonical	Pokemon item
+805.png	0805_Eevium_Z.png	805	Eevium Z	canonical	Pokemon item
+806.png	0806_Mewnium_Z.png	806	Mewnium Z	canonical	Pokemon item
+807.png	0807_Normalium_Z.png	807	Normalium Z	canonical	Pokemon item
+808.png	0808_Firium_Z.png	808	Firium Z	canonical	Pokemon item
+809.png	0809_Waterium_Z.png	809	Waterium Z	canonical	Pokemon item
+810.png	0810_Electrium_Z.png	810	Electrium Z	canonical	Pokemon item
+811.png	0811_Grassium_Z.png	811	Grassium Z	canonical	Pokemon item
+812.png	0812_Icium_Z.png	812	Icium Z	canonical	Pokemon item
+813.png	0813_Fightinium_Z.png	813	Fightinium Z	canonical	Pokemon item
+814.png	0814_Poisonium_Z.png	814	Poisonium Z	canonical	Pokemon item
+815.png	0815_Groundium_Z.png	815	Groundium Z	canonical	Pokemon item
+816.png	0816_Flyinium_Z.png	816	Flyinium Z	canonical	Pokemon item
+817.png	0817_Psychium_Z.png	817	Psychium Z	canonical	Pokemon item
+818.png	0818_Buginium_Z.png	818	Buginium Z	canonical	Pokemon item
+819.png	0819_Rockium_Z.png	819	Rockium Z	canonical	Pokemon item
+820.png	0820_Ghostium_Z.png	820	Ghostium Z	canonical	Pokemon item
+821.png	0821_Dragonium_Z.png	821	Dragonium Z	canonical	Pokemon item
+822.png	0822_Darkinium_Z.png	822	Darkinium Z	canonical	Pokemon item
+823.png	0823_Steelium_Z.png	823	Steelium Z	canonical	Pokemon item
+824.png	0824_Fairium_Z.png	824	Fairium Z	canonical	Pokemon item
+825.png	0825_Pikanium_Z.png	825	Pikanium Z	canonical	Pokemon item
+826.png	0826_Decidium_Z.png	826	Decidium Z	canonical	Pokemon item
+827.png	0827_Incinium_Z.png	827	Incinium Z	canonical	Pokemon item
+828.png	0828_Primarium_Z.png	828	Primarium Z	canonical	Pokemon item
+829.png	0829_Tapunium_Z.png	829	Tapunium Z	canonical	Pokemon item
+830.png	0830_Marshadium_Z.png	830	Marshadium Z	canonical	Pokemon item
+831.png	0831_Aloraichium_Z.png	831	Aloraichium Z	canonical	Pokemon item
+832.png	0832_Snorlium_Z.png	832	Snorlium Z	canonical	Pokemon item
+833.png	0833_Eevium_Z.png	833	Eevium Z	canonical	Pokemon item
+834.png	0834_Mewnium_Z.png	834	Mewnium Z	canonical	Pokemon item
+835.png	0835_Pikashunium_Z.png	835	Pikashunium Z	canonical	Pokemon item
+836.png	0836_Pikashunium_Z.png	836	Pikashunium Z	canonical	Pokemon item
+839.png	0839_Unused_Item_ID_839.png	839	Unused Item ID 839	unused/unnamed	Pokemon item
+840.png	0840_Unused_Item_ID_840.png	840	Unused Item ID 840	unused/unnamed	Pokemon item
+841.png	0841_Forage_Bag.png	841	Forage Bag	canonical	Pokemon item
+842.png	0842_Fishing_Rod.png	842	Fishing Rod	canonical	Pokemon item
+843.png	0843_Professors_Mask.png	843	Professor’s Mask	canonical	Pokemon item
+844.png	0844_Festival_Ticket.png	844	Festival Ticket	canonical	Pokemon item
+845.png	0845_Sparkling_Stone.png	845	Sparkling Stone	canonical	Pokemon item
+846.png	0846_Adrenaline_Orb.png	846	Adrenaline Orb	canonical	Pokemon item
+847.png	0847_Zygarde_Cube.png	847	Zygarde Cube	canonical	Pokemon item
+848.png	0848_Unused_Item_ID_848.png	848	Unused Item ID 848	unused/unnamed	Pokemon item
+849.png	0849_Ice_Stone.png	849	Ice Stone	canonical	Pokemon item
+850.png	0850_Ride_Pager.png	850	Ride Pager	canonical	Pokemon item
+851.png	0851_Beast_Ball.png	851	Beast Ball	canonical	Pokemon item
+852.png	0852_Big_Malasada.png	852	Big Malasada	canonical	Pokemon item
+853.png	0853_Red_Nectar.png	853	Red Nectar	canonical	Pokemon item
+854.png	0854_Yellow_Nectar.png	854	Yellow Nectar	canonical	Pokemon item
+855.png	0855_Pink_Nectar.png	855	Pink Nectar	canonical	Pokemon item
+856.png	0856_Purple_Nectar.png	856	Purple Nectar	canonical	Pokemon item
+857.png	0857_Sun_Flute.png	857	Sun Flute	canonical	Pokemon item
+858.png	0858_Moon_Flute.png	858	Moon Flute	canonical	Pokemon item
+859.png	0859_Unused_Item_ID_859.png	859	Unused Item ID 859	unused/unnamed	Pokemon item
+860.png	0860_Enigmatic_Card.png	860	Enigmatic Card	canonical	Pokemon item
+863.png	0863_Silver_Nanab_Berry.png	863	Silver Nanab Berry	canonical	Pokemon item
+864.png	0864_Golden_Nanab_Berry.png	864	Golden Nanab Berry	canonical	Pokemon item
+865.png	0865_Silver_Pinap_Berry.png	865	Silver Pinap Berry	canonical	Pokemon item
+866.png	0866_Golden_Pinap_Berry.png	866	Golden Pinap Berry	canonical	Pokemon item
+879.png	0879_Terrain_Extender.png	879	Terrain Extender	canonical	Pokemon item
+880.png	0880_Protective_Pads.png	880	Protective Pads	canonical	Pokemon item
+881.png	0881_Electric_Seed.png	881	Electric Seed	canonical	Pokemon item
+882.png	0882_Psychic_Seed.png	882	Psychic Seed	canonical	Pokemon item
+883.png	0883_Misty_Seed.png	883	Misty Seed	canonical	Pokemon item
+884.png	0884_Grassy_Seed.png	884	Grassy Seed	canonical	Pokemon item
+904.png	0904_Fighting_Memory.png	904	Fighting Memory	canonical	Pokemon item
+905.png	0905_Flying_Memory.png	905	Flying Memory	canonical	Pokemon item
+906.png	0906_Poison_Memory.png	906	Poison Memory	canonical	Pokemon item
+907.png	0907_Ground_Memory.png	907	Ground Memory	canonical	Pokemon item
+908.png	0908_Rock_Memory.png	908	Rock Memory	canonical	Pokemon item
+909.png	0909_Bug_Memory.png	909	Bug Memory	canonical	Pokemon item
+910.png	0910_Ghost_Memory.png	910	Ghost Memory	canonical	Pokemon item
+911.png	0911_Steel_Memory.png	911	Steel Memory	canonical	Pokemon item
+912.png	0912_Fire_Memory.png	912	Fire Memory	canonical	Pokemon item
+913.png	0913_Water_Memory.png	913	Water Memory	canonical	Pokemon item
+914.png	0914_Grass_Memory.png	914	Grass Memory	canonical	Pokemon item
+915.png	0915_Electric_Memory.png	915	Electric Memory	canonical	Pokemon item
+916.png	0916_Psychic_Memory.png	916	Psychic Memory	canonical	Pokemon item
+917.png	0917_Ice_Memory.png	917	Ice Memory	canonical	Pokemon item
+918.png	0918_Dragon_Memory.png	918	Dragon Memory	canonical	Pokemon item
+919.png	0919_Dark_Memory.png	919	Dark Memory	canonical	Pokemon item
+920.png	0920_Fairy_Memory.png	920	Fairy Memory	canonical	Pokemon item
+1112.png	1112_Clover_Sweet.png	1112	Clover Sweet	canonical	Pokemon item
+1113.png	1113_Flower_Sweet.png	1113	Flower Sweet	canonical	Pokemon item
+1114.png	1114_Star_Sweet.png	1114	Star Sweet	canonical	Pokemon item
+1115.png	1115_Ribbon_Sweet.png	1115	Ribbon Sweet	canonical	Pokemon item
+1116.png	1116_Sweet_Apple.png	1116	Sweet Apple	canonical	Pokemon item
+1117.png	1117_Tart_Apple.png	1117	Tart Apple	canonical	Pokemon item
+1118.png	1118_Throat_Spray.png	1118	Throat Spray	canonical	Pokemon item
+1119.png	1119_Eject_Pack.png	1119	Eject Pack	canonical	Pokemon item
+1120.png	1120_Heavy-Duty_Boots.png	1120	Heavy-Duty Boots	canonical	Pokemon item
+1121.png	1121_Blunder_Policy.png	1121	Blunder Policy	canonical	Pokemon item
+1122.png	1122_Room_Service.png	1122	Room Service	canonical	Pokemon item
+1123.png	1123_Utility_Umbrella.png	1123	Utility Umbrella	canonical	Pokemon item
+1124.png	1124_Exp_Candy_XS.png	1124	Exp. Candy XS	canonical	Pokemon item
+1125.png	1125_Exp_Candy_S.png	1125	Exp. Candy S	canonical	Pokemon item
+1126.png	1126_Exp_Candy_M.png	1126	Exp. Candy M	canonical	Pokemon item
+1127.png	1127_Exp_Candy_L.png	1127	Exp. Candy L	canonical	Pokemon item
+1128.png	1128_Exp_Candy_XL.png	1128	Exp. Candy XL	canonical	Pokemon item
+1129.png	1129_Dynamax_Candy.png	1129	Dynamax Candy	canonical	Pokemon item
+1130.png	1130_TR00.png	1130	TR00	canonical	Pokemon item
+1131.png	1131_TR01.png	1131	TR01	canonical	Pokemon item
+1132.png	1132_TR02.png	1132	TR02	canonical	Pokemon item
+1133.png	1133_TR03.png	1133	TR03	canonical	Pokemon item
+1134.png	1134_TR04.png	1134	TR04	canonical	Pokemon item
+1135.png	1135_TR05.png	1135	TR05	canonical	Pokemon item
+1136.png	1136_TR06.png	1136	TR06	canonical	Pokemon item
+1137.png	1137_TR07.png	1137	TR07	canonical	Pokemon item
+1138.png	1138_TR08.png	1138	TR08	canonical	Pokemon item
+1139.png	1139_TR09.png	1139	TR09	canonical	Pokemon item
+1140.png	1140_TR10.png	1140	TR10	canonical	Pokemon item
+1141.png	1141_TR11.png	1141	TR11	canonical	Pokemon item
+1142.png	1142_TR12.png	1142	TR12	canonical	Pokemon item
+1143.png	1143_TR13.png	1143	TR13	canonical	Pokemon item
+1144.png	1144_TR14.png	1144	TR14	canonical	Pokemon item
+1145.png	1145_TR15.png	1145	TR15	canonical	Pokemon item
+1146.png	1146_TR16.png	1146	TR16	canonical	Pokemon item
+1147.png	1147_TR17.png	1147	TR17	canonical	Pokemon item
+1148.png	1148_TR18.png	1148	TR18	canonical	Pokemon item
+1149.png	1149_TR19.png	1149	TR19	canonical	Pokemon item
+1150.png	1150_TR20.png	1150	TR20	canonical	Pokemon item
+game.png	UI_Game_Poke_Ball.png		UI Game Poké Ball	UI icon	UI
+return.png	UI_Return_Back.png		UI Return / Back	UI icon	UI

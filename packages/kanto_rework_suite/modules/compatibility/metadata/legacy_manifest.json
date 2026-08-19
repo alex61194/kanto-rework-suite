@@ -1,0 +1,28 @@
+{
+  "id": "kanto_rework_compat",
+  "name": "Kanto Rework Compatibility",
+  "version": "0.4.20",
+  "api": 2,
+  "entry": "main.lua",
+  "profile": "overhaul",
+  "category": "QOL",
+  "priority": 190,
+  "game_version": ">=0.1.86 <0.2.0",
+  "github": "Faendra/kanto-rework-suite",
+  "dependencies": [
+    "kanto_rework_core@>=0.1.40 <0.2.0"
+  ],
+  "optional_dependencies": [
+    "BATTLE_ART_VOXEL_FORK",
+    "kanto_rework_gameplay@>=0.3.1 <0.4.0",
+    "trainer_rematch",
+    "SFXMusicReplacementMod"
+  ],
+  "conflicts": [],
+  "permissions": [
+    "engine_internals"
+  ],
+  "affects_link": false,
+  "description": "Kanto Rework compatibility layer for Gen1Recomp 0.1.86+: capability-driven ownership, live Voxel battle-environment arbitration, optional external sprite routing, sandbox-safe pointer control and third-party integration. KRS Graphics owns battle scaling/Real Size.",
+  "author": "Faendra"
+}
