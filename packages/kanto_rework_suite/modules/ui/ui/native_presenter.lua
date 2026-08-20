@@ -23,11 +23,17 @@ return function(runtime)
     local ss=stack(game);for i=#ss,1,-1 do if pred(ss[i]) then return ss[i] end end
   end
   local function cacheImage(game,species,side,kind,mon)
-    return runtime.PokemonArt:image(game,species,side or 'front',{kind=kind or 'native_menu',mon=mon})
+    if not (runtime.PokemonArt and type(runtime.PokemonArt.image) == 'function') then return nil end
+    local ok, res = pcall(runtime.PokemonArt.image, runtime.PokemonArt, game, species, side or 'front', {kind=kind or 'native_menu', mon=mon})
+    return ok and res or nil
   end
   local function pokemonName(game,mon)
     local def=mon and game.data and game.data.pokemon and game.data.pokemon[mon.species]
-    return mon and runtime.PokemonName(mon.nickname or (def and def.name) or mon.species,mon.species,def,mon.nickname~=nil) or 'POKéMON'
+    if runtime.PokemonName and type(runtime.PokemonName) == 'function' then
+      local ok, val = pcall(runtime.PokemonName, mon.nickname or (def and def.name) or mon.species, mon.species, def, mon.nickname~=nil)
+      if ok and val then return val end
+    end
+    return mon and tostring(mon.nickname or (def and def.name) or mon.species or 'POKéMON') or 'POKéMON'
   end
   local function drawImage(m,img,x,y,w,h)
     if not img then return end;local iw,ih=img:getDimensions();local k=math.min(w*m.scale/iw,h*m.scale/ih);local px=m.ox+x*m.scale+(w*m.scale-iw*k)/2;local py=m.oy+y*m.scale+(h*m.scale-ih*k)/2;love.graphics.setColor(1,1,1,1);love.graphics.draw(img,px,py,0,k,k);return px,py,iw*k,ih*k
@@ -1468,18 +1474,22 @@ return function(runtime)
   end
   local function isBillRoot(state)
     if not ismt(state,Menu) then return false end
-    local hasWithdraw,hasDeposit,hasRelease,hasChange=false,false,false,false
-    for _,it in ipairs(state.items or {}) do
-      local label=tostring(it.label or ''):upper()
-      if label:find('WITHDRAW',1,true) then hasWithdraw=true end
-      if label:find('DEPOSIT',1,true) then hasDeposit=true end
-      if label:find('RELEASE',1,true) then hasRelease=true end
-      if label:find('CHANGE BOX',1,true) then hasChange=true end
-    end
-    return hasWithdraw and hasDeposit and hasRelease and hasChange
+    local text=''
+    for _,it in ipairs(state.items or {}) do text=text..' '..tostring(it.label or ''):upper() end
+    local hasWithdraw = text:find('WITHDRAW',1,true) or text:find('SACAR',1,true)
+    local hasDeposit = text:find('DEPOSIT',1,true) or text:find('DEPOSITAR',1,true)
+    local hasRelease = text:find('RELEASE',1,true) or text:find('LIBERAR',1,true)
+    local hasChange = text:find('CHANGE',1,true) or text:find('CAMBIAR',1,true) or text:find('BOX',1,true) or text:find('CAJA',1,true)
+    return (hasWithdraw and hasDeposit) or (hasRelease and hasChange) or (hasWithdraw and hasRelease) or (hasDeposit and hasRelease)
   end
   local function isPlayerRoot(state)
-    if not ismt(state,Menu) then return false end;local text='';for _,it in ipairs(state.items or {})do text=text..' '..tostring(it.label or ''):upper() end;return text:find('WITHDRAW ITEM',1,true) and text:find('DEPOSIT ITEM',1,true)
+    if not ismt(state,Menu) then return false end
+    local text=''
+    for _,it in ipairs(state.items or {}) do text=text..' '..tostring(it.label or ''):upper() end
+    local hasWithdraw = text:find('WITHDRAW',1,true) or text:find('SACAR',1,true)
+    local hasDeposit = text:find('DEPOSIT',1,true) or text:find('DEPOSITAR',1,true)
+    local hasItem = text:find('ITEM',1,true) or text:find('OBJETO',1,true) or text:find('TOSS',1,true) or text:find('TIRAR',1,true)
+    return hasWithdraw and hasDeposit and hasItem
   end
   function P.pcRootKind(state)
     if isBillRoot(state) then return 'bill' end
@@ -1520,15 +1530,28 @@ return function(runtime)
   local function drawBill(game,m,c,state)
     local D=runtime.Draw;local boxes=Boxes.ensure(game.save);local current=math.max(1,math.min(Boxes.COUNT,game.save.currentBox or 1));local box=boxes[current] or {};shell(game,m,c,'PC',{{id='pc',label='PC'},{id='bill',label="BILL'S PC"},{id='player',label="PLAYER'S PC"},{id='oak',label="OAK'S PC"}},'bill')
     if isBillRoot(state) then
-      D.text(runtime,m,'POKÉMON STORAGE SYSTEM',64,124,10,c.textSecondary,{weight='bold'});D.text(runtime,m,"BILL'S PC",64,154,28,c.text,{weight='bold'});D.text(runtime,m,(Boxes.COUNT..' BOXES • '..tostring((function()local n=0;for i=1,Boxes.COUNT do n=n+#(boxes[i] or {}) end;return n end)())..' / '..(Boxes.COUNT*Boxes.CAPACITY)),1450,160,12,c.textSecondary,{weight='semibold',width=406,align='right'})
+      D.text(runtime,m,'POKÉMON STORAGE SYSTEM',64,124,10,c.textSecondary,{weight='bold'});D.text(runtime,m,"BILL'S PC",64,154,28,c.text,{weight='bold'})
+      local totalStored=0;for i=1,Boxes.COUNT do totalStored=totalStored+#(boxes[i] or {}) end
+      D.text(runtime,m,(Boxes.COUNT..' BOXES • '..tostring(totalStored)..' / '..(Boxes.COUNT*Boxes.CAPACITY)),1450,160,12,c.textSecondary,{weight='semibold',width=406,align='right'})
       local bx,by,bw=64,208,1400;D.panel(m,bx,by,bw,332,16,c.panel,c.border);D.text(runtime,m,'BOX BANK',bx+24,by+24,18,c.text,{weight='bold'});runtime.nativeBoxRects={};local cw=(bw-64-4*12)/5;for i=1,Boxes.COUNT do local col=(i-1)%5;local row=math.floor((i-1)/5);local r={x=bx+24+col*(cw+12),y=by+70+row*58,w=cw,h=48};runtime.nativeBoxRects[i]=r;focusRect(m,c,r,i==current,false);D.text(runtime,m,('BOX %02d'):format(i),r.x+14,r.y+16,11,c.text,{weight='semibold'});D.text(runtime,m,('%d / %d'):format(#(boxes[i] or {}),Boxes.CAPACITY),r.x+r.w-94,r.y+16,10,c.textSecondary,{width=80,align='right'}) end
-      D.panel(m,1490,208,366,332,16,c.panel,c.border);D.text(runtime,m,'STORAGE ACTIONS',1514,232,18,c.text,{weight='bold'});runtime.nativeMenuRects={};for i,it in ipairs(state.items or {}) do if i<=4 then local r={x=1514,y=276+(i-1)*62,w=318,h=52};runtime.nativeMenuRects[i]=r;focusRect(m,c,r,i==state.index,false);D.text(runtime,m,tostring(it.label),r.x+14,r.y+18,12,c.text,{weight='semibold'}) end end
+      D.panel(m,1490,208,366,332,16,c.panel,c.border);D.text(runtime,m,'STORAGE ACTIONS',1514,232,18,c.text,{weight='bold'});runtime.nativeMenuRects={};for i,it in ipairs(state.items or {}) do if i<=4 then local r={x=1514,y=276+(i-1)*62,w=318,h=52};runtime.nativeMenuRects[i]=r;focusRect(m,c,r,i==(state.index or 1),false);D.text(runtime,m,tostring(it.label or ''),r.x+14,r.y+18,12,c.text,{weight='semibold'}) end end
       D.text(runtime,m,('CURRENT BOX %02d'):format(current),64,584,10,c.textSecondary,{weight='bold'});D.text(runtime,m,'STORED POKÉMON',64,612,23,c.text,{weight='bold'});drawStoredCells(game,m,c,box,64,664,1400,nil);D.panel(m,64,896,1792,72,12,c.panel,c.border);D.text(runtime,m,('BOX %02d'):format(current),88,914,12,c.text,{weight='bold'});D.text(runtime,m,('%d / %d'):format(#box,Boxes.CAPACITY),88,938,24,c.text,{weight='bold'});D.text(runtime,m,('%d SLOTS AVAILABLE'):format(Boxes.CAPACITY-#box),300,934,11,c.textSecondary,{weight='semibold'})
       footer(m,c,{{'ARROWS','NAVIGATE'},{'ENTER','OPEN'},{'A','BACK'}});return true
     end
     if ismt(state,ListMenu) and tostring(state.kind):find('pc_box_',1,true) then
       local action=tostring(state.kind):gsub('pc_box_',''):upper();D.panel(m,64,120,900,856,16,c.panel,c.border);D.text(runtime,m,('CURRENT BOX %02d'):format(current),88,144,10,c.textSecondary,{weight='bold'});D.text(runtime,m,action..' POKÉMON',88,176,26,c.text,{weight='bold'});local source=state.kind=='pc_box_deposit' and game.save.party or box;drawStoredCells(game,m,c,source,88,238,828,state.index)
-      D.panel(m,988,120,868,856,16,c.panel,c.border);local mon=source[state.index];if mon then local name=pokemonName(game,mon);local art=cacheImage(game,mon.species,'front','native_pc',mon);if art then local ax,ay,aw,ah=drawImage(m,art.image,1128,184,300,300);runtime.PokemonArt.mark(art,ax,ay,aw,ah) end;D.text(runtime,m,name,1320,224,30,c.text,{weight='bold'});D.text(runtime,m,'Lv. '..tostring(mon.level or '—'),1320,272,16,c.textSecondary,{weight='semibold'});D.text(runtime,m,('BOX %02d • ENTRY %03d'):format(current,state.index),1320,330,11,c.textSecondary,{weight='bold'});D.line(m,1016,448,1828,448,c.border,1);D.text(runtime,m,'POKÉMON ACTIONS',1016,480,17,c.text,{weight='bold'});local primary=action=='WITHDRAW' and 'WITHDRAW' or action=='DEPOSIT' and 'DEPOSIT' or action=='RELEASE' and 'RELEASE' or 'SELECT';D.panel(m,1016,526,812,68,10,c.subtle,c.focus);D.text(runtime,m,primary,1032,544,15,c.text,{weight='bold'});D.text(runtime,m,'ENTER  CONFIRM',1032,568,10,c.textSecondary,{weight='semibold'});D.text(runtime,m,'STATS',1032,624,14,c.text,{weight='semibold'});D.text(runtime,m,'Open Pokémon Summary.',1032,648,11,c.textSecondary);D.text(runtime,m,'CANCEL',1032,696,14,c.text,{weight='semibold'}) end
+      D.panel(m,988,120,868,856,16,c.panel,c.border);local mon=source[state.index or 1]
+      if mon then
+        local name=pokemonName(game,mon)
+        local art=cacheImage(game,mon.species,'front','native_pc',mon)
+        if art and art.image then
+          local ax,ay,aw,ah=drawImage(m,art.image,1128,184,300,300)
+          if runtime.PokemonArt and type(runtime.PokemonArt.mark)=='function' then
+            pcall(runtime.PokemonArt.mark,art,ax,ay,aw,ah)
+          end
+        end
+        D.text(runtime,m,name,1320,224,30,c.text,{weight='bold'});D.text(runtime,m,'Lv. '..tostring(mon.level or '—'),1320,272,16,c.textSecondary,{weight='semibold'});D.text(runtime,m,('BOX %02d • ENTRY %03d'):format(current,state.index or 1),1320,330,11,c.textSecondary,{weight='bold'});D.line(m,1016,448,1828,448,c.border,1);D.text(runtime,m,'POKÉMON ACTIONS',1016,480,17,c.text,{weight='bold'});local primary=action=='WITHDRAW' and 'WITHDRAW' or action=='DEPOSIT' and 'DEPOSIT' or action=='RELEASE' and 'RELEASE' or 'SELECT';D.panel(m,1016,526,812,68,10,c.subtle,c.focus);D.text(runtime,m,primary,1032,544,15,c.text,{weight='bold'});D.text(runtime,m,'ENTER  CONFIRM',1032,568,10,c.textSecondary,{weight='semibold'});D.text(runtime,m,'STATS',1032,624,14,c.text,{weight='semibold'});D.text(runtime,m,'Open Pokémon Summary.',1032,648,11,c.textSecondary);D.text(runtime,m,'CANCEL',1032,696,14,c.text,{weight='semibold'})
+      end
       footer(m,c,{{'ARROWS','MOVE'},{'ENTER','ACTIONS'},{'A','BACK'}});return true
     end
     return false
@@ -1620,8 +1643,9 @@ return function(runtime)
     D.panel(m,x,y,w,h,16,c.panel,c.borderStrong)
     local title,body
     if kind=='pc_box_release' then
-      local box=Boxes.active(game.save);local mon=box and box[list.index]
-      local def=mon and game.data.pokemon and game.data.pokemon[mon.species]
+      local boxes=Boxes.ensure(game.save);local current=math.max(1,math.min(Boxes.COUNT,game.save.currentBox or 1))
+      local box=boxes[current] or {};local mon=box and box[list.index or 1]
+      local def=mon and game.data and game.data.pokemon and game.data.pokemon[mon.species]
       local name=pokemonName(game,mon)
       title='RELEASE '..tostring(name):upper()..'?'
       body='Once released, '..tostring(name):upper()..' is gone forever. OK?'
