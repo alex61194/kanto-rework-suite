@@ -24,6 +24,17 @@ function Module.factory(runtime)
     self.scrollY=runtime.Scroll.ensure(self.scrollY,top,top+rowH,total,v.h)
   end
   function Screen:scrollbar() local g=self:popupGeometry();local v,total=self:listMetrics();return runtime.Scroll.model(self.scrollY,total,v,g.trackX) end
+  local TRANSLATIONS = {
+    ["FLY"] = "VUELO",
+    ["CUT"] = "CORTE",
+    ["SURF"] = "SURF",
+    ["STRENGTH"] = "FUERZA",
+    ["FLASH"] = "DESTELLO",
+    ["DIG"] = "EXCAVAR",
+    ["TELEPORT"] = "TELETRANSPORTE",
+    ["SOFTBOILED"] = "AMORTIGUADOR",
+    ["SWEET SCENT"] = "DULCE AROMA"
+  }
   function Screen:refresh()
     local selected=self.rows and self.rows[self.index] and self.rows[self.index].id
     local rows=Core.fieldActions.list(context(self.game),{trigger="manual",includeUnknown=true}) or {}
@@ -31,6 +42,7 @@ function Module.factory(runtime)
     table.insert(filtered, {
       id = "kanto.fly_map",
       label = "VUELO (MAPA)",
+      badge = "MO",
       available = true,
       known = true,
       status = "available"
@@ -38,12 +50,24 @@ function Module.factory(runtime)
     table.insert(filtered, {
       id = "kanto.free_fly",
       label = "VUELO LIBRE 3D",
+      badge = "3D",
       available = true,
       known = true,
       status = "available"
     })
     for _, r in ipairs(rows) do
       if r.id ~= "kanto.fly" and r.id ~= "kanto.fly_map" and r.id ~= "kanto.free_fly" then
+        local raw = tostring(r.label or ""):upper()
+        if TRANSLATIONS[raw] then r.label = TRANSLATIONS[raw] end
+        if r.id == "kanto.cut" then r.badge = "MO"; r.label = "CORTE"
+        elseif r.id == "kanto.surf" then r.badge = "MO"; r.label = "SURF"
+        elseif r.id == "kanto.strength" then r.badge = "MO"; r.label = "FUERZA"
+        elseif r.id == "kanto.flash" then r.badge = "MO"; r.label = "DESTELLO"
+        elseif r.id == "kanto.dig" then r.badge = "HAB"; r.label = "EXCAVAR"
+        elseif r.id == "kanto.teleport" then r.badge = "HAB"; r.label = "TELETRANSPORTE"
+        elseif r.id == "kanto.softboiled" then r.badge = "HAB"; r.label = "AMORTIGUADOR"
+        elseif r.id == "kanto.sweet_scent" then r.badge = "HAB"; r.label = "DULCE AROMA"
+        else r.badge = r.badge or "MO" end
         table.insert(filtered, r)
       end
     end
@@ -61,21 +85,12 @@ function Module.factory(runtime)
     self.index=index;self:close()
     if row.id=="kanto.free_fly" then
       if runtime.mod and runtime.mod.events and type(runtime.mod.events.emit)=="function" then
-        runtime.mod.events:emit("free_fly.request_takeoff")
-        return true
-      end
-      if Core and Core.events and type(Core.events.emit)=="function" then
-        Core.events:emit("free_fly.request_takeoff")
+        runtime.mod.events:emit("mod.kanto_rework_suite.free_fly_takeoff")
         return true
       end
       local okItem, ItemEffects = pcall(require, "src.inventory.ItemEffects")
       if okItem and ItemEffects and type(ItemEffects.__freeFlyUse)=="function" then
         ItemEffects.__freeFlyUse("FLY_WHISTLE", false)
-        return true
-      end
-      local ok, freeFlyMod = pcall(function() return require("src.mods.Runtime").activeMod("free_fly") end)
-      if ok and freeFlyMod and freeFlyMod.exports and type(freeFlyMod.exports.takeoff)=="function" then
-        freeFlyMod.exports.takeoff()
         return true
       end
       return true

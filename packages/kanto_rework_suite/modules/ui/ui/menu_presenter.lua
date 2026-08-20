@@ -772,7 +772,7 @@ function Presenter.drawFieldActions(runtime,m,colors,screen)
       D.roundRect(m,"line",r.x,r.y,r.w,r.h,12,colors.selected,2)
     end
     D.roundRect(m,"fill",r.x+12,r.y+8,48,48,8,colors.selected)
-    local badgeLabel = (row.id=="kanto.free_fly" and "3D") or "MO"
+    local badgeLabel = row.badge or ((row.id=="kanto.free_fly" or row.id=="kanto.fly_map") and ((row.id=="kanto.free_fly" and "3D") or "MO")) or "MO"
     D.text(runtime,m,badgeLabel,r.x+12,r.y+23,13,colors.textInverse,{weight="semibold",width=48,align="center"})
     local itemTextColor = isDark and {0.98, 0.98, 0.98, 1} or {0.10, 0.08, 0.08, 1}
     D.clipText(runtime,m,row.label,r.x+72,r.y+21,r.w-80,18,itemTextColor,{weight="bold"})
