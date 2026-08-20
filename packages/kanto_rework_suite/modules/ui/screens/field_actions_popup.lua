@@ -26,21 +26,28 @@ function Module.factory(runtime)
   function Screen:refresh()
     local selected=self.rows and self.rows[self.index] and self.rows[self.index].id
     local rows=Core.fieldActions.list(context(self.game),{trigger="manual",includeUnknown=true}) or {}
-    local hasFly = false
+    local filtered = {}
+    table.insert(filtered, {
+      id = "kanto.fly_map",
+      label = "VUELO (MAPA)",
+      available = true,
+      known = true,
+      status = "available"
+    })
+    table.insert(filtered, {
+      id = "kanto.free_fly",
+      label = "VUELO LIBRE 3D",
+      available = true,
+      known = true,
+      status = "available"
+    })
     for _, r in ipairs(rows) do
-      if r.id == "kanto.fly" then hasFly = true; r.available = true; r.known = true; r.label = "VUELO" end
+      if r.id ~= "kanto.fly" and r.id ~= "kanto.fly_map" and r.id ~= "kanto.free_fly" then
+        table.insert(filtered, r)
+      end
     end
-    if not hasFly then
-      table.insert(rows, 1, {
-        id = "kanto.fly",
-        label = "VUELO",
-        available = true,
-        known = true,
-        status = "available"
-      })
-    end
-    self.rows=rows;self.index=math.max(1,math.min(self.index or 1,#rows))
-    if selected then for i,row in ipairs(rows) do if row.id==selected then self.index=i break end end end
+    self.rows=filtered;self.index=math.max(1,math.min(self.index or 1,#filtered))
+    if selected then for i,row in ipairs(filtered) do if row.id==selected then self.index=i break end end end
     self:setScroll(self.scrollY);self:ensureVisible()
   end
   function Screen:move(step)
@@ -51,7 +58,14 @@ function Module.factory(runtime)
   function Screen:activate(index)
     index=index or self.index;local row=self.rows[index];if not row then return false end
     self.index=index;self:close()
-    if (row.id=="kanto.fly" or tostring(row.label):upper()=="VUELO") and runtime.MapFactory then
+    if row.id=="kanto.free_fly" then
+      local ok, freeFlyMod = pcall(function() return require("src.mods.Runtime").activeMod("free_fly") end)
+      if ok and freeFlyMod and freeFlyMod.exports and type(freeFlyMod.exports.takeoff)=="function" then
+        freeFlyMod.exports.takeoff()
+        return true
+      end
+    end
+    if (row.id=="kanto.fly_map" or row.id=="kanto.fly" or tostring(row.label):find("VUELO")) and runtime.MapFactory then
       local screen = runtime.MapFactory.new(self.game)
       if screen then self.game.stack:push(screen); return true end
     end
