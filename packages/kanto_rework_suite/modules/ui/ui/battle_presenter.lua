@@ -256,8 +256,8 @@ return function(runtime)
     D.roundRect(m, 'line', x + s/2 - 2, cy - 2, 4, 4, 2, {0.12, 0.08, 0.10, 1}, 1)
   end
   local function hud(D,m,c,game,b,x,y,w,h,enemy,battlerBounds)
-    local cardW = 400
-    local cardH = enemy and 90 or 112
+    local cardW = 390
+    local cardH = enemy and 86 or 108
     local cx = x + (w - cardW) / 2
     local cy = y + (h - cardH) / 2
     
@@ -268,31 +268,29 @@ return function(runtime)
     local r = smoothRatio(b, 'hp', target, battleLogicSpeed(game))
     local caught = enemy and isPokemonCaught(game, b)
     
-    -- Colores maestros de tarjeta estilo Rojo Fuego / Rom Hack Élite
-    local frameBorder = {0.10, 0.06, 0.08, 1.0}
-    local headerBg = {0.16, 0.08, 0.11, 0.98}
-    local headerAccent = {0.95, 0.20, 0.30, 1.0}
-    local bodyBg = {0.99, 0.99, 0.97, 0.98}
-    local shadowCol = {0.0, 0.0, 0.0, 0.35}
+    -- Paleta oficial de caja de salud de Pokémon Rojo Fuego (GBA)
+    local frameBorder = {0.16, 0.13, 0.16, 1.0} -- #282028
+    local cardBg = {0.96, 0.94, 0.88, 0.98}      -- #F5F0E0 (crema cálido GBA)
+    local cardShadow = {0.86, 0.82, 0.74, 1.0}   -- #DCD4BC (sombra inferior)
+    local innerHighlight = {1.0, 1.0, 1.0, 0.9}
+    local dropShadow = {0.0, 0.0, 0.0, 0.30}
     
     -- 1. Sombra paralela 3D
-    D.roundRect(m, 'fill', cx + 4, cy + 4, cardW, cardH, 8, shadowCol)
+    D.roundRect(m, 'fill', cx + 3, cy + 3, cardW, cardH, 6, dropShadow)
     
-    -- 2. Tarjeta principal
-    D.roundRect(m, 'fill', cx, cy, cardW, cardH, 8, bodyBg)
-    D.roundRect(m, 'line', cx, cy, cardW, cardH, 8, frameBorder, 2)
+    -- 2. Tarjeta principal estilo Rojo Fuego
+    D.roundRect(m, 'fill', cx, cy, cardW, cardH, 6, cardBg)
+    -- Sombra horizontal interna inferior (estilo cartucho GBA)
+    D.roundRect(m, 'fill', cx + 2, cy + cardH - 14, cardW - 4, 12, 4, cardShadow)
+    D.roundRect(m, 'line', cx, cy, cardW, cardH, 6, frameBorder, 2)
+    D.roundRect(m, 'line', cx + 2, cy + 2, cardW - 4, cardH - 4, 4, innerHighlight, 1)
     
-    -- 3. Barra de encabezado oscura con acento Rojo Fuego
-    local headerH = 34
-    D.roundRect(m, 'fill', cx + 2, cy + 2, cardW - 4, headerH, 6, headerBg)
-    D.roundRect(m, 'fill', cx + 2, cy + headerH, cardW - 4, 2, 0, headerAccent)
-    
-    -- 4. Puntero de bocadillo pixelado conectado a la tarjeta
+    -- 3. Puntero de bocadillo pixelado estilo GBA conectado a la tarjeta
     local targetX = battlerBounds and battlerBounds.top and battlerBounds.top.x or (enemy and (cx + 80) or (cx + cardW - 80))
-    local tailX = clamp(targetX, cx + 40, cx + cardW - 40)
+    local tailX = clamp(targetX, cx + 45, cx + cardW - 45)
     local tailY = cy + cardH
-    local tailW = 20
-    local tailH = 12
+    local tailW = 18
+    local tailH = 10
     local tailDir = (targetX > tailX + 5) and 1 or (targetX < tailX - 5) and -1 or 0
     
     -- Sombra del puntero
@@ -303,7 +301,7 @@ return function(runtime)
       m.ox + (tailX + 8 * tailDir + 2) * m.scale, m.oy + (tailY + tailH + 2) * m.scale
     )
     -- Relleno del puntero
-    love.graphics.setColor(bodyBg[1], bodyBg[2], bodyBg[3], bodyBg[4] or 1)
+    love.graphics.setColor(cardBg[1], cardBg[2], cardBg[3], cardBg[4] or 1)
     love.graphics.polygon('fill',
       m.ox + (tailX - tailW/2) * m.scale, m.oy + (tailY - 1) * m.scale,
       m.ox + (tailX + tailW/2) * m.scale, m.oy + (tailY - 1) * m.scale,
@@ -320,71 +318,71 @@ return function(runtime)
     love.graphics.setColor(1, 1, 1, 1)
     
     -- Fila Superior: [🔴 Capturado] + [♂/♀ Género] + NOMBRE + [Nv. 30]
-    local curX = cx + 10
+    local curX = cx + 12
     if caught then
-      drawPixelBallIcon(D, m, curX, cy + 8, 18)
-      curX = curX + 24
+      drawPixelBallIcon(D, m, curX, cy + 11, 16)
+      curX = curX + 22
     end
     
     local gender = b and b.mon and b.mon.gender or (b and b.mon and ((b.mon.dvs and (b.mon.dvs.atk or 0) >= 8) and 'm' or 'f')) or 'm'
-    local genderCol = (gender == 'f') and {0.95, 0.25, 0.50, 1} or {0.15, 0.55, 0.95, 1}
+    local genderCol = (gender == 'f') and {0.91, 0.22, 0.44, 1} or {0.13, 0.47, 0.91, 1}
     local genderGlyph = (gender == 'f') and '♀' or '♂'
-    D.roundRect(m, 'fill', curX, cy + 7, 20, 20, 4, genderCol)
-    D.roundRect(m, 'line', curX, cy + 7, 20, 20, 4, {1, 1, 1, 0.4}, 1)
-    D.text(runtime, m, genderGlyph, curX, cy + 7, 13, {1, 1, 1, 1}, {weight = 'bold', width = 20, align = 'center'})
+    D.roundRect(m, 'fill', curX, cy + 9, 20, 20, 4, genderCol)
+    D.roundRect(m, 'line', curX, cy + 9, 20, 20, 4, {1, 1, 1, 0.5}, 1)
+    D.text(runtime, m, genderGlyph, curX, cy + 9, 13, {1, 1, 1, 1}, {weight = 'bold', width = 20, align = 'center'})
     curX = curX + 26
     
-    -- Nombre en blanco brillante sobre el encabezado oscuro
-    D.clipText(runtime, m, name, curX, cy + 7, 180, 19, {1, 1, 1, 1}, {weight = 'bold'})
+    -- Nombre en negro carbón nítido de Rojo Fuego
+    D.clipText(runtime, m, name, curX, cy + 9, 170, 18, {0.15, 0.12, 0.15, 1}, {weight = 'bold'})
     
-    -- Insignia Nivel estilo Rojo Fuego (con bisel dorado)
+    -- Insignia Nivel oficial de Rojo Fuego (placa naranja con borde granate)
     local lvText = 'Nv.' .. lv
-    local lvW = 60
-    local lvX = cx + cardW - lvW - 10
-    D.roundRect(m, 'fill', lvX, cy + 7, lvW, 20, 4, {0.96, 0.45, 0.04, 1})
-    D.roundRect(m, 'line', lvX, cy + 7, lvW, 20, 4, {0.70, 0.22, 0.00, 1}, 1)
-    D.roundRect(m, 'fill', lvX + 2, cy + 8, lvW - 4, 4, 2, {1, 0.8, 0.4, 0.6})
-    D.text(runtime, m, lvText, lvX, cy + 7, 13, {1, 1, 1, 1}, {weight = 'bold', width = lvW, align = 'center'})
+    local lvW = 58
+    local lvX = cx + cardW - lvW - 12
+    D.roundRect(m, 'fill', lvX, cy + 9, lvW, 20, 4, {0.97, 0.35, 0.10, 1})
+    D.roundRect(m, 'line', lvX, cy + 9, lvW, 20, 4, {0.60, 0.13, 0.03, 1}, 1)
+    D.roundRect(m, 'fill', lvX + 1, cy + 10, lvW - 2, 4, 2, {1, 0.75, 0.45, 0.6})
+    D.text(runtime, m, lvText, lvX, cy + 9, 13, {1, 1, 1, 1}, {weight = 'bold', width = lvW, align = 'center'})
     
-    -- Fila Intermedia: Pastillas de Tipo (NORMAL, VOLADOR, etc.) + Estado alterado
-    local typeY = cy + 42
+    -- Fila Intermedia: Pastillas de Tipo Oficiales GBA + Estado alterado
+    local typeY = cy + 35
     local types = b and b.curTypes or (b and b.mon and b.mon.species and game and game.data and game.data.pokemon and game.data.pokemon[b.mon.species] and game.data.pokemon[b.mon.species].types) or {'NORMAL'}
     local typeX = cx + 12
     for i = 1, math.min(2, #types) do
       local typ = normalizeType(types[i])
       local col = TYPE_COLORS[typ] or {0.5, 0.5, 0.5, 1}
       local label = TYPE_NAMES_ES[typ] or typ
-      local pillW = 76
+      local pillW = 74
       D.roundRect(m, 'fill', typeX, typeY, pillW, 16, 3, col)
-      D.roundRect(m, 'line', typeX, typeY, pillW, 16, 3, {col[1]*0.6, col[2]*0.6, col[3]*0.6, 1}, 1)
+      D.roundRect(m, 'line', typeX, typeY, pillW, 16, 3, {col[1]*0.55, col[2]*0.55, col[3]*0.55, 1}, 1)
       D.roundRect(m, 'fill', typeX + 1, typeY + 1, pillW - 2, 5, 2, {1, 1, 1, 0.30})
       D.text(runtime, m, label, typeX, typeY - 1, 10, {1, 1, 1, 1}, {weight = 'bold', width = pillW, align = 'center'})
       typeX = typeX + pillW + 6
     end
     statusIcon(m, c, b, cx + cardW - 36, typeY + 8)
     
-    -- Fila Inferior: Insignia PS + Barra de Salud 3D Glossy + Números
+    -- Fila Inferior: Insignia PS + Barra de Salud 3D Rojo Fuego + Números
     local barX = cx + 46
-    local barY = cy + 64
+    local barY = cy + 57
     local barW = cardW - 58
-    local barH = 13
+    local barH = 12
     
-    -- Insignia PS estilo GBA Rojo Fuego
-    D.roundRect(m, 'fill', cx + 12, barY - 1, 26, 15, 3, {0.92, 0.18, 0.15, 1})
-    D.roundRect(m, 'line', cx + 12, barY - 1, 26, 15, 3, {0.65, 0.10, 0.08, 1}, 1)
-    D.text(runtime, m, 'PS', cx + 12, barY - 2, 11, {1, 1, 1, 1}, {weight = 'bold', width = 26, align = 'center'})
+    -- Insignia PS estilo GBA Rojo Fuego (placa naranja/roja oficial)
+    D.roundRect(m, 'fill', cx + 12, barY - 1, 26, 14, 3, {0.85, 0.28, 0.10, 1})
+    D.roundRect(m, 'line', cx + 12, barY - 1, 26, 14, 3, {0.55, 0.15, 0.05, 1}, 1)
+    D.text(runtime, m, 'PS', cx + 12, barY - 2, 11, {1, 0.95, 0.50, 1}, {weight = 'bold', width = 26, align = 'center'})
     
     -- Carril de barra de salud
-    D.roundRect(m, 'fill', barX, barY, barW, barH, 4, {0.14, 0.16, 0.20, 1})
-    D.roundRect(m, 'line', barX, barY, barW, barH, 4, {0.08, 0.09, 0.12, 1}, 1)
+    D.roundRect(m, 'fill', barX, barY, barW, barH, 4, {0.22, 0.22, 0.22, 1})
+    D.roundRect(m, 'line', barX, barY, barW, barH, 4, {0.12, 0.12, 0.12, 1}, 1)
     
     local fillTop, fillBottom
     if target <= 0.2 then
-      fillTop = {1.0, 0.40, 0.40, 1}; fillBottom = {0.88, 0.10, 0.12, 1}
+      fillTop = {0.97, 0.53, 0.47, 1}; fillBottom = {0.91, 0.22, 0.09, 1}
     elseif target < 0.55 then
-      fillTop = {1.0, 0.88, 0.25, 1}; fillBottom = {0.92, 0.62, 0.05, 1}
+      fillTop = {0.97, 0.91, 0.47, 1}; fillBottom = {0.97, 0.66, 0.0, 1}
     else
-      fillTop = {0.35, 0.98, 0.58, 1}; fillBottom = {0.05, 0.78, 0.32, 1}
+      fillTop = {0.50, 0.97, 0.66, 1}; fillBottom = {0.0, 0.91, 0.41, 1}
     end
     
     if r > 0 then
@@ -394,16 +392,16 @@ return function(runtime)
     end
     
     if not enemy then
-      D.text(runtime, m, ('%d / %d'):format(hp, max), barX, barY + 15, 12, {0.14, 0.10, 0.14, 1}, {weight = 'bold', width = barW, align = 'right'})
-      -- Barra de EXP estilo Rojo Fuego
+      D.text(runtime, m, ('%d / %d'):format(hp, max), barX, barY + 14, 12, {0.16, 0.13, 0.16, 1}, {weight = 'bold', width = barW, align = 'right'})
+      -- Barra de EXP oficial de Rojo Fuego
       local ratio, toNext = expMetrics(game, b)
       ratio = smoothRatio(b, 'exp', ratio, battleLogicSpeed(game))
-      local expY = cy + 94
-      D.text(runtime, m, 'EXP', cx + 12, expY - 3, 10, {0.05, 0.60, 0.85, 1}, {weight = 'bold'})
-      D.roundRect(m, 'fill', barX, expY, barW, 6, 3, {0.14, 0.16, 0.20, 1})
+      local expY = cy + 86
+      D.text(runtime, m, 'EXP', cx + 12, expY - 3, 10, {0.0, 0.47, 0.66, 1}, {weight = 'bold'})
+      D.roundRect(m, 'fill', barX, expY, barW, 6, 3, {0.22, 0.22, 0.22, 1})
       if ratio > 0 then
         local expW = math.max(2, barW * ratio)
-        D.roundRect(m, 'fill', barX, expY, expW, 6, 3, {0.0, 0.80, 0.95, 1})
+        D.roundRect(m, 'fill', barX, expY, expW, 6, 3, {0.28, 0.75, 0.97, 1})
         D.roundRect(m, 'fill', barX, expY, expW, 3, 2, {0.60, 0.95, 1.0, 1})
       end
     end
