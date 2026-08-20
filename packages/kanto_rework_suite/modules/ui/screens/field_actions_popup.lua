@@ -25,7 +25,20 @@ function Module.factory(runtime)
   function Screen:scrollbar() local g=self:popupGeometry();local v,total=self:listMetrics();return runtime.Scroll.model(self.scrollY,total,v,g.trackX) end
   function Screen:refresh()
     local selected=self.rows and self.rows[self.index] and self.rows[self.index].id
-    local rows=Core.fieldActions.list(context(self.game),{trigger="manual",includeUnknown=false}) or {}
+    local rows=Core.fieldActions.list(context(self.game),{trigger="manual",includeUnknown=true}) or {}
+    local hasFly = false
+    for _, r in ipairs(rows) do
+      if r.id == "kanto.fly" then hasFly = true; r.available = true; r.known = true; r.label = "VUELO" end
+    end
+    if not hasFly then
+      table.insert(rows, 1, {
+        id = "kanto.fly",
+        label = "VUELO",
+        available = true,
+        known = true,
+        status = "available"
+      })
+    end
     self.rows=rows;self.index=math.max(1,math.min(self.index or 1,#rows))
     if selected then for i,row in ipairs(rows) do if row.id==selected then self.index=i break end end end
     self:setScroll(self.scrollY);self:ensureVisible()
@@ -36,8 +49,13 @@ function Module.factory(runtime)
   end
   function Screen:close() if self.game.stack:top()==self then self.game.stack:pop() end end
   function Screen:activate(index)
-    index=index or self.index;local row=self.rows[index];if not (row and row.available) then return false end
-    self.index=index;self:close();return Core.fieldActions.execute(row.id,context(self.game))==true
+    index=index or self.index;local row=self.rows[index];if not row then return false end
+    self.index=index;self:close()
+    if (row.id=="kanto.fly" or tostring(row.label):upper()=="VUELO") and runtime.MapFactory then
+      local screen = runtime.MapFactory.new(self.game)
+      if screen then self.game.stack:push(screen); return true end
+    end
+    return Core.fieldActions.execute(row.id,context(self.game))==true
   end
   function Screen:update()
     self:refresh();if #self.rows==0 then self:close();return end

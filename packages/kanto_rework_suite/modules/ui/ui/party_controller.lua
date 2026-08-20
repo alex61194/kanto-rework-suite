@@ -234,7 +234,23 @@ return function(options)
       if actionPressed(game,"CycleMode") then self:beginMoveReorder(state)
       elseif actionPressed(game,"NavigateUp") then state.activeMoveFocus=state.activeMoveFocus>1 and state.activeMoveFocus-1 or count;state.learnedFocus=nil
       elseif actionPressed(game,"NavigateDown") then state.activeMoveFocus=state.activeMoveFocus<count and state.activeMoveFocus+1 or 1;state.learnedFocus=nil
-      elseif actionPressed(game,"Confirm") then self:chooseActiveForReplacement(state) end
+      elseif actionPressed(game,"Confirm") then
+        local move = state.pokemon and state.pokemon.moves and state.pokemon.moves[state.activeMoveFocus]
+        local mid = tostring(type(move)=='table' and move.id or move):upper()
+        if (mid == "FLY" or mid == "VUELO") and (not state.battleMode) and runtime.MapFactory then
+          sound(state.game, "Press_AB")
+          local nativeParty = state.partyState
+          if game.stack:top() == state then game.stack:pop() end
+          runtime.state = nil
+          foundation.clearFocus("kanto_rework_ui.party")
+          Adapter.closeNativeParty(game, nativeParty)
+          local screen = runtime.MapFactory.new(game)
+          if screen then game.stack:push(screen) end
+          return
+        else
+          self:chooseActiveForReplacement(state)
+        end
+      end
     end
   end
   local function hit(state,x,y,kind) for i=#(state.regions or {}),1,-1 do local r=state.regions[i];if (not kind or r.kind==kind) and Layout.contains(r,x,y) then return r end end end
