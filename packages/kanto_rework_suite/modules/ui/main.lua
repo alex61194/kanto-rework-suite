@@ -21,6 +21,9 @@ return function(mod)
     {key="ui_theme",label="UI THEME",type="choice",default="firered",group="APPEARANCE",
       choices={{"ROJO FUEGO","firered"},{"CREAM","cream"},{"GRAPHITE","graphite"},{"PURPLE NIGHT","purplenight"},{"RETRO","retro"},{"GAMMA EMERALD","emerald"}},
       description="Choose the Kanto Rework visual theme. Accessibility color profiles remain independent."},
+    {key="replace_battle_ui",label="BATTLE HUD",type="choice",default="floating",group="APPEARANCE",
+      choices={{"3D FLOTANTE (GAMMA 3D)","floating"},{"2D JOURNAL WIDE","journal"}},
+      description="Choose between 3D Floating Speech-Bubble HUD (Gamma Emerald style) or 2D Wide Battle Journal."},
     {key="overlay_style",label="STYLE",type="choice",default="paper",group="OVERLAYS",
       choices={{"PAPER","paper"},{"GLASS","glass"}},
       description="Choose an opaque paper surface or a semi-transparent glass surface for every overlay."},
@@ -512,7 +515,8 @@ return function(mod)
   -- KRS confirmation region. Bare ChoiceBoxes elsewhere remain untouched.
   NativeChoiceBox.draw=function(state,...)
     local game=state and state.game or runtime.game
-    if state and runtime.BattlePresenter and type(runtime.BattlePresenter.ownsChoice)=="function"
+    local battleHudMode=pcall(mod.options.get,mod.options,"replace_battle_ui") and mod.options:get("replace_battle_ui") or "floating"
+    if battleHudMode=="journal" and state and runtime.BattlePresenter and type(runtime.BattlePresenter.ownsChoice)=="function"
         and runtime.BattlePresenter.ownsChoice(game,state) then
       return -- native timing/callback owner; KRS Battle draws the horizontal choice surface
     end
@@ -621,7 +625,8 @@ return function(mod)
   NativeChoiceBox.update=function(state,dt)
     if krsOwnsNativeUpdate(state,dt) then return end
     local game=state and state.game or runtime.game
-    local battleChoice=state and runtime.BattlePresenter and type(runtime.BattlePresenter.ownsChoice)=="function"
+    local battleHudMode=pcall(mod.options.get,mod.options,"replace_battle_ui") and mod.options:get("replace_battle_ui") or "floating"
+    local battleChoice=battleHudMode=="journal" and state and runtime.BattlePresenter and type(runtime.BattlePresenter.ownsChoice)=="function"
       and runtime.BattlePresenter.ownsChoice(game,state) or false
     if battleChoice and state.pending==nil then
       local input=state.game and state.game.input
@@ -1264,7 +1269,8 @@ return function(mod)
       local ok,drawn=pcall(PartyPresenter.draw,PartyPresenter,game,runtime.viewport)
       if ok then runtime.presenterReady=drawn==true else logFailure("Party presenter",drawn) end
     end
-    if not runtime.presenterReady and not runtime.menuReady then
+    local battleHudMode=pcall(mod.options.get,mod.options,"replace_battle_ui") and mod.options:get("replace_battle_ui") or "floating"
+    if battleHudMode=="journal" and not runtime.presenterReady and not runtime.menuReady then
       local battleOk,battleDrawn=pcall(runtime.BattlePresenter.draw,game,runtime.viewport)
       if battleOk then runtime.presenterReady=battleDrawn==true else logFailure("Battle presenter",battleDrawn) end
     end
