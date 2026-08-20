@@ -225,9 +225,39 @@ return function(runtime)
     if t>=1 then rec.value=target end
     return rec.value
   end
+  local TYPE_COLORS = {
+    NORMAL = {0.66, 0.65, 0.58, 1}, FIRE = {0.94, 0.40, 0.18, 1}, WATER = {0.26, 0.53, 0.96, 1},
+    GRASS = {0.43, 0.75, 0.30, 1}, ELECTRIC = {0.97, 0.78, 0.15, 1}, ICE = {0.45, 0.82, 0.82, 1},
+    FIGHTING = {0.75, 0.20, 0.16, 1}, POISON = {0.64, 0.24, 0.63, 1}, GROUND = {0.87, 0.74, 0.39, 1},
+    FLYING = {0.65, 0.56, 0.94, 1}, PSYCHIC = {0.96, 0.33, 0.53, 1}, BUG = {0.65, 0.73, 0.12, 1},
+    ROCK = {0.72, 0.62, 0.22, 1}, GHOST = {0.44, 0.34, 0.59, 1}, DRAGON = {0.43, 0.21, 0.98, 1},
+    STEEL = {0.71, 0.71, 0.81, 1}, DARK = {0.44, 0.34, 0.27, 1}, FAIRY = {0.92, 0.52, 0.64, 1},
+  }
+  local TYPE_NAMES_ES = {
+    NORMAL = "NORMAL", FIRE = "FUEGO", WATER = "AGUA", GRASS = "PLANTA", ELECTRIC = "ELÉCTRICO",
+    ICE = "HIELO", FIGHTING = "LUCHA", POISON = "VENENO", GROUND = "TIERRA", FLYING = "VOLADOR",
+    PSYCHIC = "PSÍQUICO", BUG = "BICHO", ROCK = "ROCA", GHOST = "FANTASMA", DRAGON = "DRAGÓN",
+    STEEL = "ACERO", DARK = "SINIESTRO", FAIRY = "HADA",
+  }
+  local function isPokemonCaught(game, b)
+    local species = b and b.mon and b.mon.species
+    if not species then return false end
+    local pokedex = game and game.save and game.save.pokedex
+    return pokedex and pokedex.owned and (pokedex.owned[species] == true)
+  end
+  local function drawPixelBallIcon(D, m, x, y, size)
+    local s = size or 16
+    local cy = y + s / 2
+    D.roundRect(m, 'fill', x, y, s, s/2, 2, {0.92, 0.15, 0.20, 1})
+    D.roundRect(m, 'fill', x, y + s/2, s, s/2, 2, {1, 1, 1, 1})
+    D.roundRect(m, 'line', x, y, s, s, 3, {0.12, 0.08, 0.10, 1}, 1)
+    D.line(m, x, cy, x + s, cy, {0.12, 0.08, 0.10, 1}, 1)
+    D.roundRect(m, 'fill', x + s/2 - 2, cy - 2, 4, 4, 2, {1, 1, 1, 1})
+    D.roundRect(m, 'line', x + s/2 - 2, cy - 2, 4, 4, 2, {0.12, 0.08, 0.10, 1}, 1)
+  end
   local function hud(D,m,c,game,b,x,y,w,h,enemy)
-    local cardW = 320
-    local cardH = enemy and 68 or 82
+    local cardW = 380
+    local cardH = enemy and 86 or 108
     local cx = x + (w - cardW) / 2
     local cy = y + (h - cardH) / 2
     
@@ -236,62 +266,84 @@ return function(runtime)
     local hp, max = shownHp(b)
     local target = clamp(hp / max, 0, 1)
     local r = smoothRatio(b, 'hp', target, battleLogicSpeed(game))
+    local caught = enemy and isPokemonCaught(game, b)
     
     -- Fondo pixel art cálido con doble borde biselado estilo GBA Rojo Fuego
     local bgCol = {0.98, 0.98, 0.96, 0.98}
     local borderCol = {0.12, 0.08, 0.10, 1.0}
     local innerHighlight = {1.0, 1.0, 1.0, 0.9}
-    local innerShadow = {0.82, 0.80, 0.76, 1.0}
     
     -- Tarjeta principal con esquinas pixel art de 6px
     D.roundRect(m, 'fill', cx, cy, cardW, cardH, 6, bgCol)
     D.roundRect(m, 'line', cx, cy, cardW, cardH, 6, borderCol, 2)
-    -- Bisel interior 3D
     D.roundRect(m, 'line', cx + 2, cy + 2, cardW - 4, cardH - 4, 4, innerHighlight, 1)
     
     -- Puntero de bocadillo pixelado apuntando hacia abajo al Pokémon
     local tailX = enemy and (cx + 50) or (cx + cardW - 60)
     local tailY = cy + cardH
-    local tailW = 16
-    local tailH = 8
+    local tailW = 18
+    local tailH = 10
     local tailDir = enemy and 1 or -1
     love.graphics.setColor(bgCol[1], bgCol[2], bgCol[3], bgCol[4] or 1)
     love.graphics.polygon('fill',
       m.ox + (tailX - tailW/2) * m.scale, m.oy + tailY * m.scale,
       m.ox + (tailX + tailW/2) * m.scale, m.oy + tailY * m.scale,
-      m.ox + (tailX + 6 * tailDir) * m.scale, m.oy + (tailY + tailH) * m.scale
+      m.ox + (tailX + 8 * tailDir) * m.scale, m.oy + (tailY + tailH) * m.scale
     )
     love.graphics.setColor(borderCol[1], borderCol[2], borderCol[3], borderCol[4] or 1)
     love.graphics.setLineWidth(2 * m.scale)
     love.graphics.line(
       m.ox + (tailX - tailW/2) * m.scale, m.oy + tailY * m.scale,
-      m.ox + (tailX + 6 * tailDir) * m.scale, m.oy + (tailY + tailH) * m.scale,
+      m.ox + (tailX + 8 * tailDir) * m.scale, m.oy + (tailY + tailH) * m.scale,
       m.ox + (tailX + tailW/2) * m.scale, m.oy + tailY * m.scale
     )
     love.graphics.setColor(1, 1, 1, 1)
     
-    -- Fila Superior: Género + Nombre + Insignia Nivel Rojo Fuego
+    -- Fila Superior: Icono Capturado + Género + Nombre + Insignia Nivel Rojo Fuego
+    local curX = cx + 12
+    if caught then
+      drawPixelBallIcon(D, m, curX, cy + 11, 16)
+      curX = curX + 22
+    end
+    
     local gender = b and b.mon and b.mon.gender or (b and b.mon and ((b.mon.dvs and (b.mon.dvs.atk or 0) >= 8) and 'm' or 'f')) or 'm'
     local genderCol = (gender == 'f') and {0.92, 0.25, 0.45, 1} or {0.12, 0.50, 0.90, 1}
     local genderGlyph = (gender == 'f') and '♀' or '♂'
-    D.roundRect(m, 'fill', cx + 12, cy + 10, 18, 18, 4, genderCol)
-    D.text(runtime, m, genderGlyph, cx + 12, cy + 10, 12, {1, 1, 1, 1}, {weight = 'bold', width = 18, align = 'center'})
+    D.roundRect(m, 'fill', curX, cy + 9, 20, 20, 4, genderCol)
+    D.text(runtime, m, genderGlyph, curX, cy + 9, 13, {1, 1, 1, 1}, {weight = 'bold', width = 20, align = 'center'})
+    curX = curX + 26
     
-    D.clipText(runtime, m, name, cx + 36, cy + 10, 160, 18, {0.10, 0.08, 0.10, 1}, {weight = 'bold'})
+    D.clipText(runtime, m, name, curX, cy + 9, 160, 18, {0.10, 0.08, 0.10, 1}, {weight = 'bold'})
     
-    -- Insignia Nivel estilo Rojo Fuego (fondo ámbar/naranja con texto blanco)
+    -- Insignia Nivel estilo Rojo Fuego
     local lvText = 'Nv.' .. lv
-    local lvW = 48
+    local lvW = 54
     local lvX = cx + cardW - lvW - 12
-    D.roundRect(m, 'fill', lvX, cy + 10, lvW, 18, 4, {0.95, 0.45, 0.05, 1})
-    D.roundRect(m, 'line', lvX, cy + 10, lvW, 18, 4, {0.75, 0.30, 0.00, 1}, 1)
-    D.text(runtime, m, lvText, lvX, cy + 10, 12, {1, 1, 1, 1}, {weight = 'bold', width = lvW, align = 'center'})
+    D.roundRect(m, 'fill', lvX, cy + 9, lvW, 20, 4, {0.95, 0.45, 0.05, 1})
+    D.roundRect(m, 'line', lvX, cy + 9, lvW, 20, 4, {0.75, 0.30, 0.00, 1}, 1)
+    D.text(runtime, m, lvText, lvX, cy + 9, 13, {1, 1, 1, 1}, {weight = 'bold', width = lvW, align = 'center'})
+    
+    -- Fila Intermedia: Pastillas de Tipo (NORMAL, VOLADOR, etc.) + Estado alterado
+    local typeY = cy + 34
+    local types = b and b.curTypes or (b and b.mon and b.mon.species and game and game.data and game.data.pokemon and game.data.pokemon[b.mon.species] and game.data.pokemon[b.mon.species].types) or {'NORMAL'}
+    local typeX = cx + 12
+    for i = 1, math.min(2, #types) do
+      local typ = normalizeType(types[i])
+      local col = TYPE_COLORS[typ] or {0.5, 0.5, 0.5, 1}
+      local label = TYPE_NAMES_ES[typ] or typ
+      local pillW = 72
+      D.roundRect(m, 'fill', typeX, typeY, pillW, 16, 3, col)
+      D.roundRect(m, 'line', typeX, typeY, pillW, 16, 3, {col[1]*0.7, col[2]*0.7, col[3]*0.7, 1}, 1)
+      D.text(runtime, m, label, typeX, typeY - 1, 10, {1, 1, 1, 1}, {weight = 'bold', width = pillW, align = 'center'})
+      typeX = typeX + pillW + 6
+    end
+    statusIcon(m, c, b, cx + cardW - 40, typeY + 8)
     
     -- Fila Inferior: Etiqueta PS + Barra de Vida + Números
     local barX = cx + 42
-    local barY = cy + 36
+    local barY = cy + 56
     local barW = cardW - 54
-    local barH = 10
+    local barH = 11
     
     D.text(runtime, m, 'PS', cx + 12, barY - 2, 13, {0.95, 0.35, 0.10, 1}, {weight = 'bold'})
     D.roundRect(m, 'fill', barX, barY, barW, barH, 3, {0.86, 0.88, 0.90, 1})
@@ -302,15 +354,15 @@ return function(runtime)
     end
     
     if not enemy then
-      D.text(runtime, m, ('%d / %d'):format(hp, max), barX, barY + 11, 11, {0.15, 0.12, 0.15, 1}, {weight = 'bold', width = barW, align = 'right'})
+      D.text(runtime, m, ('%d / %d'):format(hp, max), barX, barY + 13, 12, {0.15, 0.12, 0.15, 1}, {weight = 'bold', width = barW, align = 'right'})
       -- Barra de EXP estilo Rojo Fuego
       local ratio, toNext = expMetrics(game, b)
       ratio = smoothRatio(b, 'exp', ratio, battleLogicSpeed(game))
-      local expY = cy + 62
-      D.text(runtime, m, 'EXP', cx + 12, expY - 3, 9, {0.05, 0.60, 0.85, 1}, {weight = 'bold'})
-      D.roundRect(m, 'fill', barX, expY, barW, 4, 2, {0.86, 0.88, 0.90, 1})
+      local expY = cy + 86
+      D.text(runtime, m, 'EXP', cx + 12, expY - 3, 10, {0.05, 0.60, 0.85, 1}, {weight = 'bold'})
+      D.roundRect(m, 'fill', barX, expY, barW, 5, 2, {0.86, 0.88, 0.90, 1})
       if ratio > 0 then
-        D.roundRect(m, 'fill', barX, expY, math.max(2, barW * ratio), 4, 2, {0.0, 0.85, 1.0, 1})
+        D.roundRect(m, 'fill', barX, expY, math.max(2, barW * ratio), 5, 2, {0.0, 0.85, 1.0, 1})
       end
     end
   end
@@ -1390,9 +1442,9 @@ return function(runtime)
     runtime.battleRects={};runtime.battleChoiceRects=nil
     if not choice and not stat and s.phase=='moveSelect' then moveDock(D,m,c,game,s,uiLayout.move_menu) end
     local showEnemyHud,showPlayerHud=hudVisibility(game,s)
-    if showEnemyHud then hudWithLayout(D,m,c,game,s.enemy,uiLayout,'opponent_frame',1040,180,360,100,true) end
+    if showEnemyHud then hudWithLayout(D,m,c,game,s.enemy,uiLayout,'opponent_frame',1100,220,400,100,true) end
     if showPlayerHud and s.player then
-      hudWithLayout(D,m,c,game,s.player,uiLayout,'player_frame',240,540,360,100,false)
+      hudWithLayout(D,m,c,game,s.player,uiLayout,'player_frame',280,480,400,120,false)
     end
     local prompts={{navigation=true,label='SELECCIONAR'},{action='a',label=choice and 'CONFIRMAR' or 'ABRIR'},{action='BATTLE_INFO',label='INFO COMBATE'},{action='LIVE_BATTLE_EDITOR',label='EDITAR UI'}}
     if runtime.battleInfoOpen then prompts[#prompts+1]={action='b',label='VOLVER'} end
