@@ -226,25 +226,72 @@ return function(runtime)
     return rec.value
   end
   local function hud(D,m,c,game,b,x,y,w,h,enemy)
-    D.panel(m,x,y,w,h,20,c.panel,c.border)
-    local name=tostring(b and b.name or 'POKéMON')
-    local topY=enemy and 18 or 14
-    local typeY=enemy and 62 or 58
-    local hpY=enemy and 98 or 94
-    D.clipText(runtime,m,name,x+27,y+topY,262,32,c.text,{weight='bold'})
-    local lv=tonumber(b and b.mon and b.mon.level) or 0
-    statusIcon(m,c,b,x+27+466+16,y+topY+16)
-    rightText(D,m,'Nv. '..lv,x+27+566,y+topY,20,c.textSecondary,'semibold')
-    local types=b and b.curTypes or {};local tx=x+27
-    for i=1,math.min(2,#types) do local typ=normalizeType(types[i]);pill(D,m,c,typ,tx,y+typeY,100,typeColor(c,typ));tx=tx+110 end
-    hpBar(D,m,c,game,b,x+27,y+hpY,566,enemy)
+    local cardW = 340
+    local cardH = enemy and 66 or 78
+    local cx = x + (w - cardW) / 2
+    local cy = y + (h - cardH) / 2
+    
+    local name = tostring(b and b.name or 'POKéMON'):upper()
+    local lv = tonumber(b and b.mon and b.mon.level) or 0
+    local hp, max = shownHp(b)
+    local target = clamp(hp / max, 0, 1)
+    local r = smoothRatio(b, 'hp', target, battleLogicSpeed(game))
+    
+    -- Fondo blanco / gris claro con borde oscuro de alto contraste
+    local bgCol = {0.97, 0.98, 0.99, 0.96}
+    local borderCol = {0.12, 0.15, 0.20, 1.0}
+    
+    -- Tarjeta principal
+    D.roundRect(m, 'fill', cx, cy, cardW, cardH, 12, bgCol)
+    D.roundRect(m, 'line', cx, cy, cardW, cardH, 12, borderCol, 2)
+    
+    -- Puntero de bocadillo apuntando hacia abajo al Pokémon
+    local tailX = enemy and (cx + 50) or (cx + cardW - 60)
+    local tailY = cy + cardH
+    local tailW = 16
+    local tailH = 8
+    local tailDir = enemy and 1 or -1
+    love.graphics.setColor(bgCol[1], bgCol[2], bgCol[3], bgCol[4] or 1)
+    love.graphics.polygon('fill',
+      m.ox + (tailX - tailW/2) * m.scale, m.oy + tailY * m.scale,
+      m.ox + (tailX + tailW/2) * m.scale, m.oy + tailY * m.scale,
+      m.ox + (tailX + 6 * tailDir) * m.scale, m.oy + (tailY + tailH) * m.scale
+    )
+    love.graphics.setColor(borderCol[1], borderCol[2], borderCol[3], borderCol[4] or 1)
+    love.graphics.setLineWidth(2 * m.scale)
+    love.graphics.line(
+      m.ox + (tailX - tailW/2) * m.scale, m.oy + tailY * m.scale,
+      m.ox + (tailX + 6 * tailDir) * m.scale, m.oy + (tailY + tailH) * m.scale,
+      m.ox + (tailX + tailW/2) * m.scale, m.oy + tailY * m.scale
+    )
+    love.graphics.setColor(1, 1, 1, 1)
+    
+    -- Fila Superior: Género + Nombre + Nivel
+    local gender = b and b.mon and b.mon.gender or (b and b.mon and ((b.mon.dvs and (b.mon.dvs.atk or 0) >= 8) and 'm' or 'f')) or 'm'
+    local genderCol = (gender == 'f') and {0.92, 0.25, 0.45, 1} or {0.12, 0.50, 0.90, 1}
+    local genderGlyph = (gender == 'f') and '♀' or '♂'
+    D.roundRect(m, 'fill', cx + 12, cy + 10, 20, 20, 10, genderCol)
+    D.text(runtime, m, genderGlyph, cx + 12, cy + 11, 13, {1, 1, 1, 1}, {weight = 'bold', width = 20, align = 'center'})
+    
+    D.clipText(runtime, m, name, cx + 38, cy + 11, 180, 17, {0.10, 0.12, 0.16, 1}, {weight = 'bold'})
+    rightText(D, m, 'Lv. ' .. lv, cx + cardW - 14, cy + 12, 14, {0.25, 0.28, 0.35, 1}, 'bold')
+    
+    -- Fila Inferior: HP + Barra de Salud + Números
+    local barX = cx + 44
+    local barY = cy + 38
+    local barW = cardW - 58
+    local barH = 10
+    
+    D.text(runtime, m, 'HP', cx + 14, barY - 2, 12, {0.05, 0.55, 0.45, 1}, {weight = 'bold'})
+    D.roundRect(m, 'fill', barX, barY, barW, barH, barH/2, {0.85, 0.88, 0.92, 1})
+    D.roundRect(m, 'line', barX, barY, barW, barH, barH/2, {0.70, 0.74, 0.80, 1}, 1)
+    local fill = target <= 0.2 and {0.94, 0.27, 0.27, 1} or target < 0.55 and {1.0, 0.70, 0.0, 1} or {0.0, 0.85, 0.45, 1}
+    if r > 0 then
+      D.roundRect(m, 'fill', barX, barY, math.max(3, barW * r), barH, barH/2, fill)
+    end
+    
     if not enemy then
-      local ratio,toNext=expMetrics(game,b);ratio=smoothRatio(b,'exp',ratio,battleLogicSpeed(game))
-      -- Figma EXP compact instance: track is y=144, header sits below at y=156.
-      D.roundRect(m,'fill',x+27,y+144,566,12,6,c.subtle);D.roundRect(m,'line',x+27,y+144,566,12,6,c.border,1)
-      if ratio>0 then D.roundRect(m,'fill',x+27,y+144,math.max(2,566*ratio),12,6,c.exp or c.focus) end
-      D.text(runtime,m,'EXP',x+27,y+156,13,c.text,{weight='semibold'})
-      rightText(D,m,tostring(toNext)..' PARA SUBIR',x+27+566,y+156,12,c.textSecondary,'medium')
+      D.text(runtime, m, ('%d / %d'):format(hp, max), barX, barY + 12, 11, {0.15, 0.18, 0.24, 1}, {weight = 'bold', width = barW, align = 'right'})
     end
   end
   local PHYSICAL={NORMAL=true,FIGHTING=true,FLYING=true,POISON=true,GROUND=true,ROCK=true,BUG=true,GHOST=true}
@@ -439,13 +486,27 @@ return function(runtime)
     love.graphics.draw(image,m.ox+x*m.scale+(size*m.scale-iw*k)/2,m.oy+y*m.scale+(size*m.scale-ih*k)/2,0,k,k)
     love.graphics.setColor(1,1,1,1);return true
   end
+  local COMMAND_THEME_COLORS = {
+    fight = { bg = { 0.80, 0.15, 0.20, 0.95 }, hover = { 0.95, 0.22, 0.28, 1.00 }, text = { 1, 1, 1, 1 }, border = { 1.00, 0.40, 0.45, 1 } },
+    pokemon = { bg = { 0.10, 0.65, 0.30, 0.95 }, hover = { 0.15, 0.85, 0.40, 1.00 }, text = { 1, 1, 1, 1 }, border = { 0.30, 0.95, 0.55, 1 } },
+    bag = { bg = { 0.90, 0.50, 0.10, 0.95 }, hover = { 1.00, 0.65, 0.15, 1.00 }, text = { 1, 1, 1, 1 }, border = { 1.00, 0.80, 0.30, 1 } },
+    run = { bg = { 0.12, 0.50, 0.85, 0.95 }, hover = { 0.20, 0.70, 1.00, 1.00 }, text = { 1, 1, 1, 1 }, border = { 0.45, 0.85, 1.00, 1 } },
+  }
   local function commandCard(D,m,c,label,sub,x,y,w,h,focused,icon)
-    local fill=focused and c.subtle or c.inverse
-    D.panel(m,x,y,w,h,8,fill,focused and c.focus or c.borderStrong);if focused then D.focusBorder(m,x,y,w,h,8,c.focus) end
-    if not commandIcon(m,c,icon or 'fight',x+16,y+27,28,focused) then
-      D.icon(runtime,m,icon or 'fight',x+16,y+27,28,{text=focused and c.text or c.textInverse,textSecondary=focused and c.textSecondary or c.faint,subtle=c.subtle,border=c.border})
+    local themeCol = COMMAND_THEME_COLORS[icon or 'fight']
+    local fill = themeCol and (focused and themeCol.hover or themeCol.bg) or (focused and c.subtle or c.inverse)
+    local stroke = themeCol and (focused and {1, 1, 1, 1} or themeCol.border) or (focused and c.focus or c.borderStrong)
+    local textColor = themeCol and themeCol.text or (focused and c.text or c.textInverse)
+    local subColor = themeCol and {1, 1, 1, 0.88} or (focused and c.textSecondary or c.faint)
+    D.panel(m,x,y,w,h,12,fill,stroke)
+    if focused then
+      D.roundRect(m,"line",x,y,w,h,12,{1,1,1,0.95},3)
     end
-    D.text(runtime,m,label,x+56,y+17,18,focused and c.text or c.textInverse,{weight='bold',width=w-72});D.text(runtime,m,sub,x+56,y+45,11,focused and c.textSecondary or c.faint,{width=w-72})
+    if not commandIcon(m,c,icon or 'fight',x+16,y+27,28,focused) then
+      D.icon(runtime,m,icon or 'fight',x+16,y+27,28,{text=textColor,textSecondary=subColor,subtle=c.subtle,border=c.border})
+    end
+    D.text(runtime,m,label,x+56,y+17,18,textColor,{weight='bold',width=w-72})
+    D.text(runtime,m,sub,x+56,y+45,11,subColor,{weight='medium',width=w-72})
   end
   local function moveRow(D,m,c,mv,x,y,w,h,focused,disabled,index)
     local fill=focused and c.inverse or c.panel;D.panel(m,x,y,w,h,8,fill,focused and c.focus or c.border);if focused then D.focusBorder(m,x,y,w,h,8,c.focus) end
@@ -1069,25 +1130,45 @@ return function(runtime)
     return {x=bx,y=pivotY,w=w*factor,h=h*factor,scale=scale,pivotX=pivotX,pivotY=pivotY}
   end
   local function commandBlock(D,m,c,defs,selected,layout)
-    local ox,oy,scale=transformOf(layout,'command_list');local x0,y,w,h=860+ox,888+oy,238,82
-    local factor=clamp(tonumber(scale) or 100,50,150)/100;local rects={};local boundsByTarget={}
+    local ox,oy,scale=transformOf(layout,'command_list')
+    local factor=clamp(tonumber(scale) or 100,50,150)/100
+    local rects={};local boundsByTarget={}
+    local w,h = 264, 62
+    
+    local gridPos = {
+      { col = 0, row = 0 }, -- 1: FIGHT / LUCHA (Top-Left)
+      { col = 1, row = 0 }, -- 2: PKMN / POKÉMON (Top-Right)
+      { col = 0, row = 1 }, -- 3: BAG / MOCHILA (Bottom-Left)
+      { col = 1, row = 1 }, -- 4: RUN / HUIR (Bottom-Right)
+    }
+    
+    local startX = 1350 + ox
+    local startY = 860 + oy
+    local gapX = 14
+    local gapY = 12
+    
     local minX,minY,maxX,maxY
     for i,d in ipairs(defs or {}) do
-      -- Each real commandCard has its own persistent child transform. The
-      -- parent command_list keeps shared group position/scale for backwards
-      -- compatibility, while FIGHT/POKéMON/BAG/RUN can now be composed
-      -- independently in the Live Editor without a duplicate preview widget.
+      local pos = gridPos[i] or { col = i-1, row = 0 }
       local semantic=tostring(d[3] or ''):lower();local target='command_'..semantic
       local child=type(layout)=='table' and layout[target] or nil
       local cx,cy=tonumber(child and child.x) or 0,tonumber(child and child.y) or 0
-      local x=x0+(i-1)*(w+16)*factor+cx;local yy=y+cy
+      local x = startX + pos.col * (w + gapX) * factor + cx
+      local yy = startY + pos.row * (h + gapY) * factor + cy
       local tm=select(1,scaledMetrics(m,x,yy,scale))
       commandCard(D,tm,c,d[1],d[2],x,yy,w,h,i==(selected or 1),d[3])
       local r={x=x,y=yy,w=w*factor,h=h*factor,target=target};rects[i]=r;boundsByTarget[target]=r
       minX=minX and math.min(minX,r.x) or r.x;minY=minY and math.min(minY,r.y) or r.y
       maxX=maxX and math.max(maxX,r.x+r.w) or (r.x+r.w);maxY=maxY and math.max(maxY,r.y+r.h) or (r.y+r.h)
     end
-    local group={x=minX or x0,y=minY or y,w=(maxX and minX) and (maxX-minX) or 0,h=(maxY and minY) and (maxY-minY) or 0,scale=scale}
+    
+    -- Nodo central hexagonal oscuro estilo Gamma Emerald
+    local hubX = startX + w * factor + (gapX * factor) / 2
+    local hubY = startY + h * factor + (gapY * factor) / 2
+    D.roundRect(m, "fill", hubX - 18 * factor, hubY - 18 * factor, 36 * factor, 36 * factor, 8 * factor, {0.14, 0.16, 0.20, 0.98})
+    D.roundRect(m, "line", hubX - 18 * factor, hubY - 18 * factor, 36 * factor, 36 * factor, 8 * factor, {0.35, 0.40, 0.48, 1}, 2)
+    
+    local group={x=minX or startX,y=minY or startY,w=(maxX and minX) and (maxX-minX) or 0,h=(maxY and minY) and (maxY-minY) or 0,scale=scale}
     return group,rects,boundsByTarget
   end
   local function resolvedGraphicsEditorConfig(game,backdrop)
@@ -1281,13 +1362,9 @@ return function(runtime)
     runtime.battleRects={};runtime.battleChoiceRects=nil
     if not choice and not stat and s.phase=='moveSelect' then moveDock(D,m,c,game,s,uiLayout.move_menu) end
     local showEnemyHud,showPlayerHud=hudVisibility(game,s)
-    if showEnemyHud then hudWithLayout(D,m,c,game,s.enemy,uiLayout,'opponent_frame',1260,135,620,180,true) end
+    if showEnemyHud then hudWithLayout(D,m,c,game,s.enemy,uiLayout,'opponent_frame',1040,180,360,100,true) end
     if showPlayerHud and s.player then
-      -- In command mode the player HUD sits exactly 8 px above the 888 px
-      -- FIGHT/POKéMON/BAG/RUN row: 888 - 8 - 180 = 700. Other narrative
-      -- phases keep the canonical battle position.
-      local playerY=(not choice and not stat and s.phase=='menu') and 700 or 626
-      hudWithLayout(D,m,c,game,s.player,uiLayout,'player_frame',40,playerY,620,180,false)
+      hudWithLayout(D,m,c,game,s.player,uiLayout,'player_frame',240,540,360,100,false)
     end
     local prompts={{navigation=true,label='SELECCIONAR'},{action='a',label=choice and 'CONFIRMAR' or 'ABRIR'},{action='BATTLE_INFO',label='INFO COMBATE'},{action='LIVE_BATTLE_EDITOR',label='EDITAR UI'}}
     if runtime.battleInfoOpen then prompts[#prompts+1]={action='b',label='VOLVER'} end
