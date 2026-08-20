@@ -1215,10 +1215,12 @@ return function(mod)
     if handled==true then return handled end
     if love and love.graphics and ctx and ctx.uiCanvas
         and runtime.presenterReady and PartyPresenter:isSupported(runtime.game,runtime.viewport) then
-      love.graphics.push("all")
-      love.graphics.setCanvas(ctx.uiCanvas)
-      love.graphics.clear(0,0,0,0)
-      love.graphics.pop()
+      pcall(function()
+        love.graphics.push("all")
+        love.graphics.setCanvas(ctx.uiCanvas)
+        love.graphics.clear(0,0,0,0)
+        love.graphics.pop()
+      end)
     end
     return handled
   end,200)

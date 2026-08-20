@@ -1472,69 +1472,67 @@ return function(runtime)
     local s,top,stat,choice=battleContext(game);if not s or not runtime.Layout.isWide(viewport) then return false end
     local m=runtime.Layout.metrics(viewport);local c=runtime.Theme.resolveAll(runtime,game);local D=runtime.Draw;local policy=compatPolicy(game,s)
     love.graphics.push('all');love.graphics.origin()
-    local bgMode=s.bgMode and s:bgMode() or 'white'
-    local backdrop=backdropKind(game,s)
-    local groundAnchors=nil
-    local sceneConfig=resolvedGraphicsEditorConfig(game,backdrop) or {}
-    if policy.backgroundOwner~='voxel' and bgMode~='world' and battleBackgroundsEnabled() then
-      drawBackdrop(D,m,c,backdrop,sceneConfig.background)
-      if type(BattleBackgrounds.groundAnchors)=='function' then
-        local raw=BattleBackgrounds.groundAnchors(backdrop)
-        if raw then groundAnchors={player=transformBackdropPoint(raw.player,sceneConfig.background),enemy=transformBackdropPoint(raw.enemy,sceneConfig.background),profile=raw.profile} end
+    local ok, res = pcall(function()
+      local bgMode=s.bgMode and s:bgMode() or 'white'
+      local backdrop=backdropKind(game,s)
+      local groundAnchors=nil
+      local sceneConfig=resolvedGraphicsEditorConfig(game,backdrop) or {}
+      if policy.backgroundOwner~='voxel' and bgMode~='world' and battleBackgroundsEnabled() then
+        drawBackdrop(D,m,c,backdrop,sceneConfig.background)
+        if type(BattleBackgrounds.groundAnchors)=='function' then
+          local raw=BattleBackgrounds.groundAnchors(backdrop)
+          if raw then groundAnchors={player=transformBackdropPoint(raw.player,sceneConfig.background),enemy=transformBackdropPoint(raw.enemy,sceneConfig.background),profile=raw.profile} end
+        end
       end
-    end
-    local uiLayout=battleLayout(game)
-    local visualBounds=drawSprites(game,m,s,groundAnchors,backdrop,uiLayout)
-    visualBounds=decorateAnimationAnchors(s,visualBounds)
-    runtime.battleVisualAnchors=visualBounds
-    local gx=visualsExports()
-    if gx and gx.battleVisuals and type(gx.battleVisuals.update)=='function' then
-      pcall(gx.battleVisuals.update,visualBounds,{x=m.ox,y=m.oy+86*m.scale,w=1920*m.scale,h=930*m.scale,logical={x=0,y=86,w=1920,h=930}})
-    end
-    -- All move/buff/debuff/status visuals are composed after battlers but before
-    -- Battle HUD and global KRS chrome. Both authored sub-layers consume the same
-    -- CURRENT per-frame bounds, so self/target/projectile effects follow moved
-    -- sprites rather than inheriting static battle-background coordinates.
-    externalBattleAnimLayer(game,m,'back',visualBounds)
-    externalBattleAnimLayer(game,m,'front',visualBounds)
-    drawAttackAnimation(m,s,visualBounds)
-    runtime.battleRects={};runtime.battleChoiceRects=nil
-    if not choice and not stat and s.phase=='moveSelect' then moveDock(D,m,c,game,s,uiLayout.move_menu) end
-    local showEnemyHud,showPlayerHud=hudVisibility(game,s)
-    if showEnemyHud then
-      local oppTop = visualBounds and visualBounds.opponent and visualBounds.opponent.top
-      local defX = oppTop and (oppTop.x - 200) or 1220
-      local defY = oppTop and (oppTop.y - 120) or 320
-      defX = clamp(defX, 800, 1500); defY = clamp(defY, 140, 600)
-      hudWithLayout(D,m,c,game,s.enemy,uiLayout,'opponent_frame',defX,defY,400,100,true,visualBounds and visualBounds.opponent)
-    end
-    if showPlayerHud and s.player then
-      local plyTop = visualBounds and visualBounds.player and visualBounds.player.top
-      local defX = plyTop and (plyTop.x - 200) or 440
-      local defY = plyTop and (plyTop.y - 140) or 480
-      defX = clamp(defX, 100, 900); defY = clamp(defY, 200, 750)
-      hudWithLayout(D,m,c,game,s.player,uiLayout,'player_frame',defX,defY,400,120,false,visualBounds and visualBounds.player)
-    end
-    local prompts={{navigation=true,label='SELECCIONAR'},{action='a',label=choice and 'CONFIRMAR' or 'ABRIR'},{action='BATTLE_INFO',label='INFO COMBATE'},{action='LIVE_BATTLE_EDITOR',label='EDITAR UI'}}
-    if runtime.battleInfoOpen then prompts[#prompts+1]={action='b',label='VOLVER'} end
-    if runtime.suppressBattleMessage then
-      -- A higher KRS-owned semantic overlay (e.g. MoveLearn TextBox) owns the
-      -- dialogue surface while BattleState remains the world/HUD source.
-    elseif choice then
-      local layout=battleMessage(D,m,c,s,choice);runtime.battleChoiceRects=layout and layout.choiceRects or nil
-    elseif not stat and s.phase=='menu' then
-      local defs=s.safari and {
-        {'SAFARI BALL','Safari Balls · '..tostring(s.safari.balls or 0),'bag'},
-        {'CEBO','Hace menos probable que huya','pokemon'},
-        {'ROCA','Más fácil de capturar','fight'},
-        {'HUIR','Salir de la Zona Safari','run'},
-      } or {{'LUCHA','Movimientos de ataque y estado','fight'},{'POKÉMON','Cambiar de Pokémon','pokemon'},{'MOCHILA','Usar un objeto de la bolsa','bag'},{'HUIR','Intentar escapar del combate','run'}}
-      local _,rects=commandBlock(D,m,c,defs,s.menuIndex,uiLayout,game);runtime.battleRects=rects
-    elseif not stat and s.phase~='moveSelect' then battleMessage(D,m,c,s,nil) end
-    battleInfoPanel(D,m,c,s);levelUpPanel(game,D,m,c,stat)
-    -- Global KRS chrome is final by contract: nothing in the battle scene may
-    -- paint over the 0..86 header or 1016..1080 footer.
-    shell(D,m,c,game,s);footer(game,m,c,prompts);love.graphics.pop();return true
+      local uiLayout=battleLayout(game)
+      local visualBounds=drawSprites(game,m,s,groundAnchors,backdrop,uiLayout)
+      visualBounds=decorateAnimationAnchors(s,visualBounds)
+      runtime.battleVisualAnchors=visualBounds
+      local gx=visualsExports()
+      if gx and gx.battleVisuals and type(gx.battleVisuals.update)=='function' then
+        pcall(gx.battleVisuals.update,visualBounds,{x=m.ox,y=m.oy+86*m.scale,w=1920*m.scale,h=930*m.scale,logical={x=0,y=86,w=1920,h=930}})
+      end
+      externalBattleAnimLayer(game,m,'back',visualBounds)
+      externalBattleAnimLayer(game,m,'front',visualBounds)
+      drawAttackAnimation(m,s,visualBounds)
+      runtime.battleRects={};runtime.battleChoiceRects=nil
+      if not choice and not stat and s.phase=='moveSelect' then moveDock(D,m,c,game,s,uiLayout.move_menu) end
+      local showEnemyHud,showPlayerHud=hudVisibility(game,s)
+      if showEnemyHud then
+        local oppTop = visualBounds and visualBounds.opponent and visualBounds.opponent.top
+        local defX = oppTop and (oppTop.x - 200) or 1220
+        local defY = oppTop and (oppTop.y - 120) or 320
+        defX = clamp(defX, 800, 1500); defY = clamp(defY, 140, 600)
+        hudWithLayout(D,m,c,game,s.enemy,uiLayout,'opponent_frame',defX,defY,400,100,true,visualBounds and visualBounds.opponent)
+      end
+      if showPlayerHud and s.player then
+        local plyTop = visualBounds and visualBounds.player and visualBounds.player.top
+        local defX = plyTop and (plyTop.x - 200) or 440
+        local defY = plyTop and (plyTop.y - 140) or 480
+        defX = clamp(defX, 100, 900); defY = clamp(defY, 200, 750)
+        hudWithLayout(D,m,c,game,s.player,uiLayout,'player_frame',defX,defY,400,120,false,visualBounds and visualBounds.player)
+      end
+      local prompts={{navigation=true,label='SELECCIONAR'},{action='a',label=choice and 'CONFIRMAR' or 'ABRIR'},{action='BATTLE_INFO',label='INFO COMBATE'},{action='LIVE_BATTLE_EDITOR',label='EDITAR UI'}}
+      if runtime.battleInfoOpen then prompts[#prompts+1]={action='b',label='VOLVER'} end
+      if runtime.suppressBattleMessage then
+      elseif choice then
+        local layout=battleMessage(D,m,c,s,choice);runtime.battleChoiceRects=layout and layout.choiceRects or nil
+      elseif not stat and s.phase=='menu' then
+        local defs=s.safari and {
+          {'SAFARI BALL','Safari Balls · '..tostring(s.safari.balls or 0),'bag'},
+          {'CEBO','Hace menos probable que huya','pokemon'},
+          {'ROCA','Más fácil de capturar','fight'},
+          {'HUIR','Salir de la Zona Safari','run'},
+        } or {{'LUCHA','Movimientos de ataque y estado','fight'},{'POKÉMON','Cambiar de Pokémon','pokemon'},{'MOCHILA','Usar un objeto de la bolsa','bag'},{'HUIR','Intentar escapar del combate','run'}}
+        local _,rects=commandBlock(D,m,c,defs,s.menuIndex,uiLayout,game);runtime.battleRects=rects
+      elseif not stat and s.phase~='moveSelect' then battleMessage(D,m,c,s,nil) end
+      battleInfoPanel(D,m,c,s);levelUpPanel(game,D,m,c,stat)
+      shell(D,m,c,game,s);footer(game,m,c,prompts)
+      return true
+    end)
+    love.graphics.pop()
+    if not ok then return nil, res end
+    return res == true
   end
   function P.keypressed(game,key)
     local s,top,stat,choice=battleContext(game)

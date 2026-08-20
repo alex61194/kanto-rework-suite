@@ -401,31 +401,36 @@ return function(deps)
     local st=state();local models=buildModels(game);if not st.visible then clearRegions();return false end
     local _,overworld,battle=context(game);local palette=Palette.resolve(game);local colors=palette.colors
     colors.typeColors=palette.typeColors;colors.overlayGlass=glass()
-    clearRegions();love.graphics.push("all");love.graphics.origin();local order=0;local occupied={}
-    local contextMode=st.contextMode==true or st.editMode==true;local layoutMode=runtime.overlayLayoutMode==true and not contextMode
-    local drawIds={};for _,id in ipairs(IDS) do if st.focused~=id then drawIds[#drawIds+1]=id end end;if st.focused then drawIds[#drawIds+1]=st.focused end
-    local expandedEntries,collapsedEntries,blockers={},{},{}
-    for _,id in ipairs(drawIds) do
-      local pos=(st.widgets or {})[id] or {};local mode=pos.mode or "none";local normalVisible=modeAllows(mode,overworld,battle) and available(id,game,models)
-      if contextMode or normalVisible then
-        local w,h,wf,hf,wu,hu=geometry(id,pos,viewport);local x,y=position(pos,viewport,w,h);local scale=chromeScale(id,w,h)
-        local entry={id=id,pos=pos,mode=mode,scale=scale,w=w,h=h,x=x,y=y,focused=(contextMode or layoutMode) and st.focused==id,widthFactor=wf,heightFactor=hf,widthUnit=wu,heightUnit=hu}
-        if pos.collapsed and not contextMode then collapsedEntries[#collapsedEntries+1]=entry else expandedEntries[#expandedEntries+1]=entry;blockers[#blockers+1]={x=x,y=y,w=w,h=h} end
+    clearRegions();love.graphics.push("all");love.graphics.origin()
+    local ok, order = pcall(function()
+      local order=0;local occupied={}
+      local contextMode=st.contextMode==true or st.editMode==true;local layoutMode=runtime.overlayLayoutMode==true and not contextMode
+      local drawIds={};for _,id in ipairs(IDS) do if st.focused~=id then drawIds[#drawIds+1]=id end end;if st.focused then drawIds[#drawIds+1]=st.focused end
+      local expandedEntries,collapsedEntries,blockers={},{},{}
+      for _,id in ipairs(drawIds) do
+        local pos=(st.widgets or {})[id] or {};local mode=pos.mode or "none";local normalVisible=modeAllows(mode,overworld,battle) and available(id,game,models)
+        if contextMode or normalVisible then
+          local w,h,wf,hf,wu,hu=geometry(id,pos,viewport);local x,y=position(pos,viewport,w,h);local scale=chromeScale(id,w,h)
+          local entry={id=id,pos=pos,mode=mode,scale=scale,w=w,h=h,x=x,y=y,focused=(contextMode or layoutMode) and st.focused==id,widthFactor=wf,heightFactor=hf,widthUnit=wu,heightUnit=hu}
+          if pos.collapsed and not contextMode then collapsedEntries[#collapsedEntries+1]=entry else expandedEntries[#expandedEntries+1]=entry;blockers[#blockers+1]={x=x,y=y,w=w,h=h} end
+        end
       end
-    end
-    for _,entry in ipairs(expandedEntries) do
-      order=order+1;local id=entry.id
-      local modeRects,headerH,collapseRect=card(entry.x,entry.y,entry.w,entry.h,id,entry.focused,entry.scale,colors,contextMode,entry.mode,layoutMode and runtime.overlayLayoutOperation or nil)
-      if contextMode and not available(id,game,models) then placeholder(entry.x,entry.y,entry.w,entry.h,headerH,entry.scale,colors)
-      elseif id=="encounters" then drawEncounters(game,models.encounters,entry.x,entry.y,entry.w,entry.h,headerH,entry.scale,colors)
-      else drawCapture(game,models.capture,entry.x,entry.y,entry.w,entry.h,headerH,entry.scale,colors) end
-      if type(Core.setOverlayRegion)=="function" then pcall(Core.setOverlayRegion,id,{x=entry.x,y=entry.y,w=entry.w,h=entry.h,headerH=headerH,
-        resizeSize=contextMode and 0 or math.max(36,44*entry.scale),widthScale=entry.widthFactor,heightScale=entry.heightFactor,
-        widthUnit=entry.widthUnit,heightUnit=entry.heightUnit,minScale=.6,maxScale=1.6,modeRects=modeRects,collapseRect=collapseRect,order=order}) end
-      if not contextMode then resizeHandle(entry.x,entry.y,entry.w,entry.h,entry.scale,colors) end
-    end
-    for _,entry in ipairs(collapsedEntries) do order=order+1;drawCollapsed(entry.id,entry.pos,viewport,entry.scale,colors,{x=entry.x,y=entry.y,w=entry.w,h=entry.h},occupied,blockers,order) end
-    love.graphics.pop();return order>0
+      for _,entry in ipairs(expandedEntries) do
+        order=order+1;local id=entry.id
+        local modeRects,headerH,collapseRect=card(entry.x,entry.y,entry.w,entry.h,id,entry.focused,entry.scale,colors,contextMode,entry.mode,layoutMode and runtime.overlayLayoutOperation or nil)
+        if contextMode and not available(id,game,models) then placeholder(entry.x,entry.y,entry.w,entry.h,headerH,entry.scale,colors)
+        elseif id=="encounters" then drawEncounters(game,models.encounters,entry.x,entry.y,entry.w,entry.h,headerH,entry.scale,colors)
+        else drawCapture(game,models.capture,entry.x,entry.y,entry.w,entry.h,headerH,entry.scale,colors) end
+        if type(Core.setOverlayRegion)=="function" then pcall(Core.setOverlayRegion,id,{x=entry.x,y=entry.y,w=entry.w,h=entry.h,headerH=headerH,
+          resizeSize=contextMode and 0 or math.max(36,44*entry.scale),widthScale=entry.widthFactor,heightScale=entry.heightFactor,
+          widthUnit=entry.widthUnit,heightUnit=entry.heightUnit,minScale=.6,maxScale=1.6,modeRects=modeRects,collapseRect=collapseRect,order=order}) end
+        if not contextMode then resizeHandle(entry.x,entry.y,entry.w,entry.h,entry.scale,colors) end
+      end
+      for _,entry in ipairs(collapsedEntries) do order=order+1;drawCollapsed(entry.id,entry.pos,viewport,entry.scale,colors,{x=entry.x,y=entry.y,w=entry.w,h=entry.h},occupied,blockers,order) end
+      return order
+    end)
+    love.graphics.pop()
+    return ok and (tonumber(order) or 0)>0
   end
 
   Overlay._themeStyle=overlayStyle
