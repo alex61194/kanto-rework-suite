@@ -10,7 +10,7 @@ local function theme(id,label,figmaMode,fontFamily,colors,screen)
 end
 
 T.themes={
-  firered=theme("firered","ROJO FUEGO","FireRed","kanto_rework.inter",{
+  firered=theme("firered","ROJO FUEGO","FireRed","kanto_rework.pixelify_sans",{
     canvas=rgb("#140A0C"),panel=rgb("#221216"),elevated=rgb("#321A20"),subtle=rgb("#221216"),
     header=rgb("#1A0D10"),ink=rgb("#FFFFFF"),muted=rgb("#F0C0C0"),faint=rgb("#E09090"),
     border=rgb("#5A2832"),borderStrong=rgb("#FF2A4D"),focus=rgb("#FF2A4D"),interactiveSelected=rgb("#FF5252"),

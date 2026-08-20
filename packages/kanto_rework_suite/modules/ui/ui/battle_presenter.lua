@@ -226,8 +226,8 @@ return function(runtime)
     return rec.value
   end
   local function hud(D,m,c,game,b,x,y,w,h,enemy)
-    local cardW = 340
-    local cardH = enemy and 66 or 78
+    local cardW = 320
+    local cardH = enemy and 68 or 82
     local cx = x + (w - cardW) / 2
     local cy = y + (h - cardH) / 2
     
@@ -237,15 +237,19 @@ return function(runtime)
     local target = clamp(hp / max, 0, 1)
     local r = smoothRatio(b, 'hp', target, battleLogicSpeed(game))
     
-    -- Fondo blanco / gris claro con borde oscuro de alto contraste
-    local bgCol = {0.97, 0.98, 0.99, 0.96}
-    local borderCol = {0.12, 0.15, 0.20, 1.0}
+    -- Fondo pixel art cálido con doble borde biselado estilo GBA Rojo Fuego
+    local bgCol = {0.98, 0.98, 0.96, 0.98}
+    local borderCol = {0.12, 0.08, 0.10, 1.0}
+    local innerHighlight = {1.0, 1.0, 1.0, 0.9}
+    local innerShadow = {0.82, 0.80, 0.76, 1.0}
     
-    -- Tarjeta principal
-    D.roundRect(m, 'fill', cx, cy, cardW, cardH, 12, bgCol)
-    D.roundRect(m, 'line', cx, cy, cardW, cardH, 12, borderCol, 2)
+    -- Tarjeta principal con esquinas pixel art de 6px
+    D.roundRect(m, 'fill', cx, cy, cardW, cardH, 6, bgCol)
+    D.roundRect(m, 'line', cx, cy, cardW, cardH, 6, borderCol, 2)
+    -- Bisel interior 3D
+    D.roundRect(m, 'line', cx + 2, cy + 2, cardW - 4, cardH - 4, 4, innerHighlight, 1)
     
-    -- Puntero de bocadillo apuntando hacia abajo al Pokémon
+    -- Puntero de bocadillo pixelado apuntando hacia abajo al Pokémon
     local tailX = enemy and (cx + 50) or (cx + cardW - 60)
     local tailY = cy + cardH
     local tailW = 16
@@ -266,32 +270,48 @@ return function(runtime)
     )
     love.graphics.setColor(1, 1, 1, 1)
     
-    -- Fila Superior: Género + Nombre + Nivel
+    -- Fila Superior: Género + Nombre + Insignia Nivel Rojo Fuego
     local gender = b and b.mon and b.mon.gender or (b and b.mon and ((b.mon.dvs and (b.mon.dvs.atk or 0) >= 8) and 'm' or 'f')) or 'm'
     local genderCol = (gender == 'f') and {0.92, 0.25, 0.45, 1} or {0.12, 0.50, 0.90, 1}
     local genderGlyph = (gender == 'f') and '♀' or '♂'
-    D.roundRect(m, 'fill', cx + 12, cy + 10, 20, 20, 10, genderCol)
-    D.text(runtime, m, genderGlyph, cx + 12, cy + 11, 13, {1, 1, 1, 1}, {weight = 'bold', width = 20, align = 'center'})
+    D.roundRect(m, 'fill', cx + 12, cy + 10, 18, 18, 4, genderCol)
+    D.text(runtime, m, genderGlyph, cx + 12, cy + 10, 12, {1, 1, 1, 1}, {weight = 'bold', width = 18, align = 'center'})
     
-    D.clipText(runtime, m, name, cx + 38, cy + 11, 180, 17, {0.10, 0.12, 0.16, 1}, {weight = 'bold'})
-    rightText(D, m, 'Lv. ' .. lv, cx + cardW - 14, cy + 12, 14, {0.25, 0.28, 0.35, 1}, 'bold')
+    D.clipText(runtime, m, name, cx + 36, cy + 10, 160, 18, {0.10, 0.08, 0.10, 1}, {weight = 'bold'})
     
-    -- Fila Inferior: HP + Barra de Salud + Números
-    local barX = cx + 44
-    local barY = cy + 38
-    local barW = cardW - 58
+    -- Insignia Nivel estilo Rojo Fuego (fondo ámbar/naranja con texto blanco)
+    local lvText = 'Nv.' .. lv
+    local lvW = 48
+    local lvX = cx + cardW - lvW - 12
+    D.roundRect(m, 'fill', lvX, cy + 10, lvW, 18, 4, {0.95, 0.45, 0.05, 1})
+    D.roundRect(m, 'line', lvX, cy + 10, lvW, 18, 4, {0.75, 0.30, 0.00, 1}, 1)
+    D.text(runtime, m, lvText, lvX, cy + 10, 12, {1, 1, 1, 1}, {weight = 'bold', width = lvW, align = 'center'})
+    
+    -- Fila Inferior: Etiqueta PS + Barra de Vida + Números
+    local barX = cx + 42
+    local barY = cy + 36
+    local barW = cardW - 54
     local barH = 10
     
-    D.text(runtime, m, 'HP', cx + 14, barY - 2, 12, {0.05, 0.55, 0.45, 1}, {weight = 'bold'})
-    D.roundRect(m, 'fill', barX, barY, barW, barH, barH/2, {0.85, 0.88, 0.92, 1})
-    D.roundRect(m, 'line', barX, barY, barW, barH, barH/2, {0.70, 0.74, 0.80, 1}, 1)
-    local fill = target <= 0.2 and {0.94, 0.27, 0.27, 1} or target < 0.55 and {1.0, 0.70, 0.0, 1} or {0.0, 0.85, 0.45, 1}
+    D.text(runtime, m, 'PS', cx + 12, barY - 2, 13, {0.95, 0.35, 0.10, 1}, {weight = 'bold'})
+    D.roundRect(m, 'fill', barX, barY, barW, barH, 3, {0.86, 0.88, 0.90, 1})
+    D.roundRect(m, 'line', barX, barY, barW, barH, 3, {0.45, 0.48, 0.52, 1}, 1)
+    local fill = target <= 0.2 and {0.95, 0.20, 0.20, 1} or target < 0.55 and {0.98, 0.70, 0.10, 1} or {0.0, 0.85, 0.40, 1}
     if r > 0 then
-      D.roundRect(m, 'fill', barX, barY, math.max(3, barW * r), barH, barH/2, fill)
+      D.roundRect(m, 'fill', barX, barY, math.max(3, barW * r), barH, 3, fill)
     end
     
     if not enemy then
-      D.text(runtime, m, ('%d / %d'):format(hp, max), barX, barY + 12, 11, {0.15, 0.18, 0.24, 1}, {weight = 'bold', width = barW, align = 'right'})
+      D.text(runtime, m, ('%d / %d'):format(hp, max), barX, barY + 11, 11, {0.15, 0.12, 0.15, 1}, {weight = 'bold', width = barW, align = 'right'})
+      -- Barra de EXP estilo Rojo Fuego
+      local ratio, toNext = expMetrics(game, b)
+      ratio = smoothRatio(b, 'exp', ratio, battleLogicSpeed(game))
+      local expY = cy + 62
+      D.text(runtime, m, 'EXP', cx + 12, expY - 3, 9, {0.05, 0.60, 0.85, 1}, {weight = 'bold'})
+      D.roundRect(m, 'fill', barX, expY, barW, 4, 2, {0.86, 0.88, 0.90, 1})
+      if ratio > 0 then
+        D.roundRect(m, 'fill', barX, expY, math.max(2, barW * ratio), 4, 2, {0.0, 0.85, 1.0, 1})
+      end
     end
   end
   local PHYSICAL={NORMAL=true,FIGHTING=true,FLYING=true,POISON=true,GROUND=true,ROCK=true,BUG=true,GHOST=true}
@@ -487,26 +507,34 @@ return function(runtime)
     love.graphics.setColor(1,1,1,1);return true
   end
   local COMMAND_THEME_COLORS = {
-    fight = { bg = { 0.80, 0.15, 0.20, 0.95 }, hover = { 0.95, 0.22, 0.28, 1.00 }, text = { 1, 1, 1, 1 }, border = { 1.00, 0.40, 0.45, 1 } },
-    pokemon = { bg = { 0.10, 0.65, 0.30, 0.95 }, hover = { 0.15, 0.85, 0.40, 1.00 }, text = { 1, 1, 1, 1 }, border = { 0.30, 0.95, 0.55, 1 } },
-    bag = { bg = { 0.90, 0.50, 0.10, 0.95 }, hover = { 1.00, 0.65, 0.15, 1.00 }, text = { 1, 1, 1, 1 }, border = { 1.00, 0.80, 0.30, 1 } },
-    run = { bg = { 0.12, 0.50, 0.85, 0.95 }, hover = { 0.20, 0.70, 1.00, 1.00 }, text = { 1, 1, 1, 1 }, border = { 0.45, 0.85, 1.00, 1 } },
+    fight = { bg = { 0.82, 0.15, 0.20, 0.98 }, hover = { 0.96, 0.22, 0.28, 1.00 }, highlight = { 1.0, 0.45, 0.50, 1 }, shadow = { 0.55, 0.08, 0.12, 1 } },
+    pokemon = { bg = { 0.12, 0.62, 0.28, 0.98 }, hover = { 0.16, 0.80, 0.38, 1.00 }, highlight = { 0.40, 0.95, 0.55, 1 }, shadow = { 0.06, 0.40, 0.16, 1 } },
+    bag = { bg = { 0.92, 0.48, 0.08, 0.98 }, hover = { 1.00, 0.62, 0.14, 1.00 }, highlight = { 1.00, 0.80, 0.35, 1 }, shadow = { 0.60, 0.28, 0.02, 1 } },
+    run = { bg = { 0.12, 0.48, 0.84, 0.98 }, hover = { 0.18, 0.68, 0.98, 1.00 }, highlight = { 0.45, 0.85, 1.00, 1 }, shadow = { 0.06, 0.30, 0.58, 1 } },
   }
   local function commandCard(D,m,c,label,sub,x,y,w,h,focused,icon)
     local themeCol = COMMAND_THEME_COLORS[icon or 'fight']
     local fill = themeCol and (focused and themeCol.hover or themeCol.bg) or (focused and c.subtle or c.inverse)
-    local stroke = themeCol and (focused and {1, 1, 1, 1} or themeCol.border) or (focused and c.focus or c.borderStrong)
-    local textColor = themeCol and themeCol.text or (focused and c.text or c.textInverse)
-    local subColor = themeCol and {1, 1, 1, 0.88} or (focused and c.textSecondary or c.faint)
-    D.panel(m,x,y,w,h,12,fill,stroke)
+    local borderCol = { 0.12, 0.08, 0.10, 1.0 }
+    
+    -- Botón con esquinas pixel art de 6px
+    D.roundRect(m, 'fill', x, y, w, h, 6, fill)
+    D.roundRect(m, 'line', x, y, w, h, 6, borderCol, 2)
+    
+    -- Bisel interior 3D pixel art estilo GBA
+    if themeCol then
+      D.roundRect(m, 'line', x + 2, y + 2, w - 4, h - 4, 4, themeCol.highlight, 1)
+    end
+    
     if focused then
-      D.roundRect(m,"line",x,y,w,h,12,{1,1,1,0.95},3)
+      D.roundRect(m, 'line', x, y, w, h, 6, { 1, 1, 1, 0.95 }, 3)
     end
-    if not commandIcon(m,c,icon or 'fight',x+16,y+27,28,focused) then
-      D.icon(runtime,m,icon or 'fight',x+16,y+27,28,{text=textColor,textSecondary=subColor,subtle=c.subtle,border=c.border})
+    
+    if not commandIcon(m,c,icon or 'fight',x+16,y+16,28,focused) then
+      D.icon(runtime,m,icon or 'fight',x+16,y+16,28,{text={1,1,1,1},textSecondary={1,1,1,0.85},subtle=c.subtle,border=c.border})
     end
-    D.text(runtime,m,label,x+56,y+17,18,textColor,{weight='bold',width=w-72})
-    D.text(runtime,m,sub,x+56,y+45,11,subColor,{weight='medium',width=w-72})
+    D.text(runtime,m,label,x+56,y+11,18,{1,1,1,1},{weight='bold',width=w-72})
+    D.text(runtime,m,sub,x+56,y+35,11,{1,1,1,0.85},{weight='medium',width=w-72})
   end
   local function moveRow(D,m,c,mv,x,y,w,h,focused,disabled,index)
     local fill=focused and c.inverse or c.panel;D.panel(m,x,y,w,h,8,fill,focused and c.focus or c.border);if focused then D.focusBorder(m,x,y,w,h,8,c.focus) end
