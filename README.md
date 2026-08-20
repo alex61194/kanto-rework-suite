@@ -6,7 +6,14 @@
 
 **A complete UI, UX, Quality-of-Life, and Accessibility overhaul for Pokémon Red running on Gen1Recomp (LÖVE 2D).**
 
-> 🇪🇸 **Edición con traducción completa al Español**: Todos los menús, tipos elementales, descripciones de movimientos, objetos clasificados en 8 bolsillos, modificadores de combate en tiempo real, gestor de mods y soporte multi-pantalla (16:9, Steam Deck 16:10, Ultrawide 21:9 y 4:3).
+> ### 📢 Credits & Attribution / Créditos y Autoría Original
+>
+> 🌟 **Original Mod, UI Design & Resources by [Faendra](https://github.com/Faendra)**
+> - **Original Repository**: [https://github.com/Faendra/kanto-rework-suite](https://github.com/Faendra/kanto-rework-suite)
+> - **Discord Thread / Discussion**: Mod showcase & updates in the official Gen1Recomp Discord (`#pkmn-mods` / `#pkmn-releases`).
+>
+> ℹ️ **Notice / Aviso**:
+> This repository is a community fork maintained by **[alex61194](https://github.com/alex61194)** specifically dedicated to providing the **Spanish translation (traducción y localización al español)** and localized QoL / mobile compatibility. **All original UI designs, artwork, layouts, and core resources belong entirely to [Faendra](https://github.com/Faendra).** Please visit and star the original repository!
 
 ---
 
@@ -54,11 +61,9 @@
 
 ---
 
-## 🛠️ Instalación
-
-1. Descarga los archivos `.zip` desde [Releases](https://github.com/alex61194/kanto-rework-suite/releases).
-2. Coloca los paquetes dentro de la carpeta `mods/` de tu **Gen1Recomp**.
-3. Actívalos desde el menú de mods del juego.
+## 🤝 Agradecimientos & Acknowledgements
+- **[Faendra](https://github.com/Faendra)**: Author and creator of the original Kanto Rework Suite, all UI designs, layout systems, and artistic direction.
+- **Gen1Recomp Community**: All modders and contributors on the official Discord.
 
 ---
 
