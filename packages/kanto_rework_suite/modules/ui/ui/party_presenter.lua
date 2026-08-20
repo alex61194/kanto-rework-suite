@@ -597,13 +597,20 @@ return function(options)
     state.regions={};runtime.regions=state.regions;runtime.viewport=viewport
     local t=Layout.transform(viewport);drawT=t;opacity=1
     theme=Palette.resolve(game);runtime.visualProfile=theme.profile;runtime.colorMode=theme.colorMode
-    love.graphics.push("all");love.graphics.origin();color(theme.colors.letterbox);love.graphics.rectangle("fill",0,0,t.screenWidth,t.screenHeight)
-    love.graphics.setScissor(round(t.offsetX),round(t.offsetY),round(t.viewportWidth),round(t.viewportHeight))
-    rect("fill",0,0,C.DESIGN_WIDTH,C.DESIGN_HEIGHT,0,theme.colors.canvas)
-    if state.mode=="PartyBrowse" or state.mode=="SubmenuBrowse" or state.mode=="BattleAction" then drawParty(game,state)
-    elseif state.mode=="SummaryActive" then drawSummary(game,state)
-    elseif state.mode=="MovesActive" then drawMoves(game,state) end
-    debug(state,t);love.graphics.setScissor();love.graphics.pop();return true
+    love.graphics.push("all");love.graphics.origin()
+    local ok, res = pcall(function()
+      color(theme.colors.letterbox);love.graphics.rectangle("fill",0,0,t.screenWidth,t.screenHeight)
+      love.graphics.setScissor(round(t.offsetX),round(t.offsetY),round(t.viewportWidth),round(t.viewportHeight))
+      rect("fill",0,0,C.DESIGN_WIDTH,C.DESIGN_HEIGHT,0,theme.colors.canvas)
+      if state.mode=="PartyBrowse" or state.mode=="SubmenuBrowse" or state.mode=="BattleAction" then drawParty(game,state)
+      elseif state.mode=="SummaryActive" then drawSummary(game,state)
+      elseif state.mode=="MovesActive" then drawMoves(game,state) end
+      debug(state,t);love.graphics.setScissor()
+      return true
+    end)
+    love.graphics.pop()
+    if not ok then return nil, res end
+    return res == true
   end
   function P:draw(game,viewport)
     local state=Adapter.topState(game);return self:drawState(game,viewport,state)

@@ -108,8 +108,13 @@ return function(runtime)
     local state,top,preset=context(game);if not state or not runtime.Layout.isWide(viewport) then return false end
     local m=runtime.Layout.metrics(viewport);local c=runtime.Theme.resolveAll(runtime,game)
     love.graphics.push('all');love.graphics.origin()
-    if preset then drawPresets(game,m,c,state,preset) else drawGrid(m,c,state) end
-    love.graphics.pop();return true
+    local ok, res = pcall(function()
+      if preset then drawPresets(game,m,c,state,preset) else drawGrid(m,c,state) end
+      return true
+    end)
+    love.graphics.pop()
+    if not ok then return nil, res end
+    return res == true
   end
   function P.pointer(game,event,lx,ly)
     local state,top,preset=context(game);if not state then return false end

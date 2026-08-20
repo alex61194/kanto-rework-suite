@@ -915,8 +915,15 @@ local function pcPartyIcon(runtime,m,game,mon,x,y,size)
     if ok and drawn==true then return true end
   end
   local okParty,PartyMenu=pcall(require,'src.ui.PartyMenu');if not(okParty and PartyMenu and type(PartyMenu.drawIcon)=='function') then return false end
-  love.graphics.push('all');love.graphics.translate(m.ox+x*m.scale,m.oy+y*m.scale);love.graphics.scale((size/16)*m.scale,(size/16)*m.scale)
-  love.graphics.setColor(1,1,1,1);local worked=pcall(PartyMenu.drawIcon,game,mon,0,0,false,0,false);love.graphics.pop();return worked
+  love.graphics.push('all')
+  local worked=pcall(function()
+    love.graphics.translate(m.ox+x*m.scale,m.oy+y*m.scale)
+    love.graphics.scale((size/16)*m.scale,(size/16)*m.scale)
+    love.graphics.setColor(1,1,1,1)
+    return PartyMenu.drawIcon(game,mon,0,0,false,0,false)
+  end)
+  love.graphics.pop()
+  return worked
 end
 
 local function pcFocusOutline(runtime,m,r,color) runtime.Draw.roundRect(m,'line',r.x+1,r.y+1,r.w-2,r.h-2,8,color,3) end

@@ -61,22 +61,19 @@ return function(deps)
     size=math.max(1,tonumber(size) or 20)
     local spec,img=load(kind,size)
     if not spec or not img then return false end
-    local iw,ih=img:getDimensions()
+    local okDim,iw,ih=pcall(img.getDimensions,img)
+    if not (okDim and tonumber(iw) and iw>0 and tonumber(ih) and ih>0) then return false end
     local sx=size/iw;local sy=size/ih
-    love.graphics.push("all")
     setColor(color or WHITE,alpha)
-    love.graphics.draw(img,cx-size/2,cy-size/2,0,sx,sy)
-    love.graphics.pop()
-    return true
+    local ok=pcall(love.graphics.draw,img,cx-size/2,cy-size/2,0,sx,sy)
+    return ok
   end
 
   -- Canonical compact Type Icon: 32x32 container, 20x20 glyph.
   function TypeIcon.draw(kind,cx,cy,size,typeColor,alpha)
     size=math.max(1,tonumber(size) or 32)
-    love.graphics.push("all")
     setColor(typeColor,alpha)
-    love.graphics.circle("fill",cx,cy,size/2)
-    love.graphics.pop()
+    pcall(love.graphics.circle,"fill",cx,cy,size/2)
     return TypeIcon.drawGlyph(kind,cx,cy,size*GLYPH_TO_ICON,WHITE,alpha)
   end
 

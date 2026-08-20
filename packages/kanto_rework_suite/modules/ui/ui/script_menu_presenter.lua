@@ -50,27 +50,32 @@ return function(runtime)
     local rowH=62;local h=128+visible*rowH+62;local w=760;local x=1100;local y=math.max(126,math.floor((1080-h)/2))
     runtime.scriptMenuRects={}
     love.graphics.push('all');love.graphics.origin()
-    D.panel(m,x,y,w,h,18,c.panel,c.borderStrong or c.border)
-    D.text(runtime,m,'SCRIPTED CHOICE',x+28,y+24,10,c.textSecondary,{weight='bold'})
-    D.text(runtime,m,tostring(state.title or state.prompt or 'CHOOSE AN OPTION'):upper(),x+28,y+52,24,c.text,{weight='bold',width=w-56})
-    local first,last=selectedWindow(state,#items,visible)
-    local yy=y+108
-    for i=first,last do
-      local row=items[i];local r={x=x+28,y=yy,w=w-56,h=50};runtime.scriptMenuRects[i]=r
-      local focused=i==(tonumber(state.index) or 1);local hovered=runtime.scriptMenuHover==i;local pressed=runtime.scriptMenuPressed==i
-      local fill=pressed and (c.inverseRaised or c.inverse) or focused and c.inverse or hovered and c.subtle or c.panel
-      local border=focused and c.focus or hovered and c.focus or c.border
-      D.panel(m,r.x,r.y,r.w,r.h,10,fill,border)
-      if focused then D.roundRect(m,'fill',r.x+10,r.y+10,5,r.h-20,2.5,c.focus) end
-      D.text(runtime,m,label(row),r.x+26,r.y+16,14,focused and c.textInverse or c.text,{weight='semibold',width=r.w-160})
-      local rt=right(row);if rt~='' then D.text(runtime,m,rt,r.x+r.w-132,r.y+16,12,focused and c.faint or c.textSecondary,{weight='semibold',width=108,align='right'}) end
-      yy=yy+rowH
-    end
-    D.line(m,x+28,y+h-58,x+w-28,y+h-58,c.border,1)
-    D.text(runtime,m,'↑↓',x+28,y+h-42,10,c.text,{weight='bold'});D.text(runtime,m,'SELECT',x+70,y+h-42,10,c.textSecondary,{weight='semibold'})
-    D.text(runtime,m,'A',x+190,y+h-42,10,c.text,{weight='bold'});D.text(runtime,m,'CONFIRM',x+216,y+h-42,10,c.textSecondary,{weight='semibold'})
-    D.text(runtime,m,'B',x+344,y+h-42,10,c.text,{weight='bold'});D.text(runtime,m,'BACK',x+370,y+h-42,10,c.textSecondary,{weight='semibold'})
-    love.graphics.pop();return true
+    local ok, res = pcall(function()
+      D.panel(m,x,y,w,h,18,c.panel,c.borderStrong or c.border)
+      D.text(runtime,m,'SCRIPTED CHOICE',x+28,y+24,10,c.textSecondary,{weight='bold'})
+      D.text(runtime,m,tostring(state.title or state.prompt or 'CHOOSE AN OPTION'):upper(),x+28,y+52,24,c.text,{weight='bold',width=w-56})
+      local first,last=selectedWindow(state,#items,visible)
+      local yy=y+108
+      for i=first,last do
+        local row=items[i];local r={x=x+28,y=yy,w=w-56,h=50};runtime.scriptMenuRects[i]=r
+        local focused=i==(tonumber(state.index) or 1);local hovered=runtime.scriptMenuHover==i;local pressed=runtime.scriptMenuPressed==i
+        local fill=pressed and (c.inverseRaised or c.inverse) or focused and c.inverse or hovered and c.subtle or c.panel
+        local border=focused and c.focus or hovered and c.focus or c.border
+        D.panel(m,r.x,r.y,r.w,r.h,10,fill,border)
+        if focused then D.roundRect(m,'fill',r.x+10,r.y+10,5,r.h-20,2.5,c.focus) end
+        D.text(runtime,m,label(row),r.x+26,r.y+16,14,focused and c.textInverse or c.text,{weight='semibold',width=r.w-160})
+        local rt=right(row);if rt~='' then D.text(runtime,m,rt,r.x+r.w-132,r.y+16,12,focused and c.faint or c.textSecondary,{weight='semibold',width=108,align='right'}) end
+        yy=yy+rowH
+      end
+      D.line(m,x+28,y+h-58,x+w-28,y+h-58,c.border,1)
+      D.text(runtime,m,'↑↓',x+28,y+h-42,10,c.text,{weight='bold'});D.text(runtime,m,'SELECT',x+70,y+h-42,10,c.textSecondary,{weight='semibold'})
+      D.text(runtime,m,'ENTER',x+170,y+h-42,10,c.text,{weight='bold'});D.text(runtime,m,'CONFIRM',x+230,y+h-42,10,c.textSecondary,{weight='semibold'})
+      D.text(runtime,m,'A',x+330,y+h-42,10,c.text,{weight='bold'});D.text(runtime,m,'BACK',x+360,y+h-42,10,c.textSecondary,{weight='semibold'})
+      return true
+    end)
+    love.graphics.pop()
+    if not ok then return nil, res end
+    return res == true
   end
   function P.pointer(game,event,lx,ly)
     local state=game and game.stack and game.stack.top and game.stack:top()

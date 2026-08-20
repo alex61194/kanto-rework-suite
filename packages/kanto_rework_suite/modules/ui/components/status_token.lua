@@ -110,34 +110,26 @@ return function(deps)
 
   local function drawGlyph(def,cx,cy,size,alpha)
     local spec,img=loadGlyph(def,size);if not spec or not img then return false end
-    local iw,ih=img:getDimensions()
-    love.graphics.push("all")
+    local okDim,iw,ih=pcall(img.getDimensions,img)
+    if not (okDim and tonumber(iw) and iw>0 and tonumber(ih) and ih>0) then return false end
     setColor(PURE_WHITE,alpha)
-    love.graphics.draw(img,cx-size/2,cy-size/2,0,size/iw,size/ih)
-    love.graphics.pop()
-    return true
+    return pcall(love.graphics.draw,img,cx-size/2,cy-size/2,0,size/iw,size/ih)
   end
 
   local function drawAtomic(def,cx,cy,size,theme,alpha)
     local sem=semanticColors(def,theme)
-    love.graphics.push("all")
     setColor(sem.icon,alpha)
-    love.graphics.circle("fill",cx,cy,size/2)
+    pcall(love.graphics.circle,"fill",cx,cy,size/2)
     if def.severe then
-      -- Figma 618:2549: ellipse x=20,y=0,w=12,h=12 in the 32x32 frame,
-      -- 1px INSIDE white stroke. The white exclamation itself is already part
-      -- of canonical glyph 627:2278 and is not redrawn here.
       local markerSize=size*(12/32)
       local mx=cx+size*(10/32);local my=cy-size*(10/32)
       setColor(sem.marker or sem.outline,alpha)
-      love.graphics.circle("fill",mx,my,markerSize/2)
+      pcall(love.graphics.circle,"fill",mx,my,markerSize/2)
       setColor(PURE_WHITE,alpha)
-      love.graphics.setLineWidth(size/32)
-      love.graphics.circle("line",mx,my,math.max(0,markerSize/2-size/64))
+      pcall(love.graphics.setLineWidth,size/32)
+      pcall(love.graphics.circle,"line",mx,my,math.max(0,markerSize/2-size/64))
     end
-    local ok=drawGlyph(def,cx,cy,size,alpha)
-    love.graphics.pop()
-    return ok
+    return drawGlyph(def,cx,cy,size,alpha)
   end
 
   function Status.normalize(status,hp) return canonical(status,hp) end

@@ -155,52 +155,48 @@ return function(runtime)
     if not speech or not runtime.Layout.isWide(viewport) then return false end
     local m=runtime.Layout.metrics(viewport);local c=runtime.Theme.resolveAll(runtime,game)
     love.graphics.push('all');love.graphics.origin()
-    local scene=graphicsAsset('intro.scene',{id='oak_lab',data=game and game.data})
-    drawCover(m,loadResolved(scene,'linear') or load('assets/intro/oak_lab_presentation.png','linear'))
-    -- The supplied scene has a single authored spotlight in the middle of the
-    -- laboratory. Characters therefore share one stable stage anchor while
-    -- OakSpeech keeps ownership of timing, cries, naming and progression.
-    local kind=currentVisual(speech)
-    local revealKind,reveal=revealState(speech)
-    if kind=='oak' then
-      -- This Oak PNG contains very low-alpha export noise far outside the
-      -- actual figure. The quad below clips transparent canvas margin only;
-      -- the visible character pixels are untouched.
-      local trainer=graphicsAsset('intro.trainer',{id='oak',data=game and game.data})
-      drawArt(m,loadResolved(trainer,'linear') or load('assets/intro/prof_oak_intro.png','linear'),960,970,560,680,{
-        crop={750,13,527,1331},revealKind=revealKind,reveal=reveal,
-      })
-    elseif kind=='rival' then
-      local trainer=graphicsAsset('intro.trainer',{id='blue',data=game and game.data})
-      drawArt(m,loadResolved(trainer,'nearest') or load('assets/intro/rival.png','nearest'),960,970,560,680,{
-        presentationScale=trainer and trainer.presentationScale or 1,noUpscale=true,filter='nearest',revealKind=revealKind,reveal=reveal,
-      })
-    elseif kind=='pokemon' then
-      local mon,meta=pokemonImage(game,speech)
-      drawArt(m,mon,960,930,420,420,{
-        filter='nearest',integerScale=meta and meta.integerScale,crop=meta and meta.crop or nil,revealKind=revealKind,reveal=reveal,
-      })
-    else
-      local trainer=graphicsAsset('intro.trainer',{id='red',data=game and game.data})
-      drawArt(m,loadResolved(trainer,'nearest') or load('assets/intro/player_red.png','nearest'),960,970,560,680,{
-        presentationScale=trainer and trainer.presentationScale or 1,noUpscale=true,filter='nearest',revealKind=revealKind,reveal=reveal,
-      })
-    end
-    -- Mirror OakSpeech's final fade-to-white without owning or changing its
-    -- timeline. `fadeLevel` is written by the engine shrink sequence.
-    local fade=tonumber(speech.fadeLevel) or 0
-    if fade>0 then
-      local a=clamp(fade/3,0,1)
-      love.graphics.setColor(1,1,1,a)
-      love.graphics.rectangle('fill',m.ox,m.oy,1920*m.scale,1080*m.scale)
-    end
-    if text then
-      local model=runtime.DialogueAdapter.model(text,nil,game)
-      model.speaker=speakerFor(speech)
-      runtime.DialoguePanel.draw(runtime,m,c,model)
-    end
+    local ok, res = pcall(function()
+      local scene=graphicsAsset('intro.scene',{id='oak_lab',data=game and game.data})
+      drawCover(m,loadResolved(scene,'linear') or load('assets/intro/oak_lab_presentation.png','linear'))
+      local kind=currentVisual(speech)
+      local revealKind,reveal=revealState(speech)
+      if kind=='oak' then
+        local trainer=graphicsAsset('intro.trainer',{id='oak',data=game and game.data})
+        drawArt(m,loadResolved(trainer,'linear') or load('assets/intro/prof_oak_intro.png','linear'),960,970,560,680,{
+          crop={750,13,527,1331},revealKind=revealKind,reveal=reveal,
+        })
+      elseif kind=='rival' then
+        local trainer=graphicsAsset('intro.trainer',{id='blue',data=game and game.data})
+        drawArt(m,loadResolved(trainer,'nearest') or load('assets/intro/rival.png','nearest'),960,970,560,680,{
+          presentationScale=trainer and trainer.presentationScale or 1,noUpscale=true,filter='nearest',revealKind=revealKind,reveal=reveal,
+        })
+      elseif kind=='pokemon' then
+        local mon,meta=pokemonImage(game,speech)
+        drawArt(m,mon,960,930,420,420,{
+          filter='nearest',integerScale=meta and meta.integerScale,crop=meta and meta.crop or nil,revealKind=revealKind,reveal=reveal,
+        })
+      else
+        local trainer=graphicsAsset('intro.trainer',{id='red',data=game and game.data})
+        drawArt(m,loadResolved(trainer,'nearest') or load('assets/intro/player_red.png','nearest'),960,970,560,680,{
+          presentationScale=trainer and trainer.presentationScale or 1,noUpscale=true,filter='nearest',revealKind=revealKind,reveal=reveal,
+        })
+      end
+      local fade=tonumber(speech.fadeLevel) or 0
+      if fade>0 then
+        local a=clamp(fade/3,0,1)
+        love.graphics.setColor(1,1,1,a)
+        love.graphics.rectangle('fill',m.ox,m.oy,1920*m.scale,1080*m.scale)
+      end
+      if text then
+        local model=runtime.DialogueAdapter.model(text,nil,game)
+        model.speaker=speakerFor(speech)
+        runtime.DialoguePanel.draw(runtime,m,c,model)
+      end
+      return true
+    end)
     love.graphics.pop()
-    return true
+    if not ok then return nil, res end
+    return res == true
   end
   return P
 end
