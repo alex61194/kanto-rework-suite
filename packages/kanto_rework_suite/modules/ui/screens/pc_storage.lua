@@ -215,6 +215,26 @@ function PCStorage.factory(runtime)
     Sound.play(self.game.data,'Swap')
     return true
   end
+  local function safeModifyHappiness(save, event, mon)
+    if not (PikachuFollower and type(PikachuFollower.modifyHappiness) == 'function') then return end
+    pcall(PikachuFollower.modifyHappiness, save, event, mon)
+  end
+  local function ensureMonStats(game, mon)
+    if not mon then return end
+    local def = game and game.data and game.data.pokemon and game.data.pokemon[mon.species]
+    if not def then return end
+    if Stats and type(Stats.ensure) == 'function' then
+      pcall(Stats.ensure, def, mon)
+    elseif Stats and type(Stats.calc) == 'function' then
+      local ok, calcStats = pcall(Stats.calc, def, tonumber(mon.level) or 1, mon.dvs, mon.statExp)
+      if ok and type(calcStats) == 'table' then
+        mon.stats = calcStats
+        if not mon.hp or mon.hp > (calcStats.hp or 1) or mon.hp <= 0 then
+          mon.hp = calcStats.hp or 1
+        end
+      end
+    end
+  end
   function Screen:placeInBox(targetBox)
     local sel=self.selected;if not sel then self:setBox(targetBox);self.area='stored';return true end
     targetBox=clamp(targetBox,1,Boxes.COUNT);local destination=self:boxAt(targetBox)
@@ -228,7 +248,7 @@ function PCStorage.factory(runtime)
     elseif sel.where=='party' then
       local party=self.game.save.party;local index=findMon(party,sel.mon,sel.index)
       if not index or #party<=1 or #destination>=Boxes.CAPACITY then return false end
-      local moving=table.remove(party,index);PikachuFollower.modifyHappiness(self.game.save,'DEPOSITED',moving);destination[#destination+1]=moving
+      local moving=table.remove(party,index);safeModifyHappiness(self.game.save,'DEPOSITED',moving);destination[#destination+1]=moving
       return self:commitStorage(targetBox,#destination)
     end
     return false
@@ -240,22 +260,19 @@ function PCStorage.factory(runtime)
       if #box>=Boxes.CAPACITY or #party<=1 then return false end
       local src=party[sel.index];if not src then self.selected=nil;return false end
       local dst=box[targetIndex]
-      -- Match Gen1Recomp BoxMenu semantics: a party mon being deposited
-      -- affects Yellow follower happiness, while a box mon entering the
-      -- party must regain its computed party stat block.
-      PikachuFollower.modifyHappiness(self.game.save,'DEPOSITED',src)
+      safeModifyHappiness(self.game.save,'DEPOSITED',src)
       if dst then
-        Stats.ensure(self.game.data.pokemon[dst.species],dst)
+        ensureMonStats(self.game,dst)
         party[sel.index],box[targetIndex]=dst,src
       else
         table.remove(party,sel.index);box[#box+1]=src;self.monIndex=#box
       end
     elseif sel.where=='box' and self.area=='party' then
       local sourceIndex=findMon(sourceBox,sel.mon,sel.index);local src=sourceIndex and sourceBox[sourceIndex];if not src then self.selected=nil;return false end
-      Stats.ensure(self.game.data.pokemon[src.species],src)
+      ensureMonStats(self.game,src)
       local dst=party[self.partyIndex]
       if dst then
-        PikachuFollower.modifyHappiness(self.game.save,'DEPOSITED',dst)
+        safeModifyHappiness(self.game.save,'DEPOSITED',dst)
         sourceBox[sourceIndex],party[self.partyIndex]=dst,src
       elseif #party<Party.MAX then
         table.remove(sourceBox,sourceIndex);party[#party+1]=src;self.partyIndex=#party

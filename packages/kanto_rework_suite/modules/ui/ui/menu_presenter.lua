@@ -896,8 +896,13 @@ end
 
 -- PC STORAGE ---------------------------------------------------------------
 local function pcMonName(runtime,game,mon)
-  local def=mon and game.data.pokemon and game.data.pokemon[mon.species]
-  return mon and runtime.PokemonName(mon.nickname or (def and def.name) or mon.species,mon.species,def,mon.nickname~=nil) or 'POKéMON'
+  if not mon then return 'POKéMON' end
+  local def=game and game.data and game.data.pokemon and game.data.pokemon[mon.species]
+  if runtime and type(runtime.PokemonName)=='function' then
+    local ok,val=pcall(runtime.PokemonName,mon.nickname or (def and def.name) or mon.species,mon.species,def,mon.nickname~=nil)
+    if ok and val then return val end
+  end
+  return tostring(mon.nickname or (def and def.name) or mon.species or 'POKéMON')
 end
 local function pcPartyIcon(runtime,m,game,mon,x,y,size)
   if not mon then return false end
@@ -1047,7 +1052,7 @@ function Presenter.drawPcStorage(runtime,m,colors,screen)
     D.text(runtime,m,'MOVIMIENTOS',rx+21,contentY+196,9,colors.textSecondary,{weight='bold'});local moves=screen:contextMoves()
     for i=1,4 do local move=moves[i];local my=contentY+219+(i-1)*56;D.roundRect(m,'fill',rx+21,my,rw-42,44,8,colors.subtle);if move then local typ=pcTypeKey(move.type);local tc=colors.typeColors and colors.typeColors[typ] or colors.focus;if runtime.TypeIcon then runtime.TypeIcon.draw(typ,m.ox+(rx+39)*m.scale,m.oy+(my+22)*m.scale,26*m.scale,tc,1) end;D.clipText(runtime,m,tostring(move.name or move.id or 'DESCONOCIDO'):upper(),rx+59,my+13,rw-198,11,colors.text,{weight='semibold'});local pp=move.pp~=nil and tostring(move.pp) or '—';local maxpp=move.maxPP~=nil and tostring(move.maxPP) or '—';D.text(runtime,m,pp..' / '..maxpp..' PP',rx+rw-135,my+13,9,colors.textSecondary,{weight='semibold',width=94,align='right'}) else D.text(runtime,m,'—',rx+59,my+13,11,colors.textSecondary,{weight='semibold'}) end end
     D.line(m,rx+21,contentY+443,rx+rw-21,contentY+443,colors.pcBorder or colors.border,1)
-    runtime.pcReleaseRect={x=rx+21,y=contentY+456,w=rw-42,h=34};if screen.area=='stored' then D.roundRect(m,'fill',runtime.pcReleaseRect.x,runtime.pcReleaseRect.y,runtime.pcReleaseRect.w,runtime.pcReleaseRect.h,6,colors.danger);D.text(runtime,m,'LIBERAR A '..name,runtime.pcReleaseRect.x,runtime.pcReleaseRect.y+10,10,colors.textInverse,{weight='bold',width=runtime.pcReleaseRect.w,align='center'}) end
+    runtime.pcReleaseRect={x=rx+21,y=contentY+456,w=rw-42,h=34};if screen.area=='stored' then D.roundRect(m,'fill',runtime.pcReleaseRect.x,runtime.pcReleaseRect.y,runtime.pcReleaseRect.w,runtime.pcReleaseRect.h,6,colors.danger);D.text(runtime,m,'LIBERAR A '..tostring(name or 'POKÉMON'),runtime.pcReleaseRect.x,runtime.pcReleaseRect.y+10,10,colors.textInverse,{weight='bold',width=runtime.pcReleaseRect.w,align='center'}) end
   end
 
   local drag=screen.drag;if drag and drag.active and drag.x and drag.y and screen.selected and screen.selected.mon then local mon=screen.selected.mon;local r={x=drag.x-78,y=drag.y-58,w=156,h=116};local panelColor={colors.panel[1],colors.panel[2],colors.panel[3],.82};local borderColor={colors.focus[1],colors.focus[2],colors.focus[3],.9};D.roundRect(m,'fill',r.x,r.y,r.w,r.h,8,panelColor);pcDashedRect(runtime,m,r.x,r.y,r.w,r.h,borderColor);pcPartyIcon(runtime,m,screen.game,mon,r.x+54,r.y+10,48);D.clipText(runtime,m,pcMonName(runtime,screen.game,mon),r.x+8,r.y+77,r.w-16,12,colors.text,{weight='bold',align='center'});D.text(runtime,m,'Nv. '..tostring(mon.level or '—'),r.x,r.y+98,9,colors.textSecondary,{weight='medium',width=r.w,align='center'}) end
