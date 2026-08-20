@@ -14,7 +14,7 @@ function Module.factory(runtime)
   Screen.activeItemId = Screen.activeId
   function Screen:popupGeometry()
     local total=runtime.Scroll.total(#(self.rows or {}),LIST_PITCH,LIST_ROW_H);local listH=math.min(MAX_LIST_H,total)
-    local popupH=88+listH;local x,y,w=96,math.floor((1080-popupH)/2),448
+    local popupH=88+listH;local w=448;local x=math.floor((1920-w)/2);local y=math.floor((1080-popupH)/2)
     return {x=x,y=y,w=w,h=popupH,viewport={x=x+24,y=y+60,w=376,h=listH},trackX=x+w-24}
   end
   function Screen:listMetrics() local g=self:popupGeometry();return g.viewport,runtime.Scroll.total(#(self.rows or {}),LIST_PITCH,LIST_ROW_H),LIST_PITCH,LIST_ROW_H end
@@ -60,13 +60,27 @@ function Module.factory(runtime)
     index=index or self.index;local row=self.rows[index];if not row then return false end
     self.index=index;self:close()
     if row.id=="kanto.free_fly" then
+      if runtime.mod and runtime.mod.events and type(runtime.mod.events.emit)=="function" then
+        runtime.mod.events:emit("free_fly.request_takeoff")
+        return true
+      end
+      if Core and Core.events and type(Core.events.emit)=="function" then
+        Core.events:emit("free_fly.request_takeoff")
+        return true
+      end
+      local okItem, ItemEffects = pcall(require, "src.inventory.ItemEffects")
+      if okItem and ItemEffects and type(ItemEffects.__freeFlyUse)=="function" then
+        ItemEffects.__freeFlyUse("FLY_WHISTLE", false)
+        return true
+      end
       local ok, freeFlyMod = pcall(function() return require("src.mods.Runtime").activeMod("free_fly") end)
       if ok and freeFlyMod and freeFlyMod.exports and type(freeFlyMod.exports.takeoff)=="function" then
         freeFlyMod.exports.takeoff()
         return true
       end
+      return true
     end
-    if (row.id=="kanto.fly_map" or row.id=="kanto.fly" or tostring(row.label):find("VUELO")) and runtime.MapFactory then
+    if (row.id=="kanto.fly_map" or row.id=="kanto.fly") and runtime.MapFactory then
       local screen = runtime.MapFactory.new(self.game)
       if screen then self.game.stack:push(screen); return true end
     end

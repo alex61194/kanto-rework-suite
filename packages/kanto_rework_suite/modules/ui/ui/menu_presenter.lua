@@ -750,8 +750,9 @@ function Presenter.drawFieldActions(runtime,m,colors,screen)
   local D=runtime.Draw;local rows=screen.rows or {};local pitch,rowH=76,64
   local listH=#rows*pitch
   local popupH=math.max(160, 72 + listH)
-  local x,y,w=96,math.floor((1080-popupH)/2),448
-  D.roundRect(m,"fill",0,0,1920,1080,0,{colors.letterbox[1],colors.letterbox[2],colors.letterbox[3],.58})
+  local w=448
+  local x=math.floor((1920-w)/2)
+  local y=math.floor((1080-popupH)/2)
   D.panel(m,x,y,w,popupH,20,colors.panel,colors.border)
   D.roundRect(m,"fill",x,y,w,4,2,colors.selected)
   local isDark = (colors.themeId == "dark" or colors.themeId == "purplenight")
