@@ -103,7 +103,13 @@ function Module.factory(runtime)
     if not runtime.Layout.contains(lx,ly,view) or not self:scrollbar() then return false end
     self:setScroll(self.scrollY-dy*LIST_PITCH);return true
   end
-  function Screen:draw() end
+  function Screen:draw()
+    if runtime.MenuPresenter and type(runtime.MenuPresenter.drawFieldActions)=="function" then
+      local m=runtime.Layout.metrics(runtime.viewport)
+      local colors=runtime.Theme and runtime.Theme.resolveAll(runtime,self.game) or {}
+      runtime.MenuPresenter.drawFieldActions(runtime,m,colors,self)
+    end
+  end
   function Screen:exit() if type(Core.clearFocus)=="function" then Core.clearFocus("kanto_rework_ui.field_actions") end end
   return Screen
 end

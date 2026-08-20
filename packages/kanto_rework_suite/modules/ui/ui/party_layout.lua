@@ -18,7 +18,7 @@ return function(C)
     if t.aspect>=.85 then return "classic",t.scale,t.aspect end
     return "vertical",t.scale,t.aspect
   end
-  function Layout.supportsWide(viewport) return Layout.classify(viewport)=="wide" end
+  function Layout.supportsWide(viewport) return true end
   function Layout.toLogical(viewport,x,y)
     local t=Layout.transform(viewport);if t.scale<=0 then return nil end
     local lx,ly=(x-t.offsetX)/t.scale,(y-t.offsetY)/t.scale

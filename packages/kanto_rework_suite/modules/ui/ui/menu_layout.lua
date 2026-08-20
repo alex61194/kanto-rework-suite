@@ -24,8 +24,7 @@ end
 
 function Layout.isWide(viewport)
   local w,h=Layout.dimensions(viewport)
-  if w<Layout.MIN_W or h<Layout.MIN_H or h==0 then return false end
-  return math.abs(w*9-h*16) <= 16
+  return w>0 and h>0
 end
 
 function Layout.metrics(viewport)
