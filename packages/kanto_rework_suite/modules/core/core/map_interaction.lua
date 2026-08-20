@@ -37,11 +37,23 @@ return function(deps)
     return state.locs[index] and index or nil
   end
 
+  local function partyKnowsFly(game)
+    for _, mon in ipairs((game and game.save and game.save.party) or {}) do
+      for _, mv in ipairs(mon.moves or {}) do
+        local id = tostring(type(mv) == "table" and mv.id or mv)
+        if id == "FLY" or id == "VUELO" or id == "HM_FLY" or id == "HM02" then return true end
+      end
+    end
+    return false
+  end
+
   local function owns(game, itemId)
-    local value = game and game.save and game.save.inventory
-      and game.save.inventory[itemId]
-    if type(value) == "number" then return value > 0 end
-    return value == true
+    local inv = game and game.save and game.save.inventory
+    if not inv then return false end
+    if inv[itemId] then return true end
+    if itemId == "HM_FLY" and (inv["HM02"] or inv["ITEM_HM02"] or inv["HM_02"]) then return true end
+    if itemId == "THUNDERBADGE" and (inv["THUNDER_BADGE"] or inv["BADGE_THUNDER"]) then return true end
+    return false
   end
 
   local function devFlyUnlocked()
@@ -53,15 +65,11 @@ return function(deps)
   function service.canUseFly(game)
     local ow = game and game.overworld
     local save = game and game.save
-    if not (ow and ow.map and ow.map.def and save and save.inventory) then
+    if not (ow and ow.map and ow.map.def and save) then
       return false, "no_overworld"
     end
-    -- Kanto Rework automatic Field Moves use the owned HM item plus the
-    -- vanilla badge as their progression gate.  The map shortcut must never
-    -- bypass that contract by calling OverworldController:flyTo directly.
-    if not devFlyUnlocked() then
-      if not owns(game, "HM_FLY") then return false, "hm_required" end
-      if not owns(game, "THUNDERBADGE") then return false, "badge_required" end
+    if not (devFlyUnlocked() or partyKnowsFly(game) or (owns(game, "HM_FLY") and owns(game, "THUNDERBADGE"))) then
+      return false, "hm_required"
     end
     local okMap, Map = pcall(require, "src.world.Map")
     local okDefaults, FieldDefaults = pcall(require, "src.world.FieldDefaults")

@@ -752,20 +752,26 @@ function Presenter.drawFieldActions(runtime,m,colors,screen)
   local x,y,w=geometry.x,geometry.y,geometry.w
   D.panel(m,x,y,w,popupH,20,colors.panel,colors.border)
   D.roundRect(m,"fill",x,y,w,4,2,colors.selected)
-  D.text(runtime,m,"ACCIONES DE CAMPO",x+24,y+20,14,colors.textSecondary,{weight="bold"})
+  local isDark = (colors.themeId == "dark" or colors.themeId == "purplenight")
+  local titleColor = isDark and {0.85, 0.85, 0.85, 1} or {0.25, 0.22, 0.20, 1}
+  D.text(runtime,m,"ACCIONES DE CAMPO",x+24,y+20,14,titleColor,{weight="bold"})
   runtime.fieldActionRects={};local view,_,pitch,rowH=screen:listMetrics();local oldX,oldY,oldW,oldH=love.graphics.getScissor()
   love.graphics.setScissor(m.ox+view.x*m.scale,m.oy+view.y*m.scale,view.w*m.scale,view.h*m.scale)
   for i,row in ipairs(rows) do
     local r={x=view.x,y=view.y+(i-1)*pitch-(screen.scrollY or 0),w=view.w,h=rowH}
     if r.y+r.h>=view.y and r.y<=view.y+view.h then
       runtime.fieldActionRects[i]=r;local id="field:"..tostring(row.id);local st=runtime.Focus.visual(screen.nav,id,screen:activeItemId(),screen.hoverIndex and ("field:"..tostring(rows[screen.hoverIndex].id)) or nil)
-      local fill=row.available and (st=="hover" and colors.subtle or colors.panel) or colors.subtle
+      local fill=row.available and (st=="hover" and colors.subtle or (st=="focus" and colors.subtle or colors.panel)) or colors.subtle
       D.panel(m,r.x,r.y,r.w,r.h,12,fill,row.available and colors.border or colors.disabled)
       if st=="focus" then D.focusBorder(m,r.x,r.y,r.w,r.h,12,colors.focus)
       elseif st=="hover" and row.available then D.roundRect(m,"line",r.x,r.y,r.w,r.h,12,colors.selected,2) end
       D.roundRect(m,"fill",r.x+12,r.y+8,48,48,8,row.available and colors.selected or colors.disabled)
       D.text(runtime,m,"MO",r.x+12,r.y+23,13,colors.textInverse,{weight="semibold",width=48,align="center"})
-      D.clipText(runtime,m,row.label,r.x+76,r.y+21,r.w-88,18,row.available and colors.text or colors.disabled,{weight="semibold"})
+      local itemTextColor = isDark and {0.98, 0.98, 0.98, 1} or {0.10, 0.08, 0.08, 1}
+      if not row.available then
+        itemTextColor = isDark and {0.6, 0.6, 0.6, 0.6} or {0.45, 0.45, 0.45, 0.7}
+      end
+      D.clipText(runtime,m,row.label,r.x+76,r.y+21,r.w-88,18,itemTextColor,{weight="bold"})
     end
   end
   if oldX then love.graphics.setScissor(oldX,oldY,oldW,oldH) else love.graphics.setScissor() end

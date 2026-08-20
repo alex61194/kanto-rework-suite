@@ -16,13 +16,23 @@ return function(deps)
   local function ow(context) local g=game(context);return (context and context.overworld) or (g and g.overworld) end
   local function topIsWorld(g,o) return g and o and g.stack and g.stack:top()==o end
   local function findMoveUser(g,id)
-    id=tostring(id or '')
+    id=tostring(id or ''):upper()
     for i,mon in ipairs(g.save and g.save.party or {}) do
-      for _,mv in ipairs(mon.moves or {}) do if tostring(type(mv)=='table' and mv.id or mv)==id then return mon,i,'active' end end
+      for _,mv in ipairs(mon.moves or {}) do
+        local mid=tostring(type(mv)=='table' and mv.id or mv):upper()
+        if mid==id or (id=='FLY' and (mid=='FLY' or mid=='VUELO')) or (id=='CUT' and (mid=='CUT' or mid=='CORTE')) or (id=='SURF' and mid=='SURF') or (id=='FLASH' and (mid=='FLASH' or mid=='DESTELLO')) or (id=='DIG' and (mid=='DIG' or mid=='EXCAVAR')) or (id=='TELEPORT' and (mid=='TELEPORT' or mid=='TELETRANSPORTE')) or (id=='SOFTBOILED' and (mid=='SOFTBOILED' or mid=='AMORTIGUADOR')) then
+          return mon,i,'active'
+        end
+      end
       if type(Core.knownMoves)=='function' then
         local ok,known=pcall(Core.knownMoves,mon,true)
         if ok and type(known)=='table' then
-          for _,mv in ipairs(known) do if tostring(mv and mv.id or '')==id then return mon,i,'memory' end end
+          for _,mv in ipairs(known) do
+            local mid=tostring(mv and mv.id or ''):upper()
+            if mid==id or (id=='FLY' and (mid=='FLY' or mid=='VUELO')) or (id=='CUT' and (mid=='CUT' or mid=='CORTE')) or (id=='SURF' and mid=='SURF') or (id=='FLASH' and (mid=='FLASH' or mid=='DESTELLO')) or (id=='DIG' and (mid=='DIG' or mid=='EXCAVAR')) or (id=='TELEPORT' and (mid=='TELEPORT' or mid=='TELETRANSPORTE')) or (id=='SOFTBOILED' and (mid=='SOFTBOILED' or mid=='AMORTIGUADOR')) then
+              return mon,i,'memory'
+            end
+          end
         end
       end
     end

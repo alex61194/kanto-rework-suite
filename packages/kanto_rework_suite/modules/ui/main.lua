@@ -314,16 +314,22 @@ return function(mod)
   -- HM/badge/world gates and MapFactory delegates the destination/confirmation
   -- to Core.activateMapFly -> the engine OverworldController:flyTo seam.
   local function partyCapability(game,moveId)
-    moveId=tostring(moveId or '')
+    moveId=tostring(moveId or ''):upper()
     for index,mon in ipairs(game and game.save and game.save.party or {}) do
       for _,mv in ipairs(mon.moves or {}) do
-        if tostring(type(mv)=='table' and mv.id or mv)==moveId then return index,'active' end
+        local id = tostring(type(mv)=='table' and mv.id or mv):upper()
+        if id==moveId or (moveId=='FLY' and (id=='FLY' or id=='VUELO')) or (moveId=='CUT' and (id=='CUT' or id=='CORTE')) or (moveId=='SURF' and (id=='SURF')) or (moveId=='FLASH' and (id=='FLASH' or id=='DESTELLO')) or (moveId=='DIG' and (id=='DIG' or id=='EXCAVAR')) or (moveId=='TELEPORT' and (id=='TELEPORT' or id=='TELETRANSPORTE')) or (moveId=='SOFTBOILED' and (id=='SOFTBOILED' or id=='AMORTIGUADOR')) then
+          return index,'active'
+        end
       end
       if type(Core.knownMoves)=='function' then
         local ok,known=pcall(Core.knownMoves,mon,true)
         if ok and type(known)=='table' then
           for _,mv in ipairs(known) do
-            if tostring(mv and mv.id or '')==moveId then return index,'memory' end
+            local id = tostring(mv and mv.id or ''):upper()
+            if id==moveId or (moveId=='FLY' and (id=='FLY' or id=='VUELO')) or (moveId=='CUT' and (id=='CUT' or id=='CORTE')) or (moveId=='SURF' and (id=='SURF')) or (moveId=='FLASH' and (id=='FLASH' or id=='DESTELLO')) or (moveId=='DIG' and (id=='DIG' or id=='EXCAVAR')) or (moveId=='TELEPORT' and (id=='TELEPORT' or id=='TELETRANSPORTE')) or (moveId=='SOFTBOILED' and (id=='SOFTBOILED' or id=='AMORTIGUADOR')) then
+              return index,'memory'
+            end
           end
         end
       end
@@ -331,7 +337,7 @@ return function(mod)
   end
   if Core.fieldActions and type(Core.fieldActions.register)=='function' then
     runtime.unregisterFlyFieldAction=Core.fieldActions.register({
-      id='kanto.fly',label='FLY',description='Open the Kanto map and choose a valid Fly destination',
+      id='kanto.fly',label='VUELO',description='Abrir el mapa de Kanto y volar a cualquier destino visitado',
       source=mod.id,trigger='manual',priority=290,
       requirements=function(context)
         local game=(context and context.game) or runtime.game
@@ -1149,7 +1155,7 @@ return function(mod)
         local idx=((tonumber(after.categoryIndex) or 1)-1+lateral)%#after.categories+1;after:selectCategory(idx)
       elseif after.kind=='krs_pokedex' and type(after.cycleView)=='function' then after:cycleView(lateral) end
     end
-    if after and after==runtime.state and after.mode=="PartyBrowse" and Core.inputActions.wasPressed("FIELD_ACTIONS") then
+    if after and after==runtime.state and (Core.inputActions.wasPressed("FIELD_ACTIONS") or (game.input and (game.input:wasPressed("select") or game.input:wasPressed("f")))) then
       local nativeParty=after.partyState
       if game.stack:top()==after then game.stack:pop() end
       runtime.state=nil;foundation.clearFocus("kanto_rework_ui.party")
@@ -1157,6 +1163,15 @@ return function(mod)
       after=top(game)
       if after==game.overworld and game.overworld and game.overworld.player and not game.overworld.player.moving then
         local fieldScreen=FieldActionsFactory.new(game);if fieldScreen then game.stack:push(fieldScreen);after=fieldScreen end
+      end
+    elseif after and after==runtime.state and (Core.inputActions.wasPressed("MAP") or (game.input and game.input:wasPressed("m"))) then
+      local nativeParty=after.partyState
+      if game.stack:top()==after then game.stack:pop() end
+      runtime.state=nil;foundation.clearFocus("kanto_rework_ui.party")
+      PartyAdapter.closeNativeParty(game,nativeParty)
+      after=top(game)
+      if after==game.overworld and game.overworld and game.overworld.player and not game.overworld.player.moving then
+        game.stack:push(MapFactory.new(game))
       end
     end
     if after and after.__kantoPocketState and after.__kantoItemUseBattle~=true and Core.inputActions.wasPressed("BAG_REGISTER") and runtime.BagRegisterFactory then
@@ -1173,10 +1188,11 @@ return function(mod)
       runtime.overlayLayoutMode=not runtime.overlayLayoutMode;runtime.overlayLayoutOperation="move"
     end
     local current=top(game)
-    if current==game.overworld and MenuLayout.isWide(runtime.viewport) and game.overworld and game.overworld.player and not game.overworld.player.moving then
-      if Core.inputActions.wasPressed("FIELD_ACTIONS") then
+    if current==game.overworld and game.overworld and game.overworld.player and not game.overworld.player.moving then
+      local selectPressed = game.input and (game.input:wasPressed("select") or game.input:wasPressed("f"))
+      if Core.inputActions.wasPressed("FIELD_ACTIONS") or selectPressed then
         local screen=FieldActionsFactory.new(game);if screen then game.stack:push(screen) end
-      elseif Core.inputActions.wasPressed("MAP") then
+      elseif Core.inputActions.wasPressed("MAP") or (game.input and game.input:wasPressed("m")) then
         game.stack:push(MapFactory.new(game))
       end
     end
