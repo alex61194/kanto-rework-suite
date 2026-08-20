@@ -762,7 +762,8 @@ function Presenter.drawFieldActions(runtime,m,colors,screen)
     local r={x=x+24,y=y+56+(i-1)*pitch,w=w-48,h=rowH}
     runtime.fieldActionRects[i]=r
     local id="field:"..tostring(row.id)
-    local st=runtime.Focus.visual(screen.nav,id,screen:activeItemId(),screen.hoverIndex and ("field:"..tostring(rows[screen.hoverIndex].id)) or nil)
+    local activeId = (type(screen.activeId)=="function" and screen:activeId()) or (type(screen.activeItemId)=="function" and screen:activeItemId()) or nil
+    local st=runtime.Focus.visual(screen.nav,id,activeId,screen.hoverIndex and ("field:"..tostring(rows[screen.hoverIndex].id)) or nil)
     local isHover=(st=="hover") or (screen.index==i)
     local fill=isHover and colors.subtle or colors.panel
     D.panel(m,r.x,r.y,r.w,r.h,12,fill,colors.border)

@@ -10,7 +10,8 @@ function Module.factory(runtime)
     runtime.Focus.navigation(self.nav,self:activeId());return self
   end
   function Screen:isWide() return runtime.Layout.isWide(runtime.viewport) end
-  function Screen:activeId() local row=self.rows[self.index];return row and ("field:"..row.id) or nil end
+  function Screen:activeId() local row=self.rows and self.rows[self.index];return row and ("field:"..tostring(row.id)) or nil end
+  Screen.activeItemId = Screen.activeId
   function Screen:popupGeometry()
     local total=runtime.Scroll.total(#(self.rows or {}),LIST_PITCH,LIST_ROW_H);local listH=math.min(MAX_LIST_H,total)
     local popupH=88+listH;local x,y,w=96,math.floor((1080-popupH)/2),448
