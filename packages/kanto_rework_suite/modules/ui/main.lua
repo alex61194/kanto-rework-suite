@@ -19,7 +19,7 @@ return function(mod)
 
   mod.options:define({
     {key="ui_theme",label="UI THEME",type="choice",default="cream",group="APPEARANCE",
-      choices={{"CREAM","cream"},{"GRAPHITE","graphite"},{"PURPLE NIGHT","purplenight"},{"RETRO","retro"}},
+      choices={{"CREAM","cream"},{"GRAPHITE","graphite"},{"PURPLE NIGHT","purplenight"},{"RETRO","retro"},{"GAMMA EMERALD","emerald"}},
       description="Choose the Kanto Rework visual theme. Accessibility color profiles remain independent."},
     {key="overlay_style",label="STYLE",type="choice",default="paper",group="OVERLAYS",
       choices={{"PAPER","paper"},{"GLASS","glass"}},

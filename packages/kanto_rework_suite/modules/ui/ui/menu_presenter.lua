@@ -755,7 +755,7 @@ function Presenter.drawFieldActions(runtime,m,colors,screen)
   local y=math.floor((1080-popupH)/2)
   D.panel(m,x,y,w,popupH,20,colors.panel,colors.border)
   D.roundRect(m,"fill",x,y,w,4,2,colors.selected)
-  local isDark = (colors.themeId == "dark" or colors.themeId == "purplenight")
+  local isDark = (colors.themeId == "dark" or colors.themeId == "purplenight" or colors.themeId == "graphite" or colors.themeId == "emerald")
   local titleColor = isDark and {0.85, 0.85, 0.85, 1} or {0.25, 0.22, 0.20, 1}
   D.text(runtime,m,"ACCIONES DE CAMPO",x+24,y+20,14,titleColor,{weight="bold"})
   runtime.fieldActionRects={}
