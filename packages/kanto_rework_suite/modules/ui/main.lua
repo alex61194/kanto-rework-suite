@@ -18,8 +18,8 @@ return function(mod)
   local Fixture=loadModule("ui/dev_fixture.lua")
 
   mod.options:define({
-    {key="ui_theme",label="UI THEME",type="choice",default="cream",group="APPEARANCE",
-      choices={{"CREAM","cream"},{"GRAPHITE","graphite"},{"PURPLE NIGHT","purplenight"},{"RETRO","retro"},{"GAMMA EMERALD","emerald"}},
+    {key="ui_theme",label="UI THEME",type="choice",default="firered",group="APPEARANCE",
+      choices={{"ROJO FUEGO","firered"},{"CREAM","cream"},{"GRAPHITE","graphite"},{"PURPLE NIGHT","purplenight"},{"RETRO","retro"},{"GAMMA EMERALD","emerald"}},
       description="Choose the Kanto Rework visual theme. Accessibility color profiles remain independent."},
     {key="overlay_style",label="STYLE",type="choice",default="paper",group="OVERLAYS",
       choices={{"PAPER","paper"},{"GLASS","glass"}},

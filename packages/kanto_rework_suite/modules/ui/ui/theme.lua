@@ -3,7 +3,7 @@
 return function(deps)
   local Palette=assert(deps.Palette);local Specs=assert(deps.Specs);local mod=assert(deps.mod);local Core=assert(deps.Core)
   local Theme={}
-  local aliases={fieldjournal="cream",field_journal="cream",sombre="purplenight",purple_night="purplenight"}
+  local aliases={fieldjournal="cream",field_journal="cream",sombre="purplenight",purple_night="purplenight",rojo_fuego="firered",rojofuego="firered",fire_red="firered"}
   local function normalize(value)
     local id=tostring(value or Specs.DEFAULT):lower():gsub("[%s%-]+","_")
     id=aliases[id] or id

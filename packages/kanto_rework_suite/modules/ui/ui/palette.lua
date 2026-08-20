@@ -3,7 +3,7 @@
 return function(deps)
   local C=assert(deps.C);local Profiles=assert(deps.Profiles);local Core=assert(deps.Core);local Themes=assert(deps.Themes);local mod=assert(deps.mod)
   local P={}
-  local aliases={fieldjournal="cream",field_journal="cream",sombre="purplenight",purple_night="purplenight"}
+  local aliases={fieldjournal="cream",field_journal="cream",sombre="purplenight",purple_night="purplenight",rojo_fuego="firered",rojofuego="firered",fire_red="firered"}
   local function copy(t) local o={};for k,v in pairs(t or {}) do o[k]=v end;return o end
   local function themeId()
     local ok,v=pcall(mod.options.get,mod.options,"ui_theme");v=ok and v or Themes.DEFAULT

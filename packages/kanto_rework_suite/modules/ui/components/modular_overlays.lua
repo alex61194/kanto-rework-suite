@@ -44,6 +44,8 @@ return function(deps)
     if id=="retro" then return {radius=10*scale,innerRadius=5*scale,border=math.max(2,2*scale)} end
     if id=="graphite" then return {radius=14*scale,innerRadius=8*scale,border=math.max(1.5,1.5*scale)} end
     if id=="purplenight" then return {radius=18*scale,innerRadius=10*scale,border=math.max(1.5,1.5*scale)} end
+    if id=="emerald" then return {radius=20*scale,innerRadius=12*scale,border=math.max(2,2*scale)} end
+    if id=="firered" then return {radius=18*scale,innerRadius=10*scale,border=math.max(2,2*scale)} end
     return {radius=16*scale,innerRadius=9*scale,border=math.max(1.5,1.5*scale)}
   end
   local function state()
