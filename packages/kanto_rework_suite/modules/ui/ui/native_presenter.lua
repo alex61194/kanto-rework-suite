@@ -1400,6 +1400,9 @@ return function(runtime)
   local function shopList(game)
     return ancestor(game,function(s)return ismt(s,ListMenu) and (s.kind=='shop_buy' or s.kind=='shop_sell' or s.title=='BUY' or s.title=='SELL') end)
   end
+  local function pcBoxList(game)
+    return ancestor(game,function(s)return ismt(s,ListMenu) and tostring(s.kind or ''):find('pc_box_',1,true)~=nil end)
+  end
   local function isShopRoot(state)
     if not ismt(state,Menu) then return false end
     local buy,sell,quit=false,false,false
