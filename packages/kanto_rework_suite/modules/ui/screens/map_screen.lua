@@ -9,17 +9,17 @@ function Module.factory(runtime)
   -- calibrated onto the actual road/building/cave artwork.  Runtime rendering
   -- never applies an affine/grid approximation.
   local MAJOR_ANCHORS={
-    ["INDIGO PLATEAU"]={x=410,y=145,labelX=190,labelY=126},
-    ["PEWTER CITY"]={x=630,y=295,labelX=410,labelY=278},
-    ["CERULEAN CITY"]={x=1275,y=185,labelX=1038,labelY=136},
-    ["CELADON CITY"]={x=955,y=420,labelX=730,labelY=392},
-    ["SAFFRON CITY"]={x=1275,y=420,labelX=1050,labelY=445},
-    ["LAVENDER TOWN"]={x=1535,y=570,labelX=1290,labelY=548},
-    ["VERMILION CITY"]={x=1125,y=680,labelX=875,labelY=682},
-    ["FUCHSIA CITY"]={x=985,y=830,labelX=742,labelY=840},
-    ["VIRIDIAN CITY"]={x=565,y=665,labelX=330,labelY=642},
-    ["PALLET TOWN"]={x=455,y=805,labelX=225,labelY=790},
-    ["CINNABAR ISLAND"]={x=350,y=955,labelX=140,labelY=930},
+    ["INDIGO PLATEAU"]={x=410,y=145,labelX=190,labelY=126}, ["MESETA AÑIL"]={x=410,y=145,labelX=190,labelY=126}, ["MESETA ANIL"]={x=410,y=145,labelX=190,labelY=126},
+    ["PEWTER CITY"]={x=630,y=295,labelX=410,labelY=278}, ["CIUDAD PLATEADA"]={x=630,y=295,labelX=410,labelY=278},
+    ["CERULEAN CITY"]={x=1275,y=185,labelX=1038,labelY=136}, ["CIUDAD CELESTE"]={x=1275,y=185,labelX=1038,labelY=136},
+    ["CELADON CITY"]={x=955,y=420,labelX=730,labelY=392}, ["CIUDAD AZULONA"]={x=955,y=420,labelX=730,labelY=392},
+    ["SAFFRON CITY"]={x=1275,y=420,labelX=1050,labelY=445}, ["CIUDAD AZAFRAN"]={x=1275,y=420,labelX=1050,labelY=445}, ["CIUDAD AZAFRÁN"]={x=1275,y=420,labelX=1050,labelY=445},
+    ["LAVENDER TOWN"]={x=1535,y=570,labelX=1290,labelY=548}, ["PUEBLO LAVANDA"]={x=1535,y=570,labelX=1290,labelY=548},
+    ["VERMILION CITY"]={x=1125,y=680,labelX=875,labelY=682}, ["CIUDAD CARMIN"]={x=1125,y=680,labelX=875,labelY=682}, ["CIUDAD CARMÍN"]={x=1125,y=680,labelX=875,labelY=682},
+    ["FUCHSIA CITY"]={x=985,y=830,labelX=742,labelY=840}, ["CIUDAD FUCSIA"]={x=985,y=830,labelX=742,labelY=840},
+    ["VIRIDIAN CITY"]={x=565,y=665,labelX=330,labelY=642}, ["CIUDAD VERDE"]={x=565,y=665,labelX=330,labelY=642},
+    ["PALLET TOWN"]={x=455,y=805,labelX=225,labelY=790}, ["PUEBLO PALETA"]={x=455,y=805,labelX=225,labelY=790},
+    ["CINNABAR ISLAND"]={x=350,y=955,labelX=140,labelY=930}, ["ISLA CANELA"]={x=350,y=955,labelX=140,labelY=930},
   }
   local GRID_CALIBRATION={
     ["0:2"]={410,145}, ["0:4"]={382,276}, ["0:6"]={365,420}, ["0:7"]={375,535}, ["0:8"]={385,650},
@@ -43,23 +43,23 @@ function Module.factory(runtime)
   -- Semantic POIs sharing a TownMap grid coordinate are snapped to the actual
   -- authored landmark rather than to a generic route intersection.
   local POI_ANCHORS={
-    ["VIRIDIAN FOREST"]={x=650,y=500},
+    ["VIRIDIAN FOREST"]={x=650,y=500}, ["BOSQUE VERDE"]={x=650,y=500},
     -- The current illustrated map has no drawn cave-mouth at the Gen 1 Town
     -- Map position for Diglett's Cave (3,4). Keep an explicit calibrated point
     -- east/south-east of Pewter instead of inventing an affine grid position.
-    ["DIGLETT'S CAVE"]={x=700,y=390}, ["DIGLETTS CAVE"]={x=700,y=390},
-    ["MT.MOON"]={x=900,y=184}, ["MT. MOON"]={x=900,y=184},
-    ["ROCK TUNNEL"]={x=1582,y=205},
-    ["POWER PLANT"]={x=1570,y=330},
-    ["POKéMON TOWER"]={x=1535,y=535}, ["POKEMON TOWER"]={x=1535,y=535},
-    ["SEAFOAM ISLANDS"]={x=750,y=994},
-    ["VICTORY ROAD"]={x=382,y=276},
-    ["SAFARI ZONE"]={x=985,y=810},
-    ["POKéMON MANSION"]={x=350,y=955}, ["POKEMON MANSION"]={x=350,y=955},
-    ["ROCKET HQ"]={x=955,y=420}, ["ROCKET HIDEOUT"]={x=955,y=420},
-    ["SILPH CO."]={x=1275,y=420}, ["SILPH CO"]={x=1275,y=420},
-    ["S.S. ANNE"]={x=1125,y=700}, ["SS ANNE"]={x=1125,y=700},
-    ["CERULEAN CAVE"]={x=1160,y=138},
+    ["DIGLETT'S CAVE"]={x=700,y=390}, ["DIGLETTS CAVE"]={x=700,y=390}, ["CUEVA DIGLETT"]={x=700,y=390},
+    ["MT.MOON"]={x=900,y=184}, ["MT. MOON"]={x=900,y=184}, ["MONTE MOON"]={x=900,y=184},
+    ["ROCK TUNNEL"]={x=1582,y=205}, ["TUNEL ROCA"]={x=1582,y=205}, ["TÚNEL ROCA"]={x=1582,y=205},
+    ["POWER PLANT"]={x=1570,y=330}, ["CENTRAL DE ENERGIA"]={x=1570,y=330}, ["CENTRAL DE ENERGÍA"]={x=1570,y=330},
+    ["POKéMON TOWER"]={x=1535,y=535}, ["POKEMON TOWER"]={x=1535,y=535}, ["TORRE POKEMON"]={x=1535,y=535}, ["TORRE POKÉMON"]={x=1535,y=535},
+    ["SEAFOAM ISLANDS"]={x=750,y=994}, ["ISLAS ESPUMA"]={x=750,y=994},
+    ["VICTORY ROAD"]={x=382,y=276}, ["CALLE VICTORIA"]={x=382,y=276},
+    ["SAFARI ZONE"]={x=985,y=810}, ["ZONA SAFARI"]={x=985,y=810},
+    ["POKéMON MANSION"]={x=350,y=955}, ["POKEMON MANSION"]={x=350,y=955}, ["MANSION POKEMON"]={x=350,y=955}, ["MANSIÓN POKÉMON"]={x=350,y=955},
+    ["ROCKET HQ"]={x=955,y=420}, ["ROCKET HIDEOUT"]={x=955,y=420}, ["GUARIDA ROCKET"]={x=955,y=420},
+    ["SILPH CO."]={x=1275,y=420}, ["SILPH CO"]={x=1275,y=420}, ["SILPH S.A."]={x=1275,y=420},
+    ["S.S. ANNE"]={x=1125,y=700}, ["SS ANNE"]={x=1125,y=700}, ["S.S. ANNA"]={x=1125,y=700},
+    ["CERULEAN CAVE"]={x=1160,y=138}, ["CUEVA CELESTE"]={x=1160,y=138},
   }
   local function key(name)
     return tostring(name or ""):upper():gsub("_"," "):gsub("%s+"," ")

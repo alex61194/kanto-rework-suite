@@ -628,18 +628,38 @@ return function(runtime)
     D.text(runtime,m,label,x+56,y+11,18,{1,1,1,1},{weight='bold',width=w-72})
     D.text(runtime,m,sub,x+56,y+35,11,{1,1,1,0.85},{weight='medium',width=w-72})
   end
-  local function moveRow(D,m,c,mv,x,y,w,h,focused,disabled,index)
+  local function moveRow(D,m,c,mv,x,y,w,h,focused,disabled,index,s,game)
     local fill=focused and c.inverse or c.panel;D.panel(m,x,y,w,h,8,fill,focused and c.focus or c.border);if focused then D.focusBorder(m,x,y,w,h,8,c.focus) end
     local alpha=disabled and .42 or 1;local primary=focused and c.textInverse or c.text;local secondary=focused and (c.selectionGold or c.faint) or c.textSecondary
     D.text(runtime,m,tostring(index),x+12,y+8,12,focused and c.focus or c.textSecondary,{weight='bold',alpha=alpha,width=20,align='center'})
     typeIcon(m,c,mv and mv.type,x+56,y+18,32)
-    -- The move name owns the complete gap between the type glyph and the PP
-    -- column.  The old focused-state width was only 104 px, which made long
-    -- but perfectly valid Gen 1 names such as THUNDERSHOCK wrap onto a second
-    -- line despite more than 300 px being available in the canonical row.
-    -- clipText guarantees a single line; no Gen 1 name needs truncation at
-    -- this 300 px budget with the canonical 12 px typeface.
-    D.clipText(runtime,m,tostring(mv and mv.name or '—'),x+80,y+8,300,12,disabled and c.disabled or primary,{weight='bold',alpha=alpha})
+    D.clipText(runtime,m,tostring(mv and mv.name or '—'),x+80,y+8,200,12,disabled and c.disabled or primary,{weight='bold',alpha=alpha})
+    local effBadge = nil
+    local effColor = nil
+    if mv and mv.category ~= 'STATUS' and s and s.enemy and (s.enemy.mon or s.enemy.species) then
+      local okChart, TypeChart = pcall(require, 'src.battle.TypeChart')
+      if okChart and TypeChart and type(TypeChart.effectiveness) == 'function' then
+        local spId = s.enemy.mon and s.enemy.mon.species or s.enemy.species
+        local def = game and game.data and game.data.pokemon and game.data.pokemon[spId]
+        local enemyTypes = def and def.types or s.enemy.types or {}
+        local okEff, eff = pcall(TypeChart.effectiveness, mv.type, enemyTypes)
+        if okEff and type(eff) == 'number' then
+          if eff > 10 then
+            effBadge = 'x'..tostring(eff/10)..' SÚPER'
+            effColor = c.success or {0.2, 0.85, 0.3, 1}
+          elseif eff == 0 then
+            effBadge = 'x0 INMUNE'
+            effColor = c.disabled or {0.5, 0.5, 0.5, 1}
+          elseif eff < 10 then
+            effBadge = 'x'..tostring(eff/10)..' DÉBIL'
+            effColor = c.danger or {0.95, 0.4, 0.2, 1}
+          end
+        end
+      end
+    end
+    if effBadge then
+      D.text(runtime,m,effBadge,x+286,y+9,9,effColor,{weight='bold',alpha=alpha})
+    end
     local pp=mv and mv.pp~=nil and (tostring(mv.pp)..' / '..tostring(mv.maxPP or mv.pp)) or '—'
     D.text(runtime,m,pp,x+w-76,y+8,10,secondary,{weight='semibold',width=64,align='right',alpha=alpha})
   end
@@ -679,6 +699,24 @@ return function(runtime)
     D.text(runtime,m,'MOVIMIENTO SELECCIONADO',748+ox,804+oy,12,c.textSecondary,{weight='bold'})
     if sel then
       D.text(runtime,m,sel.name,748+ox,828+oy,24,c.text,{weight='bold',width=556});pill(D,m,c,sel.type,748+ox,864+oy,100,typeColor(c,sel.type));pill(D,m,c,'◆ '..sel.category,856+ox,864+oy,100,c.inverse)
+      if sel.category ~= 'STATUS' and s and s.enemy and (s.enemy.mon or s.enemy.species) then
+        local okChart, TypeChart = pcall(require, 'src.battle.TypeChart')
+        if okChart and TypeChart and type(TypeChart.effectiveness) == 'function' then
+          local spId = s.enemy.mon and s.enemy.mon.species or s.enemy.species
+          local def = game and game.data and game.data.pokemon and game.data.pokemon[spId]
+          local enemyTypes = def and def.types or s.enemy.types or {}
+          local okEff, eff = pcall(TypeChart.effectiveness, sel.type, enemyTypes)
+          if okEff and type(eff) == 'number' then
+            if eff > 10 then
+              pill(D,m,c,'★ SÚPER EFICAZ (x'..tostring(eff/10)..')',964+ox,864+oy,150,c.success or {0.2,0.85,0.3,1})
+            elseif eff == 0 then
+              pill(D,m,c,'✕ SIN EFECTO (x0)',964+ox,864+oy,150,c.disabled or {0.5,0.5,0.5,1})
+            elseif eff < 10 then
+              pill(D,m,c,'▼ POCO EFICAZ (x'..tostring(eff/10)..')',964+ox,864+oy,150,c.danger or {0.95,0.4,0.2,1})
+            end
+          end
+        end
+      end
       D.text(runtime,m,sel.description,748+ox,896+oy,16,c.textSecondary,{width=556})
       local power,acc,pdir,adir=effectiveMoveValues(s,sel)
       local function centeredMetric(x,w,label,value,valueColor,border)
@@ -699,7 +737,7 @@ return function(runtime)
     for i=1,4 do
       local mv=moveModel(game,moves[i]);local r={x=1360+ox,y=832+oy+(i-1)*40,w=472,h=36}
       runtime.battleRects[i]={x=baseX+(r.x-baseX)*factor,y=baseY+(r.y-baseY)*factor,w=r.w*factor,h=r.h*factor}
-      moveRow(D,m,c,mv,r.x,r.y,r.w,r.h,i==s.moveIndex,s.player and s.player.disabledSlot==i,i)
+      moveRow(D,m,c,mv,r.x,r.y,r.w,r.h,i==s.moveIndex,s.player and s.player.disabledSlot==i,i,s,game)
     end
     return {x=baseX,y=baseY,w=dock.w*factor,h=dock.h*factor,scale=scale}
   end

@@ -185,8 +185,14 @@ function Dex.factory(runtime)
 
   function Screen:keypressed(key,_,isrepeat)
     if not self:isWide() or isrepeat then return false end
-    if self.oakOpen and (key=="return" or key=="kpenter" or key=="a" or key=="escape") then self:closeOak();return true end
-    if key=="tab" then self:cycleView(1);return true end
+    if self.oakOpen and (key=="return" or key=="kpenter" or key=="a" or key=="escape" or key=="o") then self:closeOak();return true end
+    if key=="tab" or key=="f" then self:cycleView(1);return true end
+    if key=="c" then return self:cry() end
+    if key=="o" then return self:openOak() end
+    if key=="1" then return self:setView("index") end
+    if key=="2" then return self:setView("data") end
+    if key=="3" then return self:setView("area") end
+    if key=="space" or key=="return" or key=="kpenter" then if self.view=="index" then return self:openData() end end
     return false
   end
 
