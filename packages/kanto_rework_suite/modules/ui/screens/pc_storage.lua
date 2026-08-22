@@ -95,8 +95,31 @@ function PCStorage.factory(runtime)
     self.game.stack:push(naming)
     return true
   end
+  local ACCENT_MAP={
+    ['á']='a',['à']='a',['ä']='a',['â']='a',['ã']='a',
+    ['é']='e',['è']='e',['ë']='e',['ê']='e',
+    ['í']='i',['ì']='i',['ï']='i',['î']='i',
+    ['ó']='o',['ò']='o',['ö']='o',['ô']='o',['õ']='o',
+    ['ú']='u',['ù']='u',['ü']='u',['û']='u',
+    ['ñ']='n',['ç']='c'
+  }
+  local function normalizeText(str)
+    str=tostring(str or ''):lower()
+    for acc,rep in pairs(ACCENT_MAP) do str=str:gsub(acc,rep) end
+    return str
+  end
+  local function isMonShiny(mon)
+    if not (mon and mon.dvs) then return false end
+    local dvs=mon.dvs
+    local def=tonumber(dvs.defense) or 0
+    local spd=tonumber(dvs.speed) or 0
+    local spc=tonumber(dvs.special) or 0
+    local atk=tonumber(dvs.attack) or 0
+    return def==10 and spd==10 and spc==10 and (atk%4>=2)
+  end
+
   function Screen:boxHasSearchResult(i)
-    local query=tostring(self.searchQuery or ''):lower()
+    local query=normalizeText(self.searchQuery)
     if query=='' then return true end
     for _,mon in ipairs(self:boxAt(i)) do
       local def=self.game.data and self.game.data.pokemon and self.game.data.pokemon[mon.species]
@@ -113,22 +136,22 @@ function PCStorage.factory(runtime)
     return out
   end
   function Screen:searchTerms(mon,def,name,types)
-    local terms={tostring(name or ''),tostring(mon and mon.species or ''),tostring(types or '')}
-    -- Active moves are plain save data. Remembered inactive move names come
-    -- from the immutable snapshot built on enter; filtering never invokes a
-    -- move-memory API that can observe/write state.
+    local terms={normalizeText(name),normalizeText(mon and mon.species),normalizeText(types)}
+    if isMonShiny(mon) then terms[#terms+1]='shiny';terms[#terms+1]='variocolor';terms[#terms+1]='★' end
+    if mon and mon.level then terms[#terms+1]='nv'..tostring(mon.level);terms[#terms+1]='nv.'..tostring(mon.level);terms[#terms+1]='nv '..tostring(mon.level) end
     if type(mon and mon.moves)=='table' then
       for _,raw in ipairs(mon.moves) do
         local id=type(raw)=='table' and (raw.id or raw.move or raw[1]) or raw
         local md=self.game.data and self.game.data.moves and self.game.data.moves[id]
-        terms[#terms+1]=tostring(md and md.name or id or '')
+        local mvName=md and md.name or id or ''
+        terms[#terms+1]=normalizeText(mvName)
       end
     end
-    if mon and self.searchMoveTermsByMon then terms[#terms+1]=tostring(self.searchMoveTermsByMon[mon] or '') end
-    return table.concat(terms,' '):lower()
+    if mon and self.searchMoveTermsByMon then terms[#terms+1]=normalizeText(self.searchMoveTermsByMon[mon]) end
+    return table.concat(terms,' ')
   end
   function Screen:displayEntries()
-    local out={};local query=tostring(self.searchQuery or ''):lower()
+    local out={};local query=normalizeText(self.searchQuery)
     for sourceIndex,mon in ipairs(self:box()) do
       local def=self.game.data and self.game.data.pokemon and self.game.data.pokemon[mon.species]
       local name=tostring(mon.nickname or (def and def.name) or mon.species or '')
@@ -363,10 +386,32 @@ function PCStorage.factory(runtime)
       elseif key=='return' or key=='kpenter' then return self:setSortIndex(self.sortFocus) end
       return true
     end
-    if self.searchActive then if key=='escape' or key=='return' or key=='kpenter' then self.searchActive=false;return true end;if key=='backspace' then self.searchQuery=self.searchQuery:sub(1,-2) elseif key=='space' then self.searchQuery=self.searchQuery..' ' elseif type(key)=='string' and key:match('^[a-z0-9]$') then self.searchQuery=self.searchQuery..key end;self.monIndex=1;self.storageStartRow=0;return true end
+    if self.searchActive then
+      if key=='escape' or key=='return' or key=='kpenter' then self.searchActive=false;return true end
+      if key=='backspace' then
+        self.searchQuery=self.searchQuery:sub(1,-2)
+      elseif key=='space' then
+        self.searchQuery=self.searchQuery..' '
+      elseif key=='.' or key=='-' or key=='_' or key==':' or key=='/' or key=='*' or key=='#' or key=='<' or key=='>' then
+        self.searchQuery=self.searchQuery..key
+      elseif type(key)=='string' and #key==1 then
+        self.searchQuery=self.searchQuery..key:lower()
+      end
+      self.monIndex=1;self.storageStartRow=0
+      return true
+    end
     if key=='tab' then return self:cycleSort(1) end
     if key=='n' then return self:renameBox(self.area=='boxes' and self.boxIndex or (self.game.save.currentBox or 1)) end
     if key=='delete' or key=='r' then return self:release() end
+    if key=='pageup' or key=='q' or key=='[' then
+      local cur=self.game.save.currentBox or 1
+      local prevBox=cur>1 and (cur-1) or Boxes.COUNT
+      return self:setBox(prevBox)
+    elseif key=='pagedown' or key=='e' or key==']' then
+      local cur=self.game.save.currentBox or 1
+      local nextBox=cur<Boxes.COUNT and (cur+1) or 1
+      return self:setBox(nextBox)
+    end
     return false
   end
   function Screen:hitTest(x,y)

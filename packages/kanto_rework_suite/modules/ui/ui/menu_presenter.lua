@@ -895,6 +895,16 @@ end
 
 
 -- PC STORAGE ---------------------------------------------------------------
+local function isMonShiny(mon)
+  if not (mon and mon.dvs) then return false end
+  local dvs = mon.dvs
+  local def = tonumber(dvs.defense) or 0
+  local spd = tonumber(dvs.speed) or 0
+  local spc = tonumber(dvs.special) or 0
+  local atk = tonumber(dvs.attack) or 0
+  return def == 10 and spd == 10 and spc == 10 and (atk % 4 >= 2)
+end
+
 local function pcMonName(runtime,game,mon)
   if not mon then return 'POKéMON' end
   local def=game and game.data and game.data.pokemon and game.data.pokemon[mon.species]
@@ -1024,7 +1034,13 @@ function Presenter.drawPcStorage(runtime,m,colors,screen)
       local def=screen.game.data.pokemon and screen.game.data.pokemon[mon.species];local types=def and def.types or {}
       for ti=1,math.min(2,#types) do local typ=pcTypeKey(types[ti]);local tx=ti==1 and r.x+8 or r.x+r.w-40;local tc=colors.typeColors and colors.typeColors[typ] or colors.focus;if runtime.TypeIcon then runtime.TypeIcon.draw(typ,m.ox+(tx+16)*m.scale,m.oy+(r.y+45)*m.scale,32*m.scale,tc,1) end end
       D.clipText(runtime,m,pcMonName(runtime,screen.game,mon),r.x+8,r.y+77,r.w-16,14,colors.text,{weight='bold',align='center'})
-      D.text(runtime,m,'Nv. '..tostring(mon.level or '—'),r.x,r.y+98,11,colors.textSecondary,{weight='medium',width=r.w,align='center'})
+      local isShiny = isMonShiny(mon)
+      local lvlText = 'Nv. '..tostring(mon.level or '—')
+      if isShiny then
+        D.text(runtime,m,lvlText..' ★',r.x,r.y+98,11,{1,0.82,0.15,1},{weight='bold',width=r.w,align='center'})
+      else
+        D.text(runtime,m,lvlText,r.x,r.y+98,11,colors.textSecondary,{weight='medium',width=r.w,align='center'})
+      end
     else D.text(runtime,m,'COLOCAR',r.x,r.y+51,10,colors.textSecondary,{weight='semibold',width=r.w,align='center'}) end
   end
   runtime.pcStorageScrollbar=nil
@@ -1045,19 +1061,50 @@ function Presenter.drawPcStorage(runtime,m,colors,screen)
     D.roundRect(m,'fill',r.x,r.y,r.w,r.h,8,colors.subtle)
     if keyboardFocus then pcFocusOutline(runtime,m,r,colors.focus) elseif hover then D.roundRect(m,'line',r.x+.5,r.y+.5,r.w-1,r.h-1,8,colors.focus,1) end
     if sel then pcDashedRect(runtime,m,r.x,r.y,r.w,r.h,colors.focus) end
-    if mon then pcPartyIcon(runtime,m,screen.game,mon,r.x+34,r.y+7,48);D.clipText(runtime,m,pcMonName(runtime,screen.game,mon),r.x+4,r.y+60,r.w-8,10,colors.text,{weight='bold',align='center'});D.text(runtime,m,'Nv. '..tostring(mon.level or '—'),r.x,r.y+77,9,colors.textSecondary,{width=r.w,align='center'}) else D.text(runtime,m,'DEPOSITAR',r.x,r.y+42,9,colors.textSecondary,{weight='semibold',width=r.w,align='center'}) end
+    if mon then
+      pcPartyIcon(runtime,m,screen.game,mon,r.x+34,r.y+7,48)
+      local isShiny = isMonShiny(mon)
+      D.clipText(runtime,m,pcMonName(runtime,screen.game,mon),r.x+4,r.y+60,r.w-8,10,colors.text,{weight='bold',align='center'})
+      local lvlText = 'Nv. '..tostring(mon.level or '—')
+      if isShiny then
+        D.text(runtime,m,lvlText..' ★',r.x,r.y+77,9,{1,0.82,0.15,1},{weight='bold',width=r.w,align='center'})
+      else
+        D.text(runtime,m,lvlText,r.x,r.y+77,9,colors.textSecondary,{width=r.w,align='center'})
+      end
+    else D.text(runtime,m,'DEPOSITAR',r.x,r.y+42,9,colors.textSecondary,{weight='semibold',width=r.w,align='center'}) end
   end
   D.line(m,rx+21,ry+254,rx+rw-21,ry+254,colors.pcBorder or colors.border,1)
   local selected=screen:contextMon();if selected then
     local model=nil;if runtime.PartyAdapter and type(runtime.PartyAdapter.pokemon)=='function' then local ok,v=pcall(runtime.PartyAdapter.pokemon,screen.game,selected);if ok then model=v end end
     local contentY=ry+267
-    D.text(runtime,m,'SELECCIONADO',rx+21,contentY,9,colors.textSecondary,{weight='bold'});pcPartyIcon(runtime,m,screen.game,selected,rx+21,contentY+24,64)
-    local name=pcMonName(runtime,screen.game,selected);D.text(runtime,m,name,rx+101,contentY+28,18,colors.text,{weight='bold',width=250});local detailTypes=table.concat(screen:typeNames(selected),' / ');D.text(runtime,m,'Nv. '..tostring(selected.level or '—')..(detailTypes~='' and ' · '..detailTypes or ''),rx+101,contentY+56,11,colors.textSecondary,{weight='semibold',width=250})
+    local isShiny = isMonShiny(selected)
+    local headerTitle = isShiny and '★ POKÉMON VARIOCOLOR' or 'SELECCIONADO'
+    local headerColor = isShiny and {1,0.82,0.15,1} or colors.textSecondary
+    D.text(runtime,m,headerTitle,rx+21,contentY,9,headerColor,{weight='bold'});pcPartyIcon(runtime,m,screen.game,selected,rx+21,contentY+24,64)
+    local name=pcMonName(runtime,screen.game,selected);D.text(runtime,m,name,rx+101,contentY+28,18,colors.text,{weight='bold',width=250});local detailTypes=table.concat(screen:typeNames(selected),' / ');D.text(runtime,m,'Nv. '..tostring(selected.level or '—')..(detailTypes~='' and ' · '..detailTypes or '')..(isShiny and ' ★' or ''),rx+101,contentY+56,11,isShiny and {1,0.82,0.15,1} or colors.textSecondary,{weight='semibold',width=250})
     local hp=tonumber((model and model.hp) or selected.hp) or 0;local max=tonumber(model and model.stats and model.stats.hp or selected.stats and selected.stats.hp) or hp
     local hpRatio=max>0 and math.max(0,math.min(1,hp/max)) or 0;local hpColor=hpRatio<=.2 and colors.danger or hpRatio<=.5 and colors.warning or colors.success;D.text(runtime,m,'PS',rx+21,contentY+100,10,colors.textSecondary,{weight='bold'});D.text(runtime,m,max>0 and (('%d / %d'):format(hp,max)) or '—',rx+285,contentY+100,10,colors.text,{weight='semibold',width=92,align='right'});D.roundRect(m,'fill',rx+21,contentY+122,rw-42,10,5,colors.subtle);if hpRatio>0 then D.roundRect(m,'fill',rx+21,contentY+122,(rw-42)*hpRatio,10,5,hpColor) end
     D.text(runtime,m,'EXP',rx+21,contentY+148,10,colors.textSecondary,{weight='bold'});local ratio=tonumber(model and model.expRatio) or 0;D.text(runtime,m,model and model.toNextLevel and (tostring(model.toNextLevel)..' PARA SUBIR') or '—',rx+241,contentY+148,10,colors.textSecondary,{weight='semibold',width=136,align='right'});D.roundRect(m,'fill',rx+21,contentY+170,rw-42,10,5,colors.subtle);if ratio>0 then D.roundRect(m,'fill',rx+21,contentY+170,(rw-42)*math.min(1,ratio),10,5,colors.exp) end
-    D.text(runtime,m,'MOVIMIENTOS',rx+21,contentY+196,9,colors.textSecondary,{weight='bold'});local moves=screen:contextMoves()
-    for i=1,4 do local move=moves[i];local my=contentY+219+(i-1)*56;D.roundRect(m,'fill',rx+21,my,rw-42,44,8,colors.subtle);if move then local typ=pcTypeKey(move.type);local tc=colors.typeColors and colors.typeColors[typ] or colors.focus;if runtime.TypeIcon then runtime.TypeIcon.draw(typ,m.ox+(rx+39)*m.scale,m.oy+(my+22)*m.scale,26*m.scale,tc,1) end;D.clipText(runtime,m,tostring(move.name or move.id or 'DESCONOCIDO'):upper(),rx+59,my+13,rw-198,11,colors.text,{weight='semibold'});local pp=move.pp~=nil and tostring(move.pp) or '—';local maxpp=move.maxPP~=nil and tostring(move.maxPP) or '—';D.text(runtime,m,pp..' / '..maxpp..' PP',rx+rw-135,my+13,9,colors.textSecondary,{weight='semibold',width=94,align='right'}) else D.text(runtime,m,'—',rx+59,my+13,11,colors.textSecondary,{weight='semibold'}) end end
+    if selected.dvs then
+      local dvs = selected.dvs
+      local dvText = ('DVs: PS %d · ATQ %d · DEF %d · VEL %d · ESP %d'):format(tonumber(dvs.hp) or 0, tonumber(dvs.attack) or 0, tonumber(dvs.defense) or 0, tonumber(dvs.speed) or 0, tonumber(dvs.special) or 0)
+      D.text(runtime,m,dvText,rx+21,contentY+185,9,colors.textSecondary,{weight='medium',width=rw-42,align='center'})
+    end
+    D.text(runtime,m,'MOVIMIENTOS',rx+21,contentY+198,9,colors.textSecondary,{weight='bold'});local moves=screen:contextMoves()
+    for i=1,4 do
+      local move=moves[i];local my=contentY+219+(i-1)*56;D.roundRect(m,'fill',rx+21,my,rw-42,44,8,colors.subtle)
+      if move then
+        local typ=pcTypeKey(move.type);local tc=colors.typeColors and colors.typeColors[typ] or colors.focus
+        if runtime.TypeIcon then runtime.TypeIcon.draw(typ,m.ox+(rx+39)*m.scale,m.oy+(my+22)*m.scale,26*m.scale,tc,1) end
+        D.clipText(runtime,m,tostring(move.name or move.id or 'DESCONOCIDO'):upper(),rx+59,my+5,rw-198,11,colors.text,{weight='semibold'})
+        local md = screen.game.data and screen.game.data.moves and screen.game.data.moves[move.id or move.name]
+        local pwr = md and tonumber(md.power) and md.power > 0 and ('POT '..tostring(md.power)) or (md and md.power == 0 and 'ESTADO' or '')
+        local acc = md and tonumber(md.accuracy) and md.accuracy > 0 and (' · PREC '..tostring(md.accuracy)..'%') or ''
+        local subInfo = pwr ~= '' and (pwr .. acc) or ''
+        if subInfo ~= '' then D.text(runtime,m,subInfo,rx+59,my+22,9,colors.textSecondary,{weight='medium'}) end
+        local pp=move.pp~=nil and tostring(move.pp) or '—';local maxpp=move.maxPP~=nil and tostring(move.maxPP) or '—';D.text(runtime,m,pp..' / '..maxpp..' PP',rx+rw-135,my+13,9,colors.textSecondary,{weight='semibold',width=94,align='right'})
+      else D.text(runtime,m,'—',rx+59,my+13,11,colors.textSecondary,{weight='semibold'}) end
+    end
     D.line(m,rx+21,contentY+443,rx+rw-21,contentY+443,colors.pcBorder or colors.border,1)
     runtime.pcReleaseRect={x=rx+21,y=contentY+456,w=rw-42,h=34};if screen.area=='stored' then D.roundRect(m,'fill',runtime.pcReleaseRect.x,runtime.pcReleaseRect.y,runtime.pcReleaseRect.w,runtime.pcReleaseRect.h,6,colors.danger);D.text(runtime,m,'LIBERAR A '..tostring(name or 'POKÉMON'),runtime.pcReleaseRect.x,runtime.pcReleaseRect.y+10,10,colors.textInverse,{weight='bold',width=runtime.pcReleaseRect.w,align='center'}) end
   end

@@ -116,6 +116,15 @@ return function(options)
     for xx=x+8,x+w-8,dash+gap do segment(xx,y+1,math.min(xx+dash,x+w-8),y+1,c,2);segment(xx,y+h-1,math.min(xx+dash,x+w-8),y+h-1,c,2) end
     for yy=y+8,y+h-8,dash+gap do segment(x+1,yy,x+1,math.min(yy+dash,y+h-8),c,2);segment(x+w-1,yy,x+w-1,math.min(yy+dash,y+h-8),c,2) end
   end
+  local function isMonShiny(mon)
+    if not (mon and mon.dvs) then return false end
+    local dvs = mon.dvs
+    local def = tonumber(dvs.defense) or 0
+    local spd = tonumber(dvs.speed) or 0
+    local spc = tonumber(dvs.special) or 0
+    local atk = tonumber(dvs.attack) or 0
+    return def == 10 and spd == 10 and spc == 10 and (atk % 4 >= 2)
+  end
   local function frameState(state,x,y,w,h,r)
     rect("fill",x,y,w,h,r,theme.colors.panel)
     if state=="Focused" then rect("line",x+1.5,y+1.5,w-3,h-3,r,theme.colors.focus,3)
@@ -305,9 +314,10 @@ return function(options)
   local function drawPartyDetail(game,p)
     local r=Layout.partyDetail(); panel(r)
     -- Figma 1248:25996 / Active Pokémon dossier.
-    text("POKÉMON ACTIVO",r.x+24,r.y+24,11,theme.colors.muted,nil,nil,"bold")
+    local shiny = isMonShiny(p.source)
+    text(shiny and "★ POKÉMON VARIOCOLOR ACTIVO" or "POKÉMON ACTIVO",r.x+24,r.y+24,11,shiny and {1,0.82,0.15,1} or theme.colors.muted,nil,nil,"bold")
     frontSprite(game,p,r.x+150,r.y+60,200)
-    text(p.name,r.x+24,r.y+300,32,theme.colors.ink,nil,nil,"bold")
+    text(p.name..(shiny and " ★" or ""),r.x+24,r.y+300,32,shiny and {1,0.82,0.15,1} or theme.colors.ink,nil,nil,"bold")
     statusToken(p.status,p.hp,r.x+222,r.y+300)
     text(("Nv. %d"):format(p.level),r.x+396,r.y+308,18,theme.colors.muted,"right",80,"semibold")
     local tx=r.x+24; for _,t in ipairs(p.types) do typeBadge(t,tx,r.y+360); tx=tx+156 end
@@ -331,7 +341,8 @@ return function(options)
     frameState(visual,r.x,r.y,r.w,r.h,16)
     partyIcon(game,p,r.x+20,r.y+70,96)
     local contentX=r.x+136
-    text(p.name,contentX,r.y+22,24,theme.colors.ink,nil,nil,"bold"); text(("Nv. %d"):format(p.level),contentX+168,r.y+27,16,theme.colors.muted,"right",60,"semibold")
+    local shiny = isMonShiny(p.source)
+    text(p.name..(shiny and " ★" or ""),contentX,r.y+22,24,shiny and {1,0.82,0.15,1} or theme.colors.ink,nil,nil,"bold"); text(("Nv. %d"):format(p.level),contentX+168,r.y+27,16,theme.colors.muted,"right",60,"semibold")
     statusIcon(p.status,p.hp,contentX+236,r.y+24)
     local tx=contentX; for _,t in ipairs(p.types) do typeBadge(t,tx,r.y+68); tx=tx+156 end
     local hpMax=tonumber(p.stats.hp) or 0; local hpRatio=hpMax>0 and p.hp/hpMax or 0
@@ -421,10 +432,9 @@ return function(options)
     -- Latest Figma: Pokémon record / dossier / active-moves profile.
     local left={x=64,y=120,w=380,h=856};local dossier={x=468,y=120,w=884,h=856};local right={x=1376,y=120,w=480,h=856}
     panel(left);panel(dossier);panel(right)
-    text("FICHA POKÉMON",left.x+24,left.y+28,11,theme.colors.muted,nil,nil,"bold")
-    frontSprite(game,p,left.x+66,left.y+70,200)
-    text(p.name,left.x+24,left.y+300,31,theme.colors.ink,nil,nil,"bold")
-    local renameX=math.min(left.x+left.w-54,left.x+24+textWidth(p.name,31,"bold")+14)
+    local shiny = isMonShiny(p.source)
+    text(p.name..(shiny and " ★" or ""),left.x+24,left.y+300,31,shiny and {1,0.82,0.15,1} or theme.colors.ink,nil,nil,"bold")
+    local renameX=math.min(left.x+left.w-54,left.x+24+textWidth(p.name..(shiny and " ★" or ""),31,"bold")+14)
     local renameHover=runtime.hoveredRegion=="rename"
     if renameHover then rect("fill",renameX-7,left.y+297,36,36,7,theme.colors.subtle);rect("line",renameX-6.5,left.y+297.5,35,35,7,theme.colors.selected,1) end
     renameIndicator(renameX,left.y+307);addRegion(state,"rename","rename",nil,renameX-7,left.y+297,36,36)
